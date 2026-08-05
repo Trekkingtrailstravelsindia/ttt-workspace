@@ -64,7 +64,7 @@ function Shell() {
           <div className="grid size-8 place-items-center rounded-lg bg-primary text-primary-foreground">
             <Compass className="size-4" />
           </div>
-          <span className="font-display text-lg">Aurora CRM</span>
+          <span className="font-display text-lg">Trekking Trails Travels</span>
         </Link>
         <Sheet>
           <SheetTrigger asChild>
@@ -96,8 +96,8 @@ function SidebarInner({ email, onSignOut }: { email: string; onSignOut: () => vo
           <Compass className="size-5" />
         </div>
         <div>
-          <div className="font-display text-xl leading-none">Aurora CRM</div>
-          <div className="text-[11px] uppercase tracking-wider text-sidebar-foreground/60">Finland tours</div>
+          <div className="font-display text-xl leading-none">Trekking Trails Travels</div>
+          <div className="text-[11px] uppercase tracking-wider text-sidebar-foreground/60">Workspace</div>
         </div>
       </div>
       <nav className="flex-1 space-y-1 px-3">

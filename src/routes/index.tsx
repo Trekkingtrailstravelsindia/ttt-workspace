@@ -20,7 +20,7 @@ function Landing() {
           <div className="grid size-9 place-items-center rounded-xl bg-primary text-primary-foreground">
             <Compass className="size-5" />
           </div>
-          <span className="font-display text-2xl">Aurora CRM</span>
+          <span className="font-display text-2xl">Trekking Trails Travels</span>
         </div>
         <Button asChild variant="outline">
           <Link to="/auth">Sign in</Link>

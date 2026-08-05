@@ -32,4 +32,7 @@ export default defineConfig({
       plugins: [tailwindcss],
     },
   },
+  ssr: {
+    external: ["sonner"],
+  },
 });

@@ -17,4 +17,9 @@ export default defineConfig({
   server: {
     port: 8080,
   },
+  ssr: {
+    // Bundle all dependencies into the server output so the Vercel
+    // serverless function is self-contained (no node_modules at runtime).
+    noExternal: true,
+  },
 });

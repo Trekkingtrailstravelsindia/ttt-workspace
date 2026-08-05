@@ -69,6 +69,14 @@ export default async function (req, res) {
 `;
   await writeFile(path.join(funcDir, "index.mjs"), adapter, "utf8");
 
+  // 3b) Mark the function dir as ESM so the .js server bundle (which uses
+  //     `export`) is parsed as an ES module, not CommonJS.
+  await writeFile(
+    path.join(funcDir, "package.json"),
+    JSON.stringify({ type: "module" }, null, 2),
+    "utf8",
+  );
+
   // 4) Function config
   await writeFile(
     path.join(funcDir, ".vc-config.json"),

@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-By8HlURe.js";var t=e(),n=()=>(0,t.jsx)(`div`,{children:`Not found`});export{n as notFoundComponent};

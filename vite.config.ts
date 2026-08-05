@@ -1,38 +1,20 @@
 import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import { TanStackStartVite } from "@tanstack/start/vite";
-import tailwindcss from "tailwindcss";
-import { fileURLToPath } from "url";
-import { dirname, resolve } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import viteReact from "@vitejs/plugin-react";
+import { tanstackStart } from "@tanstack/react-start/plugin/vite";
+import tailwindcss from "@tailwindcss/vite";
+import tsConfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
-    TanStackStartVite({
-      server: {
-        entry: "server",
-        importProtection: {},
-      },
+    tsConfigPaths({ projects: ["./tsconfig.json"] }),
+    tailwindcss(),
+    tanstackStart({
+      customViteReactPlugin: true,
+      target: "vercel",
     }),
-    react(),
+    viteReact(),
   ],
-  resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src"),
-    },
-  },
   server: {
     port: 8080,
-    middlewareMode: false,
-  },
-  css: {
-    postcss: {
-      plugins: [tailwindcss],
-    },
-  },
-  ssr: {
-    external: ["sonner"],
   },
 });

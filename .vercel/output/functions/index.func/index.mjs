@@ -1,5 +1,5 @@
 import { Readable } from "node:stream";
-import handler from "./server/server.js";
+import handler from "./server.mjs";
 
 function buildRequest(req) {
   const proto = req.headers["x-forwarded-proto"] || "https";

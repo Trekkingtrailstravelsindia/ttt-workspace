@@ -23,6 +23,15 @@ async function main() {
     recursive: true,
   });
 
+  // 2b) Mark the server bundle dir as ESM. The server .js files use `export`,
+  //     and the nearest package.json to them must declare type:module or Node
+  //     parses them as CommonJS (SyntaxError: Unexpected token 'export').
+  await writeFile(
+    path.join(funcDir, "server", "package.json"),
+    JSON.stringify({ type: "module" }, null, 2),
+    "utf8",
+  );
+
   // 3) Node adapter: Web fetch handler -> Node (req, res)
   const adapter = `import { Readable } from "node:stream";
 import handler from "./server/server.js";

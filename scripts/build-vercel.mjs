@@ -1,17 +1,16 @@
 // Assembles Vercel Build Output API (v3) from TanStack Start's dist/ output.
 //
 //   dist/client  -> static assets (served directly)
-//   dist/server  -> re-bundled into ONE self-contained ESM file, wrapped by a
-//                   Node (req,res) adapter, and shipped as a serverless function.
+//   dist/server  -> bundled TOGETHER WITH the Node adapter into ONE index.mjs
+//                   that is the function's only entrypoint file.
 //
-// Why re-bundle: TanStack Start's server build is split across many .js files
-// (server.js + assets/*.js) that use ESM `export`. Vercel's Node runtime loads
-// the function entry as CommonJS in some cold-start paths, and nested
-// package.json{type:module} markers are NOT reliably honored — producing
-// "SyntaxError: Unexpected token 'export'". Collapsing everything into a single
-// .mjs (which is unambiguously ESM by extension) removes every failure mode:
-// no cross-file .js imports, no node_modules at runtime, no package.json
-// resolution dependence.
+// Why a single entrypoint: Vercel's Node runtime both (a) parsed the split
+// server bundle as CommonJS on cold starts (nested package.json type:module was
+// ignored -> "Unexpected token export"), and (b) failed to trace/include a
+// separately-imported server.mjs ("Cannot find module server.mjs"). Bundling
+// the adapter + entire server into index.mjs itself removes every failure mode:
+// one file, ESM by extension, zero imports to resolve, no node_modules, no
+// package.json resolution.
 import { cp, mkdir, writeFile, rm } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
@@ -21,6 +20,7 @@ const root = process.cwd();
 const outDir = path.join(root, ".vercel", "output");
 const staticDir = path.join(outDir, "static");
 const funcDir = path.join(outDir, "functions", "index.func");
+const serverDir = path.join(root, "dist", "server");
 
 async function main() {
   if (existsSync(outDir)) await rm(outDir, { recursive: true, force: true });
@@ -30,23 +30,11 @@ async function main() {
   // 1) Static client assets
   await cp(path.join(root, "dist", "client"), staticDir, { recursive: true });
 
-  // 2) Re-bundle the server into a single self-contained ESM file.
-  const bundle = await rolldown({
-    input: path.join(root, "dist", "server", "server.js"),
-    platform: "node",
-    // node: built-ins stay external; everything else is already inlined by the
-    // SSR build (ssr.noExternal), so this produces one fully self-contained file.
-  });
-  await bundle.write({
-    file: path.join(funcDir, "server.mjs"),
-    format: "esm",
-    inlineDynamicImports: true, // force a single output file, no chunks
-  });
-  await bundle.close();
-
-  // 3) Node adapter (also .mjs): Web fetch handler -> Node (req, res)
-  const adapter = `import { Readable } from "node:stream";
-import handler from "./server.mjs";
+  // 2) Write the combined entry (adapter + import of the built server handler)
+  //    into dist/server/ so its relative import of ./server.js resolves during
+  //    bundling. rolldown then inlines everything.
+  const entrySource = `import { Readable } from "node:stream";
+import handler from "./server.js";
 
 function buildRequest(req) {
   const proto = req.headers["x-forwarded-proto"] || "https";
@@ -88,9 +76,19 @@ export default async function (req, res) {
   }
 }
 `;
-  await writeFile(path.join(funcDir, "index.mjs"), adapter, "utf8");
+  const entryPath = path.join(serverDir, "_vercel-entry.mjs");
+  await writeFile(entryPath, entrySource, "utf8");
 
-  // 4) Belt-and-suspenders: also declare the func dir as ESM.
+  // 3) Bundle the entry + entire server into ONE index.mjs (no chunks).
+  const bundle = await rolldown({ input: entryPath, platform: "node" });
+  await bundle.write({
+    file: path.join(funcDir, "index.mjs"),
+    format: "esm",
+    codeSplitting: false,
+  });
+  await bundle.close();
+
+  // 4) Declare the func dir as ESM (belt-and-suspenders; .mjs is already ESM).
   await writeFile(
     path.join(funcDir, "package.json"),
     JSON.stringify({ type: "module" }, null, 2),
@@ -136,7 +134,7 @@ export default async function (req, res) {
     "utf8",
   );
 
-  console.log("✓ Vercel Build Output assembled (single-file ESM server)");
+  console.log("✓ Vercel Build Output assembled (single-file index.mjs entry)");
 }
 
 main().catch((err) => {

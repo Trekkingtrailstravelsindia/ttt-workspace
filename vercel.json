@@ -3,6 +3,5 @@
   "outputDirectory": ".vercel/output",
   "env": {
     "NITRO_PRESET": "vercel"
-  },
-  "envPrefix": "VITE_"
+  }
 }

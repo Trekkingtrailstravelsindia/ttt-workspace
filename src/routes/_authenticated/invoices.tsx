@@ -20,6 +20,10 @@ type Invoice = {
   tax_amount: number; total: number; currency: string; status: "draft"|"sent"|"paid"|"overdue"|"cancelled";
   notes: string | null; line_items: InvoiceLine[];
   customer?: { name: string; email: string | null; phone: string | null; country: string | null };
+  booking?: {
+    id: string; start_date: string | null; end_date: string | null; travelers: number | null;
+    package?: { name: string | null; location: string | null } | null;
+  } | null;
 };
 
 export const Route = createFileRoute("/_authenticated/invoices")({ component: InvoicesPage });
@@ -30,7 +34,7 @@ function InvoicesPage() {
     queryKey: ["invoices"],
     queryFn: async () => {
       const { data } = await supabase.from("invoices")
-        .select("*, customer:customers(name, email, phone, country)")
+        .select("*, customer:customers(name, email, phone, country), booking:bookings(id, start_date, end_date, travelers, package:tour_packages(name, location))")
         .order("issue_date", { ascending: false });
       return (data ?? []) as unknown as Invoice[];
     },
@@ -122,6 +126,13 @@ function InvoicesPage() {
                       ...inv,
                       line_items: Array.isArray(inv.line_items) ? inv.line_items : [],
                       customer: inv.customer,
+                      booking: inv.booking ? {
+                        start_date: inv.booking.start_date,
+                        end_date: inv.booking.end_date,
+                        travelers: inv.booking.travelers,
+                        package_name: inv.booking.package?.name ?? null,
+                        location: inv.booking.package?.location ?? null,
+                      } : null,
                     });
                   }}>
                     <Download className="size-4" />

@@ -40,8 +40,9 @@ function AuthPage() {
   async function google() {
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signInWithOAuth("google", {
-        redirectTo: `${window.location.origin}/auth/callback`,
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: `${window.location.origin}/dashboard` },
       });
       if (error) throw error;
     } catch (err) {

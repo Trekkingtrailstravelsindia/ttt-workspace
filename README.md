@@ -84,3 +84,5 @@ Staff accounts are created in Supabase (see `supabase/migrations/`):
 ## Support
 
 For issues or questions, contact the Trekking Trails Travels team.
+
+<!-- auto-deploy verified 2026-08-09 -->

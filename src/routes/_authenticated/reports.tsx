@@ -16,7 +16,7 @@ function ReportsPage() {
         supabase.from("bookings").select("id,start_date,total_amount,package_id,customer_id,package:tour_packages(name)"),
         supabase.from("booking_expenses").select("booking_id,amount"),
         supabase.from("invoices").select("issue_date,total,status"),
-        supabase.from("customers").select("id,lead_source,lost_reason,stage"),
+        supabase.from("customers").select("id,name,lead_source,lost_reason,stage"),
       ]);
       return {
         bookings: (bookingsRes.data ?? []) as any[],
@@ -102,6 +102,25 @@ function ReportsPage() {
     });
     m.forEach((row, src) => { row.revenue = revBySource.get(src) ?? 0; });
     return Array.from(m.values()).sort((a, b) => b.revenue - a.revenue);
+  }, [data]);
+
+  // Guest lifetime value: per-customer total booking spend, trip count, repeat flag.
+  const guestLTV = useMemo(() => {
+    const nameBy = new Map<string, string>();
+    (data?.customers ?? []).forEach(c => nameBy.set(c.id, c.name ?? "Guest"));
+    const m = new Map<string, { id: string; name: string; trips: number; total: number }>();
+    (data?.bookings ?? []).forEach(b => {
+      if (!b.customer_id) return;
+      const row = m.get(b.customer_id) ?? { id: b.customer_id, name: nameBy.get(b.customer_id) ?? "Guest", trips: 0, total: 0 };
+      row.trips += 1;
+      row.total += Number(b.total_amount);
+      m.set(b.customer_id, row);
+    });
+    const guests = Array.from(m.values()).sort((a, b) => b.total - a.total);
+    const withBooking = guests.length;
+    const repeat = guests.filter(g => g.trips > 1).length;
+    const avg = withBooking ? guests.reduce((s, g) => s + g.total, 0) / withBooking : 0;
+    return { top: guests.slice(0, 8), withBooking, repeat, repeatRate: withBooking ? (repeat / withBooking) * 100 : 0, avg };
   }, [data]);
 
   const lostReasons = useMemo(() => {
@@ -192,6 +211,39 @@ function ReportsPage() {
                         </td>
                       );
                     })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader><CardTitle>Guest lifetime value</CardTitle></CardHeader>
+        <CardContent>
+          <div className="mb-4 grid gap-4 sm:grid-cols-3">
+            <StatCard label="Guests with bookings" value={String(guestLTV.withBooking)} />
+            <StatCard label="Repeat guests" value={`${guestLTV.repeat} · ${guestLTV.repeatRate.toFixed(0)}%`} />
+            <StatCard label="Avg lifetime value" value={`€${guestLTV.avg.toFixed(0)}`} />
+          </div>
+          {!guestLTV.top.length ? (
+            <p className="py-6 text-center text-sm text-muted-foreground">No bookings yet — guest value appears once bookings are logged.</p>
+          ) : (
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b text-xs uppercase text-muted-foreground">
+                  <th className="py-2 text-left">Guest</th>
+                  <th className="py-2 text-right">Trips</th>
+                  <th className="py-2 text-right">Lifetime value</th>
+                </tr>
+              </thead>
+              <tbody>
+                {guestLTV.top.map(g => (
+                  <tr key={g.id} className="border-b last:border-0">
+                    <td className="py-2">{g.name}{g.trips > 1 && <Badge variant="secondary" className="ml-2">Repeat</Badge>}</td>
+                    <td className="py-2 text-right">{g.trips}</td>
+                    <td className="py-2 text-right font-medium">€{g.total.toFixed(0)}</td>
                   </tr>
                 ))}
               </tbody>

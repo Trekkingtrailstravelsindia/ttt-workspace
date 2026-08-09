@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedBookingsRouteImport } from './routes/_authenticated/bookings'
 import { Route as AuthenticatedCalendarRouteImport } from './routes/_authenticated/calendar'
 import { Route as AuthenticatedCashFlowRouteImport } from './routes/_authenticated/cash-flow'
+import { Route as AuthenticatedCostCalcRouteImport } from './routes/_authenticated/cost-calc'
 import { Route as AuthenticatedCustomersRouteImport } from './routes/_authenticated/customers'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDeparturesRouteImport } from './routes/_authenticated/departures'
@@ -56,6 +57,11 @@ const AuthenticatedCalendarRoute = AuthenticatedCalendarRouteImport.update({
 const AuthenticatedCashFlowRoute = AuthenticatedCashFlowRouteImport.update({
   id: '/cash-flow',
   path: '/cash-flow',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCostCalcRoute = AuthenticatedCostCalcRouteImport.update({
+  id: '/cost-calc',
+  path: '/cost-calc',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedCustomersRoute = AuthenticatedCustomersRouteImport.update({
@@ -130,6 +136,7 @@ export interface FileRoutesByFullPath {
   '/bookings': typeof AuthenticatedBookingsRouteWithChildren
   '/calendar': typeof AuthenticatedCalendarRoute
   '/cash-flow': typeof AuthenticatedCashFlowRoute
+  '/cost-calc': typeof AuthenticatedCostCalcRoute
   '/customers': typeof AuthenticatedCustomersRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/departures': typeof AuthenticatedDeparturesRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/bookings': typeof AuthenticatedBookingsRouteWithChildren
   '/calendar': typeof AuthenticatedCalendarRoute
   '/cash-flow': typeof AuthenticatedCashFlowRoute
+  '/cost-calc': typeof AuthenticatedCostCalcRoute
   '/customers': typeof AuthenticatedCustomersRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/departures': typeof AuthenticatedDeparturesRoute
@@ -172,6 +180,7 @@ export interface FileRoutesById {
   '/_authenticated/bookings': typeof AuthenticatedBookingsRouteWithChildren
   '/_authenticated/calendar': typeof AuthenticatedCalendarRoute
   '/_authenticated/cash-flow': typeof AuthenticatedCashFlowRoute
+  '/_authenticated/cost-calc': typeof AuthenticatedCostCalcRoute
   '/_authenticated/customers': typeof AuthenticatedCustomersRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/departures': typeof AuthenticatedDeparturesRoute
@@ -194,6 +203,7 @@ export interface FileRouteTypes {
     | '/bookings'
     | '/calendar'
     | '/cash-flow'
+    | '/cost-calc'
     | '/customers'
     | '/dashboard'
     | '/departures'
@@ -214,6 +224,7 @@ export interface FileRouteTypes {
     | '/bookings'
     | '/calendar'
     | '/cash-flow'
+    | '/cost-calc'
     | '/customers'
     | '/dashboard'
     | '/departures'
@@ -235,6 +246,7 @@ export interface FileRouteTypes {
     | '/_authenticated/bookings'
     | '/_authenticated/calendar'
     | '/_authenticated/cash-flow'
+    | '/_authenticated/cost-calc'
     | '/_authenticated/customers'
     | '/_authenticated/dashboard'
     | '/_authenticated/departures'
@@ -298,6 +310,13 @@ declare module '@tanstack/react-router' {
       path: '/cash-flow'
       fullPath: '/cash-flow'
       preLoaderRoute: typeof AuthenticatedCashFlowRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/cost-calc': {
+      id: '/_authenticated/cost-calc'
+      path: '/cost-calc'
+      fullPath: '/cost-calc'
+      preLoaderRoute: typeof AuthenticatedCostCalcRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/customers': {
@@ -411,6 +430,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedBookingsRoute: typeof AuthenticatedBookingsRouteWithChildren
   AuthenticatedCalendarRoute: typeof AuthenticatedCalendarRoute
   AuthenticatedCashFlowRoute: typeof AuthenticatedCashFlowRoute
+  AuthenticatedCostCalcRoute: typeof AuthenticatedCostCalcRoute
   AuthenticatedCustomersRoute: typeof AuthenticatedCustomersRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedDeparturesRoute: typeof AuthenticatedDeparturesRoute
@@ -429,6 +449,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedBookingsRoute: AuthenticatedBookingsRouteWithChildren,
   AuthenticatedCalendarRoute: AuthenticatedCalendarRoute,
   AuthenticatedCashFlowRoute: AuthenticatedCashFlowRoute,
+  AuthenticatedCostCalcRoute: AuthenticatedCostCalcRoute,
   AuthenticatedCustomersRoute: AuthenticatedCustomersRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedDeparturesRoute: AuthenticatedDeparturesRoute,

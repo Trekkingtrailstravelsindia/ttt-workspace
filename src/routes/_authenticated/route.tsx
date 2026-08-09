@@ -1,7 +1,7 @@
 import { createFileRoute, Outlet, redirect, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet } from "lucide-react";
+import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet, Calculator } from "lucide-react";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -33,6 +33,7 @@ const nav = [
   { to: "/invoices", label: "Invoices", icon: Receipt, roles: ["admin","ops"] },
   { to: "/cash-flow", label: "Cash flow", icon: Wallet, roles: ["admin","ops"] },
   { to: "/reports", label: "Reports", icon: BarChart3, roles: ["admin","ops"] },
+  { to: "/cost-calc", label: "Cost calculator", icon: Calculator, roles: ["admin","ops"] },
   { to: "/team", label: "Team", icon: UserCog, roles: ["admin"] },
   { to: "/settings", label: "Settings", icon: Settings, roles: ["admin","ops","sales"] },
 ] as const;

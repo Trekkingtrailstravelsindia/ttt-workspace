@@ -70,6 +70,22 @@ function CashFlow() {
     };
   }, [installments, payables, commissions, horizon]);
 
+  // Receivables aging: unpaid installments bucketed by days overdue (EUR).
+  const aging = useMemo(() => {
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const b = { current: 0, d30: 0, d60: 0, d60plus: 0 };
+    (installments as any[]).filter((i: any) => !i.paid).forEach((i: any) => {
+      const eur = toEUR(Number(i.amount), i.currency);
+      const days = Math.floor((today.getTime() - new Date(i.due_date).getTime()) / 86400000);
+      if (days <= 0) b.current += eur;
+      else if (days <= 30) b.d30 += eur;
+      else if (days <= 60) b.d60 += eur;
+      else b.d60plus += eur;
+    });
+    const overdue = b.d30 + b.d60 + b.d60plus;
+    return { ...b, overdue, total: b.current + overdue };
+  }, [installments]);
+
   if (!canSeeFinancials) {
     return <div className="py-12 text-center text-muted-foreground">You do not have access to financial data.</div>;
   }
@@ -100,6 +116,22 @@ function CashFlow() {
         <Kpi label="Expected outflows" value={buckets.totalOut} icon={TrendingDown} tone="negative" />
         <Kpi label="Net" value={buckets.net} icon={Wallet} tone={buckets.net >= 0 ? "positive" : "negative"} />
       </div>
+
+      <Card>
+        <CardHeader><CardTitle className="text-lg">Receivables aging</CardTitle></CardHeader>
+        <CardContent>
+          <div className="grid gap-3 sm:grid-cols-4">
+            <AgeBucket label="Not yet due" value={aging.current} />
+            <AgeBucket label="1–30 days overdue" value={aging.d30} tone={aging.d30 > 0 ? "warn" : undefined} />
+            <AgeBucket label="31–60 days overdue" value={aging.d60} tone={aging.d60 > 0 ? "warn" : undefined} />
+            <AgeBucket label="60+ days overdue" value={aging.d60plus} tone={aging.d60plus > 0 ? "danger" : undefined} />
+          </div>
+          <div className="mt-3 flex justify-between border-t pt-3 text-sm">
+            <span className="text-muted-foreground">Total outstanding <span className="font-medium text-foreground">€{aging.total.toFixed(2)}</span></span>
+            <span className="text-muted-foreground">Overdue <span className={`font-medium ${aging.overdue > 0 ? "text-destructive" : "text-foreground"}`}>€{aging.overdue.toFixed(2)}</span></span>
+          </div>
+        </CardContent>
+      </Card>
 
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
@@ -137,6 +169,16 @@ function Kpi({ label, value, icon: Icon, tone }: { label: string; value: number;
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+function AgeBucket({ label, value, tone }: { label: string; value: number; tone?: "warn" | "danger" }) {
+  const color = tone === "danger" ? "text-destructive" : tone === "warn" ? "text-amber-600 dark:text-amber-500" : "text-foreground";
+  return (
+    <div className="rounded-lg border p-3">
+      <div className="text-xs uppercase tracking-wide text-muted-foreground">{label}</div>
+      <div className={`mt-1 text-xl font-semibold ${color}`}>€{value.toFixed(2)}</div>
+    </div>
   );
 }
 

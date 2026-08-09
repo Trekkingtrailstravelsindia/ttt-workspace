@@ -21,7 +21,7 @@ type Booking = {
   package?: { name: string; price_per_person: number; duration_days: number } | null;
 };
 
-export const Route = createFileRoute("/_authenticated/bookings")({ component: BookingsPage });
+export const Route = createFileRoute("/_authenticated/bookings/")({ component: BookingsPage });
 
 function BookingsPage() {
   const qc = useQueryClient();

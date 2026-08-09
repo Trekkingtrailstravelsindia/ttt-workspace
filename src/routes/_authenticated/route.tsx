@@ -1,7 +1,8 @@
 import { createFileRoute, Outlet, redirect, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet, Calculator } from "lucide-react";
+import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet, Calculator, Search } from "lucide-react";
+import { CommandPalette } from "@/components/command-palette";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -19,7 +20,7 @@ export const Route = createFileRoute("/_authenticated")({
 
 import { useCurrentRole } from "@/hooks/use-current-role";
 
-const nav = [
+export const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard, roles: ["admin","ops","sales"] },
   { to: "/leads", label: "Leads pipeline", icon: Filter, roles: ["admin","ops","sales"] },
   { to: "/customers", label: "Customers", icon: Users, roles: ["admin","ops","sales"] },
@@ -82,8 +83,13 @@ function Shell() {
           <Outlet />
         </div>
       </main>
+      <CommandPalette />
     </div>
   );
+}
+
+function openCommandPalette() {
+  document.dispatchEvent(new CustomEvent("open-command-palette"));
 }
 
 function SidebarInner({ email, onSignOut }: { email: string; onSignOut: () => void }) {
@@ -100,6 +106,15 @@ function SidebarInner({ email, onSignOut }: { email: string; onSignOut: () => vo
           <div className="font-display text-xl leading-none">Trekking Trails Travels</div>
           <div className="text-[11px] uppercase tracking-wider text-sidebar-foreground/60">Workspace</div>
         </div>
+      </div>
+      <div className="px-3 pb-2">
+        <button
+          onClick={openCommandPalette}
+          className="flex w-full items-center gap-2 rounded-lg border border-sidebar-border/60 px-3 py-2 text-sm text-sidebar-foreground/70 transition-colors hover:bg-sidebar-accent/60 hover:text-sidebar-foreground"
+        >
+          <Search className="size-4" /> Search
+          <kbd className="ml-auto rounded border border-sidebar-border/60 px-1.5 text-[10px]">⌘K</kbd>
+        </button>
       </div>
       <nav className="flex-1 space-y-1 px-3">
         {visible.map((item) => {

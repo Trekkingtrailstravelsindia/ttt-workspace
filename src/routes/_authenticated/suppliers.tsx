@@ -8,10 +8,31 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
-import { Plus, Pencil, Trash2, Mail, Phone, Building2 } from "lucide-react";
+import { Plus, Pencil, Trash2, Mail, Phone, Building2, Send } from "lucide-react";
 import { toast } from "sonner";
 
 type Supplier = { id: string; name: string; category: string | null; contact_person: string | null; email: string | null; phone: string | null; notes: string | null };
+
+const COMPANY = "Trekking Trails Travels";
+
+// Prefilled supplier confirmation message (placeholders filled with the supplier's own details).
+function confirmMessage(s: Supplier) {
+  const who = s.contact_person ? s.contact_person.split(" ")[0] : "there";
+  const svc = s.category ? s.category.toLowerCase() : "service";
+  return `Hi ${who},\n\nThis is ${COMPANY}. We'd like to confirm a ${svc} booking with ${s.name}.\n\nPlease reply with availability and confirmation for the dates we discussed, along with the final rate and any reference number.\n\nMany thanks,\n${COMPANY}`;
+}
+
+function sendWhatsApp(s: Supplier) {
+  const phone = (s.phone ?? "").replace(/[^\d]/g, "");
+  if (!phone) return toast.error("No phone number on this supplier");
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent(confirmMessage(s))}`, "_blank", "noopener");
+}
+
+function sendEmail(s: Supplier) {
+  if (!s.email) return toast.error("No email on this supplier");
+  const subject = `Booking confirmation request — ${COMPANY}`;
+  window.location.href = `mailto:${s.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(confirmMessage(s))}`;
+}
 
 export const Route = createFileRoute("/_authenticated/suppliers")({ component: SuppliersPage });
 
@@ -100,10 +121,20 @@ function SuppliersPage() {
                 </div>
                 <div className="mt-3 space-y-1 text-sm text-muted-foreground">
                   {s.contact_person && <div>{s.contact_person}</div>}
-                  {s.email && <div className="flex items-center gap-2"><Mail className="size-3.5" /> {s.email}</div>}
-                  {s.phone && <div className="flex items-center gap-2"><Phone className="size-3.5" /> {s.phone}</div>}
+                  {s.email && <a href={`mailto:${s.email}`} className="flex items-center gap-2 hover:text-foreground"><Mail className="size-3.5" /> {s.email}</a>}
+                  {s.phone && <a href={`tel:${s.phone}`} className="flex items-center gap-2 hover:text-foreground"><Phone className="size-3.5" /> {s.phone}</a>}
                 </div>
                 {s.notes && <p className="mt-3 line-clamp-2 text-sm">{s.notes}</p>}
+                {(s.phone || s.email) && (
+                  <div className="mt-3 flex gap-2 border-t pt-3">
+                    <Button size="sm" variant="secondary" className="flex-1" disabled={!s.phone} onClick={() => sendWhatsApp(s)}>
+                      <Send className="size-3.5" /> WhatsApp
+                    </Button>
+                    <Button size="sm" variant="outline" className="flex-1" disabled={!s.email} onClick={() => sendEmail(s)}>
+                      <Mail className="size-3.5" /> Email
+                    </Button>
+                  </div>
+                )}
               </CardContent>
             </Card>
           ))}

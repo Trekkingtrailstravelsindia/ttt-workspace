@@ -14,28 +14,44 @@ import { ArrowLeft, Plus, Trash2, Upload, Download, FileText, TrendingUp, Trendi
 import { toast } from "sonner";
 import { downloadItineraryPdf } from "@/lib/itinerary-pdf";
 
+// Category values map to the existing `expense_category` enum in the DB
+// (stay/activities/transport/other) but are labelled for Finland operations.
+const HOTEL = "stay", ACTIVITY = "activities", TRANSFER = "transport", OTHER = "other";
+
 const CATEGORIES = [
-  { value: "booking", label: "Booking" },
-  { value: "transport", label: "Transport" },
-  { value: "stay", label: "Stay" },
-  { value: "activities", label: "Activities" },
-  { value: "igloo", label: "Igloo" },
-  { value: "train", label: "Train" },
-  { value: "other", label: "Other" },
+  { value: HOTEL, label: "Hotel" },
+  { value: ACTIVITY, label: "Activity" },
+  { value: TRANSFER, label: "Transfer / Ferry" },
+  { value: OTHER, label: "Other" },
 ] as const;
 
 type Category = typeof CATEGORIES[number]["value"];
+
+// Quick-fill presets per category (Finland operations)
+const PRESETS: Record<Category, string[]> = {
+  [HOTEL]: ["Helsinki Hotel", "Kuusamo Hotel", "Glass Igloo", "Tallinn Hotel"],
+  [ACTIVITY]: [
+    "Husky Safari", "Reindeer Safari", "Snowmobile Ride", "Ranua Wildlife Park",
+    "Icebreaker Cruise", "Oulanka National Park", "Northern Lights Tour", "Ruka Coaster Tour",
+  ],
+  [TRANSFER]: ["Helsinki Transfer", "Lapland Transfer", "Tallinn Transfer", "Tallinn Ferry"],
+  [OTHER]: [],
+};
+
+const CAT_LABEL: Record<string, string> = Object.fromEntries(CATEGORIES.map(c => [c.value, c.label]));
 
 type Expense = {
   id: string; booking_id: string; category: Category;
   description: string; amount: number; currency: string;
   expense_date: string; notes: string | null;
+  title: string | null; start_date: string | null; end_date: string | null;
+  guests: number | null; route: string | null;
 };
 
 type Doc = {
   id: string; booking_id: string; file_path: string;
   file_name: string; mime_type: string | null; file_size: number | null;
-  created_at: string;
+  created_at: string; expense_id?: string | null;
 };
 
 export const Route = createFileRoute("/_authenticated/bookings/$id")({ component: BookingDetail });
@@ -223,8 +239,8 @@ function BookingDetail() {
             />
             <StatCard label="Margin" value={`${totals.margin.toFixed(1)}%`} tone={totals.profit >= 0 ? "positive" : "negative"} />
           </div>
-          <ExpensesCard bookingId={id} expenses={expenses ?? []} byCat={totals.byCat} />
-          <InstallmentsCard bookingId={id} installments={installments as any[]} currency={cur} sym={sym} />
+          <ExpensesCard bookingId={id} expenses={(expenses ?? []) as any} byCat={totals.byCat} docs={(docs ?? []) as any} />
+          <InstallmentsCard bookingId={id} installments={installments as any[]} currency={cur} sym={sym} bookingTotal={Number(booking?.total_amount ?? 0)} />
           <CommissionsCard bookingId={id} commissions={commissions as any[]} currency={cur} sym={sym} />
         </>
       )}
@@ -368,83 +384,159 @@ function StatCard({ label, value, tone, icon: Icon }: { label: string; value: st
   );
 }
 
-function ExpensesCard({ bookingId, expenses, byCat }: { bookingId: string; expenses: Expense[]; byCat: Record<string, number> }) {
+function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string; expenses: Expense[]; byCat: Record<string, number>; docs: Doc[] }) {
   const qc = useQueryClient();
-  const [category, setCategory] = useState<Category>("transport");
-  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState<Category>(HOTEL);
+  const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
-  const [expenseDate, setExpenseDate] = useState(new Date().toISOString().slice(0, 10));
+  const [startDate, setStartDate] = useState(new Date().toISOString().slice(0, 10));
+  const [endDate, setEndDate] = useState("");
+  const [guests, setGuests] = useState("");
+  const [route, setRoute] = useState("");
   const [notes, setNotes] = useState("");
   const [saving, setSaving] = useState(false);
 
+  function reset() {
+    setTitle(""); setAmount(""); setEndDate(""); setGuests(""); setRoute(""); setNotes("");
+  }
+
   async function addExpense(e: React.FormEvent) {
     e.preventDefault();
-    if (!description.trim() || !amount) return toast.error("Description and amount required");
+    if (!title.trim() || !amount) return toast.error("Name and amount are required");
     setSaving(true);
     const { data: u } = await supabase.auth.getUser();
     const { error } = await supabase.from("booking_expenses").insert({
       user_id: u.user!.id,
       booking_id: bookingId,
       category,
-      description: description.trim(),
+      title: title.trim(),
+      description: title.trim(),
       amount: Number(amount),
-      expense_date: expenseDate,
+      expense_date: startDate,
+      start_date: startDate,
+      end_date: category === HOTEL ? (endDate || null) : null,
+      guests: category === ACTIVITY && guests ? Number(guests) : null,
+      route: category === TRANSFER ? (route.trim() || null) : null,
       notes: notes.trim() || null,
-    });
+    } as any);
     setSaving(false);
     if (error) return toast.error(error.message);
     toast.success("Expense added");
-    setDescription(""); setAmount(""); setNotes("");
+    reset();
     qc.invalidateQueries({ queryKey: ["booking-expenses", bookingId] });
   }
 
   async function removeExpense(id: string) {
-    if (!confirm("Delete expense?")) return;
+    if (!confirm("Delete this expense? Any documents attached to it will be removed too.")) return;
     const { error } = await supabase.from("booking_expenses").delete().eq("id", id);
     if (error) return toast.error(error.message);
     qc.invalidateQueries({ queryKey: ["booking-expenses", bookingId] });
+    qc.invalidateQueries({ queryKey: ["booking-docs", bookingId] });
+  }
+
+  async function uploadFor(expenseId: string, file: File) {
+    if (file.size > 20 * 1024 * 1024) return toast.error("Max file size 20MB");
+    const { data: u } = await supabase.auth.getUser();
+    const uid = u.user!.id;
+    const safeName = file.name.replace(/[^\w.\-]+/g, "_");
+    const path = `${uid}/${bookingId}/exp-${expenseId}/${Date.now()}_${safeName}`;
+    const { error: upErr } = await supabase.storage.from("booking-documents").upload(path, file, { contentType: file.type });
+    if (upErr) return toast.error(upErr.message);
+    const { error: insErr } = await supabase.from("booking_documents").insert({
+      user_id: uid, booking_id: bookingId, expense_id: expenseId, file_path: path,
+      file_name: file.name, mime_type: file.type || null, file_size: file.size,
+    } as any);
+    if (insErr) return toast.error(insErr.message);
+    toast.success("Document attached");
+    qc.invalidateQueries({ queryKey: ["booking-docs", bookingId] });
+  }
+
+  async function openDoc(d: Doc) {
+    const { data, error } = await supabase.storage.from("booking-documents").createSignedUrl(d.file_path, 60);
+    if (error || !data) return toast.error(error?.message ?? "Failed");
+    window.open(data.signedUrl, "_blank");
+  }
+
+  async function removeDoc(d: Doc) {
+    if (!confirm(`Delete "${d.file_name}"?`)) return;
+    await supabase.storage.from("booking-documents").remove([d.file_path]);
+    const { error } = await supabase.from("booking_documents").delete().eq("id", d.id);
+    if (error) return toast.error(error.message);
+    qc.invalidateQueries({ queryKey: ["booking-docs", bookingId] });
   }
 
   return (
     <Card>
       <CardHeader><CardTitle>Expenses</CardTitle></CardHeader>
       <CardContent className="space-y-6">
-        <form onSubmit={addExpense} className="grid gap-3 sm:grid-cols-6">
-          <div className="sm:col-span-2">
-            <Label>Category</Label>
-            <Select value={category} onValueChange={(v) => setCategory(v as Category)}>
-              <SelectTrigger><SelectValue /></SelectTrigger>
-              <SelectContent>
-                {CATEGORIES.map(c => <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>)}
-              </SelectContent>
-            </Select>
+        <form onSubmit={addExpense} className="space-y-3 rounded-lg border bg-card/40 p-4">
+          <div className="grid gap-3 sm:grid-cols-3">
+            <div>
+              <Label>Category</Label>
+              <Select value={category} onValueChange={(v) => setCategory(v as Category)}>
+                <SelectTrigger><SelectValue /></SelectTrigger>
+                <SelectContent>
+                  {CATEGORIES.map(c => <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>)}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="sm:col-span-2">
+              <Label>{category === TRANSFER ? "Transfer type" : "Name"}</Label>
+              <Input value={title} onChange={e => setTitle(e.target.value)} maxLength={200}
+                placeholder={category === HOTEL ? "e.g. Kuusamo Hotel" : category === ACTIVITY ? "e.g. Husky Safari" : category === TRANSFER ? "e.g. Helsinki Transfer" : "e.g. Travel insurance"} />
+              {PRESETS[category].length > 0 && (
+                <div className="mt-1.5 flex flex-wrap gap-1">
+                  {PRESETS[category].map(p => (
+                    <button key={p} type="button" onClick={() => setTitle(p)}
+                      className="rounded-full border px-2 py-0.5 text-[11px] text-muted-foreground hover:bg-accent hover:text-accent-foreground">
+                      {p}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-          <div className="sm:col-span-2">
-            <Label>Description</Label>
-            <Input value={description} onChange={e => setDescription(e.target.value)} maxLength={200} placeholder="e.g. Rovaniemi train tickets" />
+
+          <div className="grid gap-3 sm:grid-cols-4">
+            <div>
+              <Label>{category === HOTEL ? "Check-in" : "Date"}</Label>
+              <Input type="date" value={startDate} onChange={e => setStartDate(e.target.value)} />
+            </div>
+            {category === HOTEL && (
+              <div>
+                <Label>Check-out</Label>
+                <Input type="date" value={endDate} onChange={e => setEndDate(e.target.value)} />
+              </div>
+            )}
+            {category === ACTIVITY && (
+              <div>
+                <Label>Guests</Label>
+                <Input type="number" min={0} value={guests} onChange={e => setGuests(e.target.value)} />
+              </div>
+            )}
+            {category === TRANSFER && (
+              <div className="sm:col-span-2">
+                <Label>Route (pickup → drop-off)</Label>
+                <Input value={route} onChange={e => setRoute(e.target.value)} maxLength={200} placeholder="Airport → Hotel" />
+              </div>
+            )}
+            <div>
+              <Label>Cost (€)</Label>
+              <Input type="number" min={0} step="0.01" value={amount} onChange={e => setAmount(e.target.value)} />
+            </div>
+            <div className="flex items-end">
+              <Button type="submit" disabled={saving} className="w-full"><Plus className="size-4" /> Add</Button>
+            </div>
           </div>
           <div>
-            <Label>Amount (€)</Label>
-            <Input type="number" min={0} step="0.01" value={amount} onChange={e => setAmount(e.target.value)} />
-          </div>
-          <div>
-            <Label>Date</Label>
-            <Input type="date" value={expenseDate} onChange={e => setExpenseDate(e.target.value)} />
-          </div>
-          <div className="sm:col-span-5">
             <Label>Notes</Label>
             <Textarea value={notes} onChange={e => setNotes(e.target.value)} rows={2} maxLength={500} />
-          </div>
-          <div className="flex items-end">
-            <Button type="submit" disabled={saving} className="w-full">
-              <Plus className="size-4" /> Add
-            </Button>
           </div>
         </form>
 
         {/* By-category summary */}
         {expenses.length > 0 && (
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
             {CATEGORIES.map(c => (
               <div key={c.value} className="rounded-lg border bg-card/60 p-3">
                 <div className="text-[10px] uppercase tracking-wide text-muted-foreground">{c.label}</div>
@@ -458,21 +550,52 @@ function ExpensesCard({ bookingId, expenses, byCat }: { bookingId: string; expen
           <div className="py-8 text-center text-sm text-muted-foreground">No expenses recorded yet.</div>
         ) : (
           <div className="divide-y">
-            {expenses.map(e => (
-              <div key={e.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="capitalize">{e.category}</Badge>
-                    <span className="truncate font-medium">{e.description}</span>
+            {expenses.map(e => {
+              const expDocs = docs.filter(d => d.expense_id === e.id);
+              const meta = [
+                e.category === HOTEL && e.end_date ? `${e.start_date ?? e.expense_date} → ${e.end_date}` : (e.start_date ?? e.expense_date),
+                e.category === ACTIVITY && e.guests ? `${e.guests} guest(s)` : null,
+                e.category === TRANSFER && e.route ? e.route : null,
+                e.notes || null,
+              ].filter(Boolean).join(" · ");
+              return (
+                <div key={e.id} className="py-3">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="secondary">{CAT_LABEL[e.category] ?? e.category}</Badge>
+                        <span className="truncate font-medium">{e.title || e.description}</span>
+                      </div>
+                      <div className="text-xs text-muted-foreground">{meta}</div>
+                    </div>
+                    <div className="font-semibold">€{Number(e.amount).toFixed(2)}</div>
+                    <div className="flex items-center gap-1">
+                      <Button asChild variant="ghost" size="icon" title="Attach document">
+                        <label className="cursor-pointer">
+                          <Upload className="size-4" />
+                          <input type="file" className="hidden" onChange={ev => { const f = ev.target.files?.[0]; ev.target.value = ""; if (f) uploadFor(e.id, f); }} />
+                        </label>
+                      </Button>
+                      <Button variant="ghost" size="icon" onClick={() => removeExpense(e.id)}>
+                        <Trash2 className="size-4 text-destructive" />
+                      </Button>
+                    </div>
                   </div>
-                  <div className="text-xs text-muted-foreground">{e.expense_date}{e.notes ? ` · ${e.notes}` : ""}</div>
+                  {expDocs.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-2 pl-1">
+                      {expDocs.map(d => (
+                        <span key={d.id} className="inline-flex items-center gap-1 rounded-md border bg-card/60 px-2 py-1 text-xs">
+                          <FileText className="size-3.5 text-primary" />
+                          <button type="button" className="max-w-[160px] truncate hover:underline" onClick={() => openDoc(d)}>{d.file_name}</button>
+                          <button type="button" onClick={() => openDoc(d)} title="Download"><Download className="size-3.5 text-muted-foreground hover:text-foreground" /></button>
+                          <button type="button" onClick={() => removeDoc(d)} title="Delete"><Trash2 className="size-3.5 text-destructive" /></button>
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <div className="font-semibold">€{Number(e.amount).toFixed(2)}</div>
-                <Button variant="ghost" size="icon" onClick={() => removeExpense(e.id)}>
-                  <Trash2 className="size-4 text-destructive" />
-                </Button>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </CardContent>
@@ -483,6 +606,7 @@ function ExpensesCard({ bookingId, expenses, byCat }: { bookingId: string; expen
 function DocumentsCard({ bookingId, docs }: { bookingId: string; docs: Doc[] }) {
   const qc = useQueryClient();
   const [uploading, setUploading] = useState(false);
+  const generalDocs = docs.filter(d => !d.expense_id);
 
   async function onUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
@@ -497,9 +621,9 @@ function DocumentsCard({ bookingId, docs }: { bookingId: string; docs: Doc[] }) 
     const { error: upErr } = await supabase.storage.from("booking-documents").upload(path, file, { contentType: file.type });
     if (upErr) { setUploading(false); return toast.error(upErr.message); }
     const { error: insErr } = await supabase.from("booking_documents").insert({
-      user_id: uid, booking_id: bookingId, file_path: path,
+      user_id: uid, booking_id: bookingId, expense_id: null, file_path: path,
       file_name: file.name, mime_type: file.type || null, file_size: file.size,
-    });
+    } as any);
     setUploading(false);
     if (insErr) return toast.error(insErr.message);
     toast.success("Document uploaded");
@@ -524,7 +648,10 @@ function DocumentsCard({ bookingId, docs }: { bookingId: string; docs: Doc[] }) 
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Documents</CardTitle>
+        <div>
+          <CardTitle>General documents</CardTitle>
+          <p className="text-xs text-muted-foreground">Booking-wide files. Hotel / activity / transfer documents attach to each expense above.</p>
+        </div>
         <Button asChild size="sm" disabled={uploading}>
           <label className="cursor-pointer">
             <Upload className="size-4" /> {uploading ? "Uploading…" : "Upload"}
@@ -533,11 +660,11 @@ function DocumentsCard({ bookingId, docs }: { bookingId: string; docs: Doc[] }) 
         </Button>
       </CardHeader>
       <CardContent>
-        {docs.length === 0 ? (
-          <div className="py-8 text-center text-sm text-muted-foreground">No documents attached yet.</div>
+        {generalDocs.length === 0 ? (
+          <div className="py-8 text-center text-sm text-muted-foreground">No general documents attached yet.</div>
         ) : (
           <div className="divide-y">
-            {docs.map(d => (
+            {generalDocs.map(d => (
               <div key={d.id} className="flex flex-wrap items-center justify-between gap-3 py-3">
                 <div className="flex min-w-0 flex-1 items-center gap-3">
                   <FileText className="size-5 shrink-0 text-primary" />
@@ -772,15 +899,16 @@ function ChecklistCard({ bookingId, items }: { bookingId: string; items: any[] }
   );
 }
 
-function InstallmentsCard({ bookingId, installments, currency, sym }: { bookingId: string; installments: any[]; currency: string; sym: string }) {
+function InstallmentsCard({ bookingId, installments, currency, sym, bookingTotal }: { bookingId: string; installments: any[]; currency: string; sym: string; bookingTotal: number }) {
   const qc = useQueryClient();
   const [label, setLabel] = useState("Deposit");
   const [amount, setAmount] = useState("");
   const [due, setDue] = useState("");
+  const [method, setMethod] = useState("");
 
   const totalPlanned = installments.reduce((s, i) => s + Number(i.amount), 0);
   const totalPaid = installments.filter(i => i.paid).reduce((s, i) => s + Number(i.amount), 0);
-  const outstanding = totalPlanned - totalPaid;
+  const balanceDue = bookingTotal - totalPaid;
 
   async function add(e: React.FormEvent) {
     e.preventDefault();
@@ -788,9 +916,10 @@ function InstallmentsCard({ bookingId, installments, currency, sym }: { bookingI
     const { data: u } = await supabase.auth.getUser();
     const { error } = await supabase.from("booking_installments").insert({
       booking_id: bookingId, user_id: u.user!.id, label, amount: Number(amount), due_date: due, currency,
-    });
+      method: method.trim() || null,
+    } as any);
     if (error) return toast.error(error.message);
-    setAmount(""); setDue("");
+    setAmount(""); setDue(""); setMethod("");
     qc.invalidateQueries({ queryKey: ["booking-installments", bookingId] });
   }
   async function togglePaid(row: any) {
@@ -813,23 +942,27 @@ function InstallmentsCard({ bookingId, installments, currency, sym }: { bookingI
       <CardContent className="space-y-4">
         <div className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-lg border bg-card/60 p-3">
-            <div className="text-xs text-muted-foreground">Planned</div>
-            <div className="text-xl font-semibold">{sym}{totalPlanned.toFixed(2)}</div>
+            <div className="text-xs text-muted-foreground">Booking total</div>
+            <div className="text-xl font-semibold">{sym}{bookingTotal.toFixed(2)}</div>
           </div>
           <div className="rounded-lg border bg-card/60 p-3">
             <div className="text-xs text-muted-foreground">Received</div>
             <div className="text-xl font-semibold text-primary">{sym}{totalPaid.toFixed(2)}</div>
           </div>
           <div className="rounded-lg border bg-card/60 p-3">
-            <div className="text-xs text-muted-foreground">Outstanding</div>
-            <div className="text-xl font-semibold">{sym}{outstanding.toFixed(2)}</div>
+            <div className="text-xs text-muted-foreground">Balance due</div>
+            <div className={`text-xl font-semibold ${balanceDue > 0 ? "text-destructive" : ""}`}>{sym}{balanceDue.toFixed(2)}</div>
           </div>
         </div>
+        {Math.abs(totalPlanned - bookingTotal) > 0.01 && installments.length > 0 && (
+          <p className="text-xs text-muted-foreground">Scheduled across payments: {sym}{totalPlanned.toFixed(2)}</p>
+        )}
 
-        <form onSubmit={add} className="grid gap-2 sm:grid-cols-[1fr_120px_160px_auto]">
+        <form onSubmit={add} className="grid gap-2 sm:grid-cols-[1fr_120px_150px_150px_auto]">
           <Input placeholder="Label (Deposit, 2nd payment…)" value={label} onChange={e => setLabel(e.target.value)} />
           <Input type="number" step="0.01" placeholder="Amount" value={amount} onChange={e => setAmount(e.target.value)} />
           <Input type="date" value={due} onChange={e => setDue(e.target.value)} />
+          <Input placeholder="Method/source" value={method} onChange={e => setMethod(e.target.value)} />
           <Button type="submit" size="sm"><Plus className="size-4" /> Add</Button>
         </form>
 
@@ -848,7 +981,7 @@ function InstallmentsCard({ bookingId, installments, currency, sym }: { bookingI
                     <div>
                       <div className="font-medium text-sm">{i.label}</div>
                       <div className="text-xs text-muted-foreground">
-                        Due {i.due_date} {overdue && <Badge variant="destructive" className="ml-1">Overdue</Badge>}
+                        Due {i.due_date}{i.method ? ` · ${i.method}` : ""} {overdue && <Badge variant="destructive" className="ml-1">Overdue</Badge>}
                       </div>
                     </div>
                   </div>

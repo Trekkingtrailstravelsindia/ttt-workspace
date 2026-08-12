@@ -29709,10 +29709,10 @@ var init___23tanstack_start_server_fn_resolver_Bp5mxkxq = __esmMin$1((() => {
 	};
 }));
 //#endregion
-//#region dist/server/assets/_tanstack-start-manifest_v-IdWDQCTX.js
-var _tanstack_start_manifest_v_IdWDQCTX_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
+//#region dist/server/assets/_tanstack-start-manifest_v-CRjFflpS.js
+var _tanstack_start_manifest_v_CRjFflpS_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
+var init__tanstack_start_manifest_v_CRjFflpS = __esmMin$1((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/__root.tsx",
@@ -29722,7 +29722,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 				"/auth"
 			],
 			preloads: [
-				"/assets/index-CduAvJd8.js",
+				"/assets/index-nV8BSy0r.js",
 				"/assets/rolldown-runtime-QTnfLwEv.js",
 				"/assets/react-CZI7_Jkm.js",
 				"/assets/createLucideIcon-BeXmV15X.js",
@@ -29735,14 +29735,14 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-CduAvJd8.js"
+				src: "/assets/index-nV8BSy0r.js"
 			} }]
 		},
 		"/": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-CBV6IiWy.js",
+				"/assets/routes-BY5F2ydl.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js"
 			]
@@ -29769,13 +29769,13 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 				"/_authenticated/bookings/"
 			],
 			preloads: [
-				"/assets/route-C-pDfwlw.js",
-				"/assets/useQuery-CYO6PBzn.js",
+				"/assets/route-CTv4fN5u.js",
+				"/assets/useQuery-DVztvJVc.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/plus-BkZrfRmn.js",
 				"/assets/user-plus-BlDqSje_.js",
 				"/assets/dialog-CRk0hC-B.js",
-				"/assets/use-current-role-D9Vmbvbm.js",
+				"/assets/use-current-role-8YVqvArw.js",
 				"/assets/dist-lAGtACJv.js",
 				"/assets/utils-bQg_cXOl.js",
 				"/assets/button-S77LrnUo.js",
@@ -29788,7 +29788,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-osmY1o_b.js",
+				"/assets/auth-KYPNDHUJ.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29799,13 +29799,13 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 		"/_authenticated/calendar": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/calendar.tsx",
 			children: void 0,
-			preloads: ["/assets/calendar-DY07B5Dh.js", "/assets/card-CjZIaSoO.js"]
+			preloads: ["/assets/calendar-CAfNbfbq.js", "/assets/card-CjZIaSoO.js"]
 		},
 		"/_authenticated/cash-flow": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/cash-flow.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cash-flow-BrNNKEXx.js",
+				"/assets/cash-flow-CAVZjF2D.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/trending-down-B9uDsfUr.js",
@@ -29830,7 +29830,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/customers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/customers-BLeYyjq5.js",
+				"/assets/customers-C7ne-j-9.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29843,7 +29843,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/dashboard.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/dashboard-GBbgJiEt.js",
+				"/assets/dashboard-DqmReAQb.js",
 				"/assets/trending-up-Bskfj5bG.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
@@ -29853,7 +29853,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/departures.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/departures-BodpUOIK.js",
+				"/assets/departures-DYdf_Ez9.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29865,7 +29865,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/invoices.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/invoices-DpTsu96n.js",
+				"/assets/invoices-C-ya-H0N.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/pencil-Cy6VlxW9.js",
@@ -29880,7 +29880,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/leads.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/leads-DNUBHwvu.js",
+				"/assets/leads-B2RFAWtN.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/card-CjZIaSoO.js",
@@ -29891,7 +29891,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/packages.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/packages-tBCCKxJJ.js",
+				"/assets/packages-WksyKsjR.js",
 				"/assets/map-pin-_tABMRrh.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29906,7 +29906,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/rate-cards.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/rate-cards-Dya1On8x.js",
+				"/assets/rate-cards-DwLJ-0cM.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29919,7 +29919,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/reports.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/reports-DVebqRh3.js",
+				"/assets/reports-BES14do4.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
 			]
@@ -29928,7 +29928,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/settings.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/settings-ZQWokCvq.js",
+				"/assets/settings-DrvIjcOf.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js"
 			]
@@ -29937,7 +29937,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/suppliers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/suppliers-ClyRnMgu.js",
+				"/assets/suppliers-IyNEdng4.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/send-DEhpv9YQ.js",
@@ -29951,7 +29951,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/tasks.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/tasks-DG_0_hEs.js",
+				"/assets/tasks-CRhjeGpU.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29965,21 +29965,21 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/team.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/team-CPEwzTXV.js",
-				"/assets/team-DF5JCEII.js",
-				"/assets/team-DcSylAQM.js",
+				"/assets/team-B9c75o67.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js",
-				"/assets/badge-BQRL8034.js"
+				"/assets/badge-BQRL8034.js",
+				"/assets/team-CPEwzTXV.js",
+				"/assets/team-DF5JCEII.js"
 			]
 		},
 		"/_authenticated/bookings/$id": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/bookings.$id.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings._id-B6cg0BIQ.js",
+				"/assets/bookings._id-C-jn61vW.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/map-pin-_tABMRrh.js",
@@ -29998,7 +29998,7 @@ var init__tanstack_start_manifest_v_IdWDQCTX = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/bookings.index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings.index-DDhZfZS2.js",
+				"/assets/bookings.index-AkMK1Uoh.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -43493,8 +43493,8 @@ var init_badge_B2cGBURX = __esmMin$1((() => {
 	});
 }));
 //#endregion
-//#region dist/server/assets/bookings._id-DlWEliYW.js
-var bookings__id_DlWEliYW_exports = /* @__PURE__ */ __exportAll$1({ component: () => BookingDetail });
+//#region dist/server/assets/bookings._id-B_Nluly2.js
+var bookings__id_B_Nluly2_exports = /* @__PURE__ */ __exportAll$1({ component: () => BookingDetail });
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -47057,13 +47057,15 @@ function BookingDetail() {
 				/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(ExpensesCard, {
 					bookingId: id,
 					expenses: expenses ?? [],
-					byCat: totals.byCat
+					byCat: totals.byCat,
+					docs: docs ?? []
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(InstallmentsCard, {
 					bookingId: id,
 					installments,
 					currency: cur,
-					sym
+					sym,
+					bookingTotal: Number(booking?.total_amount ?? 0)
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CommissionsCard, {
 					bookingId: id,
@@ -47254,103 +47256,184 @@ function StatCard$1({ label, value, tone, icon: Icon }) {
 		})]
 	}) });
 }
-function ExpensesCard({ bookingId, expenses, byCat }) {
+function ExpensesCard({ bookingId, expenses, byCat, docs }) {
 	const qc = useQueryClient();
-	const [category, setCategory] = (0, import_react$15.useState)("transport");
-	const [description, setDescription] = (0, import_react$15.useState)("");
+	const [category, setCategory] = (0, import_react$15.useState)(HOTEL);
+	const [title, setTitle] = (0, import_react$15.useState)("");
 	const [amount, setAmount] = (0, import_react$15.useState)("");
-	const [expenseDate, setExpenseDate] = (0, import_react$15.useState)((/* @__PURE__ */ new Date()).toISOString().slice(0, 10));
+	const [startDate, setStartDate] = (0, import_react$15.useState)((/* @__PURE__ */ new Date()).toISOString().slice(0, 10));
+	const [endDate, setEndDate] = (0, import_react$15.useState)("");
+	const [guests, setGuests] = (0, import_react$15.useState)("");
+	const [route, setRoute] = (0, import_react$15.useState)("");
 	const [notes, setNotes] = (0, import_react$15.useState)("");
 	const [saving, setSaving] = (0, import_react$15.useState)(false);
+	function reset() {
+		setTitle("");
+		setAmount("");
+		setEndDate("");
+		setGuests("");
+		setRoute("");
+		setNotes("");
+	}
 	async function addExpense(e) {
 		e.preventDefault();
-		if (!description.trim() || !amount) return toast.error("Description and amount required");
+		if (!title.trim() || !amount) return toast.error("Name and amount are required");
 		setSaving(true);
 		const { data: u } = await supabase.auth.getUser();
 		const { error } = await supabase.from("booking_expenses").insert({
 			user_id: u.user.id,
 			booking_id: bookingId,
 			category,
-			description: description.trim(),
+			title: title.trim(),
+			description: title.trim(),
 			amount: Number(amount),
-			expense_date: expenseDate,
+			expense_date: startDate,
+			start_date: startDate,
+			end_date: category === HOTEL ? endDate || null : null,
+			guests: category === ACTIVITY && guests ? Number(guests) : null,
+			route: category === TRANSFER ? route.trim() || null : null,
 			notes: notes.trim() || null
 		});
 		setSaving(false);
 		if (error) return toast.error(error.message);
 		toast.success("Expense added");
-		setDescription("");
-		setAmount("");
-		setNotes("");
+		reset();
 		qc.invalidateQueries({ queryKey: ["booking-expenses", bookingId] });
 	}
 	async function removeExpense(id) {
-		if (!confirm("Delete expense?")) return;
+		if (!confirm("Delete this expense? Any documents attached to it will be removed too.")) return;
 		const { error } = await supabase.from("booking_expenses").delete().eq("id", id);
 		if (error) return toast.error(error.message);
 		qc.invalidateQueries({ queryKey: ["booking-expenses", bookingId] });
+		qc.invalidateQueries({ queryKey: ["booking-docs", bookingId] });
+	}
+	async function uploadFor(expenseId, file) {
+		if (file.size > 20 * 1024 * 1024) return toast.error("Max file size 20MB");
+		const { data: u } = await supabase.auth.getUser();
+		const uid = u.user.id;
+		const safeName = file.name.replace(/[^\w.\-]+/g, "_");
+		const path = `${uid}/${bookingId}/exp-${expenseId}/${Date.now()}_${safeName}`;
+		const { error: upErr } = await supabase.storage.from("booking-documents").upload(path, file, { contentType: file.type });
+		if (upErr) return toast.error(upErr.message);
+		const { error: insErr } = await supabase.from("booking_documents").insert({
+			user_id: uid,
+			booking_id: bookingId,
+			expense_id: expenseId,
+			file_path: path,
+			file_name: file.name,
+			mime_type: file.type || null,
+			file_size: file.size
+		});
+		if (insErr) return toast.error(insErr.message);
+		toast.success("Document attached");
+		qc.invalidateQueries({ queryKey: ["booking-docs", bookingId] });
+	}
+	async function openDoc(d) {
+		const { data, error } = await supabase.storage.from("booking-documents").createSignedUrl(d.file_path, 60);
+		if (error || !data) return toast.error(error?.message ?? "Failed");
+		window.open(data.signedUrl, "_blank");
+	}
+	async function removeDoc(d) {
+		if (!confirm(`Delete "${d.file_name}"?`)) return;
+		await supabase.storage.from("booking-documents").remove([d.file_path]);
+		const { error } = await supabase.from("booking_documents").delete().eq("id", d.id);
+		if (error) return toast.error(error.message);
+		qc.invalidateQueries({ queryKey: ["booking-docs", bookingId] });
 	}
 	return /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(Card, { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CardHeader, { children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CardTitle, { children: "Expenses" }) }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(CardContent, {
 		className: "space-y-6",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("form", {
 				onSubmit: addExpense,
-				className: "grid gap-3 sm:grid-cols-6",
+				className: "space-y-3 rounded-lg border bg-card/40 p-4",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-						className: "sm:col-span-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Category" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(Select, {
+						className: "grid gap-3 sm:grid-cols-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Category" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(Select, {
 							value: category,
 							onValueChange: (v) => setCategory(v),
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(SelectTrigger, { children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(SelectValue, {}) }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(SelectContent, { children: CATEGORIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(SelectItem, {
 								value: c.value,
 								children: c.label
 							}, c.value)) })]
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+							className: "sm:col-span-2",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: category === TRANSFER ? "Transfer type" : "Name" }),
+								/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
+									value: title,
+									onChange: (e) => setTitle(e.target.value),
+									maxLength: 200,
+									placeholder: category === HOTEL ? "e.g. Kuusamo Hotel" : category === ACTIVITY ? "e.g. Husky Safari" : category === TRANSFER ? "e.g. Helsinki Transfer" : "e.g. Travel insurance"
+								}),
+								PRESETS[category].length > 0 && /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
+									className: "mt-1.5 flex flex-wrap gap-1",
+									children: PRESETS[category].map((p) => /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("button", {
+										type: "button",
+										onClick: () => setTitle(p),
+										className: "rounded-full border px-2 py-0.5 text-[11px] text-muted-foreground hover:bg-accent hover:text-accent-foreground",
+										children: p
+									}, p))
+								})
+							]
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-						className: "sm:col-span-2",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Description" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
-							value: description,
-							onChange: (e) => setDescription(e.target.value),
-							maxLength: 200,
-							placeholder: "e.g. Rovaniemi train tickets"
-						})]
+						className: "grid gap-3 sm:grid-cols-4",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: category === HOTEL ? "Check-in" : "Date" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
+								type: "date",
+								value: startDate,
+								onChange: (e) => setStartDate(e.target.value)
+							})] }),
+							category === HOTEL && /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Check-out" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
+								type: "date",
+								value: endDate,
+								onChange: (e) => setEndDate(e.target.value)
+							})] }),
+							category === ACTIVITY && /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Guests" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
+								type: "number",
+								min: 0,
+								value: guests,
+								onChange: (e) => setGuests(e.target.value)
+							})] }),
+							category === TRANSFER && /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+								className: "sm:col-span-2",
+								children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Route (pickup → drop-off)" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
+									value: route,
+									onChange: (e) => setRoute(e.target.value),
+									maxLength: 200,
+									placeholder: "Airport → Hotel"
+								})]
+							}),
+							/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Cost (€)" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
+								type: "number",
+								min: 0,
+								step: "0.01",
+								value: amount,
+								onChange: (e) => setAmount(e.target.value)
+							})] }),
+							/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
+								className: "flex items-end",
+								children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(Button, {
+									type: "submit",
+									disabled: saving,
+									className: "w-full",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Plus, { className: "size-4" }), " Add"]
+								})
+							})
+						]
 					}),
-					/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Amount (€)" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
-						type: "number",
-						min: 0,
-						step: "0.01",
-						value: amount,
-						onChange: (e) => setAmount(e.target.value)
-					})] }),
-					/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Date" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
-						type: "date",
-						value: expenseDate,
-						onChange: (e) => setExpenseDate(e.target.value)
-					})] }),
-					/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-						className: "sm:col-span-5",
-						children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Notes" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Textarea, {
-							value: notes,
-							onChange: (e) => setNotes(e.target.value),
-							rows: 2,
-							maxLength: 500
-						})]
-					}),
-					/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
-						className: "flex items-end",
-						children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(Button, {
-							type: "submit",
-							disabled: saving,
-							className: "w-full",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Plus, { className: "size-4" }), " Add"]
-						})
-					})
+					/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Notes" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Textarea, {
+						value: notes,
+						onChange: (e) => setNotes(e.target.value),
+						rows: 2,
+						maxLength: 500
+					})] })
 				]
 			}),
 			expenses.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
-				className: "grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7",
+				className: "grid grid-cols-2 gap-2 sm:grid-cols-4",
 				children: CATEGORIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
 					className: "rounded-lg border bg-card/60 p-3",
 					children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
@@ -47367,38 +47450,95 @@ function ExpensesCard({ bookingId, expenses, byCat }) {
 				children: "No expenses recorded yet."
 			}) : /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
 				className: "divide-y",
-				children: expenses.map((e) => /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-					className: "flex flex-wrap items-center justify-between gap-3 py-3",
-					children: [
-						/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-							className: "min-w-0 flex-1",
-							children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-								className: "flex items-center gap-2",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Badge, {
-									variant: "secondary",
-									className: "capitalize",
-									children: e.category
-								}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("span", {
-									className: "truncate font-medium",
-									children: e.description
-								})]
-							}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-								className: "text-xs text-muted-foreground",
-								children: [e.expense_date, e.notes ? ` · ${e.notes}` : ""]
-							})]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-							className: "font-semibold",
-							children: ["€", Number(e.amount).toFixed(2)]
-						}),
-						/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Button, {
-							variant: "ghost",
-							size: "icon",
-							onClick: () => removeExpense(e.id),
-							children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Trash2, { className: "size-4 text-destructive" })
-						})
-					]
-				}, e.id))
+				children: expenses.map((e) => {
+					const expDocs = docs.filter((d) => d.expense_id === e.id);
+					const meta = [
+						e.category === HOTEL && e.end_date ? `${e.start_date ?? e.expense_date} → ${e.end_date}` : e.start_date ?? e.expense_date,
+						e.category === ACTIVITY && e.guests ? `${e.guests} guest(s)` : null,
+						e.category === TRANSFER && e.route ? e.route : null,
+						e.notes || null
+					].filter(Boolean).join(" · ");
+					return /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+						className: "py-3",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+							className: "flex flex-wrap items-center justify-between gap-3",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+									className: "min-w-0 flex-1",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+										className: "flex items-center gap-2",
+										children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Badge, {
+											variant: "secondary",
+											children: CAT_LABEL[e.category] ?? e.category
+										}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("span", {
+											className: "truncate font-medium",
+											children: e.title || e.description
+										})]
+									}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
+										className: "text-xs text-muted-foreground",
+										children: meta
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+									className: "font-semibold",
+									children: ["€", Number(e.amount).toFixed(2)]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+									className: "flex items-center gap-1",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Button, {
+										asChild: true,
+										variant: "ghost",
+										size: "icon",
+										title: "Attach document",
+										children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("label", {
+											className: "cursor-pointer",
+											children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Upload, { className: "size-4" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("input", {
+												type: "file",
+												className: "hidden",
+												onChange: (ev) => {
+													const f = ev.target.files?.[0];
+													ev.target.value = "";
+													if (f) uploadFor(e.id, f);
+												}
+											})]
+										})
+									}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Button, {
+										variant: "ghost",
+										size: "icon",
+										onClick: () => removeExpense(e.id),
+										children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Trash2, { className: "size-4 text-destructive" })
+									})]
+								})
+							]
+						}), expDocs.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
+							className: "mt-2 flex flex-wrap gap-2 pl-1",
+							children: expDocs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("span", {
+								className: "inline-flex items-center gap-1 rounded-md border bg-card/60 px-2 py-1 text-xs",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(FileText, { className: "size-3.5 text-primary" }),
+									/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("button", {
+										type: "button",
+										className: "max-w-[160px] truncate hover:underline",
+										onClick: () => openDoc(d),
+										children: d.file_name
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("button", {
+										type: "button",
+										onClick: () => openDoc(d),
+										title: "Download",
+										children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Download, { className: "size-3.5 text-muted-foreground hover:text-foreground" })
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("button", {
+										type: "button",
+										onClick: () => removeDoc(d),
+										title: "Delete",
+										children: /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Trash2, { className: "size-3.5 text-destructive" })
+									})
+								]
+							}, d.id))
+						})]
+					}, e.id);
+				})
 			})
 		]
 	})] });
@@ -47406,6 +47546,7 @@ function ExpensesCard({ bookingId, expenses, byCat }) {
 function DocumentsCard({ bookingId, docs }) {
 	const qc = useQueryClient();
 	const [uploading, setUploading] = (0, import_react$15.useState)(false);
+	const generalDocs = docs.filter((d) => !d.expense_id);
 	async function onUpload(e) {
 		const file = e.target.files?.[0];
 		e.target.value = "";
@@ -47424,6 +47565,7 @@ function DocumentsCard({ bookingId, docs }) {
 		const { error: insErr } = await supabase.from("booking_documents").insert({
 			user_id: uid,
 			booking_id: bookingId,
+			expense_id: null,
 			file_path: path,
 			file_name: file.name,
 			mime_type: file.type || null,
@@ -47449,7 +47591,10 @@ function DocumentsCard({ bookingId, docs }) {
 	}
 	return /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(Card, { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(CardHeader, {
 		className: "flex flex-row items-center justify-between",
-		children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CardTitle, { children: "Documents" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Button, {
+		children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CardTitle, { children: "General documents" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("p", {
+			className: "text-xs text-muted-foreground",
+			children: "Booking-wide files. Hotel / activity / transfer documents attach to each expense above."
+		})] }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Button, {
 			asChild: true,
 			size: "sm",
 			disabled: uploading,
@@ -47467,12 +47612,12 @@ function DocumentsCard({ bookingId, docs }) {
 				]
 			})
 		})]
-	}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CardContent, { children: docs.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
+	}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(CardContent, { children: generalDocs.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
 		className: "py-8 text-center text-sm text-muted-foreground",
-		children: "No documents attached yet."
+		children: "No general documents attached yet."
 	}) : /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
 		className: "divide-y",
-		children: docs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
+		children: generalDocs.map((d) => /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
 			className: "flex flex-wrap items-center justify-between gap-3 py-3",
 			children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
 				className: "flex min-w-0 flex-1 items-center gap-3",
@@ -47803,14 +47948,15 @@ function ChecklistCard({ bookingId, items }) {
 		})]
 	})] });
 }
-function InstallmentsCard({ bookingId, installments, currency, sym }) {
+function InstallmentsCard({ bookingId, installments, currency, sym, bookingTotal }) {
 	const qc = useQueryClient();
 	const [label, setLabel] = (0, import_react$15.useState)("Deposit");
 	const [amount, setAmount] = (0, import_react$15.useState)("");
 	const [due, setDue] = (0, import_react$15.useState)("");
+	const [method, setMethod] = (0, import_react$15.useState)("");
 	const totalPlanned = installments.reduce((s, i) => s + Number(i.amount), 0);
 	const totalPaid = installments.filter((i) => i.paid).reduce((s, i) => s + Number(i.amount), 0);
-	const outstanding = totalPlanned - totalPaid;
+	const balanceDue = bookingTotal - totalPaid;
 	async function add(e) {
 		e.preventDefault();
 		if (!amount || !due) return;
@@ -47821,11 +47967,13 @@ function InstallmentsCard({ bookingId, installments, currency, sym }) {
 			label,
 			amount: Number(amount),
 			due_date: due,
-			currency
+			currency,
+			method: method.trim() || null
 		});
 		if (error) return toast.error(error.message);
 		setAmount("");
 		setDue("");
+		setMethod("");
 		qc.invalidateQueries({ queryKey: ["booking-installments", bookingId] });
 	}
 	async function togglePaid(row) {
@@ -47855,10 +48003,10 @@ function InstallmentsCard({ bookingId, installments, currency, sym }) {
 						className: "rounded-lg border bg-card/60 p-3",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
 							className: "text-xs text-muted-foreground",
-							children: "Planned"
+							children: "Booking total"
 						}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
 							className: "text-xl font-semibold",
-							children: [sym, totalPlanned.toFixed(2)]
+							children: [sym, bookingTotal.toFixed(2)]
 						})]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
@@ -47875,17 +48023,25 @@ function InstallmentsCard({ bookingId, installments, currency, sym }) {
 						className: "rounded-lg border bg-card/60 p-3",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("div", {
 							className: "text-xs text-muted-foreground",
-							children: "Outstanding"
+							children: "Balance due"
 						}), /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
-							className: "text-xl font-semibold",
-							children: [sym, outstanding.toFixed(2)]
+							className: `text-xl font-semibold ${balanceDue > 0 ? "text-destructive" : ""}`,
+							children: [sym, balanceDue.toFixed(2)]
 						})]
 					})
 				]
 			}),
+			Math.abs(totalPlanned - bookingTotal) > .01 && installments.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("p", {
+				className: "text-xs text-muted-foreground",
+				children: [
+					"Scheduled across payments: ",
+					sym,
+					totalPlanned.toFixed(2)
+				]
+			}),
 			/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("form", {
 				onSubmit: add,
-				className: "grid gap-2 sm:grid-cols-[1fr_120px_160px_auto]",
+				className: "grid gap-2 sm:grid-cols-[1fr_120px_150px_150px_auto]",
 				children: [
 					/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
 						placeholder: "Label (Deposit, 2nd payment…)",
@@ -47903,6 +48059,11 @@ function InstallmentsCard({ bookingId, installments, currency, sym }) {
 						type: "date",
 						value: due,
 						onChange: (e) => setDue(e.target.value)
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
+						placeholder: "Method/source",
+						value: method,
+						onChange: (e) => setMethod(e.target.value)
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)(Button, {
 						type: "submit",
@@ -47936,6 +48097,7 @@ function InstallmentsCard({ bookingId, installments, currency, sym }) {
 								children: [
 									"Due ",
 									i.due_date,
+									i.method ? ` · ${i.method}` : "",
 									" ",
 									overdue && /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Badge, {
 										variant: "destructive",
@@ -48182,8 +48344,8 @@ function WhatsAppCard({ booking, sym, totalSell }) {
 		})]
 	})] });
 }
-var ArrowLeft, FileDown, FileText, Handshake, History, MessageSquare, SquareCheck, Upload, UserCheck, require_node, encoder, init_text$1, defaultByteLength, hostBigEndian, typedArrays, IOBuffer, init_IOBuffer, Z_FIXED$1, Z_BINARY, Z_TEXT, Z_UNKNOWN$1, STORED_BLOCK, STATIC_TREES, DYN_TREES, LENGTH_CODES$1, LITERALS$1, L_CODES$1, D_CODES$1, BL_CODES$1, HEAP_SIZE$1, MAX_BITS$1, Buf_size, MAX_BL_BITS, END_BLOCK, REP_3_6, REPZ_3_10, REPZ_11_138, extra_lbits, extra_dbits, extra_blbits, bl_order, DIST_CODE_LEN, static_ltree, static_dtree, _dist_code, _length_code, base_length, base_dist, static_l_desc, static_d_desc, static_bl_desc, d_code, put_short, send_bits, send_code, bi_reverse, bi_flush, gen_bitlen, gen_codes, tr_static_init, init_block, bi_windup, smaller, pqdownheap, compress_block, build_tree, scan_tree, send_tree, build_bl_tree, send_all_trees, detect_data_type, static_init_done, _tr_init$1, _tr_stored_block$1, _tr_align$1, _tr_flush_block$1, _tr_tally$1, trees, adler32, adler32_1, makeTable, crcTable$1, crc32, crc32_1, messages, constants$2, _tr_init, _tr_stored_block, _tr_flush_block, _tr_tally, _tr_align, Z_NO_FLUSH$2, Z_PARTIAL_FLUSH, Z_FULL_FLUSH$1, Z_FINISH$3, Z_BLOCK$1, Z_OK$3, Z_STREAM_END$3, Z_STREAM_ERROR$2, Z_DATA_ERROR$2, Z_BUF_ERROR$2, Z_DEFAULT_COMPRESSION$1, Z_FILTERED, Z_HUFFMAN_ONLY, Z_RLE, Z_FIXED, Z_DEFAULT_STRATEGY$1, Z_UNKNOWN, Z_DEFLATED$2, MAX_MEM_LEVEL, MAX_WBITS$1, DEF_MEM_LEVEL, HEAP_SIZE, MIN_MATCH, MAX_MATCH, MIN_LOOKAHEAD, PRESET_DICT, INIT_STATE, GZIP_STATE, EXTRA_STATE, NAME_STATE, COMMENT_STATE, HCRC_STATE, BUSY_STATE, FINISH_STATE, BS_NEED_MORE, BS_BLOCK_DONE, BS_FINISH_STARTED, BS_FINISH_DONE, OS_CODE, err, rank, zero$2, slide_hash, HASH, INSERT_STRING, flush_pending, flush_block_only, put_byte, putShortMSB, read_buf, longest_match, fill_window, deflate_stored, deflate_fast, deflate_slow, deflate_rle, deflate_huff, configuration_table, lm_init, deflateStateCheck, deflateResetKeep, deflateReset, deflateSetHeader, deflateInit2, deflateInit, deflate$2, deflateEnd, deflateSetDictionary, deflate_1$2, _has, assign$1, flattenChunks, common, STR_APPLY_UIA_OK, _utf8len, string2buf, buf2binstring, buf2string, utf8border, strings, zstream, toString$1$1, Z_NO_FLUSH$1, Z_SYNC_FLUSH, Z_FULL_FLUSH, Z_FINISH$2, Z_OK$2, Z_STREAM_END$2, Z_DEFAULT_COMPRESSION, Z_DEFAULT_STRATEGY, Z_DEFLATED$1, defaultOptions$1, deflate_1$1, BAD$1, TYPE$1, inffast, MAXBITS, ENOUGH_LENS$1, ENOUGH_DISTS$1, CODES$1, LENS$1, DISTS$1, lbase, lext, dbase, dext, inflate_table, inftrees, CODES, LENS, DISTS, Z_FINISH$1, Z_BLOCK, Z_TREES, Z_OK$1, Z_STREAM_END$1, Z_NEED_DICT$1, Z_STREAM_ERROR$1, Z_DATA_ERROR$1, Z_MEM_ERROR$1, Z_BUF_ERROR$1, Z_DEFLATED, HEAD, FLAGS, TIME, OS, EXLEN, EXTRA, NAME, COMMENT, HCRC, DICTID, DICT, TYPE, TYPEDO, STORED, COPY_, COPY, TABLE, LENLENS, CODELENS, LEN_, LEN, LENEXT, DIST, DISTEXT, MATCH, LIT, CHECK, LENGTH, DONE, BAD, MEM, SYNC, ENOUGH_LENS, ENOUGH_DISTS, DEF_WBITS, zswap32, inflateStateCheck, inflateResetKeep, inflateReset, inflateReset2, inflateInit2, inflateInit, virgin, lenfix, distfix, fixedtables, updatewindow, inflate$2, inflateEnd, inflateGetHeader, inflateSetDictionary, inflate_1$2, gzheader, toString$2, Z_NO_FLUSH, Z_FINISH, Z_OK, Z_STREAM_END, Z_NEED_DICT, Z_STREAM_ERROR, Z_DATA_ERROR, Z_MEM_ERROR, Z_BUF_ERROR, defaultOptions, inflate_1$1, Deflate, deflate, deflateRaw, gzip, Inflate, inflate, inflateRaw, ungzip, deflate_1, Inflate_1, inflate_1, init_pako_esm, crcTable, initialCrc, init_crc, init_unfilter, init_applyUnfilter, uint16$1, osIsLittleEndian$1, init_decodeInterlaceAdam7, uint16, osIsLittleEndian, empty, init_decodeInterlaceNull, pngSignature, init_signature, textChunkName, NULL$1, latin1Decoder, latin1Regex, init_text, ColorType, CompressionMethod, FilterMethod, InterlaceMethod, DisposeOpType, BlendOpType, init_internalTypes, PngDecoder, init_PngDecoder, defaultZlibOptions, PngEncoder, init_PngEncoder, ResolutionUnitSpecifier, init_types, init_convertIndexedToRgb, lib_esm_exports, init_lib_esm, html2canvas_esm_exports, extendStatics$1, __assign, Bounds, parseBounds, parseDocumentSize, toCodePoints$1, fromCodePoint$1, chars$2, lookup$2, i$2, chars$1$1, lookup$1$1, i$1$1, decode$1, polyUint16Array$1, polyUint32Array$1, UTRIE2_SHIFT_2$1, UTRIE2_SHIFT_1$1, UTRIE2_INDEX_SHIFT$1, UTRIE2_SHIFT_1_2$1, UTRIE2_LSCP_INDEX_2_OFFSET$1, UTRIE2_DATA_MASK$1, UTRIE2_INDEX_1_OFFSET$1, UTRIE2_OMITTED_BMP_INDEX_1_LENGTH$1, UTRIE2_INDEX_2_MASK$1, slice16$1, slice32$1, createTrieFromBase64$1, Trie$1, chars$3, lookup$3, i$3, base64$1, LETTER_NUMBER_MODIFIER, BK, CR$1, LF$1, CM, NL, WJ, ZW, GL, SP, ZWJ$1, B2, BA, BB, HY, CB, CL, CP, EX, IN, NS, OP, QU, IS, NU, PO, PR, SY, AI, AL, CJ, EB, EM, H2, H3, HL, ID, JL, JV, JT, RI$1, SA, XX, ea_OP, BREAK_MANDATORY, BREAK_NOT_ALLOWED$1, BREAK_ALLOWED$1, UnicodeTrie$1, ALPHABETICS, HARD_LINE_BREAKS, SPACE$1, PREFIX_POSTFIX, LINE_BREAKS, KOREAN_SYLLABLE_BLOCK, HYPHEN, codePointsToCharacterClasses, isAdjacentWithSpaceIgnored, previousNonSpaceClassType, _lineBreakAtIndex, cssFormattedClasses, Break, LineBreaker, FLAG_UNRESTRICTED, FLAG_ID, FLAG_INTEGER, FLAG_NUMBER, LINE_FEED, SOLIDUS, REVERSE_SOLIDUS, CHARACTER_TABULATION, SPACE, QUOTATION_MARK, EQUALS_SIGN, NUMBER_SIGN, DOLLAR_SIGN, PERCENTAGE_SIGN, APOSTROPHE, LEFT_PARENTHESIS, RIGHT_PARENTHESIS, LOW_LINE, HYPHEN_MINUS, EXCLAMATION_MARK, LESS_THAN_SIGN, GREATER_THAN_SIGN, COMMERCIAL_AT, LEFT_SQUARE_BRACKET, RIGHT_SQUARE_BRACKET, CIRCUMFLEX_ACCENT, LEFT_CURLY_BRACKET, QUESTION_MARK, RIGHT_CURLY_BRACKET, VERTICAL_LINE, TILDE, CONTROL, REPLACEMENT_CHARACTER, ASTERISK, PLUS_SIGN, COMMA, COLON, SEMICOLON, FULL_STOP, NULL, BACKSPACE, LINE_TABULATION, SHIFT_OUT, INFORMATION_SEPARATOR_ONE, DELETE, EOF, ZERO, a$1, e, f, u, z$1, A$1, E, F, U$1, Z$1, isDigit, isSurrogateCodePoint, isHex, isLowerCaseLetter, isUpperCaseLetter, isLetter, isNonASCIICodePoint, isWhiteSpace, isNameStartCodePoint, isNameCodePoint, isNonPrintableCodePoint, isValidEscape, isIdentifierStart, isNumberStart, stringToNumber, LEFT_PARENTHESIS_TOKEN, RIGHT_PARENTHESIS_TOKEN, COMMA_TOKEN, SUFFIX_MATCH_TOKEN, PREFIX_MATCH_TOKEN, COLUMN_TOKEN, DASH_MATCH_TOKEN, INCLUDE_MATCH_TOKEN, LEFT_CURLY_BRACKET_TOKEN, RIGHT_CURLY_BRACKET_TOKEN, SUBSTRING_MATCH_TOKEN, BAD_URL_TOKEN, BAD_STRING_TOKEN, CDO_TOKEN, CDC_TOKEN, COLON_TOKEN, SEMICOLON_TOKEN, LEFT_SQUARE_BRACKET_TOKEN, RIGHT_SQUARE_BRACKET_TOKEN, WHITESPACE_TOKEN, EOF_TOKEN, Tokenizer, Parser, isDimensionToken, isNumberToken, isIdentToken, isStringToken, isIdentWithValue, nonWhiteSpace, nonFunctionArgSeparator, parseFunctionArgs, isEndingTokenFor, isLength, isLengthPercentage, parseLengthPercentageTuple, ZERO_LENGTH, FIFTY_PERCENT, HUNDRED_PERCENT, getAbsoluteValueForTuple, getAbsoluteValue, DEG, GRAD, RAD, TURN, angle, isAngle, parseNamedSide, deg, color$1, isTransparent, asString, pack, getTokenColorValue, rgb$1, hsl$1, SUPPORTED_COLOR_FUNCTIONS, parseColor$1, COLORS, backgroundClip, backgroundColor, parseColorStop, processColorStops, getAngleFromCorner, calculateGradientDirection, distance, findCorner, calculateRadius, linearGradient, prefixLinearGradient, webkitGradient, CLOSEST_SIDE, FARTHEST_SIDE, CLOSEST_CORNER, FARTHEST_CORNER, CIRCLE, ELLIPSE, COVER, CONTAIN, radialGradient, prefixRadialGradient, isLinearGradient, isRadialGradient, image, SUPPORTED_IMAGE_FUNCTIONS, backgroundImage, backgroundOrigin, backgroundPosition, backgroundRepeat, parseBackgroundRepeat, BACKGROUND_SIZE, backgroundSize, isBackgroundSizeInfoToken, borderColorForSide, borderTopColor, borderRightColor, borderBottomColor, borderLeftColor, borderRadiusForSide, borderTopLeftRadius, borderTopRightRadius, borderBottomRightRadius, borderBottomLeftRadius, borderStyleForSide, borderTopStyle, borderRightStyle, borderBottomStyle, borderLeftStyle, borderWidthForSide, borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth, color$2, direction, display, parseDisplayValue, float, letterSpacing, LINE_BREAK, lineBreak, lineHeight, computeLineHeight, listStyleImage, listStylePosition, listStyleType, marginForSide, marginTop, marginRight, marginBottom, marginLeft, overflow, overflowWrap, paddingForSide, paddingTop, paddingRight, paddingBottom, paddingLeft, textAlign, position, textShadow, textTransform, transform$1, matrix, matrix3d, SUPPORTED_TRANSFORM_FUNCTIONS, DEFAULT_VALUE, DEFAULT, transformOrigin, visibility, WORD_BREAK, wordBreak, zIndex, time$1, opacity, textDecorationColor, textDecorationLine, fontFamily, fontSize, fontWeight, fontVariant, fontStyle, contains, content, counterIncrement, counterReset, duration, quotes, getQuote, boxShadow, paintOrder, webkitTextStrokeColor, webkitTextStrokeWidth, CSSParsedDeclaration, CSSParsedPseudoDeclaration, CSSParsedCounterDeclaration, parse, elementDebuggerAttribute, getElementDebugType, isDebugging, ElementContainer, base64, chars$1, lookup$1, i$1, decode, polyUint16Array, polyUint32Array, UTRIE2_SHIFT_2, UTRIE2_SHIFT_1, UTRIE2_INDEX_SHIFT, UTRIE2_SHIFT_1_2, UTRIE2_LSCP_INDEX_2_OFFSET, UTRIE2_DATA_MASK, UTRIE2_INDEX_1_OFFSET, UTRIE2_OMITTED_BMP_INDEX_1_LENGTH, UTRIE2_INDEX_2_MASK, slice16, slice32, createTrieFromBase64, Trie, chars, lookup, i, Prepend, CR, LF, Control, Extend, SpacingMark, L$1, V$1, T$1, LV, LVT, ZWJ, Extended_Pictographic, RI, toCodePoints, fromCodePoint, UnicodeTrie, BREAK_NOT_ALLOWED, BREAK_ALLOWED, codePointToClass, _graphemeBreakAtIndex, GraphemeBreaker, splitGraphemes, testRangeBounds, testIOSLineBreak, testCORS, testResponseType, testSVG, isGreenPixel, testForeignObject, createForeignObjectSVG, loadSerializedSVG$1, FEATURES, TextBounds, parseTextBounds, getWrapperBounds, createRange, segmentGraphemes, segmentWords, breakText, wordSeparators, breakWords, TextContainer, transform, CAPITALIZE, capitalize, ImageElementContainer, CanvasElementContainer, SVGElementContainer, LIElementContainer, OLElementContainer, CHECKBOX_BORDER_RADIUS, RADIO_BORDER_RADIUS, reformatInputBounds, getInputValue, CHECKBOX, RADIO, PASSWORD, INPUT_COLOR, InputElementContainer, SelectElementContainer, TextareaElementContainer, IFrameElementContainer, LIST_OWNERS, parseNodeTree, createContainer, parseTree, createsRealStackingContext, createsStackingContext, isTextNode, isElementNode, isHTMLElementNode, isSVGElementNode, isLIElement, isOLElement, isInputElement, isHTMLElement, isSVGElement, isBodyElement, isCanvasElement, isVideoElement, isImageElement, isIFrameElement, isStyleElement, isScriptElement, isTextareaElement, isSelectElement, isSlotElement, isCustomElement, CounterState, ROMAN_UPPER, ARMENIAN, HEBREW, GEORGIAN, createAdditiveCounter, createCounterStyleWithSymbolResolver, createCounterStyleFromRange, createCounterStyleFromSymbols, CJK_ZEROS, CJK_TEN_COEFFICIENTS, CJK_TEN_HIGH_COEFFICIENTS, CJK_HUNDRED_COEFFICIENTS, createCJKCounter, CHINESE_INFORMAL_MULTIPLIERS, CHINESE_FORMAL_MULTIPLIERS, JAPANESE_NEGATIVE, KOREAN_NEGATIVE, createCounterText, IGNORE_ATTRIBUTE, DocumentCloner, PseudoElementType, createIFrameContainer, imageReady, imagesReady, iframeLoader, ignoredStyleProperties, copyCSSStyles, serializeDoctype, restoreOwnerScroll, restoreNodeScroll, PSEUDO_BEFORE, PSEUDO_AFTER, PSEUDO_HIDE_ELEMENT_CLASS_BEFORE, PSEUDO_HIDE_ELEMENT_CLASS_AFTER, PSEUDO_HIDE_ELEMENT_STYLE, createPseudoHideStyles, createStyles, CacheStorage, Cache, INLINE_SVG, INLINE_BASE64, INLINE_IMG, isRenderable, isInlineImage, isInlineBase64Image, isBlobImage, isSVG, Vector, lerp, BezierCurve, isBezierCurve, BoundCurves, CORNER, getCurvePoints, calculateBorderBoxPath, calculateContentBoxPath, calculatePaddingBoxPath, TransformEffect, ClipEffect, OpacityEffect, isTransformEffect, isClipEffect, isOpacityEffect, equalPath, transformPath, StackingContext, ElementPaint, parseStackTree, processListItems, parseStackingContexts, parsePathForBorder, parsePathForBorderDoubleOuter, parsePathForBorderDoubleInner, parsePathForBorderStroke, createStrokePathFromCurves, createPathFromCurves, paddingBox, contentBox, calculateBackgroundPositioningArea, calculateBackgroundPaintingArea, calculateBackgroundRendering, isAuto, hasIntrinsicValue, calculateBackgroundSize, getBackgroundValueForIndex, calculateBackgroundRepeatPath, SMALL_IMAGE, SAMPLE_TEXT, FontMetrics, Renderer, MASK_OFFSET, CanvasRenderer, isTextInputElement, calculateBackgroundCurvedPaintingArea, canvasTextAlign, iOSBrokenFonts, fixIOSSystemFonts, ForeignObjectRenderer, loadSerializedSVG, Logger, Context, html2canvas, renderElement, parseBackgroundColor, init_html2canvas_esm, require_purify_cjs, require_global_this, require_is_pure, require_define_global_property, require_shared_store, require_shared, require_fails, require_function_bind_native, require_function_uncurry_this, require_is_null_or_undefined, require_require_object_coercible, require_to_object, require_has_own_property, require_uid, require_environment_user_agent, require_environment_v8_version, require_symbol_constructor_detection, require_use_symbol_as_uid, require_well_known_symbol, require_to_string_tag_support, require_is_callable, require_descriptors, require_is_object, require_document_create_element, require_ie8_dom_define, require_v8_prototype_define_bug, require_an_object, require_function_call, require_get_built_in, require_object_is_prototype_of, require_is_symbol, require_try_to_string, require_a_callable, require_get_method, require_ordinary_to_primitive, require_to_primitive, require_to_property_key, require_object_define_property, require_function_name, require_inspect_source, require_weak_map_basic_detection, require_create_property_descriptor, require_create_non_enumerable_property, require_shared_key, require_hidden_keys, require_internal_state, require_make_built_in, require_define_built_in, require_classof_raw, require_classof, require_object_to_string, require_es_object_to_string, require_object_property_is_enumerable, require_indexed_object, require_to_indexed_object, require_object_get_own_property_descriptor, require_math_trunc, require_to_integer_or_infinity, require_to_absolute_index, require_to_length, require_length_of_array_like, require_array_includes, require_object_keys_internal, require_enum_bug_keys, require_object_get_own_property_names, require_object_get_own_property_symbols, require_own_keys, require_copy_constructor_properties, require_is_forced, require_export, require_environment, require_environment_is_node, require_path, require_function_uncurry_this_accessor, require_is_possible_prototype, require_a_possible_prototype, require_object_set_prototype_of, require_set_to_string_tag, require_define_built_in_accessor, require_set_species, require_an_instance, require_is_constructor, require_a_constructor, require_species_constructor, require_function_apply, require_function_uncurry_this_clause, require_function_bind_context, require_html, require_array_slice, require_validate_arguments_length, require_environment_is_ios, require_task, require_safe_get_built_in, require_queue, require_environment_is_ios_pebble, require_environment_is_webos_webkit, require_microtask, require_host_report_errors, require_perform, require_promise_native_constructor, require_promise_constructor_detection, require_new_promise_capability, require_es_promise_constructor, require_iterators, require_is_array_iterator_method, require_get_iterator_method, require_get_iterator, require_iterator_close, require_iterate, require_check_correctness_of_iteration, require_promise_statics_incorrect_iteration, require_es_promise_all, require_es_promise_catch, require_es_promise_race, require_es_promise_reject, require_promise_resolve, require_es_promise_resolve, require_es_promise, require_es_reflect_delete_property, require_OverloadYield, require_regeneratorDefine, require_regenerator$1, require_regeneratorAsyncIterator, require_regeneratorAsyncGen, require_regeneratorAsync, require_regeneratorKeys, require_typeof, require_regeneratorValues, require_regeneratorRuntime, require_regenerator, require_asyncToGenerator, require_is_array, require_array_species_constructor, require_array_species_create, require_create_property, require_array_iteration, require_array_method_has_species_support, require_es_array_map, require_to_string, require_whitespaces, require_string_trim, require_number_parse_float, require_es_parse_float, require_regexp_flags, require_regexp_sticky_helpers, require_object_keys, require_object_define_properties, require_object_create, require_regexp_unsupported_dot_all, require_regexp_unsupported_ncg, require_regexp_exec, require_es_regexp_exec, require_fix_regexp_well_known_symbol_logic, require_string_multibyte, require_advance_string_index, require_regexp_flags_detection, require_regexp_get_flags, require_regexp_exec_abstract, require_es_string_match, require_get_substitution, require_es_string_replace, require_is_regexp, require_not_a_regexp, require_correct_is_regexp_logic, require_es_string_starts_with, require_array_method_is_strict, require_es_array_join, require_arrayWithHoles, require_iterableToArrayLimit, require_arrayLikeToArray, require_unsupportedIterableToArray, require_nonIterableRest, require_slicedToArray, require_toPrimitive, require_toPropertyKey, require_defineProperty, require_classCallCheck, require_createClass, require_does_not_exceed_safe_integer, require_array_set_length, require_es_array_concat, require_es_array_every, require_array_reduce, require_es_array_reduce, require_es_string_ends_with, require_es_string_split, require_performance_now, require_raf, require_es_function_name, require_string_trim_forced, require_es_string_trim, require_rgbcolor, require_array_for_each, require_es_array_for_each, require_dom_iterables, require_dom_token_list_prototype, require_web_dom_collections_for_each, require_setPrototypeOf, require_inherits, require_assertThisInitialized, require_possibleConstructorReturn, require_getPrototypeOf, require_call_with_safe_iteration_closing, require_array_from, require_es_array_from, require_add_to_unscopables, require_es_array_includes, require_es_array_index_of, require_es_array_some, require_es_string_includes, require_correct_prototype_getter, require_object_get_prototype_of, require_iterators_core, require_iterator_create_constructor, require_iterator_define, require_create_iter_result_object, require_es_string_iterator, require_arrayWithoutHoles, require_iterableToArray, require_nonIterableSpread, require_toConsumableArray, require_es_array_reverse, require_inherit_if_required, require_this_number_value, require_es_number_constructor, require_superPropBase, require_get$1, require_array_fill, require_es_array_fill, require_SVGPathData, require_es_regexp_to_string, require_es_array_iterator, require_web_dom_collections_iterator, require_object_get_own_property_names_external, require_array_buffer_non_extensible, require_object_is_extensible, require_freezing, require_internal_metadata, require_collection, require_define_built_ins, require_collection_strong, require_es_map_constructor, require_es_map, require_es_reflect_apply, require_es_reflect_get_prototype_of, stackblur_es_exports, mulTable, shgTable, BlurStack, init_stackblur_es, require_lib, require_jspdf_node_min, import_react$15, import_jspdf_node_min, globalDefaults, DocHandler, extendStatics, HtmlRowInput, HookData, CellHookData, Table, Row$1, Cell$1, Column, _a$1, anyWindow, jsPDF$1, import_jsx_runtime$21, CATEGORIES, CHECKLIST_TEMPLATE;
-var init_bookings__id_DlWEliYW = __esmMin$1((() => {
+var ArrowLeft, FileDown, FileText, Handshake, History, MessageSquare, SquareCheck, Upload, UserCheck, require_node, encoder, init_text$1, defaultByteLength, hostBigEndian, typedArrays, IOBuffer, init_IOBuffer, Z_FIXED$1, Z_BINARY, Z_TEXT, Z_UNKNOWN$1, STORED_BLOCK, STATIC_TREES, DYN_TREES, LENGTH_CODES$1, LITERALS$1, L_CODES$1, D_CODES$1, BL_CODES$1, HEAP_SIZE$1, MAX_BITS$1, Buf_size, MAX_BL_BITS, END_BLOCK, REP_3_6, REPZ_3_10, REPZ_11_138, extra_lbits, extra_dbits, extra_blbits, bl_order, DIST_CODE_LEN, static_ltree, static_dtree, _dist_code, _length_code, base_length, base_dist, static_l_desc, static_d_desc, static_bl_desc, d_code, put_short, send_bits, send_code, bi_reverse, bi_flush, gen_bitlen, gen_codes, tr_static_init, init_block, bi_windup, smaller, pqdownheap, compress_block, build_tree, scan_tree, send_tree, build_bl_tree, send_all_trees, detect_data_type, static_init_done, _tr_init$1, _tr_stored_block$1, _tr_align$1, _tr_flush_block$1, _tr_tally$1, trees, adler32, adler32_1, makeTable, crcTable$1, crc32, crc32_1, messages, constants$2, _tr_init, _tr_stored_block, _tr_flush_block, _tr_tally, _tr_align, Z_NO_FLUSH$2, Z_PARTIAL_FLUSH, Z_FULL_FLUSH$1, Z_FINISH$3, Z_BLOCK$1, Z_OK$3, Z_STREAM_END$3, Z_STREAM_ERROR$2, Z_DATA_ERROR$2, Z_BUF_ERROR$2, Z_DEFAULT_COMPRESSION$1, Z_FILTERED, Z_HUFFMAN_ONLY, Z_RLE, Z_FIXED, Z_DEFAULT_STRATEGY$1, Z_UNKNOWN, Z_DEFLATED$2, MAX_MEM_LEVEL, MAX_WBITS$1, DEF_MEM_LEVEL, HEAP_SIZE, MIN_MATCH, MAX_MATCH, MIN_LOOKAHEAD, PRESET_DICT, INIT_STATE, GZIP_STATE, EXTRA_STATE, NAME_STATE, COMMENT_STATE, HCRC_STATE, BUSY_STATE, FINISH_STATE, BS_NEED_MORE, BS_BLOCK_DONE, BS_FINISH_STARTED, BS_FINISH_DONE, OS_CODE, err, rank, zero$2, slide_hash, HASH, INSERT_STRING, flush_pending, flush_block_only, put_byte, putShortMSB, read_buf, longest_match, fill_window, deflate_stored, deflate_fast, deflate_slow, deflate_rle, deflate_huff, configuration_table, lm_init, deflateStateCheck, deflateResetKeep, deflateReset, deflateSetHeader, deflateInit2, deflateInit, deflate$2, deflateEnd, deflateSetDictionary, deflate_1$2, _has, assign$1, flattenChunks, common, STR_APPLY_UIA_OK, _utf8len, string2buf, buf2binstring, buf2string, utf8border, strings, zstream, toString$1$1, Z_NO_FLUSH$1, Z_SYNC_FLUSH, Z_FULL_FLUSH, Z_FINISH$2, Z_OK$2, Z_STREAM_END$2, Z_DEFAULT_COMPRESSION, Z_DEFAULT_STRATEGY, Z_DEFLATED$1, defaultOptions$1, deflate_1$1, BAD$1, TYPE$1, inffast, MAXBITS, ENOUGH_LENS$1, ENOUGH_DISTS$1, CODES$1, LENS$1, DISTS$1, lbase, lext, dbase, dext, inflate_table, inftrees, CODES, LENS, DISTS, Z_FINISH$1, Z_BLOCK, Z_TREES, Z_OK$1, Z_STREAM_END$1, Z_NEED_DICT$1, Z_STREAM_ERROR$1, Z_DATA_ERROR$1, Z_MEM_ERROR$1, Z_BUF_ERROR$1, Z_DEFLATED, HEAD, FLAGS, TIME, OS, EXLEN, EXTRA, NAME, COMMENT, HCRC, DICTID, DICT, TYPE, TYPEDO, STORED, COPY_, COPY, TABLE, LENLENS, CODELENS, LEN_, LEN, LENEXT, DIST, DISTEXT, MATCH, LIT, CHECK, LENGTH, DONE, BAD, MEM, SYNC, ENOUGH_LENS, ENOUGH_DISTS, DEF_WBITS, zswap32, inflateStateCheck, inflateResetKeep, inflateReset, inflateReset2, inflateInit2, inflateInit, virgin, lenfix, distfix, fixedtables, updatewindow, inflate$2, inflateEnd, inflateGetHeader, inflateSetDictionary, inflate_1$2, gzheader, toString$2, Z_NO_FLUSH, Z_FINISH, Z_OK, Z_STREAM_END, Z_NEED_DICT, Z_STREAM_ERROR, Z_DATA_ERROR, Z_MEM_ERROR, Z_BUF_ERROR, defaultOptions, inflate_1$1, Deflate, deflate, deflateRaw, gzip, Inflate, inflate, inflateRaw, ungzip, deflate_1, Inflate_1, inflate_1, init_pako_esm, crcTable, initialCrc, init_crc, init_unfilter, init_applyUnfilter, uint16$1, osIsLittleEndian$1, init_decodeInterlaceAdam7, uint16, osIsLittleEndian, empty, init_decodeInterlaceNull, pngSignature, init_signature, textChunkName, NULL$1, latin1Decoder, latin1Regex, init_text, ColorType, CompressionMethod, FilterMethod, InterlaceMethod, DisposeOpType, BlendOpType, init_internalTypes, PngDecoder, init_PngDecoder, defaultZlibOptions, PngEncoder, init_PngEncoder, ResolutionUnitSpecifier, init_types, init_convertIndexedToRgb, lib_esm_exports, init_lib_esm, html2canvas_esm_exports, extendStatics$1, __assign, Bounds, parseBounds, parseDocumentSize, toCodePoints$1, fromCodePoint$1, chars$2, lookup$2, i$2, chars$1$1, lookup$1$1, i$1$1, decode$1, polyUint16Array$1, polyUint32Array$1, UTRIE2_SHIFT_2$1, UTRIE2_SHIFT_1$1, UTRIE2_INDEX_SHIFT$1, UTRIE2_SHIFT_1_2$1, UTRIE2_LSCP_INDEX_2_OFFSET$1, UTRIE2_DATA_MASK$1, UTRIE2_INDEX_1_OFFSET$1, UTRIE2_OMITTED_BMP_INDEX_1_LENGTH$1, UTRIE2_INDEX_2_MASK$1, slice16$1, slice32$1, createTrieFromBase64$1, Trie$1, chars$3, lookup$3, i$3, base64$1, LETTER_NUMBER_MODIFIER, BK, CR$1, LF$1, CM, NL, WJ, ZW, GL, SP, ZWJ$1, B2, BA, BB, HY, CB, CL, CP, EX, IN, NS, OP, QU, IS, NU, PO, PR, SY, AI, AL, CJ, EB, EM, H2, H3, HL, ID, JL, JV, JT, RI$1, SA, XX, ea_OP, BREAK_MANDATORY, BREAK_NOT_ALLOWED$1, BREAK_ALLOWED$1, UnicodeTrie$1, ALPHABETICS, HARD_LINE_BREAKS, SPACE$1, PREFIX_POSTFIX, LINE_BREAKS, KOREAN_SYLLABLE_BLOCK, HYPHEN, codePointsToCharacterClasses, isAdjacentWithSpaceIgnored, previousNonSpaceClassType, _lineBreakAtIndex, cssFormattedClasses, Break, LineBreaker, FLAG_UNRESTRICTED, FLAG_ID, FLAG_INTEGER, FLAG_NUMBER, LINE_FEED, SOLIDUS, REVERSE_SOLIDUS, CHARACTER_TABULATION, SPACE, QUOTATION_MARK, EQUALS_SIGN, NUMBER_SIGN, DOLLAR_SIGN, PERCENTAGE_SIGN, APOSTROPHE, LEFT_PARENTHESIS, RIGHT_PARENTHESIS, LOW_LINE, HYPHEN_MINUS, EXCLAMATION_MARK, LESS_THAN_SIGN, GREATER_THAN_SIGN, COMMERCIAL_AT, LEFT_SQUARE_BRACKET, RIGHT_SQUARE_BRACKET, CIRCUMFLEX_ACCENT, LEFT_CURLY_BRACKET, QUESTION_MARK, RIGHT_CURLY_BRACKET, VERTICAL_LINE, TILDE, CONTROL, REPLACEMENT_CHARACTER, ASTERISK, PLUS_SIGN, COMMA, COLON, SEMICOLON, FULL_STOP, NULL, BACKSPACE, LINE_TABULATION, SHIFT_OUT, INFORMATION_SEPARATOR_ONE, DELETE, EOF, ZERO, a$1, e, f, u, z$1, A$1, E, F, U$1, Z$1, isDigit, isSurrogateCodePoint, isHex, isLowerCaseLetter, isUpperCaseLetter, isLetter, isNonASCIICodePoint, isWhiteSpace, isNameStartCodePoint, isNameCodePoint, isNonPrintableCodePoint, isValidEscape, isIdentifierStart, isNumberStart, stringToNumber, LEFT_PARENTHESIS_TOKEN, RIGHT_PARENTHESIS_TOKEN, COMMA_TOKEN, SUFFIX_MATCH_TOKEN, PREFIX_MATCH_TOKEN, COLUMN_TOKEN, DASH_MATCH_TOKEN, INCLUDE_MATCH_TOKEN, LEFT_CURLY_BRACKET_TOKEN, RIGHT_CURLY_BRACKET_TOKEN, SUBSTRING_MATCH_TOKEN, BAD_URL_TOKEN, BAD_STRING_TOKEN, CDO_TOKEN, CDC_TOKEN, COLON_TOKEN, SEMICOLON_TOKEN, LEFT_SQUARE_BRACKET_TOKEN, RIGHT_SQUARE_BRACKET_TOKEN, WHITESPACE_TOKEN, EOF_TOKEN, Tokenizer, Parser, isDimensionToken, isNumberToken, isIdentToken, isStringToken, isIdentWithValue, nonWhiteSpace, nonFunctionArgSeparator, parseFunctionArgs, isEndingTokenFor, isLength, isLengthPercentage, parseLengthPercentageTuple, ZERO_LENGTH, FIFTY_PERCENT, HUNDRED_PERCENT, getAbsoluteValueForTuple, getAbsoluteValue, DEG, GRAD, RAD, TURN, angle, isAngle, parseNamedSide, deg, color$1, isTransparent, asString, pack, getTokenColorValue, rgb$1, hsl$1, SUPPORTED_COLOR_FUNCTIONS, parseColor$1, COLORS, backgroundClip, backgroundColor, parseColorStop, processColorStops, getAngleFromCorner, calculateGradientDirection, distance, findCorner, calculateRadius, linearGradient, prefixLinearGradient, webkitGradient, CLOSEST_SIDE, FARTHEST_SIDE, CLOSEST_CORNER, FARTHEST_CORNER, CIRCLE, ELLIPSE, COVER, CONTAIN, radialGradient, prefixRadialGradient, isLinearGradient, isRadialGradient, image, SUPPORTED_IMAGE_FUNCTIONS, backgroundImage, backgroundOrigin, backgroundPosition, backgroundRepeat, parseBackgroundRepeat, BACKGROUND_SIZE, backgroundSize, isBackgroundSizeInfoToken, borderColorForSide, borderTopColor, borderRightColor, borderBottomColor, borderLeftColor, borderRadiusForSide, borderTopLeftRadius, borderTopRightRadius, borderBottomRightRadius, borderBottomLeftRadius, borderStyleForSide, borderTopStyle, borderRightStyle, borderBottomStyle, borderLeftStyle, borderWidthForSide, borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth, color$2, direction, display, parseDisplayValue, float, letterSpacing, LINE_BREAK, lineBreak, lineHeight, computeLineHeight, listStyleImage, listStylePosition, listStyleType, marginForSide, marginTop, marginRight, marginBottom, marginLeft, overflow, overflowWrap, paddingForSide, paddingTop, paddingRight, paddingBottom, paddingLeft, textAlign, position, textShadow, textTransform, transform$1, matrix, matrix3d, SUPPORTED_TRANSFORM_FUNCTIONS, DEFAULT_VALUE, DEFAULT, transformOrigin, visibility, WORD_BREAK, wordBreak, zIndex, time$1, opacity, textDecorationColor, textDecorationLine, fontFamily, fontSize, fontWeight, fontVariant, fontStyle, contains, content, counterIncrement, counterReset, duration, quotes, getQuote, boxShadow, paintOrder, webkitTextStrokeColor, webkitTextStrokeWidth, CSSParsedDeclaration, CSSParsedPseudoDeclaration, CSSParsedCounterDeclaration, parse, elementDebuggerAttribute, getElementDebugType, isDebugging, ElementContainer, base64, chars$1, lookup$1, i$1, decode, polyUint16Array, polyUint32Array, UTRIE2_SHIFT_2, UTRIE2_SHIFT_1, UTRIE2_INDEX_SHIFT, UTRIE2_SHIFT_1_2, UTRIE2_LSCP_INDEX_2_OFFSET, UTRIE2_DATA_MASK, UTRIE2_INDEX_1_OFFSET, UTRIE2_OMITTED_BMP_INDEX_1_LENGTH, UTRIE2_INDEX_2_MASK, slice16, slice32, createTrieFromBase64, Trie, chars, lookup, i, Prepend, CR, LF, Control, Extend, SpacingMark, L$1, V$1, T$1, LV, LVT, ZWJ, Extended_Pictographic, RI, toCodePoints, fromCodePoint, UnicodeTrie, BREAK_NOT_ALLOWED, BREAK_ALLOWED, codePointToClass, _graphemeBreakAtIndex, GraphemeBreaker, splitGraphemes, testRangeBounds, testIOSLineBreak, testCORS, testResponseType, testSVG, isGreenPixel, testForeignObject, createForeignObjectSVG, loadSerializedSVG$1, FEATURES, TextBounds, parseTextBounds, getWrapperBounds, createRange, segmentGraphemes, segmentWords, breakText, wordSeparators, breakWords, TextContainer, transform, CAPITALIZE, capitalize, ImageElementContainer, CanvasElementContainer, SVGElementContainer, LIElementContainer, OLElementContainer, CHECKBOX_BORDER_RADIUS, RADIO_BORDER_RADIUS, reformatInputBounds, getInputValue, CHECKBOX, RADIO, PASSWORD, INPUT_COLOR, InputElementContainer, SelectElementContainer, TextareaElementContainer, IFrameElementContainer, LIST_OWNERS, parseNodeTree, createContainer, parseTree, createsRealStackingContext, createsStackingContext, isTextNode, isElementNode, isHTMLElementNode, isSVGElementNode, isLIElement, isOLElement, isInputElement, isHTMLElement, isSVGElement, isBodyElement, isCanvasElement, isVideoElement, isImageElement, isIFrameElement, isStyleElement, isScriptElement, isTextareaElement, isSelectElement, isSlotElement, isCustomElement, CounterState, ROMAN_UPPER, ARMENIAN, HEBREW, GEORGIAN, createAdditiveCounter, createCounterStyleWithSymbolResolver, createCounterStyleFromRange, createCounterStyleFromSymbols, CJK_ZEROS, CJK_TEN_COEFFICIENTS, CJK_TEN_HIGH_COEFFICIENTS, CJK_HUNDRED_COEFFICIENTS, createCJKCounter, CHINESE_INFORMAL_MULTIPLIERS, CHINESE_FORMAL_MULTIPLIERS, JAPANESE_NEGATIVE, KOREAN_NEGATIVE, createCounterText, IGNORE_ATTRIBUTE, DocumentCloner, PseudoElementType, createIFrameContainer, imageReady, imagesReady, iframeLoader, ignoredStyleProperties, copyCSSStyles, serializeDoctype, restoreOwnerScroll, restoreNodeScroll, PSEUDO_BEFORE, PSEUDO_AFTER, PSEUDO_HIDE_ELEMENT_CLASS_BEFORE, PSEUDO_HIDE_ELEMENT_CLASS_AFTER, PSEUDO_HIDE_ELEMENT_STYLE, createPseudoHideStyles, createStyles, CacheStorage, Cache, INLINE_SVG, INLINE_BASE64, INLINE_IMG, isRenderable, isInlineImage, isInlineBase64Image, isBlobImage, isSVG, Vector, lerp, BezierCurve, isBezierCurve, BoundCurves, CORNER, getCurvePoints, calculateBorderBoxPath, calculateContentBoxPath, calculatePaddingBoxPath, TransformEffect, ClipEffect, OpacityEffect, isTransformEffect, isClipEffect, isOpacityEffect, equalPath, transformPath, StackingContext, ElementPaint, parseStackTree, processListItems, parseStackingContexts, parsePathForBorder, parsePathForBorderDoubleOuter, parsePathForBorderDoubleInner, parsePathForBorderStroke, createStrokePathFromCurves, createPathFromCurves, paddingBox, contentBox, calculateBackgroundPositioningArea, calculateBackgroundPaintingArea, calculateBackgroundRendering, isAuto, hasIntrinsicValue, calculateBackgroundSize, getBackgroundValueForIndex, calculateBackgroundRepeatPath, SMALL_IMAGE, SAMPLE_TEXT, FontMetrics, Renderer, MASK_OFFSET, CanvasRenderer, isTextInputElement, calculateBackgroundCurvedPaintingArea, canvasTextAlign, iOSBrokenFonts, fixIOSSystemFonts, ForeignObjectRenderer, loadSerializedSVG, Logger, Context, html2canvas, renderElement, parseBackgroundColor, init_html2canvas_esm, require_purify_cjs, require_global_this, require_is_pure, require_define_global_property, require_shared_store, require_shared, require_fails, require_function_bind_native, require_function_uncurry_this, require_is_null_or_undefined, require_require_object_coercible, require_to_object, require_has_own_property, require_uid, require_environment_user_agent, require_environment_v8_version, require_symbol_constructor_detection, require_use_symbol_as_uid, require_well_known_symbol, require_to_string_tag_support, require_is_callable, require_descriptors, require_is_object, require_document_create_element, require_ie8_dom_define, require_v8_prototype_define_bug, require_an_object, require_function_call, require_get_built_in, require_object_is_prototype_of, require_is_symbol, require_try_to_string, require_a_callable, require_get_method, require_ordinary_to_primitive, require_to_primitive, require_to_property_key, require_object_define_property, require_function_name, require_inspect_source, require_weak_map_basic_detection, require_create_property_descriptor, require_create_non_enumerable_property, require_shared_key, require_hidden_keys, require_internal_state, require_make_built_in, require_define_built_in, require_classof_raw, require_classof, require_object_to_string, require_es_object_to_string, require_object_property_is_enumerable, require_indexed_object, require_to_indexed_object, require_object_get_own_property_descriptor, require_math_trunc, require_to_integer_or_infinity, require_to_absolute_index, require_to_length, require_length_of_array_like, require_array_includes, require_object_keys_internal, require_enum_bug_keys, require_object_get_own_property_names, require_object_get_own_property_symbols, require_own_keys, require_copy_constructor_properties, require_is_forced, require_export, require_environment, require_environment_is_node, require_path, require_function_uncurry_this_accessor, require_is_possible_prototype, require_a_possible_prototype, require_object_set_prototype_of, require_set_to_string_tag, require_define_built_in_accessor, require_set_species, require_an_instance, require_is_constructor, require_a_constructor, require_species_constructor, require_function_apply, require_function_uncurry_this_clause, require_function_bind_context, require_html, require_array_slice, require_validate_arguments_length, require_environment_is_ios, require_task, require_safe_get_built_in, require_queue, require_environment_is_ios_pebble, require_environment_is_webos_webkit, require_microtask, require_host_report_errors, require_perform, require_promise_native_constructor, require_promise_constructor_detection, require_new_promise_capability, require_es_promise_constructor, require_iterators, require_is_array_iterator_method, require_get_iterator_method, require_get_iterator, require_iterator_close, require_iterate, require_check_correctness_of_iteration, require_promise_statics_incorrect_iteration, require_es_promise_all, require_es_promise_catch, require_es_promise_race, require_es_promise_reject, require_promise_resolve, require_es_promise_resolve, require_es_promise, require_es_reflect_delete_property, require_OverloadYield, require_regeneratorDefine, require_regenerator$1, require_regeneratorAsyncIterator, require_regeneratorAsyncGen, require_regeneratorAsync, require_regeneratorKeys, require_typeof, require_regeneratorValues, require_regeneratorRuntime, require_regenerator, require_asyncToGenerator, require_is_array, require_array_species_constructor, require_array_species_create, require_create_property, require_array_iteration, require_array_method_has_species_support, require_es_array_map, require_to_string, require_whitespaces, require_string_trim, require_number_parse_float, require_es_parse_float, require_regexp_flags, require_regexp_sticky_helpers, require_object_keys, require_object_define_properties, require_object_create, require_regexp_unsupported_dot_all, require_regexp_unsupported_ncg, require_regexp_exec, require_es_regexp_exec, require_fix_regexp_well_known_symbol_logic, require_string_multibyte, require_advance_string_index, require_regexp_flags_detection, require_regexp_get_flags, require_regexp_exec_abstract, require_es_string_match, require_get_substitution, require_es_string_replace, require_is_regexp, require_not_a_regexp, require_correct_is_regexp_logic, require_es_string_starts_with, require_array_method_is_strict, require_es_array_join, require_arrayWithHoles, require_iterableToArrayLimit, require_arrayLikeToArray, require_unsupportedIterableToArray, require_nonIterableRest, require_slicedToArray, require_toPrimitive, require_toPropertyKey, require_defineProperty, require_classCallCheck, require_createClass, require_does_not_exceed_safe_integer, require_array_set_length, require_es_array_concat, require_es_array_every, require_array_reduce, require_es_array_reduce, require_es_string_ends_with, require_es_string_split, require_performance_now, require_raf, require_es_function_name, require_string_trim_forced, require_es_string_trim, require_rgbcolor, require_array_for_each, require_es_array_for_each, require_dom_iterables, require_dom_token_list_prototype, require_web_dom_collections_for_each, require_setPrototypeOf, require_inherits, require_assertThisInitialized, require_possibleConstructorReturn, require_getPrototypeOf, require_call_with_safe_iteration_closing, require_array_from, require_es_array_from, require_add_to_unscopables, require_es_array_includes, require_es_array_index_of, require_es_array_some, require_es_string_includes, require_correct_prototype_getter, require_object_get_prototype_of, require_iterators_core, require_iterator_create_constructor, require_iterator_define, require_create_iter_result_object, require_es_string_iterator, require_arrayWithoutHoles, require_iterableToArray, require_nonIterableSpread, require_toConsumableArray, require_es_array_reverse, require_inherit_if_required, require_this_number_value, require_es_number_constructor, require_superPropBase, require_get$1, require_array_fill, require_es_array_fill, require_SVGPathData, require_es_regexp_to_string, require_es_array_iterator, require_web_dom_collections_iterator, require_object_get_own_property_names_external, require_array_buffer_non_extensible, require_object_is_extensible, require_freezing, require_internal_metadata, require_collection, require_define_built_ins, require_collection_strong, require_es_map_constructor, require_es_map, require_es_reflect_apply, require_es_reflect_get_prototype_of, stackblur_es_exports, mulTable, shgTable, BlurStack, init_stackblur_es, require_lib, require_jspdf_node_min, import_react$15, import_jspdf_node_min, globalDefaults, DocHandler, extendStatics, HtmlRowInput, HookData, CellHookData, Table, Row$1, Cell$1, Column, _a$1, anyWindow, jsPDF$1, import_jsx_runtime$21, HOTEL, ACTIVITY, TRANSFER, OTHER, CATEGORIES, PRESETS, CAT_LABEL, CHECKLIST_TEMPLATE;
+var init_bookings__id_B_Nluly2 = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useNavigate_A7neNTi_();
@@ -48200,7 +48362,7 @@ var init_bookings__id_DlWEliYW = __esmMin$1((() => {
 	init_trash_2_DitDi0iH();
 	init_trending_down_BvajxNpS();
 	init_trending_up_CUw8LvW9();
-	init_bookings__id_BNmDdSVq();
+	init_bookings__id_BeNNiAyC();
 	init_use_current_role_Gd5rIhXJ();
 	init_button_B6qX_Bm6();
 	init_label_B6Z0mr2h();
@@ -94926,36 +95088,54 @@ while (prev === _win[++scan] && prev === _win[++scan] && prev === _win[++scan] &
 		console.error("Could not apply autoTable plugin", error);
 	}
 	import_jsx_runtime$21 = require_jsx_runtime();
+	HOTEL = "stay";
+	ACTIVITY = "activities";
+	TRANSFER = "transport";
+	OTHER = "other";
 	CATEGORIES = [
 		{
-			value: "booking",
-			label: "Booking"
+			value: HOTEL,
+			label: "Hotel"
 		},
 		{
-			value: "transport",
-			label: "Transport"
+			value: ACTIVITY,
+			label: "Activity"
 		},
 		{
-			value: "stay",
-			label: "Stay"
+			value: TRANSFER,
+			label: "Transfer / Ferry"
 		},
 		{
-			value: "activities",
-			label: "Activities"
-		},
-		{
-			value: "igloo",
-			label: "Igloo"
-		},
-		{
-			value: "train",
-			label: "Train"
-		},
-		{
-			value: "other",
+			value: OTHER,
 			label: "Other"
 		}
 	];
+	PRESETS = {
+		[HOTEL]: [
+			"Helsinki Hotel",
+			"Kuusamo Hotel",
+			"Glass Igloo",
+			"Tallinn Hotel"
+		],
+		[ACTIVITY]: [
+			"Husky Safari",
+			"Reindeer Safari",
+			"Snowmobile Ride",
+			"Ranua Wildlife Park",
+			"Icebreaker Cruise",
+			"Oulanka National Park",
+			"Northern Lights Tour",
+			"Ruka Coaster Tour"
+		],
+		[TRANSFER]: [
+			"Helsinki Transfer",
+			"Lapland Transfer",
+			"Tallinn Transfer",
+			"Tallinn Ferry"
+		],
+		[OTHER]: []
+	};
+	CAT_LABEL = Object.fromEntries(CATEGORIES.map((c) => [c.value, c.label]));
 	CHECKLIST_TEMPLATE = [
 		{
 			category: "documents",
@@ -94984,11 +95164,11 @@ while (prev === _win[++scan] && prev === _win[++scan] && prev === _win[++scan] &
 	];
 }));
 //#endregion
-//#region dist/server/assets/bookings._id-BNmDdSVq.js
+//#region dist/server/assets/bookings._id-BeNNiAyC.js
 var $$splitComponentImporter$17, Route$18;
-var init_bookings__id_BNmDdSVq = __esmMin$1((() => {
+var init_bookings__id_BeNNiAyC = __esmMin$1((() => {
 	init_lazyRouteComponent_BIWBRRnc();
-	$$splitComponentImporter$17 = () => Promise.resolve().then(() => (init_bookings__id_DlWEliYW(), bookings__id_DlWEliYW_exports));
+	$$splitComponentImporter$17 = () => Promise.resolve().then(() => (init_bookings__id_B_Nluly2(), bookings__id_B_Nluly2_exports));
 	Route$18 = createFileRoute("/_authenticated/bookings/$id")({ component: lazyRouteComponent($$splitComponentImporter$17, "component") });
 }));
 //#endregion
@@ -123461,8 +123641,8 @@ var init_bookings_index_70nQBs0n = __esmMin$1((() => {
 	import_jsx_runtime$2 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/router-CjfLsbl7.js
-var router_CjfLsbl7_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
+//#region dist/server/assets/router-QUTr69CO.js
+var router_QUTr69CO_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
 function setScriptAttrs(script, attrs) {
 	if (!attrs) return;
 	for (const [key, value] of Object.entries(attrs)) if (key !== "suppressHydrationWarning" && value !== void 0 && value !== false) script.setAttribute(key, typeof value === "boolean" ? "" : String(value));
@@ -123784,7 +123964,7 @@ function RootComponent() {
 	});
 }
 var getStoreFactory, createRouter, Router, import_react, import_jsx_runtime$1, noopScriptHandler, useTags, Scripts, MutationCache, QueryCache, QueryClient, styles_default, Route$17, $$splitComponentImporter$16, Route$16, $$splitComponentImporter$15, Route$15, $$splitComponentImporter$14, Route$14, $$splitComponentImporter$13, Route$13, $$splitComponentImporter$12, Route$12, $$splitComponentImporter$11, Route$11, $$splitComponentImporter$10, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitComponentImporter$2, Route$2, $$splitNotFoundComponentImporter, $$splitErrorComponentImporter, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AuthRoute, AuthenticatedCalendarRoute, AuthenticatedCashFlowRoute, AuthenticatedCostCalcRoute, AuthenticatedCustomersRoute, AuthenticatedDashboardRoute, AuthenticatedDeparturesRoute, AuthenticatedInvoicesRoute, AuthenticatedLeadsRoute, AuthenticatedPackagesRoute, AuthenticatedRateCardsRoute, AuthenticatedReportsRoute, AuthenticatedSettingsRoute, AuthenticatedSuppliersRoute, AuthenticatedTasksRoute, AuthenticatedTeamRoute, AuthenticatedBookingsIndexRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_CjfLsbl7 = __esmMin$1((() => {
+var init_router_QUTr69CO = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -123799,7 +123979,7 @@ var init_router_CjfLsbl7 = __esmMin$1((() => {
 	init_client_DiC8_6GY();
 	init_route_DzfM0kYt();
 	init_customers_NR_8TwH5();
-	init_bookings__id_BNmDdSVq();
+	init_bookings__id_BeNNiAyC();
 	getStoreFactory = (opts) => {
 		return {
 			createMutableStore: createNonReactiveMutableStore,
@@ -124291,7 +124471,7 @@ var init_router_CjfLsbl7 = __esmMin$1((() => {
 			this.#mutationCache.clear();
 		}
 	};
-	styles_default = "/assets/styles-BGn-HC_e.css";
+	styles_default = "/assets/styles-EBbq45BN.css";
 	Route$17 = createRootRouteWithContext()({
 		head: () => ({
 			meta: [
@@ -124602,8 +124782,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin$1((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region dist/server/assets/server-CBhq_Wwk.js
-var server_CBhq_Wwk_exports = /* @__PURE__ */ __exportAll$1({
+//#region dist/server/assets/server-qQhqchbo.js
+var server_qQhqchbo_exports = /* @__PURE__ */ __exportAll$1({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -127474,7 +127654,7 @@ async function waitForReadyOrAbort(ready, signal) {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_IdWDQCTX(), _tanstack_start_manifest_v_IdWDQCTX_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_CRjFflpS(), _tanstack_start_manifest_v_CRjFflpS_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -128228,7 +128408,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_CjfLsbl7(), router_CjfLsbl7_exports)),
+		Promise.resolve().then(() => (init_router_QUTr69CO(), router_QUTr69CO_exports)),
 		Promise.resolve().then(() => (init_start__Vgpq64H(), start__Vgpq64H_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -128604,7 +128784,7 @@ function createServerEntry(entry) {
 	} };
 }
 var GLOBAL_TSR, TSR_SCRIPT_BARRIER_ID, M$1, v$1, dr, R, C, gr, yr, Nr, br, vr, Cr, Ar, P$1, Er, nt, Ce, ot, at, o$1, st, Ae, it, H$1, J, Ee, Ie, ut, lt, ct, ft, L, le$1, Re, Ir, U, bs, Cn, En, fe, _, Je, x$1, z, X, V, Pe, xe, Ze, O$1, Q$1, j$1, ee$1, In, Rn, bt, vt, Ct, xr, At, Tr, Et, Or, It, wr, Rt, Pn, xt, Tt, Ot, wt, xn, Dr, oe$1, qn, Wn, Kn, Gn, Br, Ro, Po, Ht, Xt, Zt, Qt, $t, xo, Oo, wo, ho, zo, _o, ko, Ur, Hr, Jr, RawStream, BufferCtor, hasNodeBuffer, RAW_STREAM_FACTORY_BINARY, RAW_STREAM_FACTORY_TEXT, RAW_STREAM_FACTORY_CONSTRUCTOR_BINARY, textEncoderForFactory, RAW_STREAM_FACTORY_CONSTRUCTOR_TEXT, FACTORY_BINARY, FACTORY_TEXT, RawStreamSSRPlugin, ShallowErrorPlugin, o, P, ee, defaultSerovalPlugins, import_jsx_runtime, require_react_dom_server_legacy_node_production, require_react_dom_server_node_production, require_server_node, tsrScript_default, SCOPE_ID, TSR_PREFIX, P_PREFIX, P_SUFFIX, INITIAL_SCRIPTS, ScriptBuffer, MANIFEST_CACHE_SIZE, manifestCaches, MIN_CLOSING_TAG_LENGTH, DEFAULT_SERIALIZATION_TIMEOUT_MS, DEFAULT_LIFETIME_TIMEOUT_MS, MAX_LEFTOVER_CHARS, MAX_TAIL_CHARS, MAX_ROUTER_HTML_CHARS, MAX_PENDING_WRITE_CHARS, MergeState, textEncoder$1, noop$1, resolvedPromise, fullPattern, naivePattern, pattern, isNonEmptyString, isbot, import_server_node, noop, isAbortError, renderRouterToStream, defaultStreamHandler, HEADERS, innerCreateCsrfMiddleware, createCsrfMiddleware, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_CBhq_Wwk = __esmMin$1((() => {
+var init_server_qQhqchbo = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -138066,7 +138246,7 @@ function renderErrorPage() {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_CBhq_Wwk(), server_CBhq_Wwk_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_qQhqchbo(), server_qQhqchbo_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

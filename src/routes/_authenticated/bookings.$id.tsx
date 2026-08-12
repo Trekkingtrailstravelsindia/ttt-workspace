@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Plus, Trash2, Upload, Download, FileText, TrendingUp, TrendingDown, MessageSquare, History, UserCheck, MapPin, CheckSquare2, FileDown, CalendarClock, Handshake, Check, Send } from "lucide-react";
+import { ArrowLeft, Plus, Trash2, Upload, Download, FileText, TrendingUp, TrendingDown, MessageSquare, History, UserCheck, MapPin, CheckSquare2, FileDown, CalendarClock, Handshake, Check, Send, Tags } from "lucide-react";
 import { toast } from "sonner";
 import { downloadItineraryPdf } from "@/lib/itinerary-pdf";
 
@@ -396,6 +396,24 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
   const [notes, setNotes] = useState("");
   const [saving, setSaving] = useState(false);
 
+  const { data: rates = [] } = useQuery({
+    queryKey: ["rate-cards-for-expenses"],
+    queryFn: async () => (await supabase
+      .from("supplier_rates")
+      .select("id, service_name, amount, currency, supplier:suppliers(name)")
+      .order("service_name")).data ?? [],
+  });
+
+  const matchedRate = useMemo(
+    () => (rates as any[]).find(r => (r.service_name ?? "").trim().toLowerCase() === title.trim().toLowerCase()),
+    [rates, title]
+  );
+
+  function applyRate(r: any) {
+    setTitle(r.service_name);
+    setAmount(String(r.amount));
+  }
+
   function reset() {
     setTitle(""); setAmount(""); setEndDate(""); setGuests(""); setRoute(""); setNotes("");
   }
@@ -487,7 +505,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
               {PRESETS[category].length > 0 && (
                 <div className="mt-1.5 flex flex-wrap gap-1">
                   {PRESETS[category].map(p => (
-                    <button key={p} type="button" onClick={() => setTitle(p)}
+                    <button key={p} type="button" onClick={() => { setTitle(p); const r = (rates as any[]).find(x => (x.service_name ?? "").trim().toLowerCase() === p.toLowerCase()); if (r) setAmount(String(r.amount)); }}
                       className="rounded-full border px-2 py-0.5 text-[11px] text-muted-foreground hover:bg-accent hover:text-accent-foreground">
                       {p}
                     </button>
@@ -496,6 +514,32 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
               )}
             </div>
           </div>
+
+          {rates.length > 0 && (
+            <div className="flex flex-wrap items-end gap-3">
+              <div className="min-w-[220px] flex-1">
+                <Label className="flex items-center gap-1"><Tags className="size-3.5" /> Auto-fill from rate card</Label>
+                <Select value="" onValueChange={(v) => { const r = (rates as any[]).find(x => x.id === v); if (r) applyRate(r); }}>
+                  <SelectTrigger><SelectValue placeholder="Pick a saved rate…" /></SelectTrigger>
+                  <SelectContent>
+                    {(rates as any[]).map(r => (
+                      <SelectItem key={r.id} value={r.id}>
+                        {r.service_name} — {r.currency} {Number(r.amount).toFixed(0)}{r.supplier?.name ? ` · ${r.supplier.name}` : ""}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              {matchedRate && (
+                <div className="pb-2 text-xs text-muted-foreground">
+                  Rate card: <span className="font-medium text-foreground">{matchedRate.currency} {Number(matchedRate.amount).toFixed(0)}</span>
+                  {String(amount) !== String(matchedRate.amount) && (
+                    <button type="button" className="ml-2 rounded border px-1.5 py-0.5 hover:bg-accent hover:text-accent-foreground" onClick={() => setAmount(String(matchedRate.amount))}>Apply</button>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="grid gap-3 sm:grid-cols-4">
             <div>

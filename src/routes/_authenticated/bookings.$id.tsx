@@ -400,7 +400,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
     queryKey: ["rate-cards-for-expenses"],
     queryFn: async () => (await supabase
       .from("supplier_rates")
-      .select("id, service_name, amount, currency, supplier:suppliers(name)")
+      .select("id, service_name, amount, currency, rate_type, supplier:suppliers(name)")
       .order("service_name")).data ?? [],
   });
 
@@ -409,13 +409,28 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
     [rates, title]
   );
 
+  // When a rate card is applied, remember its per-unit price so the cost can
+  // recompute as (rate × adults) for per-person rates.
+  const [rateBasis, setRateBasis] = useState<{ unit: number; perPax: boolean } | null>(null);
+
   function applyRate(r: any) {
     setTitle(r.service_name);
-    setAmount(String(r.amount));
+    setRateBasis({ unit: Number(r.amount), perPax: r.rate_type === "per_pax" });
+  }
+
+  useEffect(() => {
+    if (!rateBasis) return;
+    const pax = Math.max(1, Number(guests) || 1);
+    setAmount(String(rateBasis.perPax ? rateBasis.unit * pax : rateBasis.unit));
+  }, [rateBasis, guests]);
+
+  function onAmountChange(v: string) {
+    setRateBasis(null); // manual edit detaches from the rate card
+    setAmount(v);
   }
 
   function reset() {
-    setTitle(""); setAmount(""); setEndDate(""); setGuests(""); setRoute(""); setNotes("");
+    setTitle(""); setAmount(""); setEndDate(""); setGuests(""); setRoute(""); setNotes(""); setRateBasis(null);
   }
 
   async function addExpense(e: React.FormEvent) {
@@ -433,7 +448,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
       expense_date: startDate,
       start_date: startDate,
       end_date: category === HOTEL ? (endDate || null) : null,
-      guests: category === ACTIVITY && guests ? Number(guests) : null,
+      guests: guests ? Number(guests) : null,
       route: category === TRANSFER ? (route.trim() || null) : null,
       notes: notes.trim() || null,
     } as any);
@@ -505,7 +520,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
               {PRESETS[category].length > 0 && (
                 <div className="mt-1.5 flex flex-wrap gap-1">
                   {PRESETS[category].map(p => (
-                    <button key={p} type="button" onClick={() => { setTitle(p); const r = (rates as any[]).find(x => (x.service_name ?? "").trim().toLowerCase() === p.toLowerCase()); if (r) setAmount(String(r.amount)); }}
+                    <button key={p} type="button" onClick={() => { const r = (rates as any[]).find(x => (x.service_name ?? "").trim().toLowerCase() === p.toLowerCase()); if (r) applyRate(r); else { setTitle(p); setRateBasis(null); } }}
                       className="rounded-full border px-2 py-0.5 text-[11px] text-muted-foreground hover:bg-accent hover:text-accent-foreground">
                       {p}
                     </button>
@@ -533,9 +548,8 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
               {matchedRate && (
                 <div className="pb-2 text-xs text-muted-foreground">
                   Rate card: <span className="font-medium text-foreground">{matchedRate.currency} {Number(matchedRate.amount).toFixed(0)}</span>
-                  {String(amount) !== String(matchedRate.amount) && (
-                    <button type="button" className="ml-2 rounded border px-1.5 py-0.5 hover:bg-accent hover:text-accent-foreground" onClick={() => setAmount(String(matchedRate.amount))}>Apply</button>
-                  )}
+                  {matchedRate.rate_type === "per_pax" && <span className="ml-1">× {Math.max(1, Number(guests) || 1)} adult(s)</span>}
+                  <button type="button" className="ml-2 rounded border px-1.5 py-0.5 hover:bg-accent hover:text-accent-foreground" onClick={() => applyRate(matchedRate)}>Apply</button>
                 </div>
               )}
             </div>
@@ -552,12 +566,10 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
                 <Input type="date" value={endDate} onChange={e => setEndDate(e.target.value)} />
               </div>
             )}
-            {category === ACTIVITY && (
-              <div>
-                <Label>Guests</Label>
-                <Input type="number" min={0} value={guests} onChange={e => setGuests(e.target.value)} />
-              </div>
-            )}
+            <div>
+              <Label>Adults</Label>
+              <Input type="number" min={1} value={guests} onChange={e => setGuests(e.target.value)} placeholder="1" />
+            </div>
             {category === TRANSFER && (
               <div className="sm:col-span-2">
                 <Label>Route (pickup → drop-off)</Label>

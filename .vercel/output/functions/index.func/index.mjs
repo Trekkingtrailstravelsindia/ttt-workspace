@@ -29709,10 +29709,10 @@ var init___23tanstack_start_server_fn_resolver_Bp5mxkxq = __esmMin$1((() => {
 	};
 }));
 //#endregion
-//#region dist/server/assets/_tanstack-start-manifest_v-mOMKKHnd.js
-var _tanstack_start_manifest_v_mOMKKHnd_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
+//#region dist/server/assets/_tanstack-start-manifest_v-BuwTyp38.js
+var _tanstack_start_manifest_v_BuwTyp38_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
+var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/__root.tsx",
@@ -29722,7 +29722,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 				"/auth"
 			],
 			preloads: [
-				"/assets/index-CK9ts5JW.js",
+				"/assets/index-CIlwNQJy.js",
 				"/assets/rolldown-runtime-QTnfLwEv.js",
 				"/assets/react-CZI7_Jkm.js",
 				"/assets/createLucideIcon-BeXmV15X.js",
@@ -29735,14 +29735,14 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-CK9ts5JW.js"
+				src: "/assets/index-CIlwNQJy.js"
 			} }]
 		},
 		"/": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-C-i4Ppct.js",
+				"/assets/routes-CvnfR2Bh.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js"
 			]
@@ -29769,13 +29769,13 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 				"/_authenticated/bookings/"
 			],
 			preloads: [
-				"/assets/route-BQ926pdP.js",
-				"/assets/useQuery-DOyWrgc0.js",
+				"/assets/route-DcCAqRrp.js",
+				"/assets/useQuery-Bm-2nWDm.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/plus-BkZrfRmn.js",
 				"/assets/user-plus-BlDqSje_.js",
 				"/assets/dialog-CRk0hC-B.js",
-				"/assets/use-current-role-BNgTJ-em.js",
+				"/assets/use-current-role-DJBi6ZaU.js",
 				"/assets/dist-lAGtACJv.js",
 				"/assets/utils-bQg_cXOl.js",
 				"/assets/button-S77LrnUo.js",
@@ -29788,7 +29788,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-n3HU9gJ-.js",
+				"/assets/auth-TjMlCCee.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29799,13 +29799,13 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 		"/_authenticated/calendar": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/calendar.tsx",
 			children: void 0,
-			preloads: ["/assets/calendar-Dmf_vhjw.js", "/assets/card-CjZIaSoO.js"]
+			preloads: ["/assets/calendar-DpBRWjZc.js", "/assets/card-CjZIaSoO.js"]
 		},
 		"/_authenticated/cash-flow": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/cash-flow.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cash-flow-CtxP7LxW.js",
+				"/assets/cash-flow-DH-EFydK.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/trending-down-B9uDsfUr.js",
@@ -29830,7 +29830,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/customers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/customers-i7Z151xb.js",
+				"/assets/customers-BDxqhJex.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29843,7 +29843,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/dashboard.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/dashboard-Ca6wQBqx.js",
+				"/assets/dashboard-Bxq1Th4g.js",
 				"/assets/trending-up-Bskfj5bG.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
@@ -29853,7 +29853,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/departures.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/departures-DcVc19hE.js",
+				"/assets/departures-UEzeFB1m.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29865,7 +29865,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/invoices.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/invoices-CfR1aOdE.js",
+				"/assets/invoices-Dcq8Omkq.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/pencil-Cy6VlxW9.js",
@@ -29880,7 +29880,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/leads.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/leads-Cgp3-ArA.js",
+				"/assets/leads-C7kxU5ix.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/card-CjZIaSoO.js",
@@ -29891,7 +29891,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/packages.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/packages-0qzdUVz7.js",
+				"/assets/packages-DawMzG36.js",
 				"/assets/map-pin-_tABMRrh.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29906,7 +29906,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/rate-cards.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/rate-cards-CmXDli9C.js",
+				"/assets/rate-cards-IzOyBx_u.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29919,7 +29919,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/reports.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/reports-DKCJc4qw.js",
+				"/assets/reports-BHQkoj39.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
 			]
@@ -29928,7 +29928,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/settings.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/settings-tPL-LUE_.js",
+				"/assets/settings-DcEmwPEe.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js"
 			]
@@ -29937,7 +29937,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/suppliers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/suppliers-BSq74h_1.js",
+				"/assets/suppliers-DzKQw-c4.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/send-DEhpv9YQ.js",
@@ -29951,7 +29951,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/tasks.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/tasks-Btnm0tJE.js",
+				"/assets/tasks-BzKNVb5A.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29965,21 +29965,21 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/team.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/team-CPEwzTXV.js",
-				"/assets/team-DF5JCEII.js",
-				"/assets/team-pV45fgr5.js",
+				"/assets/team-C02p724o.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js",
-				"/assets/badge-BQRL8034.js"
+				"/assets/badge-BQRL8034.js",
+				"/assets/team-CPEwzTXV.js",
+				"/assets/team-DF5JCEII.js"
 			]
 		},
 		"/_authenticated/bookings/$id": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/bookings.$id.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings._id-D2rnFMsb.js",
+				"/assets/bookings._id-DY0z0o2g.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/map-pin-_tABMRrh.js",
@@ -29998,7 +29998,7 @@ var init__tanstack_start_manifest_v_mOMKKHnd = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/bookings.index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings.index-Cc4j9zn6.js",
+				"/assets/bookings.index-B-RYNPwQ.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -43493,8 +43493,8 @@ var init_badge_B2cGBURX = __esmMin$1((() => {
 	});
 }));
 //#endregion
-//#region dist/server/assets/bookings._id-Bfyb7e8U.js
-var bookings__id_Bfyb7e8U_exports = /* @__PURE__ */ __exportAll$1({ component: () => BookingDetail });
+//#region dist/server/assets/bookings._id-CHm8IXgt.js
+var bookings__id_CHm8IXgt_exports = /* @__PURE__ */ __exportAll$1({ component: () => BookingDetail });
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -47269,13 +47269,22 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }) {
 	const [saving, setSaving] = (0, import_react$15.useState)(false);
 	const { data: rates = [] } = useQuery({
 		queryKey: ["rate-cards-for-expenses"],
-		queryFn: async () => (await supabase.from("supplier_rates").select("id, service_name, amount, currency, supplier:suppliers(name)").order("service_name")).data ?? []
+		queryFn: async () => (await supabase.from("supplier_rates").select("id, service_name, amount, currency, rate_type, supplier:suppliers(name)").order("service_name")).data ?? []
 	});
 	const matchedRate = (0, import_react$15.useMemo)(() => rates.find((r) => (r.service_name ?? "").trim().toLowerCase() === title.trim().toLowerCase()), [rates, title]);
+	const [rateBasis, setRateBasis] = (0, import_react$15.useState)(null);
 	function applyRate(r) {
 		setTitle(r.service_name);
-		setAmount(String(r.amount));
+		setRateBasis({
+			unit: Number(r.amount),
+			perPax: r.rate_type === "per_pax"
+		});
 	}
+	(0, import_react$15.useEffect)(() => {
+		if (!rateBasis) return;
+		const pax = Math.max(1, Number(guests) || 1);
+		setAmount(String(rateBasis.perPax ? rateBasis.unit * pax : rateBasis.unit));
+	}, [rateBasis, guests]);
 	function reset() {
 		setTitle("");
 		setAmount("");
@@ -47283,6 +47292,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }) {
 		setGuests("");
 		setRoute("");
 		setNotes("");
+		setRateBasis(null);
 	}
 	async function addExpense(e) {
 		e.preventDefault();
@@ -47299,7 +47309,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }) {
 			expense_date: startDate,
 			start_date: startDate,
 			end_date: category === HOTEL ? endDate || null : null,
-			guests: category === ACTIVITY && guests ? Number(guests) : null,
+			guests: guests ? Number(guests) : null,
 			route: category === TRANSFER ? route.trim() || null : null,
 			notes: notes.trim() || null
 		});
@@ -47380,9 +47390,12 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }) {
 									children: PRESETS[category].map((p) => /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("button", {
 										type: "button",
 										onClick: () => {
-											setTitle(p);
 											const r = rates.find((x) => (x.service_name ?? "").trim().toLowerCase() === p.toLowerCase());
-											if (r) setAmount(String(r.amount));
+											if (r) applyRate(r);
+											else {
+												setTitle(p);
+												setRateBasis(null);
+											}
 										},
 										className: "rounded-full border px-2 py-0.5 text-[11px] text-muted-foreground hover:bg-accent hover:text-accent-foreground",
 										children: p
@@ -47428,10 +47441,18 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }) {
 										Number(matchedRate.amount).toFixed(0)
 									]
 								}),
-								String(amount) !== String(matchedRate.amount) && /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("button", {
+								matchedRate.rate_type === "per_pax" && /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("span", {
+									className: "ml-1",
+									children: [
+										"× ",
+										Math.max(1, Number(guests) || 1),
+										" adult(s)"
+									]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)("button", {
 									type: "button",
 									className: "ml-2 rounded border px-1.5 py-0.5 hover:bg-accent hover:text-accent-foreground",
-									onClick: () => setAmount(String(matchedRate.amount)),
+									onClick: () => applyRate(matchedRate),
 									children: "Apply"
 								})
 							]
@@ -47450,11 +47471,12 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }) {
 								value: endDate,
 								onChange: (e) => setEndDate(e.target.value)
 							})] }),
-							category === ACTIVITY && /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Guests" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
+							/* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Label$2, { children: "Adults" }), /* @__PURE__ */ (0, import_jsx_runtime$21.jsx)(Input, {
 								type: "number",
-								min: 0,
+								min: 1,
 								value: guests,
-								onChange: (e) => setGuests(e.target.value)
+								onChange: (e) => setGuests(e.target.value),
+								placeholder: "1"
 							})] }),
 							category === TRANSFER && /* @__PURE__ */ (0, import_jsx_runtime$21.jsxs)("div", {
 								className: "sm:col-span-2",
@@ -48404,7 +48426,7 @@ function WhatsAppCard({ booking, sym, totalSell }) {
 	})] });
 }
 var ArrowLeft, FileDown, FileText, Handshake, History, MessageSquare, SquareCheck, Upload, UserCheck, require_node, encoder, init_text$1, defaultByteLength, hostBigEndian, typedArrays, IOBuffer, init_IOBuffer, Z_FIXED$1, Z_BINARY, Z_TEXT, Z_UNKNOWN$1, STORED_BLOCK, STATIC_TREES, DYN_TREES, LENGTH_CODES$1, LITERALS$1, L_CODES$1, D_CODES$1, BL_CODES$1, HEAP_SIZE$1, MAX_BITS$1, Buf_size, MAX_BL_BITS, END_BLOCK, REP_3_6, REPZ_3_10, REPZ_11_138, extra_lbits, extra_dbits, extra_blbits, bl_order, DIST_CODE_LEN, static_ltree, static_dtree, _dist_code, _length_code, base_length, base_dist, static_l_desc, static_d_desc, static_bl_desc, d_code, put_short, send_bits, send_code, bi_reverse, bi_flush, gen_bitlen, gen_codes, tr_static_init, init_block, bi_windup, smaller, pqdownheap, compress_block, build_tree, scan_tree, send_tree, build_bl_tree, send_all_trees, detect_data_type, static_init_done, _tr_init$1, _tr_stored_block$1, _tr_align$1, _tr_flush_block$1, _tr_tally$1, trees, adler32, adler32_1, makeTable, crcTable$1, crc32, crc32_1, messages, constants$2, _tr_init, _tr_stored_block, _tr_flush_block, _tr_tally, _tr_align, Z_NO_FLUSH$2, Z_PARTIAL_FLUSH, Z_FULL_FLUSH$1, Z_FINISH$3, Z_BLOCK$1, Z_OK$3, Z_STREAM_END$3, Z_STREAM_ERROR$2, Z_DATA_ERROR$2, Z_BUF_ERROR$2, Z_DEFAULT_COMPRESSION$1, Z_FILTERED, Z_HUFFMAN_ONLY, Z_RLE, Z_FIXED, Z_DEFAULT_STRATEGY$1, Z_UNKNOWN, Z_DEFLATED$2, MAX_MEM_LEVEL, MAX_WBITS$1, DEF_MEM_LEVEL, HEAP_SIZE, MIN_MATCH, MAX_MATCH, MIN_LOOKAHEAD, PRESET_DICT, INIT_STATE, GZIP_STATE, EXTRA_STATE, NAME_STATE, COMMENT_STATE, HCRC_STATE, BUSY_STATE, FINISH_STATE, BS_NEED_MORE, BS_BLOCK_DONE, BS_FINISH_STARTED, BS_FINISH_DONE, OS_CODE, err, rank, zero$2, slide_hash, HASH, INSERT_STRING, flush_pending, flush_block_only, put_byte, putShortMSB, read_buf, longest_match, fill_window, deflate_stored, deflate_fast, deflate_slow, deflate_rle, deflate_huff, configuration_table, lm_init, deflateStateCheck, deflateResetKeep, deflateReset, deflateSetHeader, deflateInit2, deflateInit, deflate$2, deflateEnd, deflateSetDictionary, deflate_1$2, _has, assign$1, flattenChunks, common, STR_APPLY_UIA_OK, _utf8len, string2buf, buf2binstring, buf2string, utf8border, strings, zstream, toString$1$1, Z_NO_FLUSH$1, Z_SYNC_FLUSH, Z_FULL_FLUSH, Z_FINISH$2, Z_OK$2, Z_STREAM_END$2, Z_DEFAULT_COMPRESSION, Z_DEFAULT_STRATEGY, Z_DEFLATED$1, defaultOptions$1, deflate_1$1, BAD$1, TYPE$1, inffast, MAXBITS, ENOUGH_LENS$1, ENOUGH_DISTS$1, CODES$1, LENS$1, DISTS$1, lbase, lext, dbase, dext, inflate_table, inftrees, CODES, LENS, DISTS, Z_FINISH$1, Z_BLOCK, Z_TREES, Z_OK$1, Z_STREAM_END$1, Z_NEED_DICT$1, Z_STREAM_ERROR$1, Z_DATA_ERROR$1, Z_MEM_ERROR$1, Z_BUF_ERROR$1, Z_DEFLATED, HEAD, FLAGS, TIME, OS, EXLEN, EXTRA, NAME, COMMENT, HCRC, DICTID, DICT, TYPE, TYPEDO, STORED, COPY_, COPY, TABLE, LENLENS, CODELENS, LEN_, LEN, LENEXT, DIST, DISTEXT, MATCH, LIT, CHECK, LENGTH, DONE, BAD, MEM, SYNC, ENOUGH_LENS, ENOUGH_DISTS, DEF_WBITS, zswap32, inflateStateCheck, inflateResetKeep, inflateReset, inflateReset2, inflateInit2, inflateInit, virgin, lenfix, distfix, fixedtables, updatewindow, inflate$2, inflateEnd, inflateGetHeader, inflateSetDictionary, inflate_1$2, gzheader, toString$2, Z_NO_FLUSH, Z_FINISH, Z_OK, Z_STREAM_END, Z_NEED_DICT, Z_STREAM_ERROR, Z_DATA_ERROR, Z_MEM_ERROR, Z_BUF_ERROR, defaultOptions, inflate_1$1, Deflate, deflate, deflateRaw, gzip, Inflate, inflate, inflateRaw, ungzip, deflate_1, Inflate_1, inflate_1, init_pako_esm, crcTable, initialCrc, init_crc, init_unfilter, init_applyUnfilter, uint16$1, osIsLittleEndian$1, init_decodeInterlaceAdam7, uint16, osIsLittleEndian, empty, init_decodeInterlaceNull, pngSignature, init_signature, textChunkName, NULL$1, latin1Decoder, latin1Regex, init_text, ColorType, CompressionMethod, FilterMethod, InterlaceMethod, DisposeOpType, BlendOpType, init_internalTypes, PngDecoder, init_PngDecoder, defaultZlibOptions, PngEncoder, init_PngEncoder, ResolutionUnitSpecifier, init_types, init_convertIndexedToRgb, lib_esm_exports, init_lib_esm, html2canvas_esm_exports, extendStatics$1, __assign, Bounds, parseBounds, parseDocumentSize, toCodePoints$1, fromCodePoint$1, chars$2, lookup$2, i$2, chars$1$1, lookup$1$1, i$1$1, decode$1, polyUint16Array$1, polyUint32Array$1, UTRIE2_SHIFT_2$1, UTRIE2_SHIFT_1$1, UTRIE2_INDEX_SHIFT$1, UTRIE2_SHIFT_1_2$1, UTRIE2_LSCP_INDEX_2_OFFSET$1, UTRIE2_DATA_MASK$1, UTRIE2_INDEX_1_OFFSET$1, UTRIE2_OMITTED_BMP_INDEX_1_LENGTH$1, UTRIE2_INDEX_2_MASK$1, slice16$1, slice32$1, createTrieFromBase64$1, Trie$1, chars$3, lookup$3, i$3, base64$1, LETTER_NUMBER_MODIFIER, BK, CR$1, LF$1, CM, NL, WJ, ZW, GL, SP, ZWJ$1, B2, BA, BB, HY, CB, CL, CP, EX, IN, NS, OP, QU, IS, NU, PO, PR, SY, AI, AL, CJ, EB, EM, H2, H3, HL, ID, JL, JV, JT, RI$1, SA, XX, ea_OP, BREAK_MANDATORY, BREAK_NOT_ALLOWED$1, BREAK_ALLOWED$1, UnicodeTrie$1, ALPHABETICS, HARD_LINE_BREAKS, SPACE$1, PREFIX_POSTFIX, LINE_BREAKS, KOREAN_SYLLABLE_BLOCK, HYPHEN, codePointsToCharacterClasses, isAdjacentWithSpaceIgnored, previousNonSpaceClassType, _lineBreakAtIndex, cssFormattedClasses, Break, LineBreaker, FLAG_UNRESTRICTED, FLAG_ID, FLAG_INTEGER, FLAG_NUMBER, LINE_FEED, SOLIDUS, REVERSE_SOLIDUS, CHARACTER_TABULATION, SPACE, QUOTATION_MARK, EQUALS_SIGN, NUMBER_SIGN, DOLLAR_SIGN, PERCENTAGE_SIGN, APOSTROPHE, LEFT_PARENTHESIS, RIGHT_PARENTHESIS, LOW_LINE, HYPHEN_MINUS, EXCLAMATION_MARK, LESS_THAN_SIGN, GREATER_THAN_SIGN, COMMERCIAL_AT, LEFT_SQUARE_BRACKET, RIGHT_SQUARE_BRACKET, CIRCUMFLEX_ACCENT, LEFT_CURLY_BRACKET, QUESTION_MARK, RIGHT_CURLY_BRACKET, VERTICAL_LINE, TILDE, CONTROL, REPLACEMENT_CHARACTER, ASTERISK, PLUS_SIGN, COMMA, COLON, SEMICOLON, FULL_STOP, NULL, BACKSPACE, LINE_TABULATION, SHIFT_OUT, INFORMATION_SEPARATOR_ONE, DELETE, EOF, ZERO, a$1, e, f, u, z$1, A$1, E, F, U$1, Z$1, isDigit, isSurrogateCodePoint, isHex, isLowerCaseLetter, isUpperCaseLetter, isLetter, isNonASCIICodePoint, isWhiteSpace, isNameStartCodePoint, isNameCodePoint, isNonPrintableCodePoint, isValidEscape, isIdentifierStart, isNumberStart, stringToNumber, LEFT_PARENTHESIS_TOKEN, RIGHT_PARENTHESIS_TOKEN, COMMA_TOKEN, SUFFIX_MATCH_TOKEN, PREFIX_MATCH_TOKEN, COLUMN_TOKEN, DASH_MATCH_TOKEN, INCLUDE_MATCH_TOKEN, LEFT_CURLY_BRACKET_TOKEN, RIGHT_CURLY_BRACKET_TOKEN, SUBSTRING_MATCH_TOKEN, BAD_URL_TOKEN, BAD_STRING_TOKEN, CDO_TOKEN, CDC_TOKEN, COLON_TOKEN, SEMICOLON_TOKEN, LEFT_SQUARE_BRACKET_TOKEN, RIGHT_SQUARE_BRACKET_TOKEN, WHITESPACE_TOKEN, EOF_TOKEN, Tokenizer, Parser, isDimensionToken, isNumberToken, isIdentToken, isStringToken, isIdentWithValue, nonWhiteSpace, nonFunctionArgSeparator, parseFunctionArgs, isEndingTokenFor, isLength, isLengthPercentage, parseLengthPercentageTuple, ZERO_LENGTH, FIFTY_PERCENT, HUNDRED_PERCENT, getAbsoluteValueForTuple, getAbsoluteValue, DEG, GRAD, RAD, TURN, angle, isAngle, parseNamedSide, deg, color$1, isTransparent, asString, pack, getTokenColorValue, rgb$1, hsl$1, SUPPORTED_COLOR_FUNCTIONS, parseColor$1, COLORS, backgroundClip, backgroundColor, parseColorStop, processColorStops, getAngleFromCorner, calculateGradientDirection, distance, findCorner, calculateRadius, linearGradient, prefixLinearGradient, webkitGradient, CLOSEST_SIDE, FARTHEST_SIDE, CLOSEST_CORNER, FARTHEST_CORNER, CIRCLE, ELLIPSE, COVER, CONTAIN, radialGradient, prefixRadialGradient, isLinearGradient, isRadialGradient, image, SUPPORTED_IMAGE_FUNCTIONS, backgroundImage, backgroundOrigin, backgroundPosition, backgroundRepeat, parseBackgroundRepeat, BACKGROUND_SIZE, backgroundSize, isBackgroundSizeInfoToken, borderColorForSide, borderTopColor, borderRightColor, borderBottomColor, borderLeftColor, borderRadiusForSide, borderTopLeftRadius, borderTopRightRadius, borderBottomRightRadius, borderBottomLeftRadius, borderStyleForSide, borderTopStyle, borderRightStyle, borderBottomStyle, borderLeftStyle, borderWidthForSide, borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth, color$2, direction, display, parseDisplayValue, float, letterSpacing, LINE_BREAK, lineBreak, lineHeight, computeLineHeight, listStyleImage, listStylePosition, listStyleType, marginForSide, marginTop, marginRight, marginBottom, marginLeft, overflow, overflowWrap, paddingForSide, paddingTop, paddingRight, paddingBottom, paddingLeft, textAlign, position, textShadow, textTransform, transform$1, matrix, matrix3d, SUPPORTED_TRANSFORM_FUNCTIONS, DEFAULT_VALUE, DEFAULT, transformOrigin, visibility, WORD_BREAK, wordBreak, zIndex, time$1, opacity, textDecorationColor, textDecorationLine, fontFamily, fontSize, fontWeight, fontVariant, fontStyle, contains, content, counterIncrement, counterReset, duration, quotes, getQuote, boxShadow, paintOrder, webkitTextStrokeColor, webkitTextStrokeWidth, CSSParsedDeclaration, CSSParsedPseudoDeclaration, CSSParsedCounterDeclaration, parse, elementDebuggerAttribute, getElementDebugType, isDebugging, ElementContainer, base64, chars$1, lookup$1, i$1, decode, polyUint16Array, polyUint32Array, UTRIE2_SHIFT_2, UTRIE2_SHIFT_1, UTRIE2_INDEX_SHIFT, UTRIE2_SHIFT_1_2, UTRIE2_LSCP_INDEX_2_OFFSET, UTRIE2_DATA_MASK, UTRIE2_INDEX_1_OFFSET, UTRIE2_OMITTED_BMP_INDEX_1_LENGTH, UTRIE2_INDEX_2_MASK, slice16, slice32, createTrieFromBase64, Trie, chars, lookup, i, Prepend, CR, LF, Control, Extend, SpacingMark, L$1, V$1, T$1, LV, LVT, ZWJ, Extended_Pictographic, RI, toCodePoints, fromCodePoint, UnicodeTrie, BREAK_NOT_ALLOWED, BREAK_ALLOWED, codePointToClass, _graphemeBreakAtIndex, GraphemeBreaker, splitGraphemes, testRangeBounds, testIOSLineBreak, testCORS, testResponseType, testSVG, isGreenPixel, testForeignObject, createForeignObjectSVG, loadSerializedSVG$1, FEATURES, TextBounds, parseTextBounds, getWrapperBounds, createRange, segmentGraphemes, segmentWords, breakText, wordSeparators, breakWords, TextContainer, transform, CAPITALIZE, capitalize, ImageElementContainer, CanvasElementContainer, SVGElementContainer, LIElementContainer, OLElementContainer, CHECKBOX_BORDER_RADIUS, RADIO_BORDER_RADIUS, reformatInputBounds, getInputValue, CHECKBOX, RADIO, PASSWORD, INPUT_COLOR, InputElementContainer, SelectElementContainer, TextareaElementContainer, IFrameElementContainer, LIST_OWNERS, parseNodeTree, createContainer, parseTree, createsRealStackingContext, createsStackingContext, isTextNode, isElementNode, isHTMLElementNode, isSVGElementNode, isLIElement, isOLElement, isInputElement, isHTMLElement, isSVGElement, isBodyElement, isCanvasElement, isVideoElement, isImageElement, isIFrameElement, isStyleElement, isScriptElement, isTextareaElement, isSelectElement, isSlotElement, isCustomElement, CounterState, ROMAN_UPPER, ARMENIAN, HEBREW, GEORGIAN, createAdditiveCounter, createCounterStyleWithSymbolResolver, createCounterStyleFromRange, createCounterStyleFromSymbols, CJK_ZEROS, CJK_TEN_COEFFICIENTS, CJK_TEN_HIGH_COEFFICIENTS, CJK_HUNDRED_COEFFICIENTS, createCJKCounter, CHINESE_INFORMAL_MULTIPLIERS, CHINESE_FORMAL_MULTIPLIERS, JAPANESE_NEGATIVE, KOREAN_NEGATIVE, createCounterText, IGNORE_ATTRIBUTE, DocumentCloner, PseudoElementType, createIFrameContainer, imageReady, imagesReady, iframeLoader, ignoredStyleProperties, copyCSSStyles, serializeDoctype, restoreOwnerScroll, restoreNodeScroll, PSEUDO_BEFORE, PSEUDO_AFTER, PSEUDO_HIDE_ELEMENT_CLASS_BEFORE, PSEUDO_HIDE_ELEMENT_CLASS_AFTER, PSEUDO_HIDE_ELEMENT_STYLE, createPseudoHideStyles, createStyles, CacheStorage, Cache, INLINE_SVG, INLINE_BASE64, INLINE_IMG, isRenderable, isInlineImage, isInlineBase64Image, isBlobImage, isSVG, Vector, lerp, BezierCurve, isBezierCurve, BoundCurves, CORNER, getCurvePoints, calculateBorderBoxPath, calculateContentBoxPath, calculatePaddingBoxPath, TransformEffect, ClipEffect, OpacityEffect, isTransformEffect, isClipEffect, isOpacityEffect, equalPath, transformPath, StackingContext, ElementPaint, parseStackTree, processListItems, parseStackingContexts, parsePathForBorder, parsePathForBorderDoubleOuter, parsePathForBorderDoubleInner, parsePathForBorderStroke, createStrokePathFromCurves, createPathFromCurves, paddingBox, contentBox, calculateBackgroundPositioningArea, calculateBackgroundPaintingArea, calculateBackgroundRendering, isAuto, hasIntrinsicValue, calculateBackgroundSize, getBackgroundValueForIndex, calculateBackgroundRepeatPath, SMALL_IMAGE, SAMPLE_TEXT, FontMetrics, Renderer, MASK_OFFSET, CanvasRenderer, isTextInputElement, calculateBackgroundCurvedPaintingArea, canvasTextAlign, iOSBrokenFonts, fixIOSSystemFonts, ForeignObjectRenderer, loadSerializedSVG, Logger, Context, html2canvas, renderElement, parseBackgroundColor, init_html2canvas_esm, require_purify_cjs, require_global_this, require_is_pure, require_define_global_property, require_shared_store, require_shared, require_fails, require_function_bind_native, require_function_uncurry_this, require_is_null_or_undefined, require_require_object_coercible, require_to_object, require_has_own_property, require_uid, require_environment_user_agent, require_environment_v8_version, require_symbol_constructor_detection, require_use_symbol_as_uid, require_well_known_symbol, require_to_string_tag_support, require_is_callable, require_descriptors, require_is_object, require_document_create_element, require_ie8_dom_define, require_v8_prototype_define_bug, require_an_object, require_function_call, require_get_built_in, require_object_is_prototype_of, require_is_symbol, require_try_to_string, require_a_callable, require_get_method, require_ordinary_to_primitive, require_to_primitive, require_to_property_key, require_object_define_property, require_function_name, require_inspect_source, require_weak_map_basic_detection, require_create_property_descriptor, require_create_non_enumerable_property, require_shared_key, require_hidden_keys, require_internal_state, require_make_built_in, require_define_built_in, require_classof_raw, require_classof, require_object_to_string, require_es_object_to_string, require_object_property_is_enumerable, require_indexed_object, require_to_indexed_object, require_object_get_own_property_descriptor, require_math_trunc, require_to_integer_or_infinity, require_to_absolute_index, require_to_length, require_length_of_array_like, require_array_includes, require_object_keys_internal, require_enum_bug_keys, require_object_get_own_property_names, require_object_get_own_property_symbols, require_own_keys, require_copy_constructor_properties, require_is_forced, require_export, require_environment, require_environment_is_node, require_path, require_function_uncurry_this_accessor, require_is_possible_prototype, require_a_possible_prototype, require_object_set_prototype_of, require_set_to_string_tag, require_define_built_in_accessor, require_set_species, require_an_instance, require_is_constructor, require_a_constructor, require_species_constructor, require_function_apply, require_function_uncurry_this_clause, require_function_bind_context, require_html, require_array_slice, require_validate_arguments_length, require_environment_is_ios, require_task, require_safe_get_built_in, require_queue, require_environment_is_ios_pebble, require_environment_is_webos_webkit, require_microtask, require_host_report_errors, require_perform, require_promise_native_constructor, require_promise_constructor_detection, require_new_promise_capability, require_es_promise_constructor, require_iterators, require_is_array_iterator_method, require_get_iterator_method, require_get_iterator, require_iterator_close, require_iterate, require_check_correctness_of_iteration, require_promise_statics_incorrect_iteration, require_es_promise_all, require_es_promise_catch, require_es_promise_race, require_es_promise_reject, require_promise_resolve, require_es_promise_resolve, require_es_promise, require_es_reflect_delete_property, require_OverloadYield, require_regeneratorDefine, require_regenerator$1, require_regeneratorAsyncIterator, require_regeneratorAsyncGen, require_regeneratorAsync, require_regeneratorKeys, require_typeof, require_regeneratorValues, require_regeneratorRuntime, require_regenerator, require_asyncToGenerator, require_is_array, require_array_species_constructor, require_array_species_create, require_create_property, require_array_iteration, require_array_method_has_species_support, require_es_array_map, require_to_string, require_whitespaces, require_string_trim, require_number_parse_float, require_es_parse_float, require_regexp_flags, require_regexp_sticky_helpers, require_object_keys, require_object_define_properties, require_object_create, require_regexp_unsupported_dot_all, require_regexp_unsupported_ncg, require_regexp_exec, require_es_regexp_exec, require_fix_regexp_well_known_symbol_logic, require_string_multibyte, require_advance_string_index, require_regexp_flags_detection, require_regexp_get_flags, require_regexp_exec_abstract, require_es_string_match, require_get_substitution, require_es_string_replace, require_is_regexp, require_not_a_regexp, require_correct_is_regexp_logic, require_es_string_starts_with, require_array_method_is_strict, require_es_array_join, require_arrayWithHoles, require_iterableToArrayLimit, require_arrayLikeToArray, require_unsupportedIterableToArray, require_nonIterableRest, require_slicedToArray, require_toPrimitive, require_toPropertyKey, require_defineProperty, require_classCallCheck, require_createClass, require_does_not_exceed_safe_integer, require_array_set_length, require_es_array_concat, require_es_array_every, require_array_reduce, require_es_array_reduce, require_es_string_ends_with, require_es_string_split, require_performance_now, require_raf, require_es_function_name, require_string_trim_forced, require_es_string_trim, require_rgbcolor, require_array_for_each, require_es_array_for_each, require_dom_iterables, require_dom_token_list_prototype, require_web_dom_collections_for_each, require_setPrototypeOf, require_inherits, require_assertThisInitialized, require_possibleConstructorReturn, require_getPrototypeOf, require_call_with_safe_iteration_closing, require_array_from, require_es_array_from, require_add_to_unscopables, require_es_array_includes, require_es_array_index_of, require_es_array_some, require_es_string_includes, require_correct_prototype_getter, require_object_get_prototype_of, require_iterators_core, require_iterator_create_constructor, require_iterator_define, require_create_iter_result_object, require_es_string_iterator, require_arrayWithoutHoles, require_iterableToArray, require_nonIterableSpread, require_toConsumableArray, require_es_array_reverse, require_inherit_if_required, require_this_number_value, require_es_number_constructor, require_superPropBase, require_get$1, require_array_fill, require_es_array_fill, require_SVGPathData, require_es_regexp_to_string, require_es_array_iterator, require_web_dom_collections_iterator, require_object_get_own_property_names_external, require_array_buffer_non_extensible, require_object_is_extensible, require_freezing, require_internal_metadata, require_collection, require_define_built_ins, require_collection_strong, require_es_map_constructor, require_es_map, require_es_reflect_apply, require_es_reflect_get_prototype_of, stackblur_es_exports, mulTable, shgTable, BlurStack, init_stackblur_es, require_lib, require_jspdf_node_min, import_react$15, import_jspdf_node_min, globalDefaults, DocHandler, extendStatics, HtmlRowInput, HookData, CellHookData, Table, Row$1, Cell$1, Column, _a$1, anyWindow, jsPDF$1, import_jsx_runtime$21, HOTEL, ACTIVITY, TRANSFER, OTHER, CATEGORIES, PRESETS, CAT_LABEL, CHECKLIST_TEMPLATE;
-var init_bookings__id_Bfyb7e8U = __esmMin$1((() => {
+var init_bookings__id_CHm8IXgt = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useNavigate_A7neNTi_();
@@ -48422,7 +48444,7 @@ var init_bookings__id_Bfyb7e8U = __esmMin$1((() => {
 	init_trash_2_DitDi0iH();
 	init_trending_down_BvajxNpS();
 	init_trending_up_CUw8LvW9();
-	init_bookings__id_BgXPfCUv();
+	init_bookings__id_C4Irc3QY();
 	init_use_current_role_Gd5rIhXJ();
 	init_button_B6qX_Bm6();
 	init_label_B6Z0mr2h();
@@ -95224,11 +95246,11 @@ while (prev === _win[++scan] && prev === _win[++scan] && prev === _win[++scan] &
 	];
 }));
 //#endregion
-//#region dist/server/assets/bookings._id-BgXPfCUv.js
+//#region dist/server/assets/bookings._id-C4Irc3QY.js
 var $$splitComponentImporter$17, Route$18;
-var init_bookings__id_BgXPfCUv = __esmMin$1((() => {
+var init_bookings__id_C4Irc3QY = __esmMin$1((() => {
 	init_lazyRouteComponent_BIWBRRnc();
-	$$splitComponentImporter$17 = () => Promise.resolve().then(() => (init_bookings__id_Bfyb7e8U(), bookings__id_Bfyb7e8U_exports));
+	$$splitComponentImporter$17 = () => Promise.resolve().then(() => (init_bookings__id_CHm8IXgt(), bookings__id_CHm8IXgt_exports));
 	Route$18 = createFileRoute("/_authenticated/bookings/$id")({ component: lazyRouteComponent($$splitComponentImporter$17, "component") });
 }));
 //#endregion
@@ -123701,8 +123723,8 @@ var init_bookings_index_70nQBs0n = __esmMin$1((() => {
 	import_jsx_runtime$2 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/router-Ds8lXh4e.js
-var router_Ds8lXh4e_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
+//#region dist/server/assets/router-CFduaKbQ.js
+var router_CFduaKbQ_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
 function setScriptAttrs(script, attrs) {
 	if (!attrs) return;
 	for (const [key, value] of Object.entries(attrs)) if (key !== "suppressHydrationWarning" && value !== void 0 && value !== false) script.setAttribute(key, typeof value === "boolean" ? "" : String(value));
@@ -124024,7 +124046,7 @@ function RootComponent() {
 	});
 }
 var getStoreFactory, createRouter, Router, import_react, import_jsx_runtime$1, noopScriptHandler, useTags, Scripts, MutationCache, QueryCache, QueryClient, styles_default, Route$17, $$splitComponentImporter$16, Route$16, $$splitComponentImporter$15, Route$15, $$splitComponentImporter$14, Route$14, $$splitComponentImporter$13, Route$13, $$splitComponentImporter$12, Route$12, $$splitComponentImporter$11, Route$11, $$splitComponentImporter$10, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitComponentImporter$2, Route$2, $$splitNotFoundComponentImporter, $$splitErrorComponentImporter, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AuthRoute, AuthenticatedCalendarRoute, AuthenticatedCashFlowRoute, AuthenticatedCostCalcRoute, AuthenticatedCustomersRoute, AuthenticatedDashboardRoute, AuthenticatedDeparturesRoute, AuthenticatedInvoicesRoute, AuthenticatedLeadsRoute, AuthenticatedPackagesRoute, AuthenticatedRateCardsRoute, AuthenticatedReportsRoute, AuthenticatedSettingsRoute, AuthenticatedSuppliersRoute, AuthenticatedTasksRoute, AuthenticatedTeamRoute, AuthenticatedBookingsIndexRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_Ds8lXh4e = __esmMin$1((() => {
+var init_router_CFduaKbQ = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -124039,7 +124061,7 @@ var init_router_Ds8lXh4e = __esmMin$1((() => {
 	init_client_DiC8_6GY();
 	init_route_DzfM0kYt();
 	init_customers_NR_8TwH5();
-	init_bookings__id_BgXPfCUv();
+	init_bookings__id_C4Irc3QY();
 	getStoreFactory = (opts) => {
 		return {
 			createMutableStore: createNonReactiveMutableStore,
@@ -124842,8 +124864,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin$1((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region dist/server/assets/server-DIiuz2AV.js
-var server_DIiuz2AV_exports = /* @__PURE__ */ __exportAll$1({
+//#region dist/server/assets/server-Dt64XudI.js
+var server_Dt64XudI_exports = /* @__PURE__ */ __exportAll$1({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -127714,7 +127736,7 @@ async function waitForReadyOrAbort(ready, signal) {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_mOMKKHnd(), _tanstack_start_manifest_v_mOMKKHnd_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_BuwTyp38(), _tanstack_start_manifest_v_BuwTyp38_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -128468,7 +128490,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_Ds8lXh4e(), router_Ds8lXh4e_exports)),
+		Promise.resolve().then(() => (init_router_CFduaKbQ(), router_CFduaKbQ_exports)),
 		Promise.resolve().then(() => (init_start__Vgpq64H(), start__Vgpq64H_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -128844,7 +128866,7 @@ function createServerEntry(entry) {
 	} };
 }
 var GLOBAL_TSR, TSR_SCRIPT_BARRIER_ID, M$1, v$1, dr, R, C, gr, yr, Nr, br, vr, Cr, Ar, P$1, Er, nt, Ce, ot, at, o$1, st, Ae, it, H$1, J, Ee, Ie, ut, lt, ct, ft, L, le$1, Re, Ir, U, bs, Cn, En, fe, _, Je, x$1, z, X, V, Pe, xe, Ze, O$1, Q$1, j$1, ee$1, In, Rn, bt, vt, Ct, xr, At, Tr, Et, Or, It, wr, Rt, Pn, xt, Tt, Ot, wt, xn, Dr, oe$1, qn, Wn, Kn, Gn, Br, Ro, Po, Ht, Xt, Zt, Qt, $t, xo, Oo, wo, ho, zo, _o, ko, Ur, Hr, Jr, RawStream, BufferCtor, hasNodeBuffer, RAW_STREAM_FACTORY_BINARY, RAW_STREAM_FACTORY_TEXT, RAW_STREAM_FACTORY_CONSTRUCTOR_BINARY, textEncoderForFactory, RAW_STREAM_FACTORY_CONSTRUCTOR_TEXT, FACTORY_BINARY, FACTORY_TEXT, RawStreamSSRPlugin, ShallowErrorPlugin, o, P, ee, defaultSerovalPlugins, import_jsx_runtime, require_react_dom_server_legacy_node_production, require_react_dom_server_node_production, require_server_node, tsrScript_default, SCOPE_ID, TSR_PREFIX, P_PREFIX, P_SUFFIX, INITIAL_SCRIPTS, ScriptBuffer, MANIFEST_CACHE_SIZE, manifestCaches, MIN_CLOSING_TAG_LENGTH, DEFAULT_SERIALIZATION_TIMEOUT_MS, DEFAULT_LIFETIME_TIMEOUT_MS, MAX_LEFTOVER_CHARS, MAX_TAIL_CHARS, MAX_ROUTER_HTML_CHARS, MAX_PENDING_WRITE_CHARS, MergeState, textEncoder$1, noop$1, resolvedPromise, fullPattern, naivePattern, pattern, isNonEmptyString, isbot, import_server_node, noop, isAbortError, renderRouterToStream, defaultStreamHandler, HEADERS, innerCreateCsrfMiddleware, createCsrfMiddleware, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_DIiuz2AV = __esmMin$1((() => {
+var init_server_Dt64XudI = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -138306,7 +138328,7 @@ function renderErrorPage() {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_DIiuz2AV(), server_DIiuz2AV_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_Dt64XudI(), server_Dt64XudI_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

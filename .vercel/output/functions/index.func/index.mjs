@@ -29709,10 +29709,10 @@ var init___23tanstack_start_server_fn_resolver_Bp5mxkxq = __esmMin$1((() => {
 	};
 }));
 //#endregion
-//#region dist/server/assets/_tanstack-start-manifest_v-BuwTyp38.js
-var _tanstack_start_manifest_v_BuwTyp38_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
+//#region dist/server/assets/_tanstack-start-manifest_v-m6wpGkO9.js
+var _tanstack_start_manifest_v_m6wpGkO9_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
+var init__tanstack_start_manifest_v_m6wpGkO9 = __esmMin$1((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/__root.tsx",
@@ -29722,7 +29722,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 				"/auth"
 			],
 			preloads: [
-				"/assets/index-CIlwNQJy.js",
+				"/assets/index-Bt-T5A7e.js",
 				"/assets/rolldown-runtime-QTnfLwEv.js",
 				"/assets/react-CZI7_Jkm.js",
 				"/assets/createLucideIcon-BeXmV15X.js",
@@ -29735,14 +29735,14 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-CIlwNQJy.js"
+				src: "/assets/index-Bt-T5A7e.js"
 			} }]
 		},
 		"/": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-CvnfR2Bh.js",
+				"/assets/routes-C2Sq4-46.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js"
 			]
@@ -29769,13 +29769,13 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 				"/_authenticated/bookings/"
 			],
 			preloads: [
-				"/assets/route-DcCAqRrp.js",
-				"/assets/useQuery-Bm-2nWDm.js",
+				"/assets/route-DN5hKClF.js",
+				"/assets/useQuery-BycMEyHA.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/plus-BkZrfRmn.js",
 				"/assets/user-plus-BlDqSje_.js",
 				"/assets/dialog-CRk0hC-B.js",
-				"/assets/use-current-role-DJBi6ZaU.js",
+				"/assets/use-current-role-weQZ_kdj.js",
 				"/assets/dist-lAGtACJv.js",
 				"/assets/utils-bQg_cXOl.js",
 				"/assets/button-S77LrnUo.js",
@@ -29788,7 +29788,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-TjMlCCee.js",
+				"/assets/auth-mQjLKSm7.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29799,13 +29799,13 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 		"/_authenticated/calendar": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/calendar.tsx",
 			children: void 0,
-			preloads: ["/assets/calendar-DpBRWjZc.js", "/assets/card-CjZIaSoO.js"]
+			preloads: ["/assets/calendar-DPI6b_Vq.js", "/assets/card-CjZIaSoO.js"]
 		},
 		"/_authenticated/cash-flow": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/cash-flow.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cash-flow-DH-EFydK.js",
+				"/assets/cash-flow-BFxuPjE5.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/trending-down-B9uDsfUr.js",
@@ -29830,7 +29830,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/customers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/customers-BDxqhJex.js",
+				"/assets/customers-5iL83maJ.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29843,7 +29843,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/dashboard.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/dashboard-Bxq1Th4g.js",
+				"/assets/dashboard-CFW9mi2J.js",
 				"/assets/trending-up-Bskfj5bG.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
@@ -29853,7 +29853,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/departures.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/departures-UEzeFB1m.js",
+				"/assets/departures-BGv6VdAo.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29865,7 +29865,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/invoices.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/invoices-Dcq8Omkq.js",
+				"/assets/invoices-n_t5CFAW.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/pencil-Cy6VlxW9.js",
@@ -29880,7 +29880,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/leads.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/leads-C7kxU5ix.js",
+				"/assets/leads-C0YRVeBq.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/card-CjZIaSoO.js",
@@ -29891,7 +29891,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/packages.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/packages-DawMzG36.js",
+				"/assets/packages-BATGhikB.js",
 				"/assets/map-pin-_tABMRrh.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29906,7 +29906,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/rate-cards.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/rate-cards-IzOyBx_u.js",
+				"/assets/rate-cards-B_JsAdKB.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29919,7 +29919,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/reports.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/reports-BHQkoj39.js",
+				"/assets/reports-BXrpan8e.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
 			]
@@ -29928,7 +29928,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/settings.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/settings-DcEmwPEe.js",
+				"/assets/settings-Ck88kNeR.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js"
 			]
@@ -29937,7 +29937,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/suppliers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/suppliers-DzKQw-c4.js",
+				"/assets/suppliers-DnrCcT4e.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/send-DEhpv9YQ.js",
@@ -29951,7 +29951,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/tasks.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/tasks-BzKNVb5A.js",
+				"/assets/tasks--Kj7tTfm.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29965,21 +29965,21 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/team.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/team-C02p724o.js",
+				"/assets/team-CPEwzTXV.js",
+				"/assets/team-DF5JCEII.js",
+				"/assets/team-DYA9Er8K.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js",
-				"/assets/badge-BQRL8034.js",
-				"/assets/team-CPEwzTXV.js",
-				"/assets/team-DF5JCEII.js"
+				"/assets/badge-BQRL8034.js"
 			]
 		},
 		"/_authenticated/bookings/$id": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/bookings.$id.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings._id-DY0z0o2g.js",
+				"/assets/bookings._id-BsjyKHcd.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/map-pin-_tABMRrh.js",
@@ -29998,7 +29998,7 @@ var init__tanstack_start_manifest_v_BuwTyp38 = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/bookings.index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings.index-B-RYNPwQ.js",
+				"/assets/bookings.index-kjpnwyMt.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -96808,8 +96808,8 @@ var init_departures_2z2LSS6Z = __esmMin$1((() => {
 	import_jsx_runtime$14 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/invoices-C7RYgmbN.js
-var invoices_C7RYgmbN_exports = /* @__PURE__ */ __exportAll$1({ component: () => InvoicesPage });
+//#region dist/server/assets/invoices-CLJ7DT9W.js
+var invoices_CLJ7DT9W_exports = /* @__PURE__ */ __exportAll$1({ component: () => InvoicesPage });
 function fmtMoney(currency, n) {
 	const sym = currency === "EUR" ? "€" : currency === "USD" ? "$" : currency === "GBP" ? "£" : "";
 	const num = new Intl.NumberFormat("en-US", {
@@ -97334,8 +97334,48 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
 		quantity: 1,
 		unit_price: 0
 	}]);
+	const qc = useQueryClient();
+	const [showNewCust, setShowNewCust] = (0, import_react$9.useState)(false);
+	const [addingCust, setAddingCust] = (0, import_react$9.useState)(false);
+	const [nc, setNc] = (0, import_react$9.useState)({
+		name: "",
+		email: "",
+		phone: "",
+		country: ""
+	});
+	async function addNewCustomer() {
+		if (!nc.name.trim()) return toast.error("Customer name is required");
+		setAddingCust(true);
+		const { data: u } = await supabase.auth.getUser();
+		const { data, error } = await supabase.from("customers").insert({
+			user_id: u.user.id,
+			name: nc.name.trim(),
+			email: nc.email.trim() || null,
+			phone: nc.phone.trim() || null,
+			country: nc.country.trim() || null
+		}).select("id").single();
+		setAddingCust(false);
+		if (error || !data) return toast.error(error?.message ?? "Could not add customer");
+		await qc.invalidateQueries({ queryKey: ["customers-lite"] });
+		setCustomerId(data.id);
+		setShowNewCust(false);
+		setNc({
+			name: "",
+			email: "",
+			phone: "",
+			country: ""
+		});
+		toast.success("Customer added");
+	}
 	(0, import_react$9.useEffect)(() => {
 		if (!open) return;
+		setShowNewCust(false);
+		setNc({
+			name: "",
+			email: "",
+			phone: "",
+			country: ""
+		});
 		const today = (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
 		setCustomerId(editing?.customer_id ?? "");
 		setBookingId(editing?.booking_id ?? "");
@@ -97430,7 +97470,67 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
 									Number(b.total_amount).toFixed(0)
 								]
 							}, b.id)) })]
-						})] }), /* @__PURE__ */ (0, import_jsx_runtime$13.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(Label$2, { children: "Customer" }), /* @__PURE__ */ (0, import_jsx_runtime$13.jsxs)(Select, {
+						})] }), /* @__PURE__ */ (0, import_jsx_runtime$13.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$13.jsxs)("div", {
+							className: "flex items-center justify-between",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(Label$2, { children: "Customer" }), /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)("button", {
+								type: "button",
+								className: "text-xs font-medium text-primary hover:underline",
+								onClick: () => setShowNewCust((v) => !v),
+								children: showNewCust ? "Pick existing" : "+ New customer"
+							})]
+						}), showNewCust ? /* @__PURE__ */ (0, import_jsx_runtime$13.jsxs)("div", {
+							className: "space-y-2 rounded-lg border bg-card/40 p-3",
+							children: [
+								/* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(Input, {
+									placeholder: "Full name *",
+									value: nc.name,
+									onChange: (e) => setNc((s) => ({
+										...s,
+										name: e.target.value
+									})),
+									maxLength: 120
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$13.jsxs)("div", {
+									className: "grid grid-cols-2 gap-2",
+									children: [/* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(Input, {
+										placeholder: "Email",
+										type: "email",
+										value: nc.email,
+										onChange: (e) => setNc((s) => ({
+											...s,
+											email: e.target.value
+										}))
+									}), /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(Input, {
+										placeholder: "Phone",
+										value: nc.phone,
+										onChange: (e) => setNc((s) => ({
+											...s,
+											phone: e.target.value
+										}))
+									})]
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(Input, {
+									placeholder: "Country",
+									value: nc.country,
+									onChange: (e) => setNc((s) => ({
+										...s,
+										country: e.target.value
+									}))
+								}),
+								/* @__PURE__ */ (0, import_jsx_runtime$13.jsxs)(Button, {
+									type: "button",
+									size: "sm",
+									className: "w-full",
+									disabled: addingCust,
+									onClick: addNewCustomer,
+									children: [
+										/* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(Plus, { className: "size-3.5" }),
+										" ",
+										addingCust ? "Adding…" : "Add customer"
+									]
+								})
+							]
+						}) : /* @__PURE__ */ (0, import_jsx_runtime$13.jsxs)(Select, {
 							value: customerId,
 							onValueChange: setCustomerId,
 							children: [/* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(SelectTrigger, { children: /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(SelectValue, { placeholder: "Select" }) }), /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(SelectContent, { children: customers.map((c) => /* @__PURE__ */ (0, import_jsx_runtime$13.jsx)(SelectItem, {
@@ -97687,7 +97787,7 @@ function PaymentDialog({ invoice, alreadyPaid, onClose, onSaved }) {
 	});
 }
 var import_react$9, INVOICE_LOGO, INVOICE_STAMP_LOGO, COMPANY$1, esc, import_jsx_runtime$13;
-var init_invoices_C7RYgmbN = __esmMin$1((() => {
+var init_invoices_CLJ7DT9W = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_QueryClientProvider_C0zgo01M();
@@ -123723,8 +123823,8 @@ var init_bookings_index_70nQBs0n = __esmMin$1((() => {
 	import_jsx_runtime$2 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/router-CFduaKbQ.js
-var router_CFduaKbQ_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
+//#region dist/server/assets/router-C0J-3pYA.js
+var router_C0J_3pYA_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
 function setScriptAttrs(script, attrs) {
 	if (!attrs) return;
 	for (const [key, value] of Object.entries(attrs)) if (key !== "suppressHydrationWarning" && value !== void 0 && value !== false) script.setAttribute(key, typeof value === "boolean" ? "" : String(value));
@@ -124046,7 +124146,7 @@ function RootComponent() {
 	});
 }
 var getStoreFactory, createRouter, Router, import_react, import_jsx_runtime$1, noopScriptHandler, useTags, Scripts, MutationCache, QueryCache, QueryClient, styles_default, Route$17, $$splitComponentImporter$16, Route$16, $$splitComponentImporter$15, Route$15, $$splitComponentImporter$14, Route$14, $$splitComponentImporter$13, Route$13, $$splitComponentImporter$12, Route$12, $$splitComponentImporter$11, Route$11, $$splitComponentImporter$10, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitComponentImporter$2, Route$2, $$splitNotFoundComponentImporter, $$splitErrorComponentImporter, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AuthRoute, AuthenticatedCalendarRoute, AuthenticatedCashFlowRoute, AuthenticatedCostCalcRoute, AuthenticatedCustomersRoute, AuthenticatedDashboardRoute, AuthenticatedDeparturesRoute, AuthenticatedInvoicesRoute, AuthenticatedLeadsRoute, AuthenticatedPackagesRoute, AuthenticatedRateCardsRoute, AuthenticatedReportsRoute, AuthenticatedSettingsRoute, AuthenticatedSuppliersRoute, AuthenticatedTasksRoute, AuthenticatedTeamRoute, AuthenticatedBookingsIndexRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_CFduaKbQ = __esmMin$1((() => {
+var init_router_C0J_3pYA = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -124643,7 +124743,7 @@ var init_router_CFduaKbQ = __esmMin$1((() => {
 	Route$11 = createFileRoute("/_authenticated/dashboard")({ component: lazyRouteComponent($$splitComponentImporter$11, "component") });
 	$$splitComponentImporter$10 = () => Promise.resolve().then(() => (init_departures_2z2LSS6Z(), departures_2z2LSS6Z_exports));
 	Route$10 = createFileRoute("/_authenticated/departures")({ component: lazyRouteComponent($$splitComponentImporter$10, "component") });
-	$$splitComponentImporter$9 = () => Promise.resolve().then(() => (init_invoices_C7RYgmbN(), invoices_C7RYgmbN_exports));
+	$$splitComponentImporter$9 = () => Promise.resolve().then(() => (init_invoices_CLJ7DT9W(), invoices_CLJ7DT9W_exports));
 	Route$9 = createFileRoute("/_authenticated/invoices")({ component: lazyRouteComponent($$splitComponentImporter$9, "component") });
 	$$splitComponentImporter$8 = () => Promise.resolve().then(() => (init_leads_BiTEEiYF(), leads_BiTEEiYF_exports));
 	Route$8 = createFileRoute("/_authenticated/leads")({ component: lazyRouteComponent($$splitComponentImporter$8, "component") });
@@ -124864,8 +124964,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin$1((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region dist/server/assets/server-Dt64XudI.js
-var server_Dt64XudI_exports = /* @__PURE__ */ __exportAll$1({
+//#region dist/server/assets/server-CePKxt2R.js
+var server_CePKxt2R_exports = /* @__PURE__ */ __exportAll$1({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -127736,7 +127836,7 @@ async function waitForReadyOrAbort(ready, signal) {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_BuwTyp38(), _tanstack_start_manifest_v_BuwTyp38_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_m6wpGkO9(), _tanstack_start_manifest_v_m6wpGkO9_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -128490,7 +128590,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_CFduaKbQ(), router_CFduaKbQ_exports)),
+		Promise.resolve().then(() => (init_router_C0J_3pYA(), router_C0J_3pYA_exports)),
 		Promise.resolve().then(() => (init_start__Vgpq64H(), start__Vgpq64H_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -128866,7 +128966,7 @@ function createServerEntry(entry) {
 	} };
 }
 var GLOBAL_TSR, TSR_SCRIPT_BARRIER_ID, M$1, v$1, dr, R, C, gr, yr, Nr, br, vr, Cr, Ar, P$1, Er, nt, Ce, ot, at, o$1, st, Ae, it, H$1, J, Ee, Ie, ut, lt, ct, ft, L, le$1, Re, Ir, U, bs, Cn, En, fe, _, Je, x$1, z, X, V, Pe, xe, Ze, O$1, Q$1, j$1, ee$1, In, Rn, bt, vt, Ct, xr, At, Tr, Et, Or, It, wr, Rt, Pn, xt, Tt, Ot, wt, xn, Dr, oe$1, qn, Wn, Kn, Gn, Br, Ro, Po, Ht, Xt, Zt, Qt, $t, xo, Oo, wo, ho, zo, _o, ko, Ur, Hr, Jr, RawStream, BufferCtor, hasNodeBuffer, RAW_STREAM_FACTORY_BINARY, RAW_STREAM_FACTORY_TEXT, RAW_STREAM_FACTORY_CONSTRUCTOR_BINARY, textEncoderForFactory, RAW_STREAM_FACTORY_CONSTRUCTOR_TEXT, FACTORY_BINARY, FACTORY_TEXT, RawStreamSSRPlugin, ShallowErrorPlugin, o, P, ee, defaultSerovalPlugins, import_jsx_runtime, require_react_dom_server_legacy_node_production, require_react_dom_server_node_production, require_server_node, tsrScript_default, SCOPE_ID, TSR_PREFIX, P_PREFIX, P_SUFFIX, INITIAL_SCRIPTS, ScriptBuffer, MANIFEST_CACHE_SIZE, manifestCaches, MIN_CLOSING_TAG_LENGTH, DEFAULT_SERIALIZATION_TIMEOUT_MS, DEFAULT_LIFETIME_TIMEOUT_MS, MAX_LEFTOVER_CHARS, MAX_TAIL_CHARS, MAX_ROUTER_HTML_CHARS, MAX_PENDING_WRITE_CHARS, MergeState, textEncoder$1, noop$1, resolvedPromise, fullPattern, naivePattern, pattern, isNonEmptyString, isbot, import_server_node, noop, isAbortError, renderRouterToStream, defaultStreamHandler, HEADERS, innerCreateCsrfMiddleware, createCsrfMiddleware, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_Dt64XudI = __esmMin$1((() => {
+var init_server_CePKxt2R = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -138328,7 +138428,7 @@ function renderErrorPage() {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_Dt64XudI(), server_Dt64XudI_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_CePKxt2R(), server_CePKxt2R_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

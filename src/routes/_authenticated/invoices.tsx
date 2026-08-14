@@ -193,9 +193,35 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
   const [status, setStatus] = useState<Invoice["status"]>("draft");
   const [notes, setNotes] = useState("");
   const [lines, setLines] = useState<InvoiceLine[]>([{ description: "", quantity: 1, unit_price: 0 }]);
+  const qc = useQueryClient();
+  const [showNewCust, setShowNewCust] = useState(false);
+  const [addingCust, setAddingCust] = useState(false);
+  const [nc, setNc] = useState({ name: "", email: "", phone: "", country: "" });
+
+  async function addNewCustomer() {
+    if (!nc.name.trim()) return toast.error("Customer name is required");
+    setAddingCust(true);
+    const { data: u } = await supabase.auth.getUser();
+    const { data, error } = await supabase.from("customers").insert({
+      user_id: u.user!.id,
+      name: nc.name.trim(),
+      email: nc.email.trim() || null,
+      phone: nc.phone.trim() || null,
+      country: nc.country.trim() || null,
+    }).select("id").single();
+    setAddingCust(false);
+    if (error || !data) return toast.error(error?.message ?? "Could not add customer");
+    await qc.invalidateQueries({ queryKey: ["customers-lite"] });
+    setCustomerId(data.id);
+    setShowNewCust(false);
+    setNc({ name: "", email: "", phone: "", country: "" });
+    toast.success("Customer added");
+  }
 
   useEffect(() => {
     if (!open) return;
+    setShowNewCust(false);
+    setNc({ name: "", email: "", phone: "", country: "" });
     const today = new Date().toISOString().slice(0, 10);
     setCustomerId(editing?.customer_id ?? "");
     setBookingId(editing?.booking_id ?? "");
@@ -284,13 +310,32 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
               </Select>
             </div>
             <div>
-              <Label>Customer</Label>
-              <Select value={customerId} onValueChange={setCustomerId}>
-                <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
-                <SelectContent>
-                  {customers.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
-                </SelectContent>
-              </Select>
+              <div className="flex items-center justify-between">
+                <Label>Customer</Label>
+                <button type="button" className="text-xs font-medium text-primary hover:underline" onClick={() => setShowNewCust(v => !v)}>
+                  {showNewCust ? "Pick existing" : "+ New customer"}
+                </button>
+              </div>
+              {showNewCust ? (
+                <div className="space-y-2 rounded-lg border bg-card/40 p-3">
+                  <Input placeholder="Full name *" value={nc.name} onChange={e => setNc(s => ({ ...s, name: e.target.value }))} maxLength={120} />
+                  <div className="grid grid-cols-2 gap-2">
+                    <Input placeholder="Email" type="email" value={nc.email} onChange={e => setNc(s => ({ ...s, email: e.target.value }))} />
+                    <Input placeholder="Phone" value={nc.phone} onChange={e => setNc(s => ({ ...s, phone: e.target.value }))} />
+                  </div>
+                  <Input placeholder="Country" value={nc.country} onChange={e => setNc(s => ({ ...s, country: e.target.value }))} />
+                  <Button type="button" size="sm" className="w-full" disabled={addingCust} onClick={addNewCustomer}>
+                    <Plus className="size-3.5" /> {addingCust ? "Adding…" : "Add customer"}
+                  </Button>
+                </div>
+              ) : (
+                <Select value={customerId} onValueChange={setCustomerId}>
+                  <SelectTrigger><SelectValue placeholder="Select" /></SelectTrigger>
+                  <SelectContent>
+                    {customers.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
+                  </SelectContent>
+                </Select>
+              )}
             </div>
           </div>
 

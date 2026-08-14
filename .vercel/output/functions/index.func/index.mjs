@@ -29709,10 +29709,10 @@ var init___23tanstack_start_server_fn_resolver_Bp5mxkxq = __esmMin$1((() => {
 	};
 }));
 //#endregion
-//#region dist/server/assets/_tanstack-start-manifest_v-CJ_M0HbY.js
-var _tanstack_start_manifest_v_CJ_M0HbY_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
+//#region dist/server/assets/_tanstack-start-manifest_v-NtF6ngTb.js
+var _tanstack_start_manifest_v_NtF6ngTb_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
+var init__tanstack_start_manifest_v_NtF6ngTb = __esmMin$1((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/__root.tsx",
@@ -29722,7 +29722,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 				"/auth"
 			],
 			preloads: [
-				"/assets/index-BL3i-HJx.js",
+				"/assets/index-lFI_YLHt.js",
 				"/assets/rolldown-runtime-QTnfLwEv.js",
 				"/assets/react-CZI7_Jkm.js",
 				"/assets/createLucideIcon-BeXmV15X.js",
@@ -29735,14 +29735,14 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-BL3i-HJx.js"
+				src: "/assets/index-lFI_YLHt.js"
 			} }]
 		},
 		"/": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-C1T7wkgZ.js",
+				"/assets/routes-CzHrV9rt.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js"
 			]
@@ -29770,13 +29770,13 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 				"/_authenticated/bookings/"
 			],
 			preloads: [
-				"/assets/route-H2h38VMZ.js",
-				"/assets/useQuery-CX0NHeOH.js",
+				"/assets/route-zBNYUeIx.js",
+				"/assets/useQuery-C55W24B7.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/plus-BkZrfRmn.js",
 				"/assets/user-plus-BlDqSje_.js",
 				"/assets/dialog-CRk0hC-B.js",
-				"/assets/use-current-role-MF6Oso9c.js",
+				"/assets/use-current-role-D-D1Vrsn.js",
 				"/assets/dist-lAGtACJv.js",
 				"/assets/utils-bQg_cXOl.js",
 				"/assets/button-S77LrnUo.js",
@@ -29789,7 +29789,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-CKOZL4Mi.js",
+				"/assets/auth-C2joHsWq.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29800,13 +29800,13 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 		"/_authenticated/calendar": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/calendar.tsx",
 			children: void 0,
-			preloads: ["/assets/calendar-zv1uSE9Z.js", "/assets/card-CjZIaSoO.js"]
+			preloads: ["/assets/calendar-BtA_MX1v.js", "/assets/card-CjZIaSoO.js"]
 		},
 		"/_authenticated/cash-flow": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/cash-flow.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cash-flow-iYnqG3g6.js",
+				"/assets/cash-flow-DRVzTMxF.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/trending-down-B9uDsfUr.js",
@@ -29831,7 +29831,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/customers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/customers-DXQwi35r.js",
+				"/assets/customers-CsZc_8hU.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29844,7 +29844,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/dashboard.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/dashboard-JA1crDYb.js",
+				"/assets/dashboard-CxvrVvAx.js",
 				"/assets/trending-up-Bskfj5bG.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
@@ -29854,7 +29854,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/departures.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/departures-BMkgpPPX.js",
+				"/assets/departures-B_tox0Vl.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29866,7 +29866,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/invoices.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/invoices-BhARbMHL.js",
+				"/assets/invoices-qKltEOBv.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/pencil-Cy6VlxW9.js",
@@ -29881,7 +29881,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/leads.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/leads-BHfaIhfY.js",
+				"/assets/leads-D1Ax5uIE.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/card-CjZIaSoO.js",
@@ -29892,7 +29892,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/packages.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/packages-bQ-1_EJt.js",
+				"/assets/packages-ByC-ISXp.js",
 				"/assets/map-pin-_tABMRrh.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29907,7 +29907,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/rate-cards.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/rate-cards-HDicvrNo.js",
+				"/assets/rate-cards-Ci6Bxxyt.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29920,7 +29920,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/reports.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/reports-C3YApejC.js",
+				"/assets/reports-DASb4jCh.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
 			]
@@ -29929,7 +29929,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/settings.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/settings-B1fLAnTI.js",
+				"/assets/settings-DRVWBZeP.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js"
 			]
@@ -29938,7 +29938,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/suppliers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/suppliers-lx3m2xqS.js",
+				"/assets/suppliers-BczQFYQb.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/send-DEhpv9YQ.js",
@@ -29952,7 +29952,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/tasks.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/tasks-DrzUFbRx.js",
+				"/assets/tasks-CSDaMHAS.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29966,21 +29966,21 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/team.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/team-BgD9B92-.js",
+				"/assets/team-CPEwzTXV.js",
+				"/assets/team-DF5JCEII.js",
+				"/assets/team-Dtl7bhwm.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js",
-				"/assets/badge-BQRL8034.js",
-				"/assets/team-CPEwzTXV.js",
-				"/assets/team-DF5JCEII.js"
+				"/assets/badge-BQRL8034.js"
 			]
 		},
 		"/_authenticated/whatsapp": {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/whatsapp.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/whatsapp-kKgBAZ4a.js",
+				"/assets/whatsapp-DuYFSw8t.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/upload-Bu2KRLyb.js",
@@ -29994,7 +29994,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/bookings.$id.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings._id-CMzTrF0h.js",
+				"/assets/bookings._id-Bpotpoda.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/map-pin-_tABMRrh.js",
@@ -30014,7 +30014,7 @@ var init__tanstack_start_manifest_v_CJ_M0HbY = __esmMin$1((() => {
 			filePath: "/private/tmp/claude-501/-Users-krishankumar/2c9f56ee-0dcf-4240-a150-3b74e1af7bfb/scratchpad/ttt-workspace/src/routes/_authenticated/bookings.index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings.index-9tAds4vt.js",
+				"/assets/bookings.index-CVUM-loj.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -96858,8 +96858,8 @@ var init_departures_2z2LSS6Z = __esmMin$1((() => {
 	import_jsx_runtime$15 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/invoices-CkKvUNPQ.js
-var invoices_CkKvUNPQ_exports = /* @__PURE__ */ __exportAll$1({ component: () => InvoicesPage });
+//#region dist/server/assets/invoices-BIACYz_Y.js
+var invoices_BIACYz_Y_exports = /* @__PURE__ */ __exportAll$1({ component: () => InvoicesPage });
 function getCompany(id) {
 	return COMPANIES.find((c) => c.id === id) ?? COMPANIES.find((c) => c.id === "ttt-dmc");
 }
@@ -97414,6 +97414,29 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
 	const [bankDetails, setBankDetails] = (0, import_react$10.useState)("");
 	const [schedule, setSchedule] = (0, import_react$10.useState)([]);
 	const qc = useQueryClient();
+	const { data: packages = [] } = useQuery({
+		queryKey: ["packages-for-invoice"],
+		queryFn: async () => (await supabase.from("tour_packages").select("id, name, price_per_person").order("name")).data ?? []
+	});
+	function applyPackage(pkgId) {
+		const p = packages.find((x) => x.id === pkgId);
+		if (!p) return;
+		setPackageName(p.name);
+		const price = Number(p.price_per_person) || 0;
+		setLines((prev) => {
+			const first = prev[0] ?? {
+				description: "",
+				quantity: 1,
+				unit_price: 0
+			};
+			const rest = prev.slice(1);
+			return [{
+				...first,
+				description: p.name,
+				unit_price: price || first.unit_price
+			}, ...rest];
+		});
+	}
 	function updSched(i, patch) {
 		setSchedule((prev) => prev.map((r, x) => x === i ? {
 			...r,
@@ -97680,12 +97703,22 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
 					/* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(Label$2, {
 						htmlFor: "pkg",
 						children: "Package"
-					}), /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(Input, {
-						id: "pkg",
-						value: packageName,
-						onChange: (e) => setPackageName(e.target.value),
-						placeholder: "e.g. Finland Winter Tour — Icebreaker & Glass Igloo (write your own)",
-						maxLength: 200
+					}), /* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", {
+						className: "grid gap-2 sm:grid-cols-2",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)(Select, {
+							value: "",
+							onValueChange: applyPackage,
+							children: [/* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(SelectTrigger, { children: /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(SelectValue, { placeholder: `Choose from catalogue (${packages.length})` }) }), /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(SelectContent, { children: packages.map((p) => /* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)(SelectItem, {
+								value: p.id,
+								children: [p.name, p.price_per_person ? ` · €${Number(p.price_per_person).toFixed(0)}/pp` : ""]
+							}, p.id)) })]
+						}), /* @__PURE__ */ (0, import_jsx_runtime$14.jsx)(Input, {
+							id: "pkg",
+							value: packageName,
+							onChange: (e) => setPackageName(e.target.value),
+							placeholder: "…or write your own",
+							maxLength: 200
+						})]
 					})] }),
 					/* @__PURE__ */ (0, import_jsx_runtime$14.jsxs)("div", {
 						className: "grid gap-3 sm:grid-cols-3",
@@ -98019,7 +98052,7 @@ function PaymentDialog({ invoice, alreadyPaid, onClose, onSaved }) {
 	});
 }
 var import_react$10, INVOICE_LOGO, INVOICE_STAMP_LOGO, COMPANIES, DEFAULT_COMPANY, esc, import_jsx_runtime$14;
-var init_invoices_CkKvUNPQ = __esmMin$1((() => {
+var init_invoices_BIACYz_Y = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_QueryClientProvider_C0zgo01M();
@@ -124389,8 +124422,8 @@ var init_bookings_index_70nQBs0n = __esmMin$1((() => {
 	import_jsx_runtime$2 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/router-BM_97dEp.js
-var router_BM_97dEp_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
+//#region dist/server/assets/router-CTVUiKNy.js
+var router_CTVUiKNy_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
 function setScriptAttrs(script, attrs) {
 	if (!attrs) return;
 	for (const [key, value] of Object.entries(attrs)) if (key !== "suppressHydrationWarning" && value !== void 0 && value !== false) script.setAttribute(key, typeof value === "boolean" ? "" : String(value));
@@ -124712,7 +124745,7 @@ function RootComponent() {
 	});
 }
 var getStoreFactory, createRouter, Router, import_react, import_jsx_runtime$1, noopScriptHandler, useTags, Scripts, MutationCache, QueryCache, QueryClient, styles_default, Route$18, $$splitComponentImporter$17, Route$17, $$splitComponentImporter$16, Route$16, $$splitComponentImporter$15, Route$15, $$splitComponentImporter$14, Route$14, $$splitComponentImporter$13, Route$13, $$splitComponentImporter$12, Route$12, $$splitComponentImporter$11, Route$11, $$splitComponentImporter$10, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitNotFoundComponentImporter, $$splitErrorComponentImporter, $$splitComponentImporter$2, Route$2, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AuthRoute, AuthenticatedCalendarRoute, AuthenticatedCashFlowRoute, AuthenticatedCostCalcRoute, AuthenticatedCustomersRoute, AuthenticatedDashboardRoute, AuthenticatedDeparturesRoute, AuthenticatedInvoicesRoute, AuthenticatedLeadsRoute, AuthenticatedPackagesRoute, AuthenticatedRateCardsRoute, AuthenticatedReportsRoute, AuthenticatedSettingsRoute, AuthenticatedSuppliersRoute, AuthenticatedTasksRoute, AuthenticatedTeamRoute, AuthenticatedWhatsappRoute, AuthenticatedBookingsIndexRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_BM_97dEp = __esmMin$1((() => {
+var init_router_CTVUiKNy = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -125309,7 +125342,7 @@ var init_router_BM_97dEp = __esmMin$1((() => {
 	Route$12 = createFileRoute("/_authenticated/dashboard")({ component: lazyRouteComponent($$splitComponentImporter$12, "component") });
 	$$splitComponentImporter$11 = () => Promise.resolve().then(() => (init_departures_2z2LSS6Z(), departures_2z2LSS6Z_exports));
 	Route$11 = createFileRoute("/_authenticated/departures")({ component: lazyRouteComponent($$splitComponentImporter$11, "component") });
-	$$splitComponentImporter$10 = () => Promise.resolve().then(() => (init_invoices_CkKvUNPQ(), invoices_CkKvUNPQ_exports));
+	$$splitComponentImporter$10 = () => Promise.resolve().then(() => (init_invoices_BIACYz_Y(), invoices_BIACYz_Y_exports));
 	Route$10 = createFileRoute("/_authenticated/invoices")({ component: lazyRouteComponent($$splitComponentImporter$10, "component") });
 	$$splitComponentImporter$9 = () => Promise.resolve().then(() => (init_leads_BiTEEiYF(), leads_BiTEEiYF_exports));
 	Route$9 = createFileRoute("/_authenticated/leads")({ component: lazyRouteComponent($$splitComponentImporter$9, "component") });
@@ -125538,8 +125571,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin$1((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region dist/server/assets/server-jB7lYs6P.js
-var server_jB7lYs6P_exports = /* @__PURE__ */ __exportAll$1({
+//#region dist/server/assets/server-C1KQljJt.js
+var server_C1KQljJt_exports = /* @__PURE__ */ __exportAll$1({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -128410,7 +128443,7 @@ async function waitForReadyOrAbort(ready, signal) {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_CJ_M0HbY(), _tanstack_start_manifest_v_CJ_M0HbY_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_NtF6ngTb(), _tanstack_start_manifest_v_NtF6ngTb_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -129164,7 +129197,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_BM_97dEp(), router_BM_97dEp_exports)),
+		Promise.resolve().then(() => (init_router_CTVUiKNy(), router_CTVUiKNy_exports)),
 		Promise.resolve().then(() => (init_start__Vgpq64H(), start__Vgpq64H_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -129540,7 +129573,7 @@ function createServerEntry(entry) {
 	} };
 }
 var GLOBAL_TSR, TSR_SCRIPT_BARRIER_ID, M$1, v$1, dr, R, C, gr, yr, Nr, br, vr, Cr, Ar, P$1, Er, nt, Ce, ot, at, o$1, st, Ae, it, H$1, J, Ee, Ie, ut, lt, ct, ft, L, le$1, Re, Ir, U, bs, Cn, En, fe, _, Je, x$1, z, X, V, Pe, xe, Ze, O$1, Q$1, j$1, ee$1, In, Rn, bt, vt, Ct, xr, At, Tr, Et, Or, It, wr, Rt, Pn, xt, Tt, Ot, wt, xn, Dr, oe$1, qn, Wn, Kn, Gn, Br, Ro, Po, Ht, Xt, Zt, Qt, $t, xo, Oo, wo, ho, zo, _o, ko, Ur, Hr, Jr, RawStream, BufferCtor, hasNodeBuffer, RAW_STREAM_FACTORY_BINARY, RAW_STREAM_FACTORY_TEXT, RAW_STREAM_FACTORY_CONSTRUCTOR_BINARY, textEncoderForFactory, RAW_STREAM_FACTORY_CONSTRUCTOR_TEXT, FACTORY_BINARY, FACTORY_TEXT, RawStreamSSRPlugin, ShallowErrorPlugin, o, P, ee, defaultSerovalPlugins, import_jsx_runtime, require_react_dom_server_legacy_node_production, require_react_dom_server_node_production, require_server_node, tsrScript_default, SCOPE_ID, TSR_PREFIX, P_PREFIX, P_SUFFIX, INITIAL_SCRIPTS, ScriptBuffer, MANIFEST_CACHE_SIZE, manifestCaches, MIN_CLOSING_TAG_LENGTH, DEFAULT_SERIALIZATION_TIMEOUT_MS, DEFAULT_LIFETIME_TIMEOUT_MS, MAX_LEFTOVER_CHARS, MAX_TAIL_CHARS, MAX_ROUTER_HTML_CHARS, MAX_PENDING_WRITE_CHARS, MergeState, textEncoder$1, noop$1, resolvedPromise, fullPattern, naivePattern, pattern, isNonEmptyString, isbot, import_server_node, noop, isAbortError, renderRouterToStream, defaultStreamHandler, HEADERS, innerCreateCsrfMiddleware, createCsrfMiddleware, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_jB7lYs6P = __esmMin$1((() => {
+var init_server_C1KQljJt = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -139002,7 +139035,7 @@ function renderErrorPage() {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_jB7lYs6P(), server_jB7lYs6P_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_C1KQljJt(), server_C1KQljJt_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

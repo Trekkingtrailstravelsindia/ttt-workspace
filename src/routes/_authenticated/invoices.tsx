@@ -204,6 +204,24 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
   const [schedule, setSchedule] = useState<{ label: string; percent: number; due_date: string }[]>([]);
   const qc = useQueryClient();
 
+  const { data: packages = [] } = useQuery({
+    queryKey: ["packages-for-invoice"],
+    queryFn: async () => (await supabase.from("tour_packages")
+      .select("id, name, price_per_person").order("name")).data ?? [],
+  });
+
+  function applyPackage(pkgId: string) {
+    const p = (packages as any[]).find(x => x.id === pkgId);
+    if (!p) return;
+    setPackageName(p.name);
+    const price = Number(p.price_per_person) || 0;
+    setLines(prev => {
+      const first = prev[0] ?? { description: "", quantity: 1, unit_price: 0 };
+      const rest = prev.slice(1);
+      return [{ ...first, description: p.name, unit_price: price || first.unit_price }, ...rest];
+    });
+  }
+
   function updSched(i: number, patch: Partial<{ label: string; percent: number; due_date: string }>) {
     setSchedule(prev => prev.map((r, x) => x === i ? { ...r, ...patch } : r));
   }
@@ -394,7 +412,17 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
 
           <div>
             <Label htmlFor="pkg">Package</Label>
-            <Input id="pkg" value={packageName} onChange={e => setPackageName(e.target.value)} placeholder="e.g. Finland Winter Tour — Icebreaker & Glass Igloo (write your own)" maxLength={200} />
+            <div className="grid gap-2 sm:grid-cols-2">
+              <Select value="" onValueChange={applyPackage}>
+                <SelectTrigger><SelectValue placeholder={`Choose from catalogue (${packages.length})`} /></SelectTrigger>
+                <SelectContent>
+                  {(packages as any[]).map(p => (
+                    <SelectItem key={p.id} value={p.id}>{p.name}{p.price_per_person ? ` · €${Number(p.price_per_person).toFixed(0)}/pp` : ""}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Input id="pkg" value={packageName} onChange={e => setPackageName(e.target.value)} placeholder="…or write your own" maxLength={200} />
+            </div>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">

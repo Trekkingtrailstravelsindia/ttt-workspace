@@ -13,12 +13,16 @@ import { Badge } from "@/components/ui/badge";
 import { Plus, Pencil, Trash2, Download, X, Wallet } from "lucide-react";
 import { toast } from "sonner";
 import { downloadInvoicePdf, type InvoiceLine } from "@/lib/invoice-pdf";
+import { COMPANIES, DEFAULT_COMPANY } from "@/lib/companies";
 
 type Invoice = {
   id: string; invoice_number: string; booking_id: string | null; customer_id: string;
   issue_date: string; due_date: string | null; subtotal: number; tax_rate: number;
   tax_amount: number; total: number; currency: string; status: "draft"|"sent"|"paid"|"overdue"|"cancelled";
   notes: string | null; line_items: InvoiceLine[];
+  company?: string | null;
+  package_name?: string | null; payment_link?: string | null; bank_details?: string | null;
+  payment_schedule?: { label: string; percent: number; amount: number; due_date: string | null }[] | null;
   customer?: { name: string; email: string | null; phone: string | null; country: string | null };
   booking?: {
     id: string; start_date: string | null; end_date: string | null; travelers: number | null;
@@ -193,7 +197,17 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
   const [status, setStatus] = useState<Invoice["status"]>("draft");
   const [notes, setNotes] = useState("");
   const [lines, setLines] = useState<InvoiceLine[]>([{ description: "", quantity: 1, unit_price: 0 }]);
+  const [company, setCompany] = useState<string>(DEFAULT_COMPANY);
+  const [packageName, setPackageName] = useState("");
+  const [paymentLink, setPaymentLink] = useState("");
+  const [bankDetails, setBankDetails] = useState("");
+  const [schedule, setSchedule] = useState<{ label: string; percent: number; due_date: string }[]>([]);
   const qc = useQueryClient();
+
+  function updSched(i: number, patch: Partial<{ label: string; percent: number; due_date: string }>) {
+    setSchedule(prev => prev.map((r, x) => x === i ? { ...r, ...patch } : r));
+  }
+  const schedPct = schedule.reduce((s, r) => s + (Number(r.percent) || 0), 0);
   const [showNewCust, setShowNewCust] = useState(false);
   const [addingCust, setAddingCust] = useState(false);
   const [nc, setNc] = useState({ name: "", email: "", phone: "", country: "" });
@@ -233,6 +247,19 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
     setLines(editing && Array.isArray(editing.line_items) && editing.line_items.length
       ? editing.line_items
       : [{ description: "", quantity: 1, unit_price: 0 }]);
+    setCompany(editing?.company ?? DEFAULT_COMPANY);
+    setPackageName(editing?.package_name ?? "");
+    let savedLink = "", savedBank = "";
+    try { savedLink = localStorage.getItem("ttt:inv:paylink") ?? ""; savedBank = localStorage.getItem("ttt:inv:bank") ?? ""; } catch { /* ignore */ }
+    setPaymentLink(editing?.payment_link ?? savedLink);
+    setBankDetails(editing?.bank_details ?? savedBank);
+    setSchedule(editing?.payment_schedule?.length
+      ? editing.payment_schedule.map(r => ({ label: r.label ?? "", percent: Number(r.percent) || 0, due_date: r.due_date ?? "" }))
+      : [
+          { label: "Booking deposit", percent: 20, due_date: today },
+          { label: "Second payment", percent: 30, due_date: "" },
+          { label: "Final balance", percent: 50, due_date: "" },
+        ]);
   }, [open, editing]);
 
   // Auto-fill from booking
@@ -281,11 +308,27 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
       currency: "EUR",
       status, notes: notes || null,
       line_items: lines.filter(l => l.description.trim()),
+      company,
+      package_name: packageName.trim() || null,
+      payment_link: paymentLink.trim() || null,
+      bank_details: bankDetails.trim() || null,
+      payment_schedule: schedule
+        .filter(r => (Number(r.percent) || 0) > 0)
+        .map(r => ({
+          label: r.label.trim() || "Payment",
+          percent: Number(r.percent) || 0,
+          amount: Math.round(total * (Number(r.percent) || 0)) / 100,
+          due_date: r.due_date || null,
+        })),
     };
+    try {
+      localStorage.setItem("ttt:inv:paylink", paymentLink.trim());
+      localStorage.setItem("ttt:inv:bank", bankDetails.trim());
+    } catch { /* ignore */ }
 
     const { error } = editing
-      ? await supabase.from("invoices").update(payload).eq("id", editing.id)
-      : await supabase.from("invoices").insert(payload);
+      ? await supabase.from("invoices").update(payload as any).eq("id", editing.id)
+      : await supabase.from("invoices").insert(payload as any);
     if (error) return toast.error(error.message);
     toast.success(editing ? "Invoice updated" : "Invoice created");
     onOpenChange(false);
@@ -339,6 +382,21 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
             </div>
           </div>
 
+          <div>
+            <Label>Issuing company</Label>
+            <Select value={company} onValueChange={setCompany}>
+              <SelectTrigger><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {COMPANIES.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div>
+            <Label htmlFor="pkg">Package</Label>
+            <Input id="pkg" value={packageName} onChange={e => setPackageName(e.target.value)} placeholder="e.g. Finland Winter Tour — Icebreaker & Glass Igloo (write your own)" maxLength={200} />
+          </div>
+
           <div className="grid gap-3 sm:grid-cols-3">
             <div>
               <Label htmlFor="issue">Issue date</Label>
@@ -387,6 +445,38 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
               <div className="flex justify-between"><span>Subtotal</span><span>€{subtotal.toFixed(2)}</span></div>
               <div className="flex justify-between"><span>Tax</span><span>€{taxAmount.toFixed(2)}</span></div>
               <div className="mt-1 flex justify-between font-semibold text-primary"><span>Total</span><span>€{total.toFixed(2)}</span></div>
+            </div>
+          </div>
+
+          <div className="space-y-2 rounded-lg border p-3">
+            <div className="flex items-center justify-between">
+              <Label>Payment schedule</Label>
+              <span className={schedPct === 100 ? "text-xs text-muted-foreground" : "text-xs text-destructive"}>{schedPct}% of total</span>
+            </div>
+            {schedule.map((r, i) => (
+              <div key={i} className="grid grid-cols-[1fr_64px_140px_auto] gap-2">
+                <Input placeholder="Stage (e.g. Deposit)" value={r.label} onChange={e => updSched(i, { label: e.target.value })} />
+                <Input type="number" min={0} max={100} value={r.percent} onChange={e => updSched(i, { percent: Number(e.target.value) || 0 })} />
+                <Input type="date" value={r.due_date} onChange={e => updSched(i, { due_date: e.target.value })} />
+                <Button type="button" size="icon" variant="ghost" onClick={() => setSchedule(schedule.filter((_, x) => x !== i))}><X className="size-4" /></Button>
+              </div>
+            ))}
+            <div className="flex items-center justify-between">
+              <Button type="button" variant="outline" size="sm" onClick={() => setSchedule([...schedule, { label: "", percent: 0, due_date: "" }])}>
+                <Plus className="size-4" /> Add stage
+              </Button>
+              <span className="text-xs text-muted-foreground">% × total (€{total.toFixed(0)}) = amount</span>
+            </div>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div>
+              <Label htmlFor="paylink">Payment link</Label>
+              <Input id="paylink" type="url" placeholder="https://pay.…" value={paymentLink} onChange={e => setPaymentLink(e.target.value)} />
+            </div>
+            <div>
+              <Label htmlFor="bank">Bank account details</Label>
+              <Textarea id="bank" rows={2} placeholder="Account name · IBAN · BIC/SWIFT · Bank" value={bankDetails} onChange={e => setBankDetails(e.target.value)} />
             </div>
           </div>
 

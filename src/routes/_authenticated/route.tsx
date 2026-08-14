@@ -1,7 +1,7 @@
 import { createFileRoute, Outlet, redirect, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet, Calculator, Search } from "lucide-react";
+import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet, Calculator, Search, MessageCircle } from "lucide-react";
 import { CommandPalette } from "@/components/command-palette";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -23,6 +23,7 @@ import { useCurrentRole } from "@/hooks/use-current-role";
 export const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard, roles: ["admin","ops","sales"] },
   { to: "/leads", label: "Leads pipeline", icon: Filter, roles: ["admin","ops","sales"] },
+  { to: "/whatsapp", label: "WhatsApp leads", icon: MessageCircle, roles: ["admin","ops","sales"] },
   { to: "/customers", label: "Customers", icon: Users, roles: ["admin","ops","sales"] },
   { to: "/packages", label: "Tour packages", icon: Package, roles: ["admin","ops","sales"] },
   { to: "/bookings", label: "Bookings", icon: Calendar, roles: ["admin","ops","sales"] },

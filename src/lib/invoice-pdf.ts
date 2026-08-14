@@ -1,4 +1,5 @@
 import { INVOICE_LOGO, INVOICE_STAMP_LOGO } from "./invoice-assets";
+import { getCompany } from "./companies";
 
 export type InvoiceLine = { description: string; quantity: number; unit_price: number };
 
@@ -27,20 +28,14 @@ export type InvoiceForPdf = {
   } | null;
   // Optional Flywire (or any) payment link for the installment "Pay here" buttons.
   payment_link?: string | null;
-};
-
-// ---- Company identity (issuing entity on the invoice) ----
-const COMPANY = {
-  name1: "VISIT LAPLAND",
-  name2: "FINLAND",
-  name3: "TRAVELS",
-  suffix: "Oy",
-  tagline: "Your Trusted Travel Partner for Finland & Lapland",
-  businessId: "3376481-6",
-  address: "Ruka – Kuusamo, 93600, Lapland, Finland",
-  email: "info@laplandfinlandtravels.com",
-  phone: "+358 46 563 0404",
-  website: "laplandfinlandtravels.com",
+  // Which of our companies issues this invoice (see src/lib/companies.ts).
+  company?: string | null;
+  // Free-text package name (overrides booking package on the trip strip).
+  package_name?: string | null;
+  // Bank transfer details shown in the payment box.
+  bank_details?: string | null;
+  // Custom payment stages; falls back to 20/30/50 when empty.
+  payment_schedule?: { label: string; percent?: number; amount?: number; due_date?: string | null }[] | null;
 };
 
 const esc = (s: unknown) =>
@@ -86,15 +81,26 @@ export function renderInvoiceHtml(inv: InvoiceForPdf): string {
   const total = Number(inv.total ?? subtotal + (inv.tax_amount || 0));
   const hasTax = Number(inv.tax_amount || 0) > 0;
 
-  // Standard 20 / 30 / 50 booking schedule computed from the total.
-  const dueNow = total * 0.2;
-  const next30 = total * 0.3;
-  const final50 = total * 0.5;
+  const CO = getCompany(inv.company);
+
+  // Payment stages: use the invoice's custom schedule, else fall back to 20/30/50.
+  const sched = (inv.payment_schedule && inv.payment_schedule.length)
+    ? inv.payment_schedule.map((s) => ({
+        label: s.label || "Payment",
+        amount: Number(s.amount ?? (total * (Number(s.percent) || 0) / 100)),
+        due_date: s.due_date || null,
+      }))
+    : [
+        { label: "Booking 20%", amount: total * 0.2, due_date: null },
+        { label: "Next 30%", amount: total * 0.3, due_date: null },
+        { label: "Final 50%", amount: total * 0.5, due_date: null },
+      ];
+  const dueNow = sched[0]?.amount ?? total * 0.2;
 
   const b = inv.booking || {};
   const bookingRef =
     b.reference || `BK-${(inv.invoice_number || "").replace(/^[A-Za-z]+-?/, "") || "—"}`;
-  const packageName = b.package_name || (lines[0]?.description ?? "Custom Tour Package");
+  const packageName = inv.package_name || b.package_name || (lines[0]?.description ?? "Custom Tour Package");
   const destination = b.location || "Lapland, Finland";
   const travellers = b.travelers ? `${b.travelers} ${b.travelers > 1 ? "Travellers" : "Traveller"}` : "—";
   const bookedVia = b.booked_via || "Direct Booking";
@@ -122,7 +128,7 @@ export function renderInvoiceHtml(inv: InvoiceForPdf): string {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Invoice ${esc(inv.invoice_number)} — ${COMPANY.name1} ${COMPANY.name2} ${COMPANY.name3} ${COMPANY.suffix}</title>
+<title>Invoice ${esc(inv.invoice_number)} — ${esc(CO.name)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -187,14 +193,14 @@ export function renderInvoiceHtml(inv: InvoiceForPdf): string {
   <header class="head">
     <div class="head-row">
       <div class="brand-block">
-        <img class="logo" src="${INVOICE_LOGO}" alt="${esc(COMPANY.name1)} logo">
+        <img class="logo" src="${INVOICE_LOGO}" alt="${esc(CO.name1)} logo">
         <div>
-        <div class="brand-name">${esc(COMPANY.name1)}<br>${esc(COMPANY.name2)} <span>${esc(COMPANY.name3)}</span> ${esc(COMPANY.suffix)}</div>
-        <div class="tagline">${esc(COMPANY.tagline)}</div>
+        <div class="brand-name">${esc(CO.name1)}<br>${esc(CO.name2)} <span>${esc(CO.name3)}</span> ${esc(CO.suffix)}</div>
+        <div class="tagline">${esc(CO.tagline)}</div>
         <div class="brand-meta">
-          <strong>Business ID:</strong> ${esc(COMPANY.businessId)} &nbsp;·&nbsp; Finland<br>
-          ${esc(COMPANY.address)}<br>
-          ${esc(COMPANY.email)} &nbsp;·&nbsp; ${esc(COMPANY.phone)} &nbsp;·&nbsp; ${esc(COMPANY.website)}
+          ${CO.businessId ? `<strong>Business ID:</strong> ${esc(CO.businessId)}<br>` : ""}
+          ${CO.address ? `${esc(CO.address)}<br>` : ""}
+          ${[CO.email, CO.phone, CO.web].filter(Boolean).map(esc).join(" &nbsp;·&nbsp; ")}
         </div>
         </div>
       </div>
@@ -261,30 +267,27 @@ export function renderInvoiceHtml(inv: InvoiceForPdf): string {
     <div class="totals">
       <div class="row"><span>Subtotal / Total Package</span><span>${esc(fmtMoney(cur, subtotal))}</span></div>
       ${hasTax ? `<div class="row"><span>Tax (${esc(inv.tax_rate)}%)</span><span>${esc(fmtMoney(cur, inv.tax_amount))}</span></div>` : ""}
-      <div class="row"><span>20% Booking Amount Payable Now</span><span>${esc(fmtMoney(cur, dueNow))}</span></div>
+      <div class="row"><span>${esc(sched[0]?.label || "Payable now")}</span><span>${esc(fmtMoney(cur, dueNow))}</span></div>
       <div class="row"><span>Balance (per payment terms)</span><span>${esc(fmtMoney(cur, total - dueNow))}</span></div>
-      <div class="row grand"><span>DUE NOW — Booking Amount (20%)</span><span>${esc(fmtMoney(cur, dueNow))}</span></div>
+      <div class="row grand"><span>DUE NOW</span><span>${esc(fmtMoney(cur, dueNow))}</span></div>
     </div>
   </div>
 
   <section class="footer-grid">
     <div class="pay-box">
-      <div class="label">Payment Details — Flywire</div>
+      <div class="label">Payment Details</div>
       <div class="kv">
-        <b>Method</b> Flywire (Card / Bank Transfer)<br>
-        <b>1 · Booking 20%</b> ${esc(fmtMoney(cur, dueNow))} — ${payA(dueNow)}<br>
-        <b>2 · Next 30%</b> ${esc(fmtMoney(cur, next30))} — ${payA(next30)}<br>
-        <b>3 · Final 50%</b> ${esc(fmtMoney(cur, final50))} — ${payA(final50)}<br>
-        <b>Payable Now</b> <span style="font-weight:700">${esc(fmtMoney(cur, dueNow))} (Booking 20%)</span><br>
+        ${sched.map((s, i) => `<b>${i + 1} · ${esc(s.label)}</b> ${esc(fmtMoney(cur, s.amount))}${s.due_date ? ` — due ${esc(fmtDate(s.due_date))}` : ""} — ${payA(s.amount)}<br>`).join("")}
+        <b>Payable Now</b> <span style="font-weight:700">${esc(fmtMoney(cur, dueNow))}</span><br>
         <b>Reference</b> ${esc(inv.invoice_number)}
+        ${inv.bank_details ? `<br><br><b style="min-width:auto">Bank transfer</b><br>${esc(inv.bank_details).replace(/\n/g, "<br>")}` : ""}
+        ${payLink ? `<br><b style="min-width:auto">Pay online</b> <a href="${esc(payLink)}" style="color:var(--aurora-teal);font-weight:700">${esc(payLink)}</a>` : ""}
       </div>
     </div>
     <div class="terms">
       <div class="label">Payment Terms</div>
       <ul>
-        <li><b>20% booking amount</b> (${esc(fmtMoney(cur, dueNow))}) is required at the time of booking.</li>
-        <li>The <b>next 30%</b> (${esc(fmtMoney(cur, next30))}) must be settled within 20 days of confirmation.</li>
-        <li>The <b>remaining 50%</b> (${esc(fmtMoney(cur, final50))}) is due 60 days before the travel start date.</li>
+        ${sched.map(s => `<li><b>${esc(s.label)}</b> — ${esc(fmtMoney(cur, s.amount))}${s.due_date ? ` (due ${esc(fmtDate(s.due_date))})` : ""}</li>`).join("")}
         <li>Prices in ${esc(cur)}. Any payment-processing charges are the responsibility of the payer.</li>
       </ul>
       <div class="stamp-area">
@@ -299,10 +302,10 @@ export function renderInvoiceHtml(inv: InvoiceForPdf): string {
           <circle cx="100" cy="100" r="67" fill="none" stroke="#0B1F33" stroke-width="1.5"/>
           <image href="${INVOICE_STAMP_LOGO}" x="36" y="36" width="128" height="128" clip-path="url(#coreClip)"/>
           <text font-family="Inter, sans-serif" font-size="10.5" font-weight="700" letter-spacing="1.6" fill="#0B1F33">
-            <textPath href="#ringTop" startOffset="50%" text-anchor="middle">VISIT LAPLAND FINLAND TRAVELS OY</textPath>
+            <textPath href="#ringTop" startOffset="50%" text-anchor="middle">${esc(CO.name.toUpperCase())}</textPath>
           </text>
           <text font-family="Inter, sans-serif" font-size="9.5" font-weight="600" letter-spacing="1.4" fill="#0B1F33">
-            <textPath href="#ringBottom" startOffset="50%" text-anchor="middle">BUSINESS ID ${esc(COMPANY.businessId)} · FINLAND</textPath>
+            <textPath href="#ringBottom" startOffset="50%" text-anchor="middle">${esc(CO.businessId ? `BUSINESS ID ${CO.businessId}` : "OFFICIAL")}</textPath>
           </text>
           <text x="13" y="105" font-size="9" fill="#0B1F33">★</text>
           <text x="180" y="105" font-size="9" fill="#0B1F33">★</text>
@@ -313,7 +316,7 @@ export function renderInvoiceHtml(inv: InvoiceForPdf): string {
 
   <footer class="bottom">
     <span class="thanks">Kiitos — Thank you for travelling with us!</span>
-    <span>${esc(COMPANY.name1)} ${esc(COMPANY.name2)} ${esc(COMPANY.name3)} ${esc(COMPANY.suffix)} · Business ID ${esc(COMPANY.businessId)} · ${esc(COMPANY.address)}</span>
+    <span>${esc(CO.name)}${CO.businessId ? ` · Business ID ${esc(CO.businessId)}` : ""}${CO.address ? ` · ${esc(CO.address)}` : ""}</span>
   </footer>
 </div>
 </body>

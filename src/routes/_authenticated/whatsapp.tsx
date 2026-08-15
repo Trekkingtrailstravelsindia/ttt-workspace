@@ -7,8 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Upload, Trash2, MessageCircle, Check } from "lucide-react";
+import { Upload, Trash2, MessageCircle, Check, Send, Loader2 } from "lucide-react";
 import { toast } from "sonner";
+import { useEffect } from "react";
+import { sendWhatsAppTemplate, whatsappConfigured } from "@/lib/whatsapp.functions";
 
 export const Route = createFileRoute("/_authenticated/whatsapp")({ component: WhatsAppPage });
 
@@ -74,7 +76,29 @@ function WhatsAppPage() {
   );
   const [itinerary, setItinerary] = useState("");
   const [opened, setOpened] = useState<Set<string>>(new Set());
+  const [apiReady, setApiReady] = useState(false);
+  const [sending, setSending] = useState<string | null>(null);
+  const [sent, setSent] = useState<Set<string>>(new Set());
   const fileRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    whatsappConfigured()
+      .then((r) => setApiReady(Boolean(r?.configured)))
+      .catch(() => setApiReady(false));
+  }, []);
+
+  async function sendViaApi(c: Contact) {
+    setSending(c.digits);
+    try {
+      await sendWhatsAppTemplate({ data: { to: c.digits, template: "hello_world", lang: "en_US" } });
+      setSent((prev) => new Set(prev).add(c.digits));
+      toast.success(`Sent to ${c.name || "+" + c.digits}`);
+    } catch (e: any) {
+      toast.error(e?.message || "Send failed");
+    } finally {
+      setSending(null);
+    }
+  }
 
   function loadText(text: string) {
     const parsed = parseContacts(text, defaultCc);
@@ -107,6 +131,9 @@ function WhatsAppPage() {
       <div>
         <h1 className="font-display text-3xl text-primary flex items-center gap-2"><MessageCircle className="size-7" /> WhatsApp leads</h1>
         <p className="text-sm text-muted-foreground">Upload a contact list, pull out every number, and message each lead in one click.</p>
+        {apiReady && (
+          <Badge variant="secondary" className="mt-2"><Send className="size-3" /> WhatsApp API connected — one-click send enabled</Badge>
+        )}
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
@@ -166,7 +193,13 @@ function WhatsAppPage() {
                     <div className="text-xs text-muted-foreground">+{c.digits}</div>
                   </div>
                   <div className="flex items-center gap-2">
-                    {opened.has(c.digits) && <Badge variant="secondary"><Check className="size-3" /> opened</Badge>}
+                    {sent.has(c.digits) && <Badge variant="secondary"><Check className="size-3" /> sent</Badge>}
+                    {opened.has(c.digits) && !sent.has(c.digits) && <Badge variant="secondary"><Check className="size-3" /> opened</Badge>}
+                    {apiReady && (
+                      <Button size="sm" variant="secondary" disabled={sending === c.digits} onClick={() => sendViaApi(c)}>
+                        {sending === c.digits ? <Loader2 className="size-4 animate-spin" /> : <Send className="size-4" />} Send via API
+                      </Button>
+                    )}
                     <Button size="sm" asChild onClick={() => setOpened(prev => new Set(prev).add(c.digits))}>
                       <a href={waLink(c)} target="_blank" rel="noopener noreferrer">
                         <MessageCircle className="size-4" /> WhatsApp

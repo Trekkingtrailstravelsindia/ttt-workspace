@@ -168,6 +168,12 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
   const [addingPkg, setAddingPkg] = useState(false);
   const [np, setNp] = useState({ name: "", price: "", days: "" });
 
+  // Optional payment capture (new bookings only) → creates booking_installments rows.
+  const [receivedAmount, setReceivedAmount] = useState("");
+  const [receivedDate, setReceivedDate] = useState("");
+  const [dueAmount, setDueAmount] = useState("");
+  const [dueDate, setDueDate] = useState("");
+
   async function addNewCustomer() {
     if (!nc.name.trim()) return toast.error("Customer name is required");
     setAddingCust(true);
@@ -221,6 +227,7 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
     setTotalOverride(editing ? String(editing.total_amount) : "");
     setShowNewCust(false); setNc({ name: "", email: "", phone: "", country: "" });
     setShowNewPkg(false); setNp({ name: "", price: "", days: "" });
+    setReceivedAmount(""); setReceivedDate(""); setDueAmount(""); setDueDate("");
   }, [open, editing]);
 
   const pkg = packages.find(p => p.id === packageId);
@@ -256,16 +263,37 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
       total_amount: Number(totalOverride) || 0,
     };
     const run = (p: Record<string, any>) => editing
-      ? supabase.from("bookings").update(p as any).eq("id", editing.id)
-      : supabase.from("bookings").insert(p as any);
-    let { error } = await run(payload);
+      ? supabase.from("bookings").update(p as any).eq("id", editing.id).select("id").single()
+      : supabase.from("bookings").insert(p as any).select("id").single();
+    let { data: saved, error } = await run(payload);
     // Fallback if the `company` column hasn't been added to the DB yet.
     if (error && /company/i.test(error.message)) {
       const { company: _omit, ...rest } = payload;
-      ({ error } = await run(rest));
+      ({ data: saved, error } = await run(rest));
       if (!error) toast.warning("Saved, but the company field isn't stored yet — run the DB update to enable per-company tracking.");
     }
     if (error) return toast.error(error.message);
+
+    // Record received / due payments as installments (new bookings only).
+    const bookingId = editing ? editing.id : (saved as any)?.id;
+    if (!editing && bookingId) {
+      const rows: Record<string, any>[] = [];
+      if (Number(receivedAmount) > 0) rows.push({
+        booking_id: bookingId, user_id: userData.user!.id, label: "Received",
+        amount: Number(receivedAmount), due_date: receivedDate || startDate,
+        currency: "EUR", paid: true, paid_at: receivedDate || startDate,
+      });
+      if (Number(dueAmount) > 0) rows.push({
+        booking_id: bookingId, user_id: userData.user!.id, label: "Balance due",
+        amount: Number(dueAmount), due_date: dueDate || startDate,
+        currency: "EUR", paid: false,
+      });
+      if (rows.length) {
+        const { error: perr } = await supabase.from("booking_installments").insert(rows as any);
+        if (perr) toast.error("Booking saved, but payment entries failed: " + perr.message);
+      }
+    }
+
     toast.success(editing ? "Booking updated" : "Booking created");
     onOpenChange(false);
     onSaved();
@@ -378,6 +406,36 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
               <Input id="total" type="number" min={0} step="0.01" value={totalOverride} onChange={e => setTotalOverride(e.target.value)} />
             </div>
           </div>
+          {!editing && (
+            <div className="rounded-lg border bg-card/40 p-3">
+              <Label className="text-sm font-medium">Payment (optional)</Label>
+              <p className="mb-2 mt-0.5 text-xs text-muted-foreground">Log an amount already received and the balance due. Manage further payments on the booking's detail page.</p>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div>
+                  <Label htmlFor="rcv" className="text-xs text-muted-foreground">Received amount (€)</Label>
+                  <Input id="rcv" type="number" min={0} step="0.01" value={receivedAmount} onChange={e => setReceivedAmount(e.target.value)} placeholder="0" />
+                </div>
+                <div>
+                  <Label htmlFor="rcvd" className="text-xs text-muted-foreground">Received on</Label>
+                  <Input id="rcvd" type="date" value={receivedDate} onChange={e => setReceivedDate(e.target.value)} />
+                </div>
+                <div>
+                  <Label htmlFor="due" className="text-xs text-muted-foreground">Due amount (€)</Label>
+                  <Input id="due" type="number" min={0} step="0.01" value={dueAmount} onChange={e => setDueAmount(e.target.value)} placeholder="0" />
+                </div>
+                <div>
+                  <Label htmlFor="dued" className="text-xs text-muted-foreground">Due by</Label>
+                  <Input id="dued" type="date" value={dueDate} onChange={e => setDueDate(e.target.value)} />
+                </div>
+              </div>
+              {Number(totalOverride) > 0 && (Number(receivedAmount) > 0 || Number(dueAmount) > 0) && (
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Total €{Number(totalOverride).toFixed(0)} · Received €{(Number(receivedAmount) || 0).toFixed(0)} · Due €{(Number(dueAmount) || 0).toFixed(0)}
+                  {(() => { const rem = Number(totalOverride) - (Number(receivedAmount) || 0) - (Number(dueAmount) || 0); return Math.abs(rem) > 0.01 ? ` · Unallocated €${rem.toFixed(0)}` : ""; })()}
+                </p>
+              )}
+            </div>
+          )}
           <div>
             <Label htmlFor="notes">Notes</Label>
             <Textarea id="notes" value={notes} onChange={e => setNotes(e.target.value)} rows={3} />

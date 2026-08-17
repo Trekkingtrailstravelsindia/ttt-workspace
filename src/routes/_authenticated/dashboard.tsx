@@ -15,17 +15,18 @@ function Dashboard() {
   const { data } = useQuery({
     queryKey: ["dashboard", canSeeFinancials],
     queryFn: async () => {
-      const [customers, packages, bookings, invoices, allBookings, expenses] = await Promise.all([
+      const [customers, packages, bookings, invoices, allBookings, expenses, payments] = await Promise.all([
         supabase.from("customers").select("id", { count: "exact", head: true }),
         supabase.from("tour_packages").select("id", { count: "exact", head: true }),
         supabase.from("bookings").select("*, customer:customers(name), package:tour_packages(name)").order("created_at", { ascending: false }).limit(5),
         canSeeFinancials ? supabase.from("invoices").select("total, status, company") : Promise.resolve({ data: [] as any[] }),
         canSeeFinancials
-          ? supabase.from("bookings").select("total_amount, company, status").then(async (r) =>
+          ? supabase.from("bookings").select("id, total_amount, company, status").then(async (r) =>
               // Fall back if the `company` column hasn't been added to the DB yet.
-              r.error ? await supabase.from("bookings").select("total_amount, status") : r)
+              r.error ? await supabase.from("bookings").select("id, total_amount, status") : r)
           : Promise.resolve({ data: [] as any[] }),
         canSeeFinancials ? supabase.from("booking_expenses").select("amount") : Promise.resolve({ data: [] as any[] }),
+        canSeeFinancials ? supabase.from("booking_installments").select("booking_id, amount, paid") : Promise.resolve({ data: [] as any[] }),
       ]);
       const revenue = (invoices.data ?? []).filter((i: any) => i.status === "paid").reduce((s: number, i: any) => s + Number(i.total), 0);
       const outstanding = (invoices.data ?? []).filter((i: any) => ["sent","overdue"].includes(i.status)).reduce((s: number, i: any) => s + Number(i.total), 0);
@@ -33,15 +34,30 @@ function Dashboard() {
       const totalExpenses = (expenses.data ?? []).reduce((s: number, e: any) => s + Number(e.amount), 0);
       const profit = bookingSales - totalExpenses;
 
-      // Per-company sales leaderboard (excludes cancelled bookings from the sales figure).
-      const byCompany = new Map<string, { id: string; sales: number; count: number; won: number }>();
+      // Booking payments (from installments): received = paid, due = unpaid.
+      const totalReceived = (payments.data ?? []).filter((p: any) => p.paid).reduce((s: number, p: any) => s + (Number(p.amount) || 0), 0);
+      const totalDue = (payments.data ?? []).filter((p: any) => !p.paid).reduce((s: number, p: any) => s + (Number(p.amount) || 0), 0);
+      // booking_id -> company, to split payments per company.
+      const bookingCompany = new Map<string, string>();
+      for (const b of (allBookings.data ?? []) as any[]) bookingCompany.set(b.id, b.company || "ttt-dmc");
+
+      // Per-company leaderboard (excludes cancelled bookings from the sales figure).
+      const byCompany = new Map<string, { id: string; sales: number; count: number; won: number; received: number; due: number }>();
+      const ensure = (id: string) => {
+        const row = byCompany.get(id) ?? { id, sales: 0, count: 0, won: 0, received: 0, due: 0 };
+        byCompany.set(id, row); return row;
+      };
       for (const b of (allBookings.data ?? []) as any[]) {
-        const id = b.company || "ttt-dmc";
-        const row = byCompany.get(id) ?? { id, sales: 0, count: 0, won: 0 };
+        const row = ensure(b.company || "ttt-dmc");
         row.count += 1;
         if (b.status !== "cancelled") row.sales += Number(b.total_amount) || 0;
         if (["confirmed","travelling","completed","deposit_paid"].includes(b.status)) row.won += 1;
-        byCompany.set(id, row);
+      }
+      for (const p of (payments.data ?? []) as any[]) {
+        const cid = bookingCompany.get(p.booking_id) || "ttt-dmc";
+        const row = ensure(cid);
+        if (p.paid) row.received += Number(p.amount) || 0;
+        else row.due += Number(p.amount) || 0;
       }
       const companySales = [...byCompany.values()].sort((a, b) => b.sales - a.sales);
 
@@ -50,6 +66,7 @@ function Dashboard() {
         packages: packages.count ?? 0,
         bookings: bookings.data ?? [],
         revenue, outstanding, bookingSales, totalExpenses, profit,
+        totalReceived, totalDue,
         companySales,
       };
     },
@@ -63,6 +80,8 @@ function Dashboard() {
     { label: "Booking sales", value: `€${(data?.bookingSales ?? 0).toFixed(0)}`, icon: TrendingUp, to: "/bookings" as const },
     { label: "Total expenses", value: `€${(data?.totalExpenses ?? 0).toFixed(0)}`, icon: Wallet, to: "/bookings" as const },
     { label: (data?.profit ?? 0) >= 0 ? "Profit" : "Loss", value: `€${Math.abs(data?.profit ?? 0).toFixed(0)}`, icon: PiggyBank, to: "/bookings" as const },
+    { label: "Payments received", value: `€${(data?.totalReceived ?? 0).toFixed(0)}`, icon: PiggyBank, to: "/bookings" as const },
+    { label: "Payments due", value: `€${(data?.totalDue ?? 0).toFixed(0)}`, icon: Wallet, to: "/bookings" as const },
     { label: "Revenue (paid)", value: `€${(data?.revenue ?? 0).toFixed(0)}`, icon: TrendingUp, to: "/invoices" as const },
     { label: "Outstanding", value: `€${(data?.outstanding ?? 0).toFixed(0)}`, icon: Receipt, to: "/invoices" as const },
   ];
@@ -126,7 +145,10 @@ function Dashboard() {
                             style={{ width: `${Math.max(pct, 2)}%` }}
                           />
                         </div>
-                        <div className="text-xs text-muted-foreground">{r.count} booking{r.count === 1 ? "" : "s"} · {r.won} won</div>
+                        <div className="text-xs text-muted-foreground">
+                          {r.count} booking{r.count === 1 ? "" : "s"} · {r.won} won
+                          {(r.received > 0 || r.due > 0) && <> · <span className="text-success">€{r.received.toFixed(0)} received</span>{r.due > 0 && <> · <span className="text-destructive">€{r.due.toFixed(0)} due</span></>}</>}
+                        </div>
                       </div>
                     );
                   })}

@@ -41,6 +41,22 @@ function BookingsPage() {
     queryKey: ["packages-lite"],
     queryFn: async () => (await supabase.from("tour_packages").select("id,name,price_per_person,duration_days").eq("active", true).order("name")).data ?? [],
   });
+  const { data: installments } = useQuery({
+    queryKey: ["booking-installments-all"],
+    queryFn: async () => (await supabase.from("booking_installments").select("booking_id, amount, paid")).data ?? [],
+  });
+
+  // Per-booking payment totals: received = paid installments, due = unpaid installments.
+  const payByBooking = useMemo(() => {
+    const m = new Map<string, { received: number; due: number }>();
+    for (const it of (installments ?? []) as any[]) {
+      const row = m.get(it.booking_id) ?? { received: 0, due: 0 };
+      if (it.paid) row.received += Number(it.amount) || 0;
+      else row.due += Number(it.amount) || 0;
+      m.set(it.booking_id, row);
+    }
+    return m;
+  }, [installments]);
 
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<Booking | null>(null);
@@ -49,6 +65,10 @@ function BookingsPage() {
     const ch = supabase.channel("bookings-rt")
       .on("postgres_changes", { event: "*", schema: "public", table: "bookings" }, () => {
         qc.invalidateQueries({ queryKey: ["bookings"] });
+        qc.invalidateQueries({ queryKey: ["dashboard"] });
+      })
+      .on("postgres_changes", { event: "*", schema: "public", table: "booking_installments" }, () => {
+        qc.invalidateQueries({ queryKey: ["booking-installments-all"] });
         qc.invalidateQueries({ queryKey: ["dashboard"] });
       })
       .subscribe();
@@ -77,8 +97,9 @@ function BookingsPage() {
 
       <BookingDialog
         open={open} onOpenChange={setOpen} editing={editing}
+        existingPay={editing ? payByBooking.get(editing.id) : undefined}
         customers={customers ?? []} packages={packages ?? []}
-        onSaved={() => { qc.invalidateQueries({ queryKey: ["bookings"] }); qc.invalidateQueries({ queryKey: ["dashboard"] }); }}
+        onSaved={() => { qc.invalidateQueries({ queryKey: ["bookings"] }); qc.invalidateQueries({ queryKey: ["dashboard"] }); qc.invalidateQueries({ queryKey: ["booking-installments-all"] }); }}
       />
 
       {isLoading ? (
@@ -106,6 +127,18 @@ function BookingsPage() {
                 </div>
                 <div className="text-right">
                   <div className="text-lg font-semibold text-primary">€{Number(b.total_amount).toFixed(0)}</div>
+                  {(() => {
+                    const p = payByBooking.get(b.id);
+                    const received = p?.received ?? 0;
+                    const due = Math.max(Number(b.total_amount) - received, p?.due ?? 0);
+                    if (!received && !due) return null;
+                    return (
+                      <div className="mt-0.5 flex justify-end gap-2 text-xs">
+                        <span className="text-success">▲ €{received.toFixed(0)} received</span>
+                        {due > 0.01 && <span className="text-destructive">€{due.toFixed(0)} due</span>}
+                      </div>
+                    );
+                  })()}
                 </div>
                 <div className="flex gap-1">
                   <Button asChild size="icon" variant="ghost">
@@ -142,10 +175,11 @@ function StatusBadge({ status }: { status: string }) {
   return <Badge className={cls[status] ?? "bg-muted"} variant="secondary">{status.replace("_"," ")}</Badge>;
 }
 
-function BookingDialog({ open, onOpenChange, editing, customers, packages, onSaved }: {
+function BookingDialog({ open, onOpenChange, editing, existingPay, customers, packages, onSaved }: {
   open: boolean;
   onOpenChange: (o: boolean) => void;
   editing: Booking | null;
+  existingPay?: { received: number; due: number };
   customers: { id: string; name: string }[];
   packages: { id: string; name: string; price_per_person: number; duration_days: number }[];
   onSaved: () => void;
@@ -274,9 +308,9 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
     }
     if (error) return toast.error(error.message);
 
-    // Record received / due payments as installments (new bookings only).
+    // Record received / due payments as installments (new or existing bookings).
     const bookingId = editing ? editing.id : (saved as any)?.id;
-    if (!editing && bookingId) {
+    if (bookingId) {
       const rows: Record<string, any>[] = [];
       if (Number(receivedAmount) > 0) rows.push({
         booking_id: bookingId, user_id: userData.user!.id, label: "Received",
@@ -406,10 +440,16 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
               <Input id="total" type="number" min={0} step="0.01" value={totalOverride} onChange={e => setTotalOverride(e.target.value)} />
             </div>
           </div>
-          {!editing && (
-            <div className="rounded-lg border bg-card/40 p-3">
-              <Label className="text-sm font-medium">Payment (optional)</Label>
-              <p className="mb-2 mt-0.5 text-xs text-muted-foreground">Log an amount already received and the balance due. Manage further payments on the booking's detail page.</p>
+          <div className="rounded-lg border bg-card/40 p-3">
+              <Label className="text-sm font-medium">{editing ? "Add a payment (optional)" : "Payment (optional)"}</Label>
+              {editing && (existingPay?.received || existingPay?.due) ? (
+                <p className="mb-2 mt-0.5 text-xs text-muted-foreground">
+                  Already recorded: <span className="text-success">€{(existingPay.received ?? 0).toFixed(0)} received</span>
+                  {(existingPay.due ?? 0) > 0 && <> · <span className="text-destructive">€{(existingPay.due ?? 0).toFixed(0)} due</span></>}. Amounts below are <b>added</b> as new entries.
+                </p>
+              ) : (
+                <p className="mb-2 mt-0.5 text-xs text-muted-foreground">Log an amount already received and the balance due. Manage further payments on the booking's detail page.</p>
+              )}
               <div className="grid gap-3 sm:grid-cols-2">
                 <div>
                   <Label htmlFor="rcv" className="text-xs text-muted-foreground">Received amount (€)</Label>
@@ -435,7 +475,6 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
                 </p>
               )}
             </div>
-          )}
           <div>
             <Label htmlFor="notes">Notes</Label>
             <Textarea id="notes" value={notes} onChange={e => setNotes(e.target.value)} rows={3} />

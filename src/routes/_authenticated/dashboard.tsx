@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Package, Calendar, Receipt, TrendingUp, Wallet, PiggyBank, Trophy, Building2 } from "lucide-react";
+import { Users, Package, Calendar, Receipt, TrendingUp, Wallet, PiggyBank, Trophy, Building2, CalendarClock } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Badge } from "@/components/ui/badge";
 import { useCurrentRole } from "@/hooks/use-current-role";
@@ -26,7 +26,7 @@ function Dashboard() {
               r.error ? await supabase.from("bookings").select("id, total_amount, status") : r)
           : Promise.resolve({ data: [] as any[] }),
         canSeeFinancials ? supabase.from("booking_expenses").select("amount") : Promise.resolve({ data: [] as any[] }),
-        canSeeFinancials ? supabase.from("booking_installments").select("booking_id, amount, paid") : Promise.resolve({ data: [] as any[] }),
+        canSeeFinancials ? supabase.from("booking_installments").select("booking_id, amount, paid, due_date") : Promise.resolve({ data: [] as any[] }),
       ]);
       const revenue = (invoices.data ?? []).filter((i: any) => i.status === "paid").reduce((s: number, i: any) => s + Number(i.total), 0);
       const outstanding = (invoices.data ?? []).filter((i: any) => ["sent","overdue"].includes(i.status)).reduce((s: number, i: any) => s + Number(i.total), 0);
@@ -37,6 +37,12 @@ function Dashboard() {
       // Booking payments (from installments): received = paid, due = unpaid.
       const totalReceived = (payments.data ?? []).filter((p: any) => p.paid).reduce((s: number, p: any) => s + (Number(p.amount) || 0), 0);
       const totalDue = (payments.data ?? []).filter((p: any) => !p.paid).reduce((s: number, p: any) => s + (Number(p.amount) || 0), 0);
+      // "Coming in" — unpaid installments due within the next 30 days.
+      const in30 = new Date(); in30.setDate(in30.getDate() + 30);
+      const horizon = in30.toISOString().slice(0, 10);
+      const dueSoon = (payments.data ?? [])
+        .filter((p: any) => !p.paid && p.due_date && p.due_date <= horizon)
+        .reduce((s: number, p: any) => s + (Number(p.amount) || 0), 0);
       // booking_id -> company, to split payments per company.
       const bookingCompany = new Map<string, string>();
       for (const b of (allBookings.data ?? []) as any[]) bookingCompany.set(b.id, b.company || "ttt-dmc");
@@ -66,7 +72,7 @@ function Dashboard() {
         packages: packages.count ?? 0,
         bookings: bookings.data ?? [],
         revenue, outstanding, bookingSales, totalExpenses, profit,
-        totalReceived, totalDue,
+        totalReceived, totalDue, dueSoon,
         companySales,
       };
     },
@@ -82,6 +88,7 @@ function Dashboard() {
     { label: (data?.profit ?? 0) >= 0 ? "Profit" : "Loss", value: `€${Math.abs(data?.profit ?? 0).toFixed(0)}`, icon: PiggyBank, to: "/bookings" as const },
     { label: "Payments received", value: `€${(data?.totalReceived ?? 0).toFixed(0)}`, icon: PiggyBank, to: "/bookings" as const },
     { label: "Payments due", value: `€${(data?.totalDue ?? 0).toFixed(0)}`, icon: Wallet, to: "/bookings" as const },
+    { label: "Coming in (30 days)", value: `€${(data?.dueSoon ?? 0).toFixed(0)}`, icon: CalendarClock, to: "/bookings" as const },
     { label: "Revenue (paid)", value: `€${(data?.revenue ?? 0).toFixed(0)}`, icon: TrendingUp, to: "/invoices" as const },
     { label: "Outstanding", value: `€${(data?.outstanding ?? 0).toFixed(0)}`, icon: Receipt, to: "/invoices" as const },
   ];

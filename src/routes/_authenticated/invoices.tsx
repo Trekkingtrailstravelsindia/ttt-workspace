@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Pencil, Trash2, Download, X, Wallet } from "lucide-react";
+import { Plus, Pencil, Trash2, Download, X, Wallet, Building2 } from "lucide-react";
 import { toast } from "sonner";
 import { downloadInvoicePdf, type InvoiceLine } from "@/lib/invoice-pdf";
 import { COMPANIES, DEFAULT_COMPANY } from "@/lib/companies";
@@ -358,6 +358,18 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
       <DialogContent className="max-h-[90vh] max-w-2xl overflow-y-auto">
         <DialogHeader><DialogTitle>{editing ? `Edit ${editing.invoice_number}` : "New invoice"}</DialogTitle></DialogHeader>
         <form onSubmit={submit} className="space-y-3">
+          <div className="rounded-lg border border-primary/30 bg-primary/5 p-3">
+            <Label className="flex items-center gap-1.5 text-primary">
+              <Building2 className="size-4" /> Which company is issuing this invoice?
+            </Label>
+            <Select value={company} onValueChange={setCompany}>
+              <SelectTrigger className="mt-1"><SelectValue placeholder="Select company" /></SelectTrigger>
+              <SelectContent>
+                {COMPANIES.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            <p className="mt-1.5 text-xs text-muted-foreground">This brand's name, details and logo appear on the invoice PDF.</p>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2">
             <div>
               <Label>From booking (optional)</Label>
@@ -398,16 +410,6 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
                 </Select>
               )}
             </div>
-          </div>
-
-          <div>
-            <Label>Issuing company</Label>
-            <Select value={company} onValueChange={setCompany}>
-              <SelectTrigger><SelectValue /></SelectTrigger>
-              <SelectContent>
-                {COMPANIES.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
-              </SelectContent>
-            </Select>
           </div>
 
           <div>

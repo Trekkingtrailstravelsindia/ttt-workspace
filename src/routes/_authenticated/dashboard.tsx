@@ -2,10 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Package, Calendar, Receipt, TrendingUp, Wallet, PiggyBank } from "lucide-react";
+import { Users, Package, Calendar, Receipt, TrendingUp, Wallet, PiggyBank, Trophy, Building2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { Badge } from "@/components/ui/badge";
 import { useCurrentRole } from "@/hooks/use-current-role";
+import { getCompany } from "@/lib/companies";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({ component: Dashboard });
 
@@ -18,8 +19,12 @@ function Dashboard() {
         supabase.from("customers").select("id", { count: "exact", head: true }),
         supabase.from("tour_packages").select("id", { count: "exact", head: true }),
         supabase.from("bookings").select("*, customer:customers(name), package:tour_packages(name)").order("created_at", { ascending: false }).limit(5),
-        canSeeFinancials ? supabase.from("invoices").select("total, status") : Promise.resolve({ data: [] as any[] }),
-        canSeeFinancials ? supabase.from("bookings").select("total_amount") : Promise.resolve({ data: [] as any[] }),
+        canSeeFinancials ? supabase.from("invoices").select("total, status, company") : Promise.resolve({ data: [] as any[] }),
+        canSeeFinancials
+          ? supabase.from("bookings").select("total_amount, company, status").then(async (r) =>
+              // Fall back if the `company` column hasn't been added to the DB yet.
+              r.error ? await supabase.from("bookings").select("total_amount, status") : r)
+          : Promise.resolve({ data: [] as any[] }),
         canSeeFinancials ? supabase.from("booking_expenses").select("amount") : Promise.resolve({ data: [] as any[] }),
       ]);
       const revenue = (invoices.data ?? []).filter((i: any) => i.status === "paid").reduce((s: number, i: any) => s + Number(i.total), 0);
@@ -27,11 +32,25 @@ function Dashboard() {
       const bookingSales = (allBookings.data ?? []).reduce((s: number, b: any) => s + Number(b.total_amount), 0);
       const totalExpenses = (expenses.data ?? []).reduce((s: number, e: any) => s + Number(e.amount), 0);
       const profit = bookingSales - totalExpenses;
+
+      // Per-company sales leaderboard (excludes cancelled bookings from the sales figure).
+      const byCompany = new Map<string, { id: string; sales: number; count: number; won: number }>();
+      for (const b of (allBookings.data ?? []) as any[]) {
+        const id = b.company || "ttt-dmc";
+        const row = byCompany.get(id) ?? { id, sales: 0, count: 0, won: 0 };
+        row.count += 1;
+        if (b.status !== "cancelled") row.sales += Number(b.total_amount) || 0;
+        if (["confirmed","travelling","completed","deposit_paid"].includes(b.status)) row.won += 1;
+        byCompany.set(id, row);
+      }
+      const companySales = [...byCompany.values()].sort((a, b) => b.sales - a.sales);
+
       return {
         customers: customers.count ?? 0,
         packages: packages.count ?? 0,
         bookings: bookings.data ?? [],
         revenue, outstanding, bookingSales, totalExpenses, profit,
+        companySales,
       };
     },
   });
@@ -73,6 +92,50 @@ function Dashboard() {
           </Link>
         ))}
       </div>
+
+      {canSeeFinancials && (data?.companySales?.length ?? 0) > 0 && (
+        <Card>
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle className="flex items-center gap-2"><Trophy className="size-5 text-primary" /> Sales by company</CardTitle>
+            <Link to="/bookings" className="text-sm text-primary hover:underline">All bookings</Link>
+          </CardHeader>
+          <CardContent>
+            {(() => {
+              const rows = data!.companySales;
+              const max = Math.max(...rows.map(r => r.sales), 1);
+              return (
+                <div className="space-y-4">
+                  {rows.map((r, i) => {
+                    const c = getCompany(r.id);
+                    const pct = Math.round((r.sales / max) * 100);
+                    return (
+                      <div key={r.id} className="space-y-1">
+                        <div className="flex items-center justify-between gap-3 text-sm">
+                          <span className="flex min-w-0 items-center gap-2 font-medium">
+                            {i === 0
+                              ? <Trophy className="size-4 shrink-0 text-amber-500" />
+                              : <Building2 className="size-4 shrink-0 text-muted-foreground" />}
+                            <span className="truncate">{c.name}</span>
+                            {i === 0 && <Badge variant="secondary" className="bg-amber-500/15 text-amber-700 dark:text-amber-400">Top seller</Badge>}
+                          </span>
+                          <span className="shrink-0 tabular-nums font-semibold text-primary">€{r.sales.toFixed(0)}</span>
+                        </div>
+                        <div className="h-2.5 w-full overflow-hidden rounded-full bg-muted">
+                          <div
+                            className={`h-full rounded-full ${i === 0 ? "bg-amber-500" : "bg-primary/70"}`}
+                            style={{ width: `${Math.max(pct, 2)}%` }}
+                          />
+                        </div>
+                        <div className="text-xs text-muted-foreground">{r.count} booking{r.count === 1 ? "" : "s"} · {r.won} won</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              );
+            })()}
+          </CardContent>
+        </Card>
+      )}
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">

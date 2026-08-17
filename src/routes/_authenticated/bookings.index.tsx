@@ -10,13 +10,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Pencil, Trash2, Users, Calendar, Eye } from "lucide-react";
+import { Plus, Pencil, Trash2, Users, Calendar, Eye, Building2 } from "lucide-react";
 import { toast } from "sonner";
+import { COMPANIES, DEFAULT_COMPANY, getCompany } from "@/lib/companies";
 
 type Booking = {
   id: string; customer_id: string; package_id: string;
   start_date: string; end_date: string | null; travelers: number;
   total_amount: number; status: "inquiry"|"quoted"|"deposit_paid"|"confirmed"|"travelling"|"completed"|"cancelled"; notes: string | null;
+  company?: string | null;
   customer?: { name: string } | null;
   package?: { name: string; price_per_person: number; duration_days: number } | null;
 };
@@ -97,6 +99,7 @@ function BookingsPage() {
                   </div>
                   <div className="text-sm text-muted-foreground">{b.package?.name}</div>
                   <div className="mt-1 flex flex-wrap gap-3 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1"><Building2 className="size-3" />{getCompany(b.company).name}</span>
                     <span className="flex items-center gap-1"><Calendar className="size-3" />{b.start_date}{b.end_date ? ` → ${b.end_date}`: ""}</span>
                     <span className="flex items-center gap-1"><Users className="size-3" />{b.travelers}</span>
                   </div>
@@ -147,6 +150,7 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
   packages: { id: string; name: string; price_per_person: number; duration_days: number }[];
   onSaved: () => void;
 }) {
+  const [company, setCompany] = useState<string>(editing?.company ?? DEFAULT_COMPANY);
   const [customerId, setCustomerId] = useState(editing?.customer_id ?? "");
   const [packageId, setPackageId] = useState(editing?.package_id ?? "");
   const [travelers, setTravelers] = useState(editing?.travelers ?? 1);
@@ -158,6 +162,7 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
 
   useEffect(() => {
     if (!open) return;
+    setCompany(editing?.company ?? DEFAULT_COMPANY);
     setCustomerId(editing?.customer_id ?? "");
     setPackageId(editing?.package_id ?? "");
     setTravelers(editing?.travelers ?? 1);
@@ -185,10 +190,12 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    if (!company) return toast.error("Choose a company first");
     if (!customerId || !packageId || !startDate) return toast.error("Customer, package and start date required");
     const { data: userData } = await supabase.auth.getUser();
-    const payload = {
+    const payload: Record<string, any> = {
       user_id: userData.user!.id,
+      company,
       customer_id: customerId,
       package_id: packageId,
       start_date: startDate,
@@ -198,9 +205,16 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
       notes: notes || null,
       total_amount: Number(totalOverride) || 0,
     };
-    const { error } = editing
-      ? await supabase.from("bookings").update(payload).eq("id", editing.id)
-      : await supabase.from("bookings").insert(payload);
+    const run = (p: Record<string, any>) => editing
+      ? supabase.from("bookings").update(p as any).eq("id", editing.id)
+      : supabase.from("bookings").insert(p as any);
+    let { error } = await run(payload);
+    // Fallback if the `company` column hasn't been added to the DB yet.
+    if (error && /company/i.test(error.message)) {
+      const { company: _omit, ...rest } = payload;
+      ({ error } = await run(rest));
+      if (!error) toast.warning("Saved, but the company field isn't stored yet — run the DB update to enable per-company tracking.");
+    }
     if (error) return toast.error(error.message);
     toast.success(editing ? "Booking updated" : "Booking created");
     onOpenChange(false);
@@ -212,6 +226,18 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
       <DialogContent className="max-h-[90vh] overflow-y-auto">
         <DialogHeader><DialogTitle>{editing ? "Edit booking" : "New booking"}</DialogTitle></DialogHeader>
         <form onSubmit={submit} className="space-y-3">
+          <div className="rounded-lg border border-primary/30 bg-primary/5 p-3">
+            <Label className="flex items-center gap-1.5 text-primary">
+              <Building2 className="size-4" /> Which company is this booking for?
+            </Label>
+            <Select value={company} onValueChange={setCompany}>
+              <SelectTrigger className="mt-1"><SelectValue placeholder="Select company" /></SelectTrigger>
+              <SelectContent>
+                {COMPANIES.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
+              </SelectContent>
+            </Select>
+            <p className="mt-1.5 text-xs text-muted-foreground">Sales are tracked per company so you can see which brand performs best.</p>
+          </div>
           <div>
             <Label>Customer</Label>
             <Select value={customerId} onValueChange={setCustomerId}>

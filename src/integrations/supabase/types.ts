@@ -329,6 +329,7 @@ export type Database = {
       bookings: {
         Row: {
           assigned_to: string | null
+          company: string | null
           base_currency: string
           created_at: string
           currency: string
@@ -347,6 +348,7 @@ export type Database = {
         }
         Insert: {
           assigned_to?: string | null
+          company?: string | null
           base_currency?: string
           created_at?: string
           currency?: string
@@ -365,6 +367,7 @@ export type Database = {
         }
         Update: {
           assigned_to?: string | null
+          company?: string | null
           base_currency?: string
           created_at?: string
           currency?: string

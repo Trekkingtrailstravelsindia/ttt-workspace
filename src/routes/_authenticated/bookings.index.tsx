@@ -160,6 +160,54 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
   const [notes, setNotes] = useState(editing?.notes ?? "");
   const [totalOverride, setTotalOverride] = useState<string>(editing ? String(editing.total_amount) : "");
 
+  const qc = useQueryClient();
+  const [showNewCust, setShowNewCust] = useState(false);
+  const [addingCust, setAddingCust] = useState(false);
+  const [nc, setNc] = useState({ name: "", email: "", phone: "", country: "" });
+  const [showNewPkg, setShowNewPkg] = useState(false);
+  const [addingPkg, setAddingPkg] = useState(false);
+  const [np, setNp] = useState({ name: "", price: "", days: "" });
+
+  async function addNewCustomer() {
+    if (!nc.name.trim()) return toast.error("Customer name is required");
+    setAddingCust(true);
+    const { data: u } = await supabase.auth.getUser();
+    const { data, error } = await supabase.from("customers").insert({
+      user_id: u.user!.id,
+      name: nc.name.trim(),
+      email: nc.email.trim() || null,
+      phone: nc.phone.trim() || null,
+      country: nc.country.trim() || null,
+    }).select("id").single();
+    setAddingCust(false);
+    if (error || !data) return toast.error(error?.message ?? "Could not add customer");
+    await qc.invalidateQueries({ queryKey: ["customers-lite"] });
+    setCustomerId(data.id);
+    setShowNewCust(false);
+    setNc({ name: "", email: "", phone: "", country: "" });
+    toast.success("Customer added");
+  }
+
+  async function addNewPackage() {
+    if (!np.name.trim()) return toast.error("Package name is required");
+    setAddingPkg(true);
+    const { data: u } = await supabase.auth.getUser();
+    const { data, error } = await supabase.from("tour_packages").insert({
+      user_id: u.user!.id,
+      name: np.name.trim(),
+      price_per_person: Number(np.price) || 0,
+      duration_days: Number(np.days) || 1,
+      active: true,
+    }).select("id").single();
+    setAddingPkg(false);
+    if (error || !data) return toast.error(error?.message ?? "Could not add package");
+    await qc.invalidateQueries({ queryKey: ["packages-lite"] });
+    setPackageId(data.id);
+    setShowNewPkg(false);
+    setNp({ name: "", price: "", days: "" });
+    toast.success("Package added");
+  }
+
   useEffect(() => {
     if (!open) return;
     setCompany(editing?.company ?? DEFAULT_COMPANY);
@@ -171,6 +219,8 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
     setStatus(editing?.status ?? "inquiry");
     setNotes(editing?.notes ?? "");
     setTotalOverride(editing ? String(editing.total_amount) : "");
+    setShowNewCust(false); setNc({ name: "", email: "", phone: "", country: "" });
+    setShowNewPkg(false); setNp({ name: "", price: "", days: "" });
   }, [open, editing]);
 
   const pkg = packages.find(p => p.id === packageId);
@@ -239,22 +289,59 @@ function BookingDialog({ open, onOpenChange, editing, customers, packages, onSav
             <p className="mt-1.5 text-xs text-muted-foreground">Sales are tracked per company so you can see which brand performs best.</p>
           </div>
           <div>
-            <Label>Customer</Label>
-            <Select value={customerId} onValueChange={setCustomerId}>
-              <SelectTrigger><SelectValue placeholder="Select customer" /></SelectTrigger>
-              <SelectContent>
-                {customers.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
-              </SelectContent>
-            </Select>
+            <div className="flex items-center justify-between">
+              <Label>Customer</Label>
+              <button type="button" className="text-xs font-medium text-primary hover:underline" onClick={() => setShowNewCust(v => !v)}>
+                {showNewCust ? "Pick existing" : "+ New customer"}
+              </button>
+            </div>
+            {showNewCust ? (
+              <div className="space-y-2 rounded-lg border bg-card/40 p-3">
+                <Input placeholder="Full name *" value={nc.name} onChange={e => setNc(s => ({ ...s, name: e.target.value }))} maxLength={120} />
+                <div className="grid grid-cols-2 gap-2">
+                  <Input placeholder="Email" type="email" value={nc.email} onChange={e => setNc(s => ({ ...s, email: e.target.value }))} />
+                  <Input placeholder="Phone" value={nc.phone} onChange={e => setNc(s => ({ ...s, phone: e.target.value }))} />
+                </div>
+                <Input placeholder="Country" value={nc.country} onChange={e => setNc(s => ({ ...s, country: e.target.value }))} />
+                <Button type="button" size="sm" className="w-full" disabled={addingCust} onClick={addNewCustomer}>
+                  <Plus className="size-3.5" /> {addingCust ? "Adding…" : "Add customer"}
+                </Button>
+              </div>
+            ) : (
+              <Select value={customerId} onValueChange={setCustomerId}>
+                <SelectTrigger><SelectValue placeholder="Select customer" /></SelectTrigger>
+                <SelectContent>
+                  {customers.map(c => <SelectItem key={c.id} value={c.id}>{c.name}</SelectItem>)}
+                </SelectContent>
+              </Select>
+            )}
           </div>
           <div>
-            <Label>Package</Label>
-            <Select value={packageId} onValueChange={setPackageId}>
-              <SelectTrigger><SelectValue placeholder="Select package" /></SelectTrigger>
-              <SelectContent>
-                {packages.map(p => <SelectItem key={p.id} value={p.id}>{p.name} — €{p.price_per_person}</SelectItem>)}
-              </SelectContent>
-            </Select>
+            <div className="flex items-center justify-between">
+              <Label>Package</Label>
+              <button type="button" className="text-xs font-medium text-primary hover:underline" onClick={() => setShowNewPkg(v => !v)}>
+                {showNewPkg ? "Pick existing" : "+ New package"}
+              </button>
+            </div>
+            {showNewPkg ? (
+              <div className="space-y-2 rounded-lg border bg-card/40 p-3">
+                <Input placeholder="Package name *" value={np.name} onChange={e => setNp(s => ({ ...s, name: e.target.value }))} maxLength={200} />
+                <div className="grid grid-cols-2 gap-2">
+                  <Input placeholder="Price / person (€)" type="number" min={0} step="0.01" value={np.price} onChange={e => setNp(s => ({ ...s, price: e.target.value }))} />
+                  <Input placeholder="Duration (days)" type="number" min={1} value={np.days} onChange={e => setNp(s => ({ ...s, days: e.target.value }))} />
+                </div>
+                <Button type="button" size="sm" className="w-full" disabled={addingPkg} onClick={addNewPackage}>
+                  <Plus className="size-3.5" /> {addingPkg ? "Adding…" : "Add package"}
+                </Button>
+              </div>
+            ) : (
+              <Select value={packageId} onValueChange={setPackageId}>
+                <SelectTrigger><SelectValue placeholder="Select package" /></SelectTrigger>
+                <SelectContent>
+                  {packages.map(p => <SelectItem key={p.id} value={p.id}>{p.name} — €{p.price_per_person}</SelectItem>)}
+                </SelectContent>
+              </Select>
+            )}
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
             <div>

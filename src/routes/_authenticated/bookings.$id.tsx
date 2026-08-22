@@ -45,7 +45,7 @@ type Expense = {
   description: string; amount: number; currency: string;
   expense_date: string; notes: string | null;
   title: string | null; start_date: string | null; end_date: string | null;
-  guests: number | null; route: string | null;
+  guests: number | null; kids: number | null; route: string | null;
 };
 
 type Doc = {
@@ -392,6 +392,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
   const [startDate, setStartDate] = useState(new Date().toISOString().slice(0, 10));
   const [endDate, setEndDate] = useState("");
   const [guests, setGuests] = useState("");
+  const [kids, setKids] = useState("");
   const [route, setRoute] = useState("");
   const [notes, setNotes] = useState("");
   const [saving, setSaving] = useState(false);
@@ -420,9 +421,9 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
 
   useEffect(() => {
     if (!rateBasis) return;
-    const pax = Math.max(1, Number(guests) || 1);
-    setAmount(String(rateBasis.perPax ? rateBasis.unit * pax : rateBasis.unit));
-  }, [rateBasis, guests]);
+    const totalPax = Math.max(1, (Number(guests) || 0) + (Number(kids) || 0) || 1);
+    setAmount(String(rateBasis.perPax ? rateBasis.unit * totalPax : rateBasis.unit));
+  }, [rateBasis, guests, kids]);
 
   function onAmountChange(v: string) {
     setRateBasis(null); // manual edit detaches from the rate card
@@ -430,7 +431,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
   }
 
   function reset() {
-    setTitle(""); setAmount(""); setEndDate(""); setGuests(""); setRoute(""); setNotes(""); setRateBasis(null);
+    setTitle(""); setAmount(""); setEndDate(""); setGuests(""); setKids(""); setRoute(""); setNotes(""); setRateBasis(null);
   }
 
   async function addExpense(e: React.FormEvent) {
@@ -449,6 +450,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
       start_date: startDate,
       end_date: category === HOTEL ? (endDate || null) : null,
       guests: guests ? Number(guests) : null,
+      kids: kids ? Number(kids) : null,
       route: category === TRANSFER ? (route.trim() || null) : null,
       notes: notes.trim() || null,
     } as any);
@@ -548,7 +550,7 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
               {matchedRate && (
                 <div className="pb-2 text-xs text-muted-foreground">
                   Rate card: <span className="font-medium text-foreground">{matchedRate.currency} {Number(matchedRate.amount).toFixed(0)}</span>
-                  {matchedRate.rate_type === "per_pax" && <span className="ml-1">× {Math.max(1, Number(guests) || 1)} adult(s)</span>}
+                  {matchedRate.rate_type === "per_pax" && <span className="ml-1">× {Math.max(1, (Number(guests) || 0) + (Number(kids) || 0) || 1)} traveler(s)</span>}
                   <button type="button" className="ml-2 rounded border px-1.5 py-0.5 hover:bg-accent hover:text-accent-foreground" onClick={() => applyRate(matchedRate)}>Apply</button>
                 </div>
               )}
@@ -569,6 +571,10 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
             <div>
               <Label>Adults</Label>
               <Input type="number" min={1} value={guests} onChange={e => setGuests(e.target.value)} placeholder="1" />
+            </div>
+            <div>
+              <Label>Kids</Label>
+              <Input type="number" min={0} value={kids} onChange={e => setKids(e.target.value)} placeholder="0" />
             </div>
             {category === TRANSFER && (
               <div className="sm:col-span-2">
@@ -608,9 +614,13 @@ function ExpensesCard({ bookingId, expenses, byCat, docs }: { bookingId: string;
           <div className="divide-y">
             {expenses.map(e => {
               const expDocs = docs.filter(d => d.expense_id === e.id);
+              const paxInfo = e.category === ACTIVITY ? [
+                e.guests ? `${e.guests} adult(s)` : null,
+                e.kids ? `${e.kids} kid(s)` : null,
+              ].filter(Boolean).join(", ") : null;
               const meta = [
                 e.category === HOTEL && e.end_date ? `${e.start_date ?? e.expense_date} → ${e.end_date}` : (e.start_date ?? e.expense_date),
-                e.category === ACTIVITY && e.guests ? `${e.guests} guest(s)` : null,
+                paxInfo || (e.category === ACTIVITY && (e.guests || e.kids) ? `${(e.guests || 0) + (e.kids || 0)} person(s)` : null),
                 e.category === TRANSFER && e.route ? e.route : null,
                 e.notes || null,
               ].filter(Boolean).join(" · ");

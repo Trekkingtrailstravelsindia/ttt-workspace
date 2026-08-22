@@ -25,7 +25,7 @@ type Invoice = {
   payment_schedule?: { label: string; percent: number; amount: number; due_date: string | null }[] | null;
   customer?: { name: string; email: string | null; phone: string | null; country: string | null };
   booking?: {
-    id: string; start_date: string | null; end_date: string | null; travelers: number | null;
+    id: string; start_date: string | null; end_date: string | null; travelers: number | null; kids?: number | null;
     package?: { name: string | null; location: string | null } | null;
   } | null;
 };
@@ -38,7 +38,7 @@ function InvoicesPage() {
     queryKey: ["invoices"],
     queryFn: async () => {
       const { data } = await supabase.from("invoices")
-        .select("*, customer:customers(name, email, phone, country), booking:bookings(id, start_date, end_date, travelers, package:tour_packages(name, location))")
+        .select("*, customer:customers(name, email, phone, country), booking:bookings(id, start_date, end_date, travelers, kids, package:tour_packages(name, location))")
         .order("issue_date", { ascending: false });
       return (data ?? []) as unknown as Invoice[];
     },
@@ -56,7 +56,7 @@ function InvoicesPage() {
   });
   const { data: bookings } = useQuery({
     queryKey: ["bookings-lite"],
-    queryFn: async () => (await supabase.from("bookings").select("id, customer_id, total_amount, travelers, package:tour_packages(name, price_per_person)").order("start_date", { ascending: false })).data ?? [],
+    queryFn: async () => (await supabase.from("bookings").select("id, customer_id, total_amount, travelers, kids, package:tour_packages(name, price_per_person)").order("start_date", { ascending: false })).data ?? [],
   });
 
   const [open, setOpen] = useState(false);
@@ -177,7 +177,7 @@ function StatusBadge({ status }: { status: string }) {
 }
 
 type BookingLite = {
-  id: string; customer_id: string; total_amount: number; travelers: number;
+  id: string; customer_id: string; total_amount: number; travelers: number; kids?: number | null;
   package: { name: string; price_per_person: number } | null;
 };
 
@@ -286,8 +286,9 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
     const b = bookings.find(x => x.id === bookingId);
     if (!b) return;
     setCustomerId(b.customer_id);
+    const totalPax = (b.travelers || 0) + (b.kids || 0);
     setLines([{
-      description: `${b.package?.name ?? "Tour package"} — ${b.travelers} traveler(s)`,
+      description: `${b.package?.name ?? "Tour package"} — ${b.travelers} adult(s)${b.kids ? ` + ${b.kids} kid(s)` : ""}`,
       quantity: b.travelers,
       unit_price: b.package?.price_per_person ?? (b.total_amount / (b.travelers || 1)),
     }]);

@@ -183,7 +183,7 @@ function BookingDetail() {
             <div className="text-xs uppercase tracking-wide text-muted-foreground">Booking</div>
             <h1 className="font-display text-3xl text-primary">{booking.customer?.name}</h1>
             <div className="mt-1 text-sm text-muted-foreground">
-              {booking.package?.name} · {booking.start_date}{booking.end_date ? ` → ${booking.end_date}` : ""} · {booking.travelers} traveler(s)
+              {booking.package?.name} · {booking.start_date}{booking.end_date ? ` → ${booking.end_date}` : ""} · {booking.travelers} adult(s){booking.kids ? ` + ${booking.kids} kid(s)` : ""}
             </div>
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <Badge variant="secondary">{booking.status}</Badge>

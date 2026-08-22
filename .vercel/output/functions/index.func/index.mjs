@@ -29826,10 +29826,10 @@ var init___23tanstack_start_server_fn_resolver_BQ4RDcnV = __esmMin$1((() => {
 	};
 }));
 //#endregion
-//#region dist/server/assets/_tanstack-start-manifest_v-B46gQvWs.js
-var _tanstack_start_manifest_v_B46gQvWs_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
+//#region dist/server/assets/_tanstack-start-manifest_v-DF96QqQy.js
+var _tanstack_start_manifest_v_DF96QqQy_exports = /* @__PURE__ */ __exportAll$1({ tsrStartManifest: () => tsrStartManifest });
 var tsrStartManifest;
-var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
+var init__tanstack_start_manifest_v_DF96QqQy = __esmMin$1((() => {
 	tsrStartManifest = () => ({ routes: {
 		__root__: {
 			filePath: "/private/tmp/ttt-workspace/src/routes/__root.tsx",
@@ -29839,7 +29839,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 				"/auth"
 			],
 			preloads: [
-				"/assets/index-DWz2oc87.js",
+				"/assets/index-BUy_Qyrd.js",
 				"/assets/rolldown-runtime-QTnfLwEv.js",
 				"/assets/react-CZI7_Jkm.js",
 				"/assets/createLucideIcon-BeXmV15X.js",
@@ -29853,14 +29853,14 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			scripts: [{ attrs: {
 				type: "module",
 				async: !0,
-				src: "/assets/index-DWz2oc87.js"
+				src: "/assets/index-BUy_Qyrd.js"
 			} }]
 		},
 		"/": {
 			filePath: "/private/tmp/ttt-workspace/src/routes/index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/routes-DCPmjMhw.js",
+				"/assets/routes-Cnczwks3.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js"
 			]
@@ -29888,13 +29888,13 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 				"/_authenticated/bookings/"
 			],
 			preloads: [
-				"/assets/route-K7gjRRjm.js",
-				"/assets/useQuery-DZVitpH9.js",
+				"/assets/route-C2BKGGCz.js",
+				"/assets/useQuery-Bn236E09.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/plus-BkZrfRmn.js",
 				"/assets/user-plus-BlDqSje_.js",
 				"/assets/dialog-CRk0hC-B.js",
-				"/assets/use-current-role-Df78eye_.js",
+				"/assets/use-current-role-CbKtr56T.js",
 				"/assets/dist-lAGtACJv.js",
 				"/assets/utils-bQg_cXOl.js",
 				"/assets/button-S77LrnUo.js",
@@ -29907,7 +29907,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/auth.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/auth-Bp1K9Hfh.js",
+				"/assets/auth-IW8QBDf9.js",
 				"/assets/compass-DI_EUvoD.js",
 				"/assets/button-S77LrnUo.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29918,13 +29918,13 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 		"/_authenticated/calendar": {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/calendar.tsx",
 			children: void 0,
-			preloads: ["/assets/calendar-D5KzwSTw.js", "/assets/card-CjZIaSoO.js"]
+			preloads: ["/assets/calendar-p4kH8iQg.js", "/assets/card-CjZIaSoO.js"]
 		},
 		"/_authenticated/cash-flow": {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/cash-flow.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/cash-flow-Cz7PxKMl.js",
+				"/assets/cash-flow-BNBat2Xf.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/trending-down-B9uDsfUr.js",
@@ -29949,7 +29949,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/customers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/customers-D0sxS0U3.js",
+				"/assets/customers-4GtuVjNF.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -29962,7 +29962,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/dashboard.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/dashboard-prz8K_qv.js",
+				"/assets/dashboard-BF74xpic.js",
 				"/assets/building-2-C5OsB4XW.js",
 				"/assets/trending-up-Bskfj5bG.js",
 				"/assets/card-CjZIaSoO.js",
@@ -29974,7 +29974,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/departures.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/departures-DVFG4Bk-.js",
+				"/assets/departures-D3kRovX8.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -29986,7 +29986,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/invoices.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/invoices-By2dHAYc.js",
+				"/assets/invoices-CgwSeEKw.js",
 				"/assets/building-2-C5OsB4XW.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
@@ -30003,7 +30003,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/leads.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/leads-BMUjtXN3.js",
+				"/assets/leads-Cd6B1rLW.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/card-CjZIaSoO.js",
@@ -30014,7 +30014,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/packages.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/packages-D5arJDNg.js",
+				"/assets/packages-BWlUozxP.js",
 				"/assets/map-pin-_tABMRrh.js",
 				"/assets/pencil-Cy6VlxW9.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -30029,7 +30029,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/rate-cards.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/rate-cards-Bg5Qzd9T.js",
+				"/assets/rate-cards-DevHOZuL.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -30042,7 +30042,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/reports.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/reports-evqXK5El.js",
+				"/assets/reports-dHcZ0IAt.js",
 				"/assets/card-CjZIaSoO.js",
 				"/assets/badge-BQRL8034.js"
 			]
@@ -30051,7 +30051,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/settings.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/settings-tOTvznK_.js",
+				"/assets/settings-DrrmBfhu.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js"
 			]
@@ -30060,7 +30060,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/suppliers.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/suppliers-mA7t49c0.js",
+				"/assets/suppliers-BlTRlf_0.js",
 				"/assets/building-2-C5OsB4XW.js",
 				"/assets/phone-DNCzNOdU.js",
 				"/assets/pencil-Cy6VlxW9.js",
@@ -30075,7 +30075,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/tasks.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/tasks-Dzy_EerV.js",
+				"/assets/tasks-DDsjg-O1.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
@@ -30089,23 +30089,23 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/team.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/team-CPEwzTXV.js",
-				"/assets/team-DF5JCEII.js",
-				"/assets/team-k2NGmuva.js",
-				"/assets/auth-middleware-CTNs7Cpd.js",
+				"/assets/team-CI4yBU45.js",
+				"/assets/auth-middleware-j_O8cnfD.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/trash-2-CSrCSNsK.js",
 				"/assets/label-Dailn3Hm.js",
 				"/assets/card-CjZIaSoO.js",
-				"/assets/badge-BQRL8034.js"
+				"/assets/badge-BQRL8034.js",
+				"/assets/team-CPEwzTXV.js",
+				"/assets/team-DF5JCEII.js"
 			]
 		},
 		"/_authenticated/whatsapp": {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/whatsapp.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/whatsapp-B4nMMbmK.js",
-				"/assets/auth-middleware-CTNs7Cpd.js",
+				"/assets/whatsapp-A754ooyG.js",
+				"/assets/auth-middleware-j_O8cnfD.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/send-DEhpv9YQ.js",
 				"/assets/trash-2-CSrCSNsK.js",
@@ -30120,7 +30120,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/bookings.$id.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings._id-DMAP6yl_.js",
+				"/assets/bookings._id-Bx-f2RLQ.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/download-D-hhNjws.js",
 				"/assets/map-pin-_tABMRrh.js",
@@ -30140,7 +30140,7 @@ var init__tanstack_start_manifest_v_B46gQvWs = __esmMin$1((() => {
 			filePath: "/private/tmp/ttt-workspace/src/routes/_authenticated/bookings.index.tsx",
 			children: void 0,
 			preloads: [
-				"/assets/bookings.index-DpvVkJhI.js",
+				"/assets/bookings.index-Bl7XlmdM.js",
 				"/assets/building-2-C5OsB4XW.js",
 				"/assets/select-CGgSxzML.js",
 				"/assets/pencil-Cy6VlxW9.js",
@@ -43690,8 +43690,8 @@ var init_badge_B2cGBURX = __esmMin$1((() => {
 	});
 }));
 //#endregion
-//#region dist/server/assets/bookings._id-B9QGp7yp.js
-var bookings__id_B9QGp7yp_exports = /* @__PURE__ */ __exportAll$1({ component: () => BookingDetail });
+//#region dist/server/assets/bookings._id-BEr-vnI3.js
+var bookings__id_BEr_vnI3_exports = /* @__PURE__ */ __exportAll$1({ component: () => BookingDetail });
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -47152,7 +47152,8 @@ function BookingDetail() {
 							booking.end_date ? ` → ${booking.end_date}` : "",
 							" · ",
 							booking.travelers,
-							" traveler(s)"
+							" adult(s)",
+							booking.kids ? ` + ${booking.kids} kid(s)` : ""
 						]
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime$22.jsxs)("div", {
@@ -48632,7 +48633,7 @@ function WhatsAppCard({ booking, sym, totalSell }) {
 	})] });
 }
 var ArrowLeft, FileDown, FileText, Handshake, History, MessageSquare, SquareCheck, UserCheck, require_node, encoder, init_text$1, defaultByteLength, hostBigEndian, typedArrays, IOBuffer, init_IOBuffer, Z_FIXED$1, Z_BINARY, Z_TEXT, Z_UNKNOWN$1, STORED_BLOCK, STATIC_TREES, DYN_TREES, LENGTH_CODES$1, LITERALS$1, L_CODES$1, D_CODES$1, BL_CODES$1, HEAP_SIZE$1, MAX_BITS$1, Buf_size, MAX_BL_BITS, END_BLOCK, REP_3_6, REPZ_3_10, REPZ_11_138, extra_lbits, extra_dbits, extra_blbits, bl_order, DIST_CODE_LEN, static_ltree, static_dtree, _dist_code, _length_code, base_length, base_dist, static_l_desc, static_d_desc, static_bl_desc, d_code, put_short, send_bits, send_code, bi_reverse, bi_flush, gen_bitlen, gen_codes, tr_static_init, init_block, bi_windup, smaller, pqdownheap, compress_block, build_tree, scan_tree, send_tree, build_bl_tree, send_all_trees, detect_data_type, static_init_done, _tr_init$1, _tr_stored_block$1, _tr_align$1, _tr_flush_block$1, _tr_tally$1, trees, adler32, adler32_1, makeTable, crcTable$1, crc32, crc32_1, messages, constants$2, _tr_init, _tr_stored_block, _tr_flush_block, _tr_tally, _tr_align, Z_NO_FLUSH$2, Z_PARTIAL_FLUSH, Z_FULL_FLUSH$1, Z_FINISH$3, Z_BLOCK$1, Z_OK$3, Z_STREAM_END$3, Z_STREAM_ERROR$2, Z_DATA_ERROR$2, Z_BUF_ERROR$2, Z_DEFAULT_COMPRESSION$1, Z_FILTERED, Z_HUFFMAN_ONLY, Z_RLE, Z_FIXED, Z_DEFAULT_STRATEGY$1, Z_UNKNOWN, Z_DEFLATED$2, MAX_MEM_LEVEL, MAX_WBITS$1, DEF_MEM_LEVEL, HEAP_SIZE, MIN_MATCH, MAX_MATCH, MIN_LOOKAHEAD, PRESET_DICT, INIT_STATE, GZIP_STATE, EXTRA_STATE, NAME_STATE, COMMENT_STATE, HCRC_STATE, BUSY_STATE, FINISH_STATE, BS_NEED_MORE, BS_BLOCK_DONE, BS_FINISH_STARTED, BS_FINISH_DONE, OS_CODE, err, rank, zero$2, slide_hash, HASH, INSERT_STRING, flush_pending, flush_block_only, put_byte, putShortMSB, read_buf, longest_match, fill_window, deflate_stored, deflate_fast, deflate_slow, deflate_rle, deflate_huff, configuration_table, lm_init, deflateStateCheck, deflateResetKeep, deflateReset, deflateSetHeader, deflateInit2, deflateInit, deflate$2, deflateEnd, deflateSetDictionary, deflate_1$2, _has, assign$1, flattenChunks, common, STR_APPLY_UIA_OK, _utf8len, string2buf, buf2binstring, buf2string, utf8border, strings, zstream, toString$1$1, Z_NO_FLUSH$1, Z_SYNC_FLUSH, Z_FULL_FLUSH, Z_FINISH$2, Z_OK$2, Z_STREAM_END$2, Z_DEFAULT_COMPRESSION, Z_DEFAULT_STRATEGY, Z_DEFLATED$1, defaultOptions$1, deflate_1$1, BAD$1, TYPE$1, inffast, MAXBITS, ENOUGH_LENS$1, ENOUGH_DISTS$1, CODES$1, LENS$1, DISTS$1, lbase, lext, dbase, dext, inflate_table, inftrees, CODES, LENS, DISTS, Z_FINISH$1, Z_BLOCK, Z_TREES, Z_OK$1, Z_STREAM_END$1, Z_NEED_DICT$1, Z_STREAM_ERROR$1, Z_DATA_ERROR$1, Z_MEM_ERROR$1, Z_BUF_ERROR$1, Z_DEFLATED, HEAD, FLAGS, TIME, OS, EXLEN, EXTRA, NAME, COMMENT, HCRC, DICTID, DICT, TYPE, TYPEDO, STORED, COPY_, COPY, TABLE, LENLENS, CODELENS, LEN_, LEN, LENEXT, DIST, DISTEXT, MATCH, LIT, CHECK, LENGTH, DONE, BAD, MEM, SYNC, ENOUGH_LENS, ENOUGH_DISTS, DEF_WBITS, zswap32, inflateStateCheck, inflateResetKeep, inflateReset, inflateReset2, inflateInit2, inflateInit, virgin, lenfix, distfix, fixedtables, updatewindow, inflate$2, inflateEnd, inflateGetHeader, inflateSetDictionary, inflate_1$2, gzheader, toString$2, Z_NO_FLUSH, Z_FINISH, Z_OK, Z_STREAM_END, Z_NEED_DICT, Z_STREAM_ERROR, Z_DATA_ERROR, Z_MEM_ERROR, Z_BUF_ERROR, defaultOptions, inflate_1$1, Deflate, deflate, deflateRaw, gzip, Inflate, inflate, inflateRaw, ungzip, deflate_1, Inflate_1, inflate_1, init_pako_esm, crcTable, initialCrc, init_crc, init_unfilter, init_applyUnfilter, uint16$1, osIsLittleEndian$1, init_decodeInterlaceAdam7, uint16, osIsLittleEndian, empty, init_decodeInterlaceNull, pngSignature, init_signature, textChunkName, NULL$1, latin1Decoder, latin1Regex, init_text, ColorType, CompressionMethod, FilterMethod, InterlaceMethod, DisposeOpType, BlendOpType, init_internalTypes, PngDecoder, init_PngDecoder, defaultZlibOptions, PngEncoder, init_PngEncoder, ResolutionUnitSpecifier, init_types, init_convertIndexedToRgb, lib_esm_exports, init_lib_esm, html2canvas_esm_exports, extendStatics$1, __assign, Bounds, parseBounds, parseDocumentSize, toCodePoints$1, fromCodePoint$1, chars$2, lookup$2, i$2, chars$1$1, lookup$1$1, i$1$1, decode$1, polyUint16Array$1, polyUint32Array$1, UTRIE2_SHIFT_2$1, UTRIE2_SHIFT_1$1, UTRIE2_INDEX_SHIFT$1, UTRIE2_SHIFT_1_2$1, UTRIE2_LSCP_INDEX_2_OFFSET$1, UTRIE2_DATA_MASK$1, UTRIE2_INDEX_1_OFFSET$1, UTRIE2_OMITTED_BMP_INDEX_1_LENGTH$1, UTRIE2_INDEX_2_MASK$1, slice16$1, slice32$1, createTrieFromBase64$1, Trie$1, chars$3, lookup$3, i$3, base64$1, LETTER_NUMBER_MODIFIER, BK, CR$1, LF$1, CM, NL, WJ, ZW, GL, SP, ZWJ$1, B2, BA, BB, HY, CB, CL, CP, EX, IN, NS, OP, QU, IS, NU, PO, PR, SY, AI, AL, CJ, EB, EM, H2, H3, HL, ID, JL, JV, JT, RI$1, SA, XX, ea_OP, BREAK_MANDATORY, BREAK_NOT_ALLOWED$1, BREAK_ALLOWED$1, UnicodeTrie$1, ALPHABETICS, HARD_LINE_BREAKS, SPACE$1, PREFIX_POSTFIX, LINE_BREAKS, KOREAN_SYLLABLE_BLOCK, HYPHEN, codePointsToCharacterClasses, isAdjacentWithSpaceIgnored, previousNonSpaceClassType, _lineBreakAtIndex, cssFormattedClasses, Break, LineBreaker, FLAG_UNRESTRICTED, FLAG_ID, FLAG_INTEGER, FLAG_NUMBER, LINE_FEED, SOLIDUS, REVERSE_SOLIDUS, CHARACTER_TABULATION, SPACE, QUOTATION_MARK, EQUALS_SIGN, NUMBER_SIGN, DOLLAR_SIGN, PERCENTAGE_SIGN, APOSTROPHE, LEFT_PARENTHESIS, RIGHT_PARENTHESIS, LOW_LINE, HYPHEN_MINUS, EXCLAMATION_MARK, LESS_THAN_SIGN, GREATER_THAN_SIGN, COMMERCIAL_AT, LEFT_SQUARE_BRACKET, RIGHT_SQUARE_BRACKET, CIRCUMFLEX_ACCENT, LEFT_CURLY_BRACKET, QUESTION_MARK, RIGHT_CURLY_BRACKET, VERTICAL_LINE, TILDE, CONTROL, REPLACEMENT_CHARACTER, ASTERISK, PLUS_SIGN, COMMA, COLON, SEMICOLON, FULL_STOP, NULL, BACKSPACE, LINE_TABULATION, SHIFT_OUT, INFORMATION_SEPARATOR_ONE, DELETE, EOF, ZERO, a$1, e, f, u, z$1, A$1, E, F, U$1, Z$1, isDigit, isSurrogateCodePoint, isHex, isLowerCaseLetter, isUpperCaseLetter, isLetter, isNonASCIICodePoint, isWhiteSpace, isNameStartCodePoint, isNameCodePoint, isNonPrintableCodePoint, isValidEscape, isIdentifierStart, isNumberStart, stringToNumber, LEFT_PARENTHESIS_TOKEN, RIGHT_PARENTHESIS_TOKEN, COMMA_TOKEN, SUFFIX_MATCH_TOKEN, PREFIX_MATCH_TOKEN, COLUMN_TOKEN, DASH_MATCH_TOKEN, INCLUDE_MATCH_TOKEN, LEFT_CURLY_BRACKET_TOKEN, RIGHT_CURLY_BRACKET_TOKEN, SUBSTRING_MATCH_TOKEN, BAD_URL_TOKEN, BAD_STRING_TOKEN, CDO_TOKEN, CDC_TOKEN, COLON_TOKEN, SEMICOLON_TOKEN, LEFT_SQUARE_BRACKET_TOKEN, RIGHT_SQUARE_BRACKET_TOKEN, WHITESPACE_TOKEN, EOF_TOKEN, Tokenizer, Parser, isDimensionToken, isNumberToken, isIdentToken, isStringToken, isIdentWithValue, nonWhiteSpace, nonFunctionArgSeparator, parseFunctionArgs, isEndingTokenFor, isLength, isLengthPercentage, parseLengthPercentageTuple, ZERO_LENGTH, FIFTY_PERCENT, HUNDRED_PERCENT, getAbsoluteValueForTuple, getAbsoluteValue, DEG, GRAD, RAD, TURN, angle, isAngle, parseNamedSide, deg, color$1, isTransparent, asString, pack, getTokenColorValue, rgb$1, hsl$1, SUPPORTED_COLOR_FUNCTIONS, parseColor$1, COLORS, backgroundClip, backgroundColor, parseColorStop, processColorStops, getAngleFromCorner, calculateGradientDirection, distance, findCorner, calculateRadius, linearGradient, prefixLinearGradient, webkitGradient, CLOSEST_SIDE, FARTHEST_SIDE, CLOSEST_CORNER, FARTHEST_CORNER, CIRCLE, ELLIPSE, COVER, CONTAIN, radialGradient, prefixRadialGradient, isLinearGradient, isRadialGradient, image, SUPPORTED_IMAGE_FUNCTIONS, backgroundImage, backgroundOrigin, backgroundPosition, backgroundRepeat, parseBackgroundRepeat, BACKGROUND_SIZE, backgroundSize, isBackgroundSizeInfoToken, borderColorForSide, borderTopColor, borderRightColor, borderBottomColor, borderLeftColor, borderRadiusForSide, borderTopLeftRadius, borderTopRightRadius, borderBottomRightRadius, borderBottomLeftRadius, borderStyleForSide, borderTopStyle, borderRightStyle, borderBottomStyle, borderLeftStyle, borderWidthForSide, borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth, color$2, direction, display, parseDisplayValue, float, letterSpacing, LINE_BREAK, lineBreak, lineHeight, computeLineHeight, listStyleImage, listStylePosition, listStyleType, marginForSide, marginTop, marginRight, marginBottom, marginLeft, overflow, overflowWrap, paddingForSide, paddingTop, paddingRight, paddingBottom, paddingLeft, textAlign, position, textShadow, textTransform, transform$1, matrix, matrix3d, SUPPORTED_TRANSFORM_FUNCTIONS, DEFAULT_VALUE, DEFAULT, transformOrigin, visibility, WORD_BREAK, wordBreak, zIndex, time$1, opacity, textDecorationColor, textDecorationLine, fontFamily, fontSize, fontWeight, fontVariant, fontStyle, contains, content, counterIncrement, counterReset, duration, quotes, getQuote, boxShadow, paintOrder, webkitTextStrokeColor, webkitTextStrokeWidth, CSSParsedDeclaration, CSSParsedPseudoDeclaration, CSSParsedCounterDeclaration, parse, elementDebuggerAttribute, getElementDebugType, isDebugging, ElementContainer, base64, chars$1, lookup$1, i$1, decode, polyUint16Array, polyUint32Array, UTRIE2_SHIFT_2, UTRIE2_SHIFT_1, UTRIE2_INDEX_SHIFT, UTRIE2_SHIFT_1_2, UTRIE2_LSCP_INDEX_2_OFFSET, UTRIE2_DATA_MASK, UTRIE2_INDEX_1_OFFSET, UTRIE2_OMITTED_BMP_INDEX_1_LENGTH, UTRIE2_INDEX_2_MASK, slice16, slice32, createTrieFromBase64, Trie, chars, lookup, i, Prepend, CR, LF, Control, Extend, SpacingMark, L$1, V$1, T$1, LV, LVT, ZWJ, Extended_Pictographic, RI, toCodePoints, fromCodePoint, UnicodeTrie, BREAK_NOT_ALLOWED, BREAK_ALLOWED, codePointToClass, _graphemeBreakAtIndex, GraphemeBreaker, splitGraphemes, testRangeBounds, testIOSLineBreak, testCORS, testResponseType, testSVG, isGreenPixel, testForeignObject, createForeignObjectSVG, loadSerializedSVG$1, FEATURES, TextBounds, parseTextBounds, getWrapperBounds, createRange, segmentGraphemes, segmentWords, breakText, wordSeparators, breakWords, TextContainer, transform, CAPITALIZE, capitalize, ImageElementContainer, CanvasElementContainer, SVGElementContainer, LIElementContainer, OLElementContainer, CHECKBOX_BORDER_RADIUS, RADIO_BORDER_RADIUS, reformatInputBounds, getInputValue, CHECKBOX, RADIO, PASSWORD, INPUT_COLOR, InputElementContainer, SelectElementContainer, TextareaElementContainer, IFrameElementContainer, LIST_OWNERS, parseNodeTree, createContainer, parseTree, createsRealStackingContext, createsStackingContext, isTextNode, isElementNode, isHTMLElementNode, isSVGElementNode, isLIElement, isOLElement, isInputElement, isHTMLElement, isSVGElement, isBodyElement, isCanvasElement, isVideoElement, isImageElement, isIFrameElement, isStyleElement, isScriptElement, isTextareaElement, isSelectElement, isSlotElement, isCustomElement, CounterState, ROMAN_UPPER, ARMENIAN, HEBREW, GEORGIAN, createAdditiveCounter, createCounterStyleWithSymbolResolver, createCounterStyleFromRange, createCounterStyleFromSymbols, CJK_ZEROS, CJK_TEN_COEFFICIENTS, CJK_TEN_HIGH_COEFFICIENTS, CJK_HUNDRED_COEFFICIENTS, createCJKCounter, CHINESE_INFORMAL_MULTIPLIERS, CHINESE_FORMAL_MULTIPLIERS, JAPANESE_NEGATIVE, KOREAN_NEGATIVE, createCounterText, IGNORE_ATTRIBUTE, DocumentCloner, PseudoElementType, createIFrameContainer, imageReady, imagesReady, iframeLoader, ignoredStyleProperties, copyCSSStyles, serializeDoctype, restoreOwnerScroll, restoreNodeScroll, PSEUDO_BEFORE, PSEUDO_AFTER, PSEUDO_HIDE_ELEMENT_CLASS_BEFORE, PSEUDO_HIDE_ELEMENT_CLASS_AFTER, PSEUDO_HIDE_ELEMENT_STYLE, createPseudoHideStyles, createStyles, CacheStorage, Cache, INLINE_SVG, INLINE_BASE64, INLINE_IMG, isRenderable, isInlineImage, isInlineBase64Image, isBlobImage, isSVG, Vector, lerp, BezierCurve, isBezierCurve, BoundCurves, CORNER, getCurvePoints, calculateBorderBoxPath, calculateContentBoxPath, calculatePaddingBoxPath, TransformEffect, ClipEffect, OpacityEffect, isTransformEffect, isClipEffect, isOpacityEffect, equalPath, transformPath, StackingContext, ElementPaint, parseStackTree, processListItems, parseStackingContexts, parsePathForBorder, parsePathForBorderDoubleOuter, parsePathForBorderDoubleInner, parsePathForBorderStroke, createStrokePathFromCurves, createPathFromCurves, paddingBox, contentBox, calculateBackgroundPositioningArea, calculateBackgroundPaintingArea, calculateBackgroundRendering, isAuto, hasIntrinsicValue, calculateBackgroundSize, getBackgroundValueForIndex, calculateBackgroundRepeatPath, SMALL_IMAGE, SAMPLE_TEXT, FontMetrics, Renderer, MASK_OFFSET, CanvasRenderer, isTextInputElement, calculateBackgroundCurvedPaintingArea, canvasTextAlign, iOSBrokenFonts, fixIOSSystemFonts, ForeignObjectRenderer, loadSerializedSVG, Logger, Context, html2canvas, renderElement, parseBackgroundColor, init_html2canvas_esm, require_purify_cjs, require_global_this, require_is_pure, require_define_global_property, require_shared_store, require_shared, require_fails, require_function_bind_native, require_function_uncurry_this, require_is_null_or_undefined, require_require_object_coercible, require_to_object, require_has_own_property, require_uid, require_environment_user_agent, require_environment_v8_version, require_symbol_constructor_detection, require_use_symbol_as_uid, require_well_known_symbol, require_to_string_tag_support, require_is_callable, require_descriptors, require_is_object, require_document_create_element, require_ie8_dom_define, require_v8_prototype_define_bug, require_an_object, require_function_call, require_get_built_in, require_object_is_prototype_of, require_is_symbol, require_try_to_string, require_a_callable, require_get_method, require_ordinary_to_primitive, require_to_primitive, require_to_property_key, require_object_define_property, require_function_name, require_inspect_source, require_weak_map_basic_detection, require_create_property_descriptor, require_create_non_enumerable_property, require_shared_key, require_hidden_keys, require_internal_state, require_make_built_in, require_define_built_in, require_classof_raw, require_classof, require_object_to_string, require_es_object_to_string, require_object_property_is_enumerable, require_indexed_object, require_to_indexed_object, require_object_get_own_property_descriptor, require_math_trunc, require_to_integer_or_infinity, require_to_absolute_index, require_to_length, require_length_of_array_like, require_array_includes, require_object_keys_internal, require_enum_bug_keys, require_object_get_own_property_names, require_object_get_own_property_symbols, require_own_keys, require_copy_constructor_properties, require_is_forced, require_export, require_environment, require_environment_is_node, require_path, require_function_uncurry_this_accessor, require_is_possible_prototype, require_a_possible_prototype, require_object_set_prototype_of, require_set_to_string_tag, require_define_built_in_accessor, require_set_species, require_an_instance, require_is_constructor, require_a_constructor, require_species_constructor, require_function_apply, require_function_uncurry_this_clause, require_function_bind_context, require_html, require_array_slice, require_validate_arguments_length, require_environment_is_ios, require_task, require_safe_get_built_in, require_queue, require_environment_is_ios_pebble, require_environment_is_webos_webkit, require_microtask, require_host_report_errors, require_perform, require_promise_native_constructor, require_promise_constructor_detection, require_new_promise_capability, require_es_promise_constructor, require_iterators, require_is_array_iterator_method, require_get_iterator_method, require_get_iterator, require_iterator_close, require_iterate, require_check_correctness_of_iteration, require_promise_statics_incorrect_iteration, require_es_promise_all, require_es_promise_catch, require_es_promise_race, require_es_promise_reject, require_promise_resolve, require_es_promise_resolve, require_es_promise, require_es_reflect_delete_property, require_OverloadYield, require_regeneratorDefine, require_regenerator$1, require_regeneratorAsyncIterator, require_regeneratorAsyncGen, require_regeneratorAsync, require_regeneratorKeys, require_typeof, require_regeneratorValues, require_regeneratorRuntime, require_regenerator, require_asyncToGenerator, require_is_array, require_array_species_constructor, require_array_species_create, require_create_property, require_array_iteration, require_array_method_has_species_support, require_es_array_map, require_to_string, require_whitespaces, require_string_trim, require_number_parse_float, require_es_parse_float, require_regexp_flags, require_regexp_sticky_helpers, require_object_keys, require_object_define_properties, require_object_create, require_regexp_unsupported_dot_all, require_regexp_unsupported_ncg, require_regexp_exec, require_es_regexp_exec, require_fix_regexp_well_known_symbol_logic, require_string_multibyte, require_advance_string_index, require_regexp_flags_detection, require_regexp_get_flags, require_regexp_exec_abstract, require_es_string_match, require_get_substitution, require_es_string_replace, require_is_regexp, require_not_a_regexp, require_correct_is_regexp_logic, require_es_string_starts_with, require_array_method_is_strict, require_es_array_join, require_arrayWithHoles, require_iterableToArrayLimit, require_arrayLikeToArray, require_unsupportedIterableToArray, require_nonIterableRest, require_slicedToArray, require_toPrimitive, require_toPropertyKey, require_defineProperty, require_classCallCheck, require_createClass, require_does_not_exceed_safe_integer, require_array_set_length, require_es_array_concat, require_es_array_every, require_array_reduce, require_es_array_reduce, require_es_string_ends_with, require_es_string_split, require_performance_now, require_raf, require_es_function_name, require_string_trim_forced, require_es_string_trim, require_rgbcolor, require_array_for_each, require_es_array_for_each, require_dom_iterables, require_dom_token_list_prototype, require_web_dom_collections_for_each, require_setPrototypeOf, require_inherits, require_assertThisInitialized, require_possibleConstructorReturn, require_getPrototypeOf, require_call_with_safe_iteration_closing, require_array_from, require_es_array_from, require_add_to_unscopables, require_es_array_includes, require_es_array_index_of, require_es_array_some, require_es_string_includes, require_correct_prototype_getter, require_object_get_prototype_of, require_iterators_core, require_iterator_create_constructor, require_iterator_define, require_create_iter_result_object, require_es_string_iterator, require_arrayWithoutHoles, require_iterableToArray, require_nonIterableSpread, require_toConsumableArray, require_es_array_reverse, require_inherit_if_required, require_this_number_value, require_es_number_constructor, require_superPropBase, require_get$1, require_array_fill, require_es_array_fill, require_SVGPathData, require_es_regexp_to_string, require_es_array_iterator, require_web_dom_collections_iterator, require_object_get_own_property_names_external, require_array_buffer_non_extensible, require_object_is_extensible, require_freezing, require_internal_metadata, require_collection, require_define_built_ins, require_collection_strong, require_es_map_constructor, require_es_map, require_es_reflect_apply, require_es_reflect_get_prototype_of, stackblur_es_exports, mulTable, shgTable, BlurStack, init_stackblur_es, require_lib, require_jspdf_node_min, import_react$16, import_jspdf_node_min, globalDefaults, DocHandler, extendStatics, HtmlRowInput, HookData, CellHookData, Table, Row$1, Cell$1, Column, _a$1, anyWindow, jsPDF$1, import_jsx_runtime$22, HOTEL, ACTIVITY, TRANSFER, OTHER, CATEGORIES, PRESETS, CAT_LABEL, CHECKLIST_TEMPLATE;
-var init_bookings__id_B9QGp7yp = __esmMin$1((() => {
+var init_bookings__id_BEr_vnI3 = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useNavigate_A7neNTi_();
@@ -48651,7 +48652,7 @@ var init_bookings__id_B9QGp7yp = __esmMin$1((() => {
 	init_trending_down_BvajxNpS();
 	init_trending_up_CUw8LvW9();
 	init_upload_A3yJfHzp();
-	init_bookings__id_DNBYyzjy();
+	init_bookings__id_DJMRuZdV();
 	init_use_current_role_D5U2lhM_();
 	init_button_B6qX_Bm6();
 	init_label_B6Z0mr2h();
@@ -95439,11 +95440,11 @@ while (prev === _win[++scan] && prev === _win[++scan] && prev === _win[++scan] &
 	];
 }));
 //#endregion
-//#region dist/server/assets/bookings._id-DNBYyzjy.js
+//#region dist/server/assets/bookings._id-DJMRuZdV.js
 var $$splitComponentImporter$18, Route$19;
-var init_bookings__id_DNBYyzjy = __esmMin$1((() => {
+var init_bookings__id_DJMRuZdV = __esmMin$1((() => {
 	init_lazyRouteComponent_BIWBRRnc();
-	$$splitComponentImporter$18 = () => Promise.resolve().then(() => (init_bookings__id_B9QGp7yp(), bookings__id_B9QGp7yp_exports));
+	$$splitComponentImporter$18 = () => Promise.resolve().then(() => (init_bookings__id_BEr_vnI3(), bookings__id_BEr_vnI3_exports));
 	Route$19 = createFileRoute("/_authenticated/bookings/$id")({ component: lazyRouteComponent($$splitComponentImporter$18, "component") });
 }));
 //#endregion
@@ -97110,8 +97111,8 @@ var init_dashboard_BUScyX2P = __esmMin$1((() => {
 	import_jsx_runtime$16 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/departures-DMu8zKid.js
-var departures_DMu8zKid_exports = /* @__PURE__ */ __exportAll$1({ component: () => DeparturesPage });
+//#region dist/server/assets/departures-DJJ4u9By.js
+var departures_DJJ4u9By_exports = /* @__PURE__ */ __exportAll$1({ component: () => DeparturesPage });
 function DeparturesPage() {
 	const qc = useQueryClient();
 	const [open, setOpen] = (0, import_react$11.useState)(false);
@@ -97125,14 +97126,15 @@ function DeparturesPage() {
 	});
 	const { data: bookings = [] } = useQuery({
 		queryKey: ["bookings-for-dep"],
-		queryFn: async () => (await supabase.from("bookings").select("package_id, start_date, travelers, status").neq("status", "cancelled")).data ?? []
+		queryFn: async () => (await supabase.from("bookings").select("package_id, start_date, travelers, kids, status").neq("status", "cancelled")).data ?? []
 	});
 	const pkgById = new Map(packages.map((p) => [p.id, p]));
 	const bookedCount = (0, import_react$11.useMemo)(() => {
 		const m = /* @__PURE__ */ new Map();
 		bookings.forEach((b) => {
 			const k = `${b.package_id}|${b.start_date}`;
-			m.set(k, (m.get(k) ?? 0) + Number(b.travelers ?? 0));
+			const totalPax = Number(b.travelers ?? 0) + Number(b.kids ?? 0);
+			m.set(k, (m.get(k) ?? 0) + totalPax);
 		});
 		return m;
 	}, [bookings]);
@@ -97290,7 +97292,7 @@ function DepartureDialog({ packages, onSaved }) {
 	})] });
 }
 var import_react$11, import_jsx_runtime$15;
-var init_departures_DMu8zKid = __esmMin$1((() => {
+var init_departures_DJJ4u9By = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_QueryClientProvider_C0zgo01M();
@@ -97310,8 +97312,8 @@ var init_departures_DMu8zKid = __esmMin$1((() => {
 	import_jsx_runtime$15 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/invoices-Cb7MCf84.js
-var invoices_Cb7MCf84_exports = /* @__PURE__ */ __exportAll$1({ component: () => InvoicesPage });
+//#region dist/server/assets/invoices-XZp0fQ9P.js
+var invoices_XZp0fQ9P_exports = /* @__PURE__ */ __exportAll$1({ component: () => InvoicesPage });
 function fmtMoney(currency, n) {
 	const sym = currency === "EUR" ? "€" : currency === "USD" ? "$" : currency === "GBP" ? "£" : "";
 	const num = new Intl.NumberFormat("en-US", {
@@ -97643,7 +97645,7 @@ function InvoicesPage() {
 	const { data, isLoading } = useQuery({
 		queryKey: ["invoices"],
 		queryFn: async () => {
-			const { data } = await supabase.from("invoices").select("*, customer:customers(name, email, phone, country), booking:bookings(id, start_date, end_date, travelers, package:tour_packages(name, location))").order("issue_date", { ascending: false });
+			const { data } = await supabase.from("invoices").select("*, customer:customers(name, email, phone, country), booking:bookings(id, start_date, end_date, travelers, kids, package:tour_packages(name, location))").order("issue_date", { ascending: false });
 			return data ?? [];
 		}
 	});
@@ -97659,7 +97661,7 @@ function InvoicesPage() {
 	});
 	const { data: bookings } = useQuery({
 		queryKey: ["bookings-lite"],
-		queryFn: async () => (await supabase.from("bookings").select("id, customer_id, total_amount, travelers, package:tour_packages(name, price_per_person)").order("start_date", { ascending: false })).data ?? []
+		queryFn: async () => (await supabase.from("bookings").select("id, customer_id, total_amount, travelers, kids, package:tour_packages(name, price_per_person)").order("start_date", { ascending: false })).data ?? []
 	});
 	const [open, setOpen] = (0, import_react$10.useState)(false);
 	const [editing, setEditing] = (0, import_react$10.useState)(null);
@@ -97983,8 +97985,9 @@ function InvoiceDialog({ open, onOpenChange, editing, customers, bookings, onSav
 		const b = bookings.find((x) => x.id === bookingId);
 		if (!b) return;
 		setCustomerId(b.customer_id);
+		(b.travelers || 0) + (b.kids || 0);
 		setLines([{
-			description: `${b.package?.name ?? "Tour package"} — ${b.travelers} traveler(s)`,
+			description: `${b.package?.name ?? "Tour package"} — ${b.travelers} adult(s)${b.kids ? ` + ${b.kids} kid(s)` : ""}`,
 			quantity: b.travelers,
 			unit_price: b.package?.price_per_person ?? b.total_amount / (b.travelers || 1)
 		}]);
@@ -98517,7 +98520,7 @@ function PaymentDialog({ invoice, alreadyPaid, onClose, onSaved }) {
 	});
 }
 var import_react$10, INVOICE_LOGO, INVOICE_STAMP_LOGO, esc, import_jsx_runtime$14;
-var init_invoices_Cb7MCf84 = __esmMin$1((() => {
+var init_invoices_XZp0fQ9P = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_QueryClientProvider_C0zgo01M();
@@ -124455,8 +124458,8 @@ var init_whatsapp_Bn2h6Vcm = __esmMin$1((() => {
 	];
 }));
 //#endregion
-//#region dist/server/assets/bookings.index-BV5WCZ2H.js
-var bookings_index_BV5WCZ2H_exports = /* @__PURE__ */ __exportAll$1({ component: () => BookingsPage });
+//#region dist/server/assets/bookings.index-DTLgeTqo.js
+var bookings_index_DTLgeTqo_exports = /* @__PURE__ */ __exportAll$1({ component: () => BookingsPage });
 /**
 * @license lucide-react v0.575.0 - ISC
 *
@@ -124600,7 +124603,11 @@ function BookingsPage() {
 										}),
 										/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("span", {
 											className: "flex items-center gap-1",
-											children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Users, { className: "size-3" }), b.travelers]
+											children: [
+												/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Users, { className: "size-3" }),
+												b.travelers,
+												b.kids ? ` + ${b.kids} kids` : ""
+											]
 										})
 									]
 								})
@@ -124692,6 +124699,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
 	const [customerId, setCustomerId] = (0, import_react$1.useState)(editing?.customer_id ?? "");
 	const [packageId, setPackageId] = (0, import_react$1.useState)(editing?.package_id ?? "");
 	const [travelers, setTravelers] = (0, import_react$1.useState)(editing?.travelers ?? 1);
+	const [kids, setKids] = (0, import_react$1.useState)(editing?.kids ?? 0);
 	const [startDate, setStartDate] = (0, import_react$1.useState)(editing?.start_date ?? "");
 	const [endDate, setEndDate] = (0, import_react$1.useState)(editing?.end_date ?? "");
 	const [status, setStatus] = (0, import_react$1.useState)(editing?.status ?? "inquiry");
@@ -124770,6 +124778,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
 		setCustomerId(editing?.customer_id ?? "");
 		setPackageId(editing?.package_id ?? "");
 		setTravelers(editing?.travelers ?? 1);
+		setKids(editing?.kids ?? 0);
 		setStartDate(editing?.start_date ?? "");
 		setEndDate(editing?.end_date ?? "");
 		setStatus(editing?.status ?? "inquiry");
@@ -124822,6 +124831,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
 			start_date: startDate,
 			end_date: endDate || null,
 			travelers,
+			kids: kids || 0,
 			status,
 			notes: notes || null,
 			total_amount: Number(totalOverride) || 0
@@ -125035,7 +125045,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
 						}, p.id)) })]
 					})] }),
 					/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", {
-						className: "grid gap-3 sm:grid-cols-3",
+						className: "grid gap-3 sm:grid-cols-4",
 						children: [
 							/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Label$2, {
 								htmlFor: "start",
@@ -125058,13 +125068,23 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
 							})] }),
 							/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Label$2, {
 								htmlFor: "tr",
-								children: "Travelers"
+								children: "Adults"
 							}), /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Input, {
 								id: "tr",
 								type: "number",
 								min: 1,
 								value: travelers,
 								onChange: (e) => setTravelers(Number(e.target.value) || 1)
+							})] }),
+							/* @__PURE__ */ (0, import_jsx_runtime$2.jsxs)("div", { children: [/* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Label$2, {
+								htmlFor: "kids",
+								children: "Kids"
+							}), /* @__PURE__ */ (0, import_jsx_runtime$2.jsx)(Input, {
+								id: "kids",
+								type: "number",
+								min: 0,
+								value: kids,
+								onChange: (e) => setKids(Number(e.target.value) || 0)
 							})] })
 						]
 					}),
@@ -125237,7 +125257,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
 	});
 }
 var Eye, import_react$1, import_jsx_runtime$2;
-var init_bookings_index_BV5WCZ2H = __esmMin$1((() => {
+var init_bookings_index_DTLgeTqo = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_link_B_MRXbHA();
@@ -125273,8 +125293,8 @@ var init_bookings_index_BV5WCZ2H = __esmMin$1((() => {
 	import_jsx_runtime$2 = require_jsx_runtime();
 }));
 //#endregion
-//#region dist/server/assets/router-B-fUM-rb.js
-var router_B_fUM_rb_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
+//#region dist/server/assets/router-Djf2UIzo.js
+var router_Djf2UIzo_exports = /* @__PURE__ */ __exportAll$1({ getRouter: () => getRouter });
 function setScriptAttrs(script, attrs) {
 	if (!attrs) return;
 	for (const [key, value] of Object.entries(attrs)) if (key !== "suppressHydrationWarning" && value !== void 0 && value !== false) script.setAttribute(key, typeof value === "boolean" ? "" : String(value));
@@ -125596,7 +125616,7 @@ function RootComponent() {
 	});
 }
 var getStoreFactory, createRouter, Router, import_react, import_jsx_runtime$1, noopScriptHandler, useTags, Scripts, MutationCache, QueryCache, QueryClient, styles_default, Route$18, $$splitComponentImporter$17, Route$17, $$splitComponentImporter$16, Route$16, $$splitComponentImporter$15, Route$15, $$splitComponentImporter$14, Route$14, $$splitComponentImporter$13, Route$13, $$splitComponentImporter$12, Route$12, $$splitComponentImporter$11, Route$11, $$splitComponentImporter$10, Route$10, $$splitComponentImporter$9, Route$9, $$splitComponentImporter$8, Route$8, $$splitComponentImporter$7, Route$7, $$splitComponentImporter$6, Route$6, $$splitComponentImporter$5, Route$5, $$splitComponentImporter$4, Route$4, $$splitComponentImporter$3, Route$3, $$splitNotFoundComponentImporter, $$splitErrorComponentImporter, $$splitComponentImporter$2, Route$2, $$splitComponentImporter$1, Route$1, $$splitComponentImporter, Route, IndexRoute, AuthenticatedRouteRoute, AuthRoute, AuthenticatedCalendarRoute, AuthenticatedCashFlowRoute, AuthenticatedCostCalcRoute, AuthenticatedCustomersRoute, AuthenticatedDashboardRoute, AuthenticatedDeparturesRoute, AuthenticatedInvoicesRoute, AuthenticatedLeadsRoute, AuthenticatedPackagesRoute, AuthenticatedRateCardsRoute, AuthenticatedReportsRoute, AuthenticatedSettingsRoute, AuthenticatedSuppliersRoute, AuthenticatedTasksRoute, AuthenticatedTeamRoute, AuthenticatedWhatsappRoute, AuthenticatedBookingsIndexRoute, AuthenticatedRouteRouteChildren, rootRouteChildren, routeTree, getRouter;
-var init_router_B_fUM_rb = __esmMin$1((() => {
+var init_router_Djf2UIzo = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -125611,7 +125631,7 @@ var init_router_B_fUM_rb = __esmMin$1((() => {
 	init_client_DA9kTcxA();
 	init_route_DJb2sC_r();
 	init_customers_Dz4BEoRc();
-	init_bookings__id_DNBYyzjy();
+	init_bookings__id_DJMRuZdV();
 	getStoreFactory = (opts) => {
 		return {
 			createMutableStore: createNonReactiveMutableStore,
@@ -126191,9 +126211,9 @@ var init_router_B_fUM_rb = __esmMin$1((() => {
 	Route$13 = createFileRoute("/_authenticated/cost-calc")({ component: lazyRouteComponent($$splitComponentImporter$13, "component") });
 	$$splitComponentImporter$12 = () => Promise.resolve().then(() => (init_dashboard_BUScyX2P(), dashboard_BUScyX2P_exports));
 	Route$12 = createFileRoute("/_authenticated/dashboard")({ component: lazyRouteComponent($$splitComponentImporter$12, "component") });
-	$$splitComponentImporter$11 = () => Promise.resolve().then(() => (init_departures_DMu8zKid(), departures_DMu8zKid_exports));
+	$$splitComponentImporter$11 = () => Promise.resolve().then(() => (init_departures_DJJ4u9By(), departures_DJJ4u9By_exports));
 	Route$11 = createFileRoute("/_authenticated/departures")({ component: lazyRouteComponent($$splitComponentImporter$11, "component") });
-	$$splitComponentImporter$10 = () => Promise.resolve().then(() => (init_invoices_Cb7MCf84(), invoices_Cb7MCf84_exports));
+	$$splitComponentImporter$10 = () => Promise.resolve().then(() => (init_invoices_XZp0fQ9P(), invoices_XZp0fQ9P_exports));
 	Route$10 = createFileRoute("/_authenticated/invoices")({ component: lazyRouteComponent($$splitComponentImporter$10, "component") });
 	$$splitComponentImporter$9 = () => Promise.resolve().then(() => (init_leads_Dz20ZyO_(), leads_Dz20ZyO__exports));
 	Route$9 = createFileRoute("/_authenticated/leads")({ component: lazyRouteComponent($$splitComponentImporter$9, "component") });
@@ -126219,7 +126239,7 @@ var init_router_B_fUM_rb = __esmMin$1((() => {
 	});
 	$$splitComponentImporter$1 = () => Promise.resolve().then(() => (init_whatsapp_Bn2h6Vcm(), whatsapp_Bn2h6Vcm_exports));
 	Route$1 = createFileRoute("/_authenticated/whatsapp")({ component: lazyRouteComponent($$splitComponentImporter$1, "component") });
-	$$splitComponentImporter = () => Promise.resolve().then(() => (init_bookings_index_BV5WCZ2H(), bookings_index_BV5WCZ2H_exports));
+	$$splitComponentImporter = () => Promise.resolve().then(() => (init_bookings_index_DTLgeTqo(), bookings_index_DTLgeTqo_exports));
 	Route = createFileRoute("/_authenticated/bookings/")({ component: lazyRouteComponent($$splitComponentImporter, "component") });
 	IndexRoute = Route$17.update({
 		id: "/",
@@ -126422,8 +126442,8 @@ var init_empty_plugin_adapters_D9UWiqvJ = __esmMin$1((() => {
 	pluginSerializationAdapters = [];
 }));
 //#endregion
-//#region dist/server/assets/server-D_OdilyQ.js
-var server_D_OdilyQ_exports = /* @__PURE__ */ __exportAll$1({
+//#region dist/server/assets/server-DjVMcDRs.js
+var server_DjVMcDRs_exports = /* @__PURE__ */ __exportAll$1({
 	createServerEntry: () => createServerEntry,
 	default: () => server_default$1
 });
@@ -129294,7 +129314,7 @@ async function waitForReadyOrAbort(ready, signal) {
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_B46gQvWs(), _tanstack_start_manifest_v_B46gQvWs_exports));
+	const { tsrStartManifest } = await Promise.resolve().then(() => (init__tanstack_start_manifest_v_DF96QqQy(), _tanstack_start_manifest_v_DF96QqQy_exports));
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -130048,7 +130068,7 @@ function getStartResponseHeaders(opts) {
 }
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		Promise.resolve().then(() => (init_router_B_fUM_rb(), router_B_fUM_rb_exports)),
+		Promise.resolve().then(() => (init_router_Djf2UIzo(), router_Djf2UIzo_exports)),
 		Promise.resolve().then(() => (init_start_7dYovtiL(), start_7dYovtiL_exports)),
 		Promise.resolve().then(() => (init_empty_plugin_adapters_D9UWiqvJ(), empty_plugin_adapters_D9UWiqvJ_exports))
 	]);
@@ -130424,7 +130444,7 @@ function createServerEntry(entry) {
 	} };
 }
 var GLOBAL_TSR, TSR_SCRIPT_BARRIER_ID, M$1, v$1, dr, R, C, gr, yr, Nr, br, vr, Cr, Ar, P$1, Er, nt, Ce, ot, at, o$1, st, Ae, it, H$1, J, Ee, Ie, ut, lt, ct, ft, L, le$1, Re, Ir, U, bs, Cn, En, fe, _, Je, x$1, z, X, V, Pe, xe, Ze, O$1, Q$1, j$1, ee$1, In, Rn, bt, vt, Ct, xr, At, Tr, Et, Or, It, wr, Rt, Pn, xt, Tt, Ot, wt, xn, Dr, oe$1, qn, Wn, Kn, Gn, Br, Ro, Po, Ht, Xt, Zt, Qt, $t, xo, Oo, wo, ho, zo, _o, ko, Ur, Hr, Jr, RawStream, BufferCtor, hasNodeBuffer, RAW_STREAM_FACTORY_BINARY, RAW_STREAM_FACTORY_TEXT, RAW_STREAM_FACTORY_CONSTRUCTOR_BINARY, textEncoderForFactory, RAW_STREAM_FACTORY_CONSTRUCTOR_TEXT, FACTORY_BINARY, FACTORY_TEXT, RawStreamSSRPlugin, ShallowErrorPlugin, o, P, ee, defaultSerovalPlugins, import_jsx_runtime, require_react_dom_server_legacy_node_production, require_react_dom_server_node_production, require_server_node, tsrScript_default, SCOPE_ID, TSR_PREFIX, P_PREFIX, P_SUFFIX, INITIAL_SCRIPTS, ScriptBuffer, MANIFEST_CACHE_SIZE, manifestCaches, MIN_CLOSING_TAG_LENGTH, DEFAULT_SERIALIZATION_TIMEOUT_MS, DEFAULT_LIFETIME_TIMEOUT_MS, MAX_LEFTOVER_CHARS, MAX_TAIL_CHARS, MAX_ROUTER_HTML_CHARS, MAX_PENDING_WRITE_CHARS, MergeState, textEncoder$1, noop$1, resolvedPromise, fullPattern, naivePattern, pattern, isNonEmptyString, isbot, import_server_node, noop, isAbortError, renderRouterToStream, defaultStreamHandler, HEADERS, innerCreateCsrfMiddleware, createCsrfMiddleware, textEncoder, EMPTY_PAYLOAD, serovalPlugins, FORM_DATA_CONTENT_TYPES, MAX_PAYLOAD_SIZE, handleServerAction, LINK_PARAM_TOKEN_RE, PRELOAD_AS_VALUES, ServerFunctionSerializationAdapter, entriesPromise, defaultCsrfMiddleware, getCachedBaseManifest, getProdBaseManifest, getBaseManifest, createEarlyHintsForRequest, ROUTER_BASEPATH, SERVER_FN_BASE, IS_PRERENDERING, IS_SHELL_ENV, IS_DEV, ERR_NO_RESPONSE, ERR_NO_DEFER, fetch$1, server_default$1;
-var init_server_D_OdilyQ = __esmMin$1((() => {
+var init_server_DjVMcDRs = __esmMin$1((() => {
 	init_jsx_runtime_DMOlUEP0();
 	init_react_BUTyVH7l();
 	init_useStore_CWFGf9WL();
@@ -139886,7 +139906,7 @@ function renderErrorPage() {
 </html>`;
 }
 async function getServerEntry() {
-	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_D_OdilyQ(), server_D_OdilyQ_exports)).then((m) => m.default ?? m);
+	if (!serverEntryPromise) serverEntryPromise = Promise.resolve().then(() => (init_server_DjVMcDRs(), server_DjVMcDRs_exports)).then((m) => m.default ?? m);
 	return serverEntryPromise;
 }
 async function normalizeCatastrophicSsrResponse(response) {

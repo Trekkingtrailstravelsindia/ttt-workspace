@@ -30,7 +30,7 @@ function DeparturesPage() {
 
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings-for-dep"],
-    queryFn: async () => (await supabase.from("bookings").select("package_id, start_date, travelers, status").neq("status", "cancelled")).data ?? [],
+    queryFn: async () => (await supabase.from("bookings").select("package_id, start_date, travelers, kids, status").neq("status", "cancelled")).data ?? [],
   });
 
   const pkgById = new Map(packages.map((p: any) => [p.id, p]));
@@ -38,7 +38,8 @@ function DeparturesPage() {
     const m = new Map<string, number>();
     (bookings as any[]).forEach(b => {
       const k = `${b.package_id}|${b.start_date}`;
-      m.set(k, (m.get(k) ?? 0) + Number(b.travelers ?? 0));
+      const totalPax = (Number(b.travelers ?? 0) + Number(b.kids ?? 0));
+      m.set(k, (m.get(k) ?? 0) + totalPax);
     });
     return m;
   }, [bookings]);

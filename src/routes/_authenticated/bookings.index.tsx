@@ -16,7 +16,7 @@ import { COMPANIES, DEFAULT_COMPANY, getCompany } from "@/lib/companies";
 
 type Booking = {
   id: string; customer_id: string; package_id: string;
-  start_date: string; end_date: string | null; travelers: number;
+  start_date: string; end_date: string | null; travelers: number; kids?: number | null;
   total_amount: number; status: "inquiry"|"quoted"|"deposit_paid"|"confirmed"|"travelling"|"completed"|"cancelled"; notes: string | null;
   company?: string | null;
   customer?: { name: string } | null;
@@ -122,7 +122,7 @@ function BookingsPage() {
                   <div className="mt-1 flex flex-wrap gap-3 text-xs text-muted-foreground">
                     <span className="flex items-center gap-1"><Building2 className="size-3" />{getCompany(b.company).name}</span>
                     <span className="flex items-center gap-1"><Calendar className="size-3" />{b.start_date}{b.end_date ? ` → ${b.end_date}`: ""}</span>
-                    <span className="flex items-center gap-1"><Users className="size-3" />{b.travelers}</span>
+                    <span className="flex items-center gap-1"><Users className="size-3" />{b.travelers}{b.kids ? ` + ${b.kids} kids` : ""}</span>
                   </div>
                 </div>
                 <div className="text-right">
@@ -188,6 +188,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
   const [customerId, setCustomerId] = useState(editing?.customer_id ?? "");
   const [packageId, setPackageId] = useState(editing?.package_id ?? "");
   const [travelers, setTravelers] = useState(editing?.travelers ?? 1);
+  const [kids, setKids] = useState(editing?.kids ?? 0);
   const [startDate, setStartDate] = useState(editing?.start_date ?? "");
   const [endDate, setEndDate] = useState(editing?.end_date ?? "");
   const [status, setStatus] = useState<Booking["status"]>(editing?.status ?? "inquiry");
@@ -254,6 +255,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
     setCustomerId(editing?.customer_id ?? "");
     setPackageId(editing?.package_id ?? "");
     setTravelers(editing?.travelers ?? 1);
+    setKids(editing?.kids ?? 0);
     setStartDate(editing?.start_date ?? "");
     setEndDate(editing?.end_date ?? "");
     setStatus(editing?.status ?? "inquiry");
@@ -292,6 +294,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
       start_date: startDate,
       end_date: endDate || null,
       travelers,
+      kids: kids || 0,
       status,
       notes: notes || null,
       total_amount: Number(totalOverride) || 0,
@@ -405,7 +408,7 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
               </Select>
             )}
           </div>
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-4">
             <div>
               <Label htmlFor="start">Start date</Label>
               <Input id="start" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} required />
@@ -415,8 +418,12 @@ function BookingDialog({ open, onOpenChange, editing, existingPay, customers, pa
               <Input id="end" type="date" value={endDate} onChange={e => setEndDate(e.target.value)} />
             </div>
             <div>
-              <Label htmlFor="tr">Travelers</Label>
+              <Label htmlFor="tr">Adults</Label>
               <Input id="tr" type="number" min={1} value={travelers} onChange={e => setTravelers(Number(e.target.value) || 1)} />
+            </div>
+            <div>
+              <Label htmlFor="kids">Kids</Label>
+              <Input id="kids" type="number" min={0} value={kids} onChange={e => setKids(Number(e.target.value) || 0)} />
             </div>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">

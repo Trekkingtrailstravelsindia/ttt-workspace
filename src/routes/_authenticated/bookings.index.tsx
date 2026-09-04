@@ -60,6 +60,22 @@ function BookingsPage() {
 
   const [open, setOpen] = useState(false);
   const [editing, setEditing] = useState<Booking | null>(null);
+  const [companyFilter, setCompanyFilter] = useState<string>("all");
+
+  // Only show company tabs that actually have bookings, plus counts.
+  const companyCounts = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const b of (data ?? []) as Booking[]) {
+      const id = getCompany(b.company).id;
+      m.set(id, (m.get(id) ?? 0) + 1);
+    }
+    return m;
+  }, [data]);
+
+  const filtered = useMemo(() => {
+    if (companyFilter === "all") return (data ?? []) as Booking[];
+    return ((data ?? []) as Booking[]).filter(b => getCompany(b.company).id === companyFilter);
+  }, [data, companyFilter]);
 
   useEffect(() => {
     const ch = supabase.channel("bookings-rt")
@@ -95,6 +111,27 @@ function BookingsPage() {
         </Button>
       </div>
 
+      <div className="flex flex-wrap gap-2">
+        <button
+          type="button"
+          onClick={() => setCompanyFilter("all")}
+          className={`rounded-full border px-3 py-1.5 text-sm transition ${companyFilter === "all" ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card hover:bg-muted"}`}
+        >
+          All companies <span className="opacity-70">{data?.length ?? 0}</span>
+        </button>
+        {COMPANIES.filter(c => companyCounts.get(c.id)).map(c => (
+          <button
+            key={c.id}
+            type="button"
+            onClick={() => setCompanyFilter(c.id)}
+            className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-sm transition ${companyFilter === c.id ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card hover:bg-muted"}`}
+          >
+            <Building2 className="size-3.5" />{c.name}
+            <span className="opacity-70">{companyCounts.get(c.id)}</span>
+          </button>
+        ))}
+      </div>
+
       <BookingDialog
         open={open} onOpenChange={setOpen} editing={editing}
         existingPay={editing ? payByBooking.get(editing.id) : undefined}
@@ -108,9 +145,13 @@ function BookingsPage() {
         <Card><CardContent className="py-16 text-center">
           <p className="text-muted-foreground">No bookings yet.</p>
         </CardContent></Card>
+      ) : !filtered.length ? (
+        <Card><CardContent className="py-16 text-center">
+          <p className="text-muted-foreground">No bookings for {getCompany(companyFilter).name}.</p>
+        </CardContent></Card>
       ) : (
         <div className="space-y-3">
-          {data.map((b) => (
+          {filtered.map((b) => (
             <Card key={b.id}>
               <CardContent className="flex flex-wrap items-center justify-between gap-4 p-5">
                 <div className="min-w-0 flex-1">

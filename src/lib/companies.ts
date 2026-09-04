@@ -13,6 +13,8 @@ export type CompanyId =
 export type Company = {
   id: CompanyId;
   name: string;        // full legal name (dropdown + PDF fallback)
+  short: string;       // short label for chips / calendar
+  color: string;       // hex used for calendar dots + accents
   name1: string; name2: string; name3: string; suffix: string; // header styling (3 lines)
   tagline: string;
   businessId: string;
@@ -25,6 +27,7 @@ export type Company = {
 export const COMPANIES: Company[] = [
   {
     id: "ttt-dmc",
+    short: "TTT DMC", color: "#0ea5a4",
     name: "Trekking Trails Travels DMC Oy",
     name1: "TREKKING TRAILS", name2: "TRAVELS", name3: "DMC", suffix: "Oy",
     tagline: "Arctic & Nordic Destination Management",
@@ -33,6 +36,7 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "ttt-india",
+    short: "TTT India", color: "#f59e0b",
     name: "Trekking Trails Travels India",
     name1: "TREKKING TRAILS", name2: "TRAVELS", name3: "INDIA", suffix: "",
     tagline: "Your Journey, Our Trails",
@@ -41,6 +45,7 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "visit-lapland",
+    short: "Visit Lapland", color: "#6366f1",
     name: "Visit Lapland Finland Travels Oy",
     name1: "VISIT LAPLAND", name2: "FINLAND", name3: "TRAVELS", suffix: "Oy",
     tagline: "Your Trusted Travel Partner for Finland & Lapland",
@@ -49,6 +54,7 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "ruka",
+    short: "Ruka", color: "#10b981",
     name: "Ruka Northern Lights Tours",
     name1: "RUKA NORTHERN", name2: "LIGHTS", name3: "TOURS", suffix: "",
     tagline: "Chase the Aurora in Ruka–Kuusamo",
@@ -57,6 +63,7 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "rovaniemi",
+    short: "Rovaniemi", color: "#ec4899",
     name: "Rovaniemi Northern Lights Tours",
     name1: "ROVANIEMI NORTHERN", name2: "LIGHTS", name3: "TOURS", suffix: "",
     tagline: "Aurora Adventures from Rovaniemi",
@@ -65,6 +72,7 @@ export const COMPANIES: Company[] = [
   },
   {
     id: "soulvia",
+    short: "SoulVia", color: "#8b5cf6",
     name: "SoulVia Journeys LLC",
     name1: "SOULVIA", name2: "JOURNEYS", name3: "LLC", suffix: "",
     tagline: "Nordic Journeys, Soulful Experiences",

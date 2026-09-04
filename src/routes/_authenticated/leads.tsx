@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Mail, Phone } from "lucide-react";
 import { toast } from "sonner";
+import { QuickAddLead } from "@/components/QuickAddLead";
 
 export const Route = createFileRoute("/_authenticated/leads")({ component: LeadsPage });
 
@@ -48,6 +49,9 @@ function LeadsPage() {
         <h1 className="font-display text-4xl text-primary">Leads pipeline</h1>
         <p className="text-muted-foreground">Move inquiries through the sales stages.</p>
       </div>
+
+      <QuickAddLead />
+
       <div className="grid gap-4 lg:grid-cols-3 xl:grid-cols-6">
         {STAGES.map((s) => {
           const items = (data ?? []).filter((c) => c.stage === s.key);

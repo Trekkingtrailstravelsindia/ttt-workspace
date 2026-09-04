@@ -27,6 +27,7 @@ import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedSuppliersRouteImport } from './routes/_authenticated/suppliers'
 import { Route as AuthenticatedTasksRouteImport } from './routes/_authenticated/tasks'
 import { Route as AuthenticatedTeamRouteImport } from './routes/_authenticated/team'
+import { Route as AuthenticatedWebsiteInboxRouteImport } from './routes/_authenticated/website-inbox'
 import { Route as AuthenticatedWhatsappRouteImport } from './routes/_authenticated/whatsapp'
 import { Route as AuthenticatedBookingsIndexRouteImport } from './routes/_authenticated/bookings.index'
 import { Route as AuthenticatedBookingsIdRouteImport } from './routes/_authenticated/bookings.$id'
@@ -120,6 +121,12 @@ const AuthenticatedTeamRoute = AuthenticatedTeamRouteImport.update({
   path: '/team',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedWebsiteInboxRoute =
+  AuthenticatedWebsiteInboxRouteImport.update({
+    id: '/website-inbox',
+    path: '/website-inbox',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedWhatsappRoute = AuthenticatedWhatsappRouteImport.update({
   id: '/whatsapp',
   path: '/whatsapp',
@@ -155,6 +162,7 @@ export interface FileRoutesByFullPath {
   '/suppliers': typeof AuthenticatedSuppliersRoute
   '/tasks': typeof AuthenticatedTasksRoute
   '/team': typeof AuthenticatedTeamRoute
+  '/website-inbox': typeof AuthenticatedWebsiteInboxRoute
   '/whatsapp': typeof AuthenticatedWhatsappRoute
   '/bookings/$id': typeof AuthenticatedBookingsIdRoute
   '/bookings/': typeof AuthenticatedBookingsIndexRoute
@@ -177,6 +185,7 @@ export interface FileRoutesByTo {
   '/suppliers': typeof AuthenticatedSuppliersRoute
   '/tasks': typeof AuthenticatedTasksRoute
   '/team': typeof AuthenticatedTeamRoute
+  '/website-inbox': typeof AuthenticatedWebsiteInboxRoute
   '/whatsapp': typeof AuthenticatedWhatsappRoute
   '/bookings/$id': typeof AuthenticatedBookingsIdRoute
   '/bookings': typeof AuthenticatedBookingsIndexRoute
@@ -201,6 +210,7 @@ export interface FileRoutesById {
   '/_authenticated/suppliers': typeof AuthenticatedSuppliersRoute
   '/_authenticated/tasks': typeof AuthenticatedTasksRoute
   '/_authenticated/team': typeof AuthenticatedTeamRoute
+  '/_authenticated/website-inbox': typeof AuthenticatedWebsiteInboxRoute
   '/_authenticated/whatsapp': typeof AuthenticatedWhatsappRoute
   '/_authenticated/bookings/$id': typeof AuthenticatedBookingsIdRoute
   '/_authenticated/bookings/': typeof AuthenticatedBookingsIndexRoute
@@ -225,6 +235,7 @@ export interface FileRouteTypes {
     | '/suppliers'
     | '/tasks'
     | '/team'
+    | '/website-inbox'
     | '/whatsapp'
     | '/bookings/$id'
     | '/bookings/'
@@ -247,6 +258,7 @@ export interface FileRouteTypes {
     | '/suppliers'
     | '/tasks'
     | '/team'
+    | '/website-inbox'
     | '/whatsapp'
     | '/bookings/$id'
     | '/bookings'
@@ -270,6 +282,7 @@ export interface FileRouteTypes {
     | '/_authenticated/suppliers'
     | '/_authenticated/tasks'
     | '/_authenticated/team'
+    | '/_authenticated/website-inbox'
     | '/_authenticated/whatsapp'
     | '/_authenticated/bookings/$id'
     | '/_authenticated/bookings/'
@@ -409,6 +422,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTeamRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/website-inbox': {
+      id: '/_authenticated/website-inbox'
+      path: '/website-inbox'
+      fullPath: '/website-inbox'
+      preLoaderRoute: typeof AuthenticatedWebsiteInboxRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/whatsapp': {
       id: '/_authenticated/whatsapp'
       path: '/whatsapp'
@@ -449,6 +469,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedSuppliersRoute: typeof AuthenticatedSuppliersRoute
   AuthenticatedTasksRoute: typeof AuthenticatedTasksRoute
   AuthenticatedTeamRoute: typeof AuthenticatedTeamRoute
+  AuthenticatedWebsiteInboxRoute: typeof AuthenticatedWebsiteInboxRoute
   AuthenticatedWhatsappRoute: typeof AuthenticatedWhatsappRoute
   AuthenticatedBookingsIdRoute: typeof AuthenticatedBookingsIdRoute
   AuthenticatedBookingsIndexRoute: typeof AuthenticatedBookingsIndexRoute
@@ -470,6 +491,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedSuppliersRoute: AuthenticatedSuppliersRoute,
   AuthenticatedTasksRoute: AuthenticatedTasksRoute,
   AuthenticatedTeamRoute: AuthenticatedTeamRoute,
+  AuthenticatedWebsiteInboxRoute: AuthenticatedWebsiteInboxRoute,
   AuthenticatedWhatsappRoute: AuthenticatedWhatsappRoute,
   AuthenticatedBookingsIdRoute: AuthenticatedBookingsIdRoute,
   AuthenticatedBookingsIndexRoute: AuthenticatedBookingsIndexRoute,

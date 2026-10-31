@@ -1,7 +1,7 @@
 import { createFileRoute, Outlet, redirect, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet, Calculator, Search, MessageCircle, Inbox } from "lucide-react";
+import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet, Calculator, Search, MessageCircle, Inbox, ArrowLeftRight, BookOpen, Camera, Ticket, ReceiptText, Activity, ClipboardList, ListChecks, ListTodo, Map, Lock, ClipboardCheck } from "lucide-react";
 import { CommandPalette } from "@/components/command-palette";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
@@ -22,33 +22,55 @@ import { useCurrentRole } from "@/hooks/use-current-role";
 
 export const nav = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard, roles: ["admin","ops","sales"] },
+  { to: "/booking-tracker", label: "Booking data & tracker", icon: ClipboardList, roles: ["admin","ops","sales"] },
+  { to: "/activity-tracker", label: "Activity tracker", icon: ListTodo, roles: ["admin","ops","sales"] },
+  { to: "/correct-bookings", label: "Correct bookings", icon: ClipboardCheck, roles: ["admin","ops","sales"] },
+  { to: "/itinerary-builder", label: "Itinerary builder", icon: Map, roles: ["admin","ops","sales"] },
   { to: "/website-inbox", label: "Website inbox", icon: Inbox, roles: ["admin","ops","sales"] },
+  { to: "/vat-margin", label: "VAT & Margin", icon: Calculator, roles: ["admin","ops","accountant"] },
   { to: "/leads", label: "Leads pipeline", icon: Filter, roles: ["admin","ops","sales"] },
   { to: "/whatsapp", label: "WhatsApp leads", icon: MessageCircle, roles: ["admin","ops","sales"] },
   { to: "/customers", label: "Customers", icon: Users, roles: ["admin","ops","sales"] },
+  { to: "/customer-checklist", label: "Customer checklist", icon: ListChecks, roles: ["admin","ops","sales"] },
   { to: "/packages", label: "Tour packages", icon: Package, roles: ["admin","ops","sales"] },
   { to: "/bookings", label: "Bookings", icon: Calendar, roles: ["admin","ops","sales"] },
+  { to: "/secret-bookings", label: "Secret bookings", icon: Lock, roles: ["admin","ops"] },
   { to: "/calendar", label: "Calendar", icon: CalendarDays, roles: ["admin","ops","sales"] },
+  { to: "/bookings-calendar", label: "Bookings calendar", icon: CalendarDays, roles: ["admin","ops","sales"] },
+  { to: "/upcoming-bookings", label: "Upcoming bookings", icon: CalendarClock, roles: ["admin","ops","sales"] },
   { to: "/tasks", label: "Tasks", icon: CheckSquare, roles: ["admin","ops","sales"] },
   { to: "/suppliers", label: "Suppliers", icon: Truck, roles: ["admin","ops"] },
   { to: "/rate-cards", label: "Rate cards", icon: Tags, roles: ["admin","ops"] },
   { to: "/departures", label: "Departures", icon: CalendarClock, roles: ["admin","ops","sales"] },
-  { to: "/invoices", label: "Invoices", icon: Receipt, roles: ["admin","ops"] },
-  { to: "/cash-flow", label: "Cash flow", icon: Wallet, roles: ["admin","ops"] },
+  { to: "/invoices", label: "Invoices", icon: Receipt, roles: ["admin","ops","accountant"] },
+  { to: "/receipts", label: "Receipts", icon: ReceiptText, roles: ["admin","ops","accountant"] },
+  { to: "/vouchers", label: "Vouchers", icon: Ticket, roles: ["admin","ops","sales"] },
+  { to: "/expenses", label: "Expenses (snap)", icon: Camera, roles: ["admin","ops","sales"] },
+  { to: "/purchase-sell", label: "Purchase & Sell", icon: ArrowLeftRight, roles: ["admin","ops","accountant"] },
+  { to: "/accounting", label: "Accounting", icon: BookOpen, roles: ["admin","ops","accountant"] },
+  { to: "/cash-flow", label: "Cash flow", icon: Wallet, roles: ["admin","ops","accountant"] },
   { to: "/reports", label: "Reports", icon: BarChart3, roles: ["admin","ops"] },
   { to: "/cost-calc", label: "Cost calculator", icon: Calculator, roles: ["admin","ops"] },
   { to: "/team", label: "Team", icon: UserCog, roles: ["admin"] },
+  { to: "/work-log", label: "Work log", icon: ClipboardList, roles: ["admin","ops","sales"] },
+  { to: "/team-activity", label: "Team activity", icon: Activity, roles: ["admin","ops"] },
   { to: "/settings", label: "Settings", icon: Settings, roles: ["admin","ops","sales"] },
 ] as const;
 
 function Shell() {
   const navigate = useNavigate();
   const [email, setEmail] = useState<string>("");
+  const [navOpen, setNavOpen] = useState(false);
 
   useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setEmail(data.user?.email ?? ""));
+    supabase.auth.getUser().then(({ data }) => {
+      setEmail(data.user?.email ?? "");
+      // Record that this user is active (login/heartbeat; de-duped server-side to 10 min).
+      if (data.user) supabase.rpc("record_login").then(() => {}, () => {});
+    });
     const { data: sub } = supabase.auth.onAuthStateChange((event) => {
       if (event === "SIGNED_OUT") navigate({ to: "/auth" });
+      if (event === "SIGNED_IN") supabase.rpc("record_login").then(() => {}, () => {});
     });
     return () => sub.subscription.unsubscribe();
   }, [navigate]);
@@ -70,13 +92,13 @@ function Shell() {
           </div>
           <span className="font-display text-lg">Trekking Trails Travels</span>
         </Link>
-        <Sheet>
+        <Sheet open={navOpen} onOpenChange={setNavOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon"><Menu /></Button>
           </SheetTrigger>
           <SheetContent side="left" className="w-64 bg-sidebar p-0 text-sidebar-foreground">
             <SheetHeader className="sr-only"><SheetTitle>Navigation</SheetTitle></SheetHeader>
-            <SidebarInner email={email} onSignOut={signOut} />
+            <SidebarInner email={email} onSignOut={signOut} onNavigate={() => setNavOpen(false)} />
           </SheetContent>
         </Sheet>
       </header>
@@ -94,7 +116,7 @@ function openCommandPalette() {
   document.dispatchEvent(new CustomEvent("open-command-palette"));
 }
 
-function SidebarInner({ email, onSignOut }: { email: string; onSignOut: () => void }) {
+function SidebarInner({ email, onSignOut, onNavigate }: { email: string; onSignOut: () => void; onNavigate?: () => void }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   const { roles, isLoading } = useCurrentRole();
   const visible = nav.filter(item => isLoading || roles.length === 0 || item.roles.some(r => roles.includes(r as any)));
@@ -118,13 +140,14 @@ function SidebarInner({ email, onSignOut }: { email: string; onSignOut: () => vo
           <kbd className="ml-auto rounded border border-sidebar-border/60 px-1.5 text-[10px]">⌘K</kbd>
         </button>
       </div>
-      <nav className="flex-1 space-y-1 px-3">
+      <nav className="min-h-0 flex-1 space-y-1 overflow-y-auto px-3">
         {visible.map((item) => {
           const active = path.startsWith(item.to);
           return (
             <Link
               key={item.to}
               to={item.to}
+              onClick={onNavigate}
               className={cn(
                 "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
                 active

@@ -12,25 +12,42 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedAccountingRouteImport } from './routes/_authenticated/accounting'
+import { Route as AuthenticatedActivityTrackerRouteImport } from './routes/_authenticated/activity-tracker'
+import { Route as AuthenticatedBookingTrackerRouteImport } from './routes/_authenticated/booking-tracker'
+import { Route as AuthenticatedBookingsCalendarRouteImport } from './routes/_authenticated/bookings-calendar'
 import { Route as AuthenticatedCalendarRouteImport } from './routes/_authenticated/calendar'
 import { Route as AuthenticatedCashFlowRouteImport } from './routes/_authenticated/cash-flow'
+import { Route as AuthenticatedCorrectBookingsRouteImport } from './routes/_authenticated/correct-bookings'
 import { Route as AuthenticatedCostCalcRouteImport } from './routes/_authenticated/cost-calc'
+import { Route as AuthenticatedCustomerChecklistRouteImport } from './routes/_authenticated/customer-checklist'
 import { Route as AuthenticatedCustomersRouteImport } from './routes/_authenticated/customers'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedDeparturesRouteImport } from './routes/_authenticated/departures'
+import { Route as AuthenticatedExpensesRouteImport } from './routes/_authenticated/expenses'
 import { Route as AuthenticatedInvoicesRouteImport } from './routes/_authenticated/invoices'
+import { Route as AuthenticatedItineraryBuilderRouteImport } from './routes/_authenticated/itinerary-builder'
 import { Route as AuthenticatedLeadsRouteImport } from './routes/_authenticated/leads'
 import { Route as AuthenticatedPackagesRouteImport } from './routes/_authenticated/packages'
+import { Route as AuthenticatedPurchaseSellRouteImport } from './routes/_authenticated/purchase-sell'
 import { Route as AuthenticatedRateCardsRouteImport } from './routes/_authenticated/rate-cards'
+import { Route as AuthenticatedReceiptsRouteImport } from './routes/_authenticated/receipts'
 import { Route as AuthenticatedReportsRouteImport } from './routes/_authenticated/reports'
+import { Route as AuthenticatedSecretBookingsRouteImport } from './routes/_authenticated/secret-bookings'
 import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedSuppliersRouteImport } from './routes/_authenticated/suppliers'
 import { Route as AuthenticatedTasksRouteImport } from './routes/_authenticated/tasks'
 import { Route as AuthenticatedTeamRouteImport } from './routes/_authenticated/team'
+import { Route as AuthenticatedTeamActivityRouteImport } from './routes/_authenticated/team-activity'
+import { Route as AuthenticatedUpcomingBookingsRouteImport } from './routes/_authenticated/upcoming-bookings'
+import { Route as AuthenticatedVatMarginRouteImport } from './routes/_authenticated/vat-margin'
+import { Route as AuthenticatedVouchersRouteImport } from './routes/_authenticated/vouchers'
 import { Route as AuthenticatedWebsiteInboxRouteImport } from './routes/_authenticated/website-inbox'
 import { Route as AuthenticatedWhatsappRouteImport } from './routes/_authenticated/whatsapp'
+import { Route as AuthenticatedWorkLogRouteImport } from './routes/_authenticated/work-log'
 import { Route as AuthenticatedBookingsIndexRouteImport } from './routes/_authenticated/bookings.index'
 import { Route as AuthenticatedBookingsIdRouteImport } from './routes/_authenticated/bookings.$id'
+import { Route as AuthenticatedCustomersIdRouteImport } from './routes/_authenticated/customers.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +63,29 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAccountingRoute = AuthenticatedAccountingRouteImport.update({
+  id: '/accounting',
+  path: '/accounting',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedActivityTrackerRoute =
+  AuthenticatedActivityTrackerRouteImport.update({
+    id: '/activity-tracker',
+    path: '/activity-tracker',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedBookingTrackerRoute =
+  AuthenticatedBookingTrackerRouteImport.update({
+    id: '/booking-tracker',
+    path: '/booking-tracker',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedBookingsCalendarRoute =
+  AuthenticatedBookingsCalendarRouteImport.update({
+    id: '/bookings-calendar',
+    path: '/bookings-calendar',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedCalendarRoute = AuthenticatedCalendarRouteImport.update({
   id: '/calendar',
   path: '/calendar',
@@ -56,11 +96,23 @@ const AuthenticatedCashFlowRoute = AuthenticatedCashFlowRouteImport.update({
   path: '/cash-flow',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedCorrectBookingsRoute =
+  AuthenticatedCorrectBookingsRouteImport.update({
+    id: '/correct-bookings',
+    path: '/correct-bookings',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedCostCalcRoute = AuthenticatedCostCalcRouteImport.update({
   id: '/cost-calc',
   path: '/cost-calc',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedCustomerChecklistRoute =
+  AuthenticatedCustomerChecklistRouteImport.update({
+    id: '/customer-checklist',
+    path: '/customer-checklist',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedCustomersRoute = AuthenticatedCustomersRouteImport.update({
   id: '/customers',
   path: '/customers',
@@ -76,11 +128,22 @@ const AuthenticatedDeparturesRoute = AuthenticatedDeparturesRouteImport.update({
   path: '/departures',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedExpensesRoute = AuthenticatedExpensesRouteImport.update({
+  id: '/expenses',
+  path: '/expenses',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedInvoicesRoute = AuthenticatedInvoicesRouteImport.update({
   id: '/invoices',
   path: '/invoices',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedItineraryBuilderRoute =
+  AuthenticatedItineraryBuilderRouteImport.update({
+    id: '/itinerary-builder',
+    path: '/itinerary-builder',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedLeadsRoute = AuthenticatedLeadsRouteImport.update({
   id: '/leads',
   path: '/leads',
@@ -91,9 +154,20 @@ const AuthenticatedPackagesRoute = AuthenticatedPackagesRouteImport.update({
   path: '/packages',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedPurchaseSellRoute =
+  AuthenticatedPurchaseSellRouteImport.update({
+    id: '/purchase-sell',
+    path: '/purchase-sell',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedRateCardsRoute = AuthenticatedRateCardsRouteImport.update({
   id: '/rate-cards',
   path: '/rate-cards',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedReceiptsRoute = AuthenticatedReceiptsRouteImport.update({
+  id: '/receipts',
+  path: '/receipts',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedReportsRoute = AuthenticatedReportsRouteImport.update({
@@ -101,6 +175,12 @@ const AuthenticatedReportsRoute = AuthenticatedReportsRouteImport.update({
   path: '/reports',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedSecretBookingsRoute =
+  AuthenticatedSecretBookingsRouteImport.update({
+    id: '/secret-bookings',
+    path: '/secret-bookings',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
   id: '/settings',
   path: '/settings',
@@ -121,6 +201,28 @@ const AuthenticatedTeamRoute = AuthenticatedTeamRouteImport.update({
   path: '/team',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedTeamActivityRoute =
+  AuthenticatedTeamActivityRouteImport.update({
+    id: '/team-activity',
+    path: '/team-activity',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedUpcomingBookingsRoute =
+  AuthenticatedUpcomingBookingsRouteImport.update({
+    id: '/upcoming-bookings',
+    path: '/upcoming-bookings',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedVatMarginRoute = AuthenticatedVatMarginRouteImport.update({
+  id: '/vat-margin',
+  path: '/vat-margin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedVouchersRoute = AuthenticatedVouchersRouteImport.update({
+  id: '/vouchers',
+  path: '/vouchers',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedWebsiteInboxRoute =
   AuthenticatedWebsiteInboxRouteImport.update({
     id: '/website-inbox',
@@ -130,6 +232,11 @@ const AuthenticatedWebsiteInboxRoute =
 const AuthenticatedWhatsappRoute = AuthenticatedWhatsappRouteImport.update({
   id: '/whatsapp',
   path: '/whatsapp',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedWorkLogRoute = AuthenticatedWorkLogRouteImport.update({
+  id: '/work-log',
+  path: '/work-log',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedBookingsIndexRoute =
@@ -143,51 +250,91 @@ const AuthenticatedBookingsIdRoute = AuthenticatedBookingsIdRouteImport.update({
   path: '/bookings/$id',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedCustomersIdRoute =
+  AuthenticatedCustomersIdRouteImport.update({
+    id: '/$id',
+    path: '/$id',
+    getParentRoute: () => AuthenticatedCustomersRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/accounting': typeof AuthenticatedAccountingRoute
+  '/activity-tracker': typeof AuthenticatedActivityTrackerRoute
+  '/booking-tracker': typeof AuthenticatedBookingTrackerRoute
+  '/bookings-calendar': typeof AuthenticatedBookingsCalendarRoute
   '/calendar': typeof AuthenticatedCalendarRoute
   '/cash-flow': typeof AuthenticatedCashFlowRoute
+  '/correct-bookings': typeof AuthenticatedCorrectBookingsRoute
   '/cost-calc': typeof AuthenticatedCostCalcRoute
-  '/customers': typeof AuthenticatedCustomersRoute
+  '/customer-checklist': typeof AuthenticatedCustomerChecklistRoute
+  '/customers': typeof AuthenticatedCustomersRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/departures': typeof AuthenticatedDeparturesRoute
+  '/expenses': typeof AuthenticatedExpensesRoute
   '/invoices': typeof AuthenticatedInvoicesRoute
+  '/itinerary-builder': typeof AuthenticatedItineraryBuilderRoute
   '/leads': typeof AuthenticatedLeadsRoute
   '/packages': typeof AuthenticatedPackagesRoute
+  '/purchase-sell': typeof AuthenticatedPurchaseSellRoute
   '/rate-cards': typeof AuthenticatedRateCardsRoute
+  '/receipts': typeof AuthenticatedReceiptsRoute
   '/reports': typeof AuthenticatedReportsRoute
+  '/secret-bookings': typeof AuthenticatedSecretBookingsRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/suppliers': typeof AuthenticatedSuppliersRoute
   '/tasks': typeof AuthenticatedTasksRoute
   '/team': typeof AuthenticatedTeamRoute
+  '/team-activity': typeof AuthenticatedTeamActivityRoute
+  '/upcoming-bookings': typeof AuthenticatedUpcomingBookingsRoute
+  '/vat-margin': typeof AuthenticatedVatMarginRoute
+  '/vouchers': typeof AuthenticatedVouchersRoute
   '/website-inbox': typeof AuthenticatedWebsiteInboxRoute
   '/whatsapp': typeof AuthenticatedWhatsappRoute
+  '/work-log': typeof AuthenticatedWorkLogRoute
   '/bookings/$id': typeof AuthenticatedBookingsIdRoute
+  '/customers/$id': typeof AuthenticatedCustomersIdRoute
   '/bookings/': typeof AuthenticatedBookingsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/accounting': typeof AuthenticatedAccountingRoute
+  '/activity-tracker': typeof AuthenticatedActivityTrackerRoute
+  '/booking-tracker': typeof AuthenticatedBookingTrackerRoute
+  '/bookings-calendar': typeof AuthenticatedBookingsCalendarRoute
   '/calendar': typeof AuthenticatedCalendarRoute
   '/cash-flow': typeof AuthenticatedCashFlowRoute
+  '/correct-bookings': typeof AuthenticatedCorrectBookingsRoute
   '/cost-calc': typeof AuthenticatedCostCalcRoute
-  '/customers': typeof AuthenticatedCustomersRoute
+  '/customer-checklist': typeof AuthenticatedCustomerChecklistRoute
+  '/customers': typeof AuthenticatedCustomersRouteWithChildren
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/departures': typeof AuthenticatedDeparturesRoute
+  '/expenses': typeof AuthenticatedExpensesRoute
   '/invoices': typeof AuthenticatedInvoicesRoute
+  '/itinerary-builder': typeof AuthenticatedItineraryBuilderRoute
   '/leads': typeof AuthenticatedLeadsRoute
   '/packages': typeof AuthenticatedPackagesRoute
+  '/purchase-sell': typeof AuthenticatedPurchaseSellRoute
   '/rate-cards': typeof AuthenticatedRateCardsRoute
+  '/receipts': typeof AuthenticatedReceiptsRoute
   '/reports': typeof AuthenticatedReportsRoute
+  '/secret-bookings': typeof AuthenticatedSecretBookingsRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/suppliers': typeof AuthenticatedSuppliersRoute
   '/tasks': typeof AuthenticatedTasksRoute
   '/team': typeof AuthenticatedTeamRoute
+  '/team-activity': typeof AuthenticatedTeamActivityRoute
+  '/upcoming-bookings': typeof AuthenticatedUpcomingBookingsRoute
+  '/vat-margin': typeof AuthenticatedVatMarginRoute
+  '/vouchers': typeof AuthenticatedVouchersRoute
   '/website-inbox': typeof AuthenticatedWebsiteInboxRoute
   '/whatsapp': typeof AuthenticatedWhatsappRoute
+  '/work-log': typeof AuthenticatedWorkLogRoute
   '/bookings/$id': typeof AuthenticatedBookingsIdRoute
+  '/customers/$id': typeof AuthenticatedCustomersIdRoute
   '/bookings': typeof AuthenticatedBookingsIndexRoute
 }
 export interface FileRoutesById {
@@ -195,24 +342,41 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/_authenticated/accounting': typeof AuthenticatedAccountingRoute
+  '/_authenticated/activity-tracker': typeof AuthenticatedActivityTrackerRoute
+  '/_authenticated/booking-tracker': typeof AuthenticatedBookingTrackerRoute
+  '/_authenticated/bookings-calendar': typeof AuthenticatedBookingsCalendarRoute
   '/_authenticated/calendar': typeof AuthenticatedCalendarRoute
   '/_authenticated/cash-flow': typeof AuthenticatedCashFlowRoute
+  '/_authenticated/correct-bookings': typeof AuthenticatedCorrectBookingsRoute
   '/_authenticated/cost-calc': typeof AuthenticatedCostCalcRoute
-  '/_authenticated/customers': typeof AuthenticatedCustomersRoute
+  '/_authenticated/customer-checklist': typeof AuthenticatedCustomerChecklistRoute
+  '/_authenticated/customers': typeof AuthenticatedCustomersRouteWithChildren
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/departures': typeof AuthenticatedDeparturesRoute
+  '/_authenticated/expenses': typeof AuthenticatedExpensesRoute
   '/_authenticated/invoices': typeof AuthenticatedInvoicesRoute
+  '/_authenticated/itinerary-builder': typeof AuthenticatedItineraryBuilderRoute
   '/_authenticated/leads': typeof AuthenticatedLeadsRoute
   '/_authenticated/packages': typeof AuthenticatedPackagesRoute
+  '/_authenticated/purchase-sell': typeof AuthenticatedPurchaseSellRoute
   '/_authenticated/rate-cards': typeof AuthenticatedRateCardsRoute
+  '/_authenticated/receipts': typeof AuthenticatedReceiptsRoute
   '/_authenticated/reports': typeof AuthenticatedReportsRoute
+  '/_authenticated/secret-bookings': typeof AuthenticatedSecretBookingsRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/_authenticated/suppliers': typeof AuthenticatedSuppliersRoute
   '/_authenticated/tasks': typeof AuthenticatedTasksRoute
   '/_authenticated/team': typeof AuthenticatedTeamRoute
+  '/_authenticated/team-activity': typeof AuthenticatedTeamActivityRoute
+  '/_authenticated/upcoming-bookings': typeof AuthenticatedUpcomingBookingsRoute
+  '/_authenticated/vat-margin': typeof AuthenticatedVatMarginRoute
+  '/_authenticated/vouchers': typeof AuthenticatedVouchersRoute
   '/_authenticated/website-inbox': typeof AuthenticatedWebsiteInboxRoute
   '/_authenticated/whatsapp': typeof AuthenticatedWhatsappRoute
+  '/_authenticated/work-log': typeof AuthenticatedWorkLogRoute
   '/_authenticated/bookings/$id': typeof AuthenticatedBookingsIdRoute
+  '/_authenticated/customers/$id': typeof AuthenticatedCustomersIdRoute
   '/_authenticated/bookings/': typeof AuthenticatedBookingsIndexRoute
 }
 export interface FileRouteTypes {
@@ -220,71 +384,122 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
+    | '/accounting'
+    | '/activity-tracker'
+    | '/booking-tracker'
+    | '/bookings-calendar'
     | '/calendar'
     | '/cash-flow'
+    | '/correct-bookings'
     | '/cost-calc'
+    | '/customer-checklist'
     | '/customers'
     | '/dashboard'
     | '/departures'
+    | '/expenses'
     | '/invoices'
+    | '/itinerary-builder'
     | '/leads'
     | '/packages'
+    | '/purchase-sell'
     | '/rate-cards'
+    | '/receipts'
     | '/reports'
+    | '/secret-bookings'
     | '/settings'
     | '/suppliers'
     | '/tasks'
     | '/team'
+    | '/team-activity'
+    | '/upcoming-bookings'
+    | '/vat-margin'
+    | '/vouchers'
     | '/website-inbox'
     | '/whatsapp'
+    | '/work-log'
     | '/bookings/$id'
+    | '/customers/$id'
     | '/bookings/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/auth'
+    | '/accounting'
+    | '/activity-tracker'
+    | '/booking-tracker'
+    | '/bookings-calendar'
     | '/calendar'
     | '/cash-flow'
+    | '/correct-bookings'
     | '/cost-calc'
+    | '/customer-checklist'
     | '/customers'
     | '/dashboard'
     | '/departures'
+    | '/expenses'
     | '/invoices'
+    | '/itinerary-builder'
     | '/leads'
     | '/packages'
+    | '/purchase-sell'
     | '/rate-cards'
+    | '/receipts'
     | '/reports'
+    | '/secret-bookings'
     | '/settings'
     | '/suppliers'
     | '/tasks'
     | '/team'
+    | '/team-activity'
+    | '/upcoming-bookings'
+    | '/vat-margin'
+    | '/vouchers'
     | '/website-inbox'
     | '/whatsapp'
+    | '/work-log'
     | '/bookings/$id'
+    | '/customers/$id'
     | '/bookings'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/_authenticated/accounting'
+    | '/_authenticated/activity-tracker'
+    | '/_authenticated/booking-tracker'
+    | '/_authenticated/bookings-calendar'
     | '/_authenticated/calendar'
     | '/_authenticated/cash-flow'
+    | '/_authenticated/correct-bookings'
     | '/_authenticated/cost-calc'
+    | '/_authenticated/customer-checklist'
     | '/_authenticated/customers'
     | '/_authenticated/dashboard'
     | '/_authenticated/departures'
+    | '/_authenticated/expenses'
     | '/_authenticated/invoices'
+    | '/_authenticated/itinerary-builder'
     | '/_authenticated/leads'
     | '/_authenticated/packages'
+    | '/_authenticated/purchase-sell'
     | '/_authenticated/rate-cards'
+    | '/_authenticated/receipts'
     | '/_authenticated/reports'
+    | '/_authenticated/secret-bookings'
     | '/_authenticated/settings'
     | '/_authenticated/suppliers'
     | '/_authenticated/tasks'
     | '/_authenticated/team'
+    | '/_authenticated/team-activity'
+    | '/_authenticated/upcoming-bookings'
+    | '/_authenticated/vat-margin'
+    | '/_authenticated/vouchers'
     | '/_authenticated/website-inbox'
     | '/_authenticated/whatsapp'
+    | '/_authenticated/work-log'
     | '/_authenticated/bookings/$id'
+    | '/_authenticated/customers/$id'
     | '/_authenticated/bookings/'
   fileRoutesById: FileRoutesById
 }
@@ -317,6 +532,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/accounting': {
+      id: '/_authenticated/accounting'
+      path: '/accounting'
+      fullPath: '/accounting'
+      preLoaderRoute: typeof AuthenticatedAccountingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/activity-tracker': {
+      id: '/_authenticated/activity-tracker'
+      path: '/activity-tracker'
+      fullPath: '/activity-tracker'
+      preLoaderRoute: typeof AuthenticatedActivityTrackerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/booking-tracker': {
+      id: '/_authenticated/booking-tracker'
+      path: '/booking-tracker'
+      fullPath: '/booking-tracker'
+      preLoaderRoute: typeof AuthenticatedBookingTrackerRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/bookings-calendar': {
+      id: '/_authenticated/bookings-calendar'
+      path: '/bookings-calendar'
+      fullPath: '/bookings-calendar'
+      preLoaderRoute: typeof AuthenticatedBookingsCalendarRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/calendar': {
       id: '/_authenticated/calendar'
       path: '/calendar'
@@ -331,11 +574,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCashFlowRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/correct-bookings': {
+      id: '/_authenticated/correct-bookings'
+      path: '/correct-bookings'
+      fullPath: '/correct-bookings'
+      preLoaderRoute: typeof AuthenticatedCorrectBookingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/cost-calc': {
       id: '/_authenticated/cost-calc'
       path: '/cost-calc'
       fullPath: '/cost-calc'
       preLoaderRoute: typeof AuthenticatedCostCalcRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/customer-checklist': {
+      id: '/_authenticated/customer-checklist'
+      path: '/customer-checklist'
+      fullPath: '/customer-checklist'
+      preLoaderRoute: typeof AuthenticatedCustomerChecklistRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/customers': {
@@ -359,11 +616,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDeparturesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/expenses': {
+      id: '/_authenticated/expenses'
+      path: '/expenses'
+      fullPath: '/expenses'
+      preLoaderRoute: typeof AuthenticatedExpensesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/invoices': {
       id: '/_authenticated/invoices'
       path: '/invoices'
       fullPath: '/invoices'
       preLoaderRoute: typeof AuthenticatedInvoicesRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/itinerary-builder': {
+      id: '/_authenticated/itinerary-builder'
+      path: '/itinerary-builder'
+      fullPath: '/itinerary-builder'
+      preLoaderRoute: typeof AuthenticatedItineraryBuilderRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/leads': {
@@ -380,6 +651,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPackagesRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/purchase-sell': {
+      id: '/_authenticated/purchase-sell'
+      path: '/purchase-sell'
+      fullPath: '/purchase-sell'
+      preLoaderRoute: typeof AuthenticatedPurchaseSellRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/rate-cards': {
       id: '/_authenticated/rate-cards'
       path: '/rate-cards'
@@ -387,11 +665,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRateCardsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/receipts': {
+      id: '/_authenticated/receipts'
+      path: '/receipts'
+      fullPath: '/receipts'
+      preLoaderRoute: typeof AuthenticatedReceiptsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/reports': {
       id: '/_authenticated/reports'
       path: '/reports'
       fullPath: '/reports'
       preLoaderRoute: typeof AuthenticatedReportsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/secret-bookings': {
+      id: '/_authenticated/secret-bookings'
+      path: '/secret-bookings'
+      fullPath: '/secret-bookings'
+      preLoaderRoute: typeof AuthenticatedSecretBookingsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/settings': {
@@ -422,6 +714,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTeamRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/team-activity': {
+      id: '/_authenticated/team-activity'
+      path: '/team-activity'
+      fullPath: '/team-activity'
+      preLoaderRoute: typeof AuthenticatedTeamActivityRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/upcoming-bookings': {
+      id: '/_authenticated/upcoming-bookings'
+      path: '/upcoming-bookings'
+      fullPath: '/upcoming-bookings'
+      preLoaderRoute: typeof AuthenticatedUpcomingBookingsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/vat-margin': {
+      id: '/_authenticated/vat-margin'
+      path: '/vat-margin'
+      fullPath: '/vat-margin'
+      preLoaderRoute: typeof AuthenticatedVatMarginRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/vouchers': {
+      id: '/_authenticated/vouchers'
+      path: '/vouchers'
+      fullPath: '/vouchers'
+      preLoaderRoute: typeof AuthenticatedVouchersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/website-inbox': {
       id: '/_authenticated/website-inbox'
       path: '/website-inbox'
@@ -434,6 +754,13 @@ declare module '@tanstack/react-router' {
       path: '/whatsapp'
       fullPath: '/whatsapp'
       preLoaderRoute: typeof AuthenticatedWhatsappRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/work-log': {
+      id: '/_authenticated/work-log'
+      path: '/work-log'
+      fullPath: '/work-log'
+      preLoaderRoute: typeof AuthenticatedWorkLogRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/bookings/': {
@@ -450,49 +777,102 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedBookingsIdRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/customers/$id': {
+      id: '/_authenticated/customers/$id'
+      path: '/$id'
+      fullPath: '/customers/$id'
+      preLoaderRoute: typeof AuthenticatedCustomersIdRouteImport
+      parentRoute: typeof AuthenticatedCustomersRoute
+    }
   }
 }
 
+interface AuthenticatedCustomersRouteChildren {
+  AuthenticatedCustomersIdRoute: typeof AuthenticatedCustomersIdRoute
+}
+
+const AuthenticatedCustomersRouteChildren: AuthenticatedCustomersRouteChildren =
+  {
+    AuthenticatedCustomersIdRoute: AuthenticatedCustomersIdRoute,
+  }
+
+const AuthenticatedCustomersRouteWithChildren =
+  AuthenticatedCustomersRoute._addFileChildren(
+    AuthenticatedCustomersRouteChildren,
+  )
+
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAccountingRoute: typeof AuthenticatedAccountingRoute
+  AuthenticatedActivityTrackerRoute: typeof AuthenticatedActivityTrackerRoute
+  AuthenticatedBookingTrackerRoute: typeof AuthenticatedBookingTrackerRoute
+  AuthenticatedBookingsCalendarRoute: typeof AuthenticatedBookingsCalendarRoute
   AuthenticatedCalendarRoute: typeof AuthenticatedCalendarRoute
   AuthenticatedCashFlowRoute: typeof AuthenticatedCashFlowRoute
+  AuthenticatedCorrectBookingsRoute: typeof AuthenticatedCorrectBookingsRoute
   AuthenticatedCostCalcRoute: typeof AuthenticatedCostCalcRoute
-  AuthenticatedCustomersRoute: typeof AuthenticatedCustomersRoute
+  AuthenticatedCustomerChecklistRoute: typeof AuthenticatedCustomerChecklistRoute
+  AuthenticatedCustomersRoute: typeof AuthenticatedCustomersRouteWithChildren
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedDeparturesRoute: typeof AuthenticatedDeparturesRoute
+  AuthenticatedExpensesRoute: typeof AuthenticatedExpensesRoute
   AuthenticatedInvoicesRoute: typeof AuthenticatedInvoicesRoute
+  AuthenticatedItineraryBuilderRoute: typeof AuthenticatedItineraryBuilderRoute
   AuthenticatedLeadsRoute: typeof AuthenticatedLeadsRoute
   AuthenticatedPackagesRoute: typeof AuthenticatedPackagesRoute
+  AuthenticatedPurchaseSellRoute: typeof AuthenticatedPurchaseSellRoute
   AuthenticatedRateCardsRoute: typeof AuthenticatedRateCardsRoute
+  AuthenticatedReceiptsRoute: typeof AuthenticatedReceiptsRoute
   AuthenticatedReportsRoute: typeof AuthenticatedReportsRoute
+  AuthenticatedSecretBookingsRoute: typeof AuthenticatedSecretBookingsRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
   AuthenticatedSuppliersRoute: typeof AuthenticatedSuppliersRoute
   AuthenticatedTasksRoute: typeof AuthenticatedTasksRoute
   AuthenticatedTeamRoute: typeof AuthenticatedTeamRoute
+  AuthenticatedTeamActivityRoute: typeof AuthenticatedTeamActivityRoute
+  AuthenticatedUpcomingBookingsRoute: typeof AuthenticatedUpcomingBookingsRoute
+  AuthenticatedVatMarginRoute: typeof AuthenticatedVatMarginRoute
+  AuthenticatedVouchersRoute: typeof AuthenticatedVouchersRoute
   AuthenticatedWebsiteInboxRoute: typeof AuthenticatedWebsiteInboxRoute
   AuthenticatedWhatsappRoute: typeof AuthenticatedWhatsappRoute
+  AuthenticatedWorkLogRoute: typeof AuthenticatedWorkLogRoute
   AuthenticatedBookingsIdRoute: typeof AuthenticatedBookingsIdRoute
   AuthenticatedBookingsIndexRoute: typeof AuthenticatedBookingsIndexRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAccountingRoute: AuthenticatedAccountingRoute,
+  AuthenticatedActivityTrackerRoute: AuthenticatedActivityTrackerRoute,
+  AuthenticatedBookingTrackerRoute: AuthenticatedBookingTrackerRoute,
+  AuthenticatedBookingsCalendarRoute: AuthenticatedBookingsCalendarRoute,
   AuthenticatedCalendarRoute: AuthenticatedCalendarRoute,
   AuthenticatedCashFlowRoute: AuthenticatedCashFlowRoute,
+  AuthenticatedCorrectBookingsRoute: AuthenticatedCorrectBookingsRoute,
   AuthenticatedCostCalcRoute: AuthenticatedCostCalcRoute,
-  AuthenticatedCustomersRoute: AuthenticatedCustomersRoute,
+  AuthenticatedCustomerChecklistRoute: AuthenticatedCustomerChecklistRoute,
+  AuthenticatedCustomersRoute: AuthenticatedCustomersRouteWithChildren,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedDeparturesRoute: AuthenticatedDeparturesRoute,
+  AuthenticatedExpensesRoute: AuthenticatedExpensesRoute,
   AuthenticatedInvoicesRoute: AuthenticatedInvoicesRoute,
+  AuthenticatedItineraryBuilderRoute: AuthenticatedItineraryBuilderRoute,
   AuthenticatedLeadsRoute: AuthenticatedLeadsRoute,
   AuthenticatedPackagesRoute: AuthenticatedPackagesRoute,
+  AuthenticatedPurchaseSellRoute: AuthenticatedPurchaseSellRoute,
   AuthenticatedRateCardsRoute: AuthenticatedRateCardsRoute,
+  AuthenticatedReceiptsRoute: AuthenticatedReceiptsRoute,
   AuthenticatedReportsRoute: AuthenticatedReportsRoute,
+  AuthenticatedSecretBookingsRoute: AuthenticatedSecretBookingsRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
   AuthenticatedSuppliersRoute: AuthenticatedSuppliersRoute,
   AuthenticatedTasksRoute: AuthenticatedTasksRoute,
   AuthenticatedTeamRoute: AuthenticatedTeamRoute,
+  AuthenticatedTeamActivityRoute: AuthenticatedTeamActivityRoute,
+  AuthenticatedUpcomingBookingsRoute: AuthenticatedUpcomingBookingsRoute,
+  AuthenticatedVatMarginRoute: AuthenticatedVatMarginRoute,
+  AuthenticatedVouchersRoute: AuthenticatedVouchersRoute,
   AuthenticatedWebsiteInboxRoute: AuthenticatedWebsiteInboxRoute,
   AuthenticatedWhatsappRoute: AuthenticatedWhatsappRoute,
+  AuthenticatedWorkLogRoute: AuthenticatedWorkLogRoute,
   AuthenticatedBookingsIdRoute: AuthenticatedBookingsIdRoute,
   AuthenticatedBookingsIndexRoute: AuthenticatedBookingsIndexRoute,
 }

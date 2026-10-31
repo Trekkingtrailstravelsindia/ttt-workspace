@@ -23,6 +23,7 @@ export type ActivityRow = {
   cost: string;       // kept as free text so "€110" / "₹9,000" / notes all work
   paid: boolean;      // Yes / No
   location: string;   // where it happens — drives the "what to book & where" panel
+  date_sort?: string | null; // earliest ISO date for this row — chronological ordering
 };
 
 export type ActivitySheet = {
@@ -67,8 +68,33 @@ export const DEFAULT_ACTIVITIES = [
 ] as const;
 
 export const newRow = (activity = ""): ActivityRow => ({
-  id: uid(), activity, dates: "", time: "", supplier: "", booked: false, cost: "", paid: false, location: "",
+  id: uid(), activity, dates: "", time: "", supplier: "", booked: false, cost: "", paid: false, location: "", date_sort: null,
 });
+
+// Best-effort ISO date for a row: the stored sort key, else parsed from the
+// free-text Dates cell (ISO "2026-12-08" or "08 Dec 2026" styles).
+const rowDateKey = (r: ActivityRow): string => {
+  if (r.date_sort) return r.date_sort;
+  const d = r.dates || "";
+  const iso = d.match(/\d{4}-\d{2}-\d{2}/);
+  if (iso) return iso[0];
+  const m = d.match(/\d{1,2}\s+[A-Za-z]{3,}\s+\d{4}/);
+  if (m) { const t = Date.parse(m[0]); if (!isNaN(t)) return new Date(t).toISOString().slice(0, 10); }
+  return "";
+};
+
+// Sort rows chronologically by their earliest date; rows with no date sink to
+// the bottom, keeping their current relative order (stable).
+export function sortRowsByDate(rows: ActivityRow[]): ActivityRow[] {
+  return rows
+    .map((r, i) => ({ r, i }))
+    .sort((a, b) => {
+      const av = rowDateKey(a.r) || "9999-12-31";
+      const bv = rowDateKey(b.r) || "9999-12-31";
+      return av.localeCompare(bv) || a.i - b.i;
+    })
+    .map((x) => x.r);
+}
 
 export const blankSheet = (): ActivitySheet => ({
   id: uid(),
@@ -165,6 +191,7 @@ export function sheetFromTracker(t: Tracker): ActivitySheet {
     row.cost = total ? money(total, sheet.currency) : "";
     row.booked = matched.every((m) => m.item.booked);
     row.paid = matched.every((m) => m.item.paid);
+    row.date_sort = matched.map((m) => m.date).filter(Boolean).sort()[0] ?? null;
   }
 
   // Any remaining booked/priced service that didn't map to a standard row.
@@ -181,9 +208,53 @@ export function sheetFromTracker(t: Tracker): ActivitySheet {
     r.cost = Number(it.price) ? money(Number(it.price), sheet.currency) : "";
     r.booked = !!it.booked;
     r.paid = !!it.paid;
+    r.date_sort = h.date ?? null;
     sheet.rows.push(r);
   }
 
+  sheet.rows = sortRowsByDate(sheet.rows);
+  return sheet;
+}
+
+// Pull booking number, invoice number and contact from the live CRM, matching
+// the sheet's guest to a customer by name. Bookings have no human reference, so
+// the booking number is a short code derived from the booking id; invoices use
+// their real invoice_number. Best-effort: leaves a field untouched when there's
+// no match, it's already filled, or a table isn't reachable.
+const norm = (s: string) => (s || "").trim().toLowerCase().replace(/\s*\(copy\)\s*$/, "");
+export const bookingRef = (id: string) => `BK-${String(id).slice(0, 8).toUpperCase()}`;
+
+export async function enrichFromBookings(sheet: ActivitySheet): Promise<ActivitySheet> {
+  const name = norm(sheet.guest_name);
+  if (!name) return sheet;
+  try {
+    const { data: customers } = await db.from("customers").select("id,name,phone");
+    const list = (customers || []) as { id: string; name: string; phone: string | null }[];
+    const cust =
+      list.find((c) => norm(c.name) === name) ||
+      list.find((c) => norm(c.name) && (norm(c.name).includes(name) || name.includes(norm(c.name))));
+    if (!cust) return sheet;
+
+    if (!sheet.contact && cust.phone) sheet.contact = cust.phone;
+
+    const { data: bookings } = await db
+      .from("bookings").select("id,start_date,created_at").eq("customer_id", cust.id);
+    const bks = (bookings || []) as { id: string; start_date: string | null; created_at: string | null }[];
+    const pick =
+      bks.find((b) => b.start_date && b.start_date === sheet.travel_date) ||
+      [...bks].sort((a, b) => (b.start_date || b.created_at || "").localeCompare(a.start_date || a.created_at || ""))[0];
+    if (pick && !sheet.booking_no) sheet.booking_no = bookingRef(pick.id);
+
+    const { data: invoices } = await db
+      .from("invoices").select("invoice_number,issue_date,booking_id").eq("customer_id", cust.id);
+    const invs = (invoices || []) as { invoice_number: string; issue_date: string | null; booking_id: string | null }[];
+    if (invs.length && !sheet.invoice_no) {
+      const match =
+        (pick && invs.find((i) => i.booking_id === pick.id)) ||
+        [...invs].sort((a, b) => (b.issue_date || "").localeCompare(a.issue_date || ""))[0];
+      if (match) sheet.invoice_no = match.invoice_number;
+    }
+  } catch { /* best-effort enrichment */ }
   return sheet;
 }
 
@@ -306,7 +377,8 @@ export async function generateFromBookings(): Promise<{ created: number; skipped
 
   let created = 0;
   for (const t of todo) {
-    await saveSheet(sheetFromTracker(t));
+    const sheet = await enrichFromBookings(sheetFromTracker(t));
+    await saveSheet(sheet);
     created++;
   }
   return { created, skipped: trackers.length - todo.length };

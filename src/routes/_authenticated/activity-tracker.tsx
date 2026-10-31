@@ -12,6 +12,7 @@ import {
   type ActivitySheet, type ActivityRow,
   blankSheet, newRow, sheetFromTracker, toBook, bookedCount, activeCount,
   listSheets, saveSheet, deleteSheet, storageMode, generateFromBookings, bySoonest,
+  enrichFromBookings, sortRowsByDate,
 } from "@/lib/activity-tracker";
 import { CURRENCIES, fmtDate, money } from "@/lib/booking-tracker";
 
@@ -147,7 +148,7 @@ function SheetEditor({ sheet, mode, onBack }: { sheet: ActivitySheet; mode: "sup
       const list = await listTrackers();
       const t = list.find((x) => x.id === trackerId);
       if (!t) { toast.error("Booking not found"); return; }
-      const filled = sheetFromTracker(t);
+      const filled = await enrichFromBookings(sheetFromTracker(t));
       filled.id = s.id; // keep editing the same sheet
       setS(filled);
       toast.success(`Auto-filled from ${t.customer_name || "booking"}`);
@@ -321,7 +322,12 @@ function SheetEditor({ sheet, mode, onBack }: { sheet: ActivitySheet; mode: "sup
       </Card>
 
       <div className="flex items-center justify-between">
-        <Button variant="outline" size="sm" onClick={addRow}><Plus className="size-4" /> Add activity</Button>
+        <div className="flex gap-2">
+          <Button variant="outline" size="sm" onClick={addRow}><Plus className="size-4" /> Add activity</Button>
+          <Button variant="outline" size="sm" onClick={() => setS((prev) => ({ ...prev, rows: sortRowsByDate(prev.rows) }))}>
+            <CalendarDays className="size-4" /> Sort by date
+          </Button>
+        </div>
         <span className="text-xs text-muted-foreground">{bookedCount(s)} of {activeCount(s)} booked</span>
       </div>
 

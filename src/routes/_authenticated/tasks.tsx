@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogTrigger } from "@/components/ui/dialog";
-import { Plus, Trash2, CalendarClock } from "lucide-react";
+import { Plus, Trash2, CalendarClock, Search } from "lucide-react";
 import { toast } from "sonner";
 
 type Task = {
@@ -68,6 +68,14 @@ function TasksPage() {
   const today = new Date().toISOString().slice(0, 10);
   const overdue = (t: Task) => t.status === "pending" && t.due_date && t.due_date < today;
 
+  const [q, setQ] = useState("");
+  const term = q.trim().toLowerCase();
+  const filtered = (data ?? []).filter((t) =>
+    !term ||
+    (t.customer?.name ?? "").toLowerCase().includes(term) ||
+    (t.title ?? "").toLowerCase().includes(term),
+  );
+
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-end justify-between gap-3">
@@ -75,6 +83,11 @@ function TasksPage() {
           <h1 className="font-display text-4xl text-primary">Tasks & reminders</h1>
           <p className="text-muted-foreground">Follow-ups, calls, and due dates.</p>
         </div>
+        <div className="flex items-center gap-2">
+          <div className="relative w-full max-w-xs">
+            <Search className="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+            <Input value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search guest name…" className="pl-9" />
+          </div>
         <Dialog open={open} onOpenChange={setOpen}>
           <DialogTrigger asChild><Button><Plus className="size-4" /> New task</Button></DialogTrigger>
           <DialogContent>
@@ -103,12 +116,14 @@ function TasksPage() {
             </form>
           </DialogContent>
         </Dialog>
+        </div>
       </div>
 
       {!data?.length ? <Card><CardContent className="py-16 text-center text-muted-foreground">No tasks yet.</CardContent></Card>
+       : !filtered.length ? <Card><CardContent className="py-16 text-center text-muted-foreground">No tasks match "{q}".</CardContent></Card>
        : (
         <div className="space-y-2">
-          {data.map((t) => (
+          {filtered.map((t) => (
             <Card key={t.id} className={t.status === "done" ? "opacity-60" : ""}>
               <CardContent className="flex items-start gap-3 p-4">
                 <Checkbox checked={t.status === "done"} onCheckedChange={() => toggle(t)} className="mt-1" />

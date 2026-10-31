@@ -1,8 +1,9 @@
 import { createFileRoute, Outlet, redirect, Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
-import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, BarChart3, Filter, Settings, UserCog, Tags, CalendarClock, Wallet, Calculator, Search, MessageCircle, Inbox, ArrowLeftRight, BookOpen, Camera, Ticket, ReceiptText, Activity, ClipboardList, ListChecks, ListTodo, Map, Lock, ClipboardCheck } from "lucide-react";
+import { LayoutDashboard, Users, Package, Calendar, Receipt, LogOut, Compass, Menu, Truck, CheckSquare, CalendarDays, Filter, Settings, Tags, CalendarClock, Calculator, Search, MessageCircle, Inbox, BookOpen, Ticket, ReceiptText, ClipboardList, ListChecks, ListTodo, Map, Lock, ClipboardCheck } from "lucide-react";
 import { CommandPalette } from "@/components/command-palette";
+import { SectionTabs } from "@/components/section-tabs";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
@@ -45,15 +46,11 @@ export const nav = [
   { to: "/invoices", label: "Invoices", icon: Receipt, roles: ["admin","ops","accountant"] },
   { to: "/receipts", label: "Receipts", icon: ReceiptText, roles: ["admin","ops","accountant"] },
   { to: "/vouchers", label: "Vouchers", icon: Ticket, roles: ["admin","ops","sales"] },
-  { to: "/expenses", label: "Expenses (snap)", icon: Camera, roles: ["admin","ops","sales"] },
-  { to: "/purchase-sell", label: "Purchase & Sell", icon: ArrowLeftRight, roles: ["admin","ops","accountant"] },
+  // Accounting hub — Cost calculator, Reports, Cash flow, Purchase & Sell and
+  // Expenses now live as tabs inside the Accounting page (see section-tabs).
   { to: "/accounting", label: "Accounting", icon: BookOpen, roles: ["admin","ops","accountant"] },
-  { to: "/cash-flow", label: "Cash flow", icon: Wallet, roles: ["admin","ops","accountant"] },
-  { to: "/reports", label: "Reports", icon: BarChart3, roles: ["admin","ops"] },
-  { to: "/cost-calc", label: "Cost calculator", icon: Calculator, roles: ["admin","ops"] },
-  { to: "/team", label: "Team", icon: UserCog, roles: ["admin"] },
-  { to: "/work-log", label: "Work log", icon: ClipboardList, roles: ["admin","ops","sales"] },
-  { to: "/team-activity", label: "Team activity", icon: Activity, roles: ["admin","ops"] },
+  // Settings hub — Team, Work log and Team activity now live as tabs inside
+  // the Settings page (see section-tabs).
   { to: "/settings", label: "Settings", icon: Settings, roles: ["admin","ops","sales"] },
 ] as const;
 
@@ -104,6 +101,7 @@ function Shell() {
       </header>
       <main className="md:pl-64">
         <div className="mx-auto max-w-6xl px-4 py-6 md:px-8 md:py-10">
+          <SectionTabs />
           <Outlet />
         </div>
       </main>

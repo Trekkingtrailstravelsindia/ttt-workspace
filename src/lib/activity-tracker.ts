@@ -9,7 +9,7 @@
 
 import { supabase } from "@/integrations/supabase/client";
 import type { Tracker } from "./booking-tracker";
-import { fmtDate, timeRange, money, uid } from "./booking-tracker";
+import { fmtDate, timeRange, money, uid, travelEnd } from "./booking-tracker";
 
 export { money, fmtDate, uid };
 
@@ -31,7 +31,16 @@ export type ActivitySheet = {
   package_name: string;
   currency: string;
   source_tracker_id?: string | null; // tracker it was auto-filled from
-  travel_date?: string | null;       // trip start date (for "which booking is first")
+  travel_date?: string | null;       // trip start date (also the "which booking is first" sort key)
+  start_time?: string;               // departure time on the start date
+  end_date?: string | null;          // trip end date
+  end_time?: string;                 // time on the end date
+  adults?: number;
+  kids?: number;
+  contact?: string;                  // guest contact number
+  booking_no?: string;
+  invoice_no?: string;
+  package_cost?: number;             // selling price to the customer
   rows: ActivityRow[];
   notes: string;
   updated_at?: string;
@@ -68,6 +77,15 @@ export const blankSheet = (): ActivitySheet => ({
   currency: "EUR",
   source_tracker_id: null,
   travel_date: null,
+  start_time: "",
+  end_date: null,
+  end_time: "",
+  adults: 0,
+  kids: 0,
+  contact: "",
+  booking_no: "",
+  invoice_no: "",
+  package_cost: 0,
   rows: DEFAULT_ACTIVITIES.map((a) => newRow(a)),
   notes: "",
 });
@@ -113,6 +131,10 @@ export function sheetFromTracker(t: Tracker): ActivitySheet {
   sheet.currency = t.currency || "EUR";
   sheet.source_tracker_id = t.id;
   sheet.travel_date = t.travel_date ?? null;
+  sheet.end_date = travelEnd(t) ?? null;
+  sheet.adults = Number(t.adults) || 0;
+  sheet.kids = Number(t.kids) || 0;
+  sheet.package_cost = Number(t.package_cost) || 0;
 
   // Flatten every line item with its day context.
   const hits: Hit[] = [];
@@ -217,6 +239,15 @@ function fromRow(r: any): ActivitySheet {
     currency: d.currency ?? r.currency ?? "EUR",
     source_tracker_id: d.source_tracker_id ?? r.source_tracker_id ?? null,
     travel_date: d.travel_date ?? null,
+    start_time: d.start_time ?? "",
+    end_date: d.end_date ?? null,
+    end_time: d.end_time ?? "",
+    adults: d.adults ?? 0,
+    kids: d.kids ?? 0,
+    contact: d.contact ?? "",
+    booking_no: d.booking_no ?? "",
+    invoice_no: d.invoice_no ?? "",
+    package_cost: d.package_cost ?? 0,
     rows: d.rows ?? [],
     notes: d.notes ?? "",
     updated_at: r.updated_at,

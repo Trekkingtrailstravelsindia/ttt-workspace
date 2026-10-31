@@ -13,7 +13,7 @@ import {
   blankSheet, newRow, sheetFromTracker, toBook, bookedCount, activeCount,
   listSheets, saveSheet, deleteSheet, storageMode, generateFromBookings, bySoonest,
 } from "@/lib/activity-tracker";
-import { CURRENCIES, fmtDate } from "@/lib/booking-tracker";
+import { CURRENCIES, fmtDate, money } from "@/lib/booking-tracker";
 
 export const Route = createFileRoute("/_authenticated/activity-tracker")({ component: ActivityTrackerPage });
 
@@ -203,6 +203,50 @@ function SheetEditor({ sheet, mode, onBack }: { sheet: ActivitySheet; mode: "sup
               <SelectContent>{CURRENCIES.map((c) => <SelectItem key={c} value={c}>{c}</SelectItem>)}</SelectContent>
             </Select>
           </div>
+
+          <div>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Travel start date</label>
+            <Input type="date" value={s.travel_date ?? ""} onChange={(e) => patch({ travel_date: e.target.value || null })} />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Start time</label>
+            <Input type="time" value={s.start_time ?? ""} onChange={(e) => patch({ start_time: e.target.value })} />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Travel end date</label>
+            <Input type="date" value={s.end_date ?? ""} onChange={(e) => patch({ end_date: e.target.value || null })} />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">End time</label>
+            <Input type="time" value={s.end_time ?? ""} onChange={(e) => patch({ end_time: e.target.value })} />
+          </div>
+
+          <div>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Adults</label>
+            <Input type="number" min={0} value={s.adults ?? 0} onChange={(e) => patch({ adults: Number(e.target.value) || 0 })} />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Kids</label>
+            <Input type="number" min={0} value={s.kids ?? 0} onChange={(e) => patch({ kids: Number(e.target.value) || 0 })} />
+          </div>
+          <div className="sm:col-span-2">
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Contact number</label>
+            <Input value={s.contact ?? ""} onChange={(e) => patch({ contact: e.target.value })} placeholder="e.g. +358 40 123 4567" />
+          </div>
+
+          <div>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Booking number</label>
+            <Input value={s.booking_no ?? ""} onChange={(e) => patch({ booking_no: e.target.value })} placeholder="e.g. TTT-2026-001" />
+          </div>
+          <div>
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Invoice number</label>
+            <Input value={s.invoice_no ?? ""} onChange={(e) => patch({ invoice_no: e.target.value })} placeholder="e.g. INV-2026-001" />
+          </div>
+          <div className="sm:col-span-2">
+            <label className="mb-1 block text-xs font-medium text-muted-foreground">Package cost ({s.currency})</label>
+            <Input type="number" min={0} step="0.01" value={s.package_cost ?? 0} onChange={(e) => patch({ package_cost: Number(e.target.value) || 0 })} />
+          </div>
+
           <div className="sm:col-span-2 lg:col-span-4">
             <label className="mb-1 block text-xs font-medium text-muted-foreground">
               <Wand2 className="mr-1 inline size-3.5" /> Auto-fill from a booking
@@ -212,7 +256,7 @@ function SheetEditor({ sheet, mode, onBack }: { sheet: ActivitySheet; mode: "sup
               <SelectContent>{trackers.map((t) => <SelectItem key={t.id} value={t.id}>{t.label}</SelectItem>)}</SelectContent>
             </Select>
             <p className="mt-1 text-xs text-muted-foreground">
-              Pulls dates, times, suppliers, cost and booked/paid status from the matching booking. You can still edit every field.
+              Pulls guest, travel dates, pax, package cost, plus each activity's dates, times, suppliers, cost and booked/paid status. You can still edit every field.
             </p>
           </div>
         </CardContent>
@@ -323,6 +367,21 @@ function downloadSheet(s: ActivitySheet) {
         <td class="c">${r.paid ? "✔ Yes" : "No"}</td>
       </tr>`).join("");
 
+  const start = s.travel_date ? `${fmtDate(s.travel_date)}${s.start_time ? ` · ${s.start_time}` : ""}` : "—";
+  const end = s.end_date ? `${fmtDate(s.end_date)}${s.end_time ? ` · ${s.end_time}` : ""}` : "—";
+  const pax = `${s.adults || 0} adult${(s.adults || 0) === 1 ? "" : "s"}${s.kids ? `, ${s.kids} kid${s.kids === 1 ? "" : "s"}` : ""}`;
+  const metaCells: [string, string][] = [
+    ["Travel start", start],
+    ["Travel end", end],
+    ["Guests", pax],
+    ["Contact number", s.contact || "—"],
+    ["Booking number", s.booking_no || "—"],
+    ["Invoice number", s.invoice_no || "—"],
+    ["Package cost", s.package_cost ? money(s.package_cost, s.currency) : "—"],
+  ];
+  const metaHtml = `<div class="meta">${metaCells
+    .map(([k, v]) => `<div><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join("")}</div>`;
+
   const pending = toBook(s);
   const pendingHtml = pending.length
     ? `<h2>Still to book (${pending.length})</h2><ul class="tb">${pending.map((r) =>
@@ -336,6 +395,9 @@ function downloadSheet(s: ActivitySheet) {
     .head { background:#F6D568; border-radius:8px; padding:12px 16px; margin-bottom:16px; }
     .head h1 { margin:0; font-size:18px; color:#1a2332; }
     .head p { margin:2px 0 0; font-size:12px; color:#3a3320; }
+    .meta { display:grid; grid-template-columns:repeat(3,1fr); gap:8px 20px; border:1px solid #d9e0ea; border-radius:8px; padding:12px 16px; margin-bottom:16px; }
+    .meta span { display:block; color:#6b7a90; font-size:9px; text-transform:uppercase; letter-spacing:.04em; }
+    .meta b { font-size:12px; }
     h2 { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:#0f2847; border-bottom:2px solid #0f2847; padding-bottom:4px; margin:20px 0 8px; }
     table { width:100%; border-collapse:collapse; }
     th { background:#0f2847; color:#fff; text-align:left; padding:6px 8px; font-size:10px; text-transform:uppercase; }
@@ -351,6 +413,7 @@ function downloadSheet(s: ActivitySheet) {
       <h1>${esc(s.guest_name || "Guest")}</h1>
       <p>${esc(s.package_name || "Package")}</p>
     </div>
+    ${metaHtml}
     <table>
       <thead><tr><th>Activity name</th><th>Dates</th><th>Time</th><th>Supplier name</th><th>Booked</th><th>Cost</th><th>Paid</th></tr></thead>
       <tbody>${rows || '<tr><td colspan="7" class="c">No activities</td></tr>'}</tbody>

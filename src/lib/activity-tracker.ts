@@ -31,6 +31,7 @@ export type ActivitySheet = {
   package_name: string;
   currency: string;
   source_tracker_id?: string | null; // tracker it was auto-filled from
+  travel_date?: string | null;       // trip start date (for "which booking is first")
   rows: ActivityRow[];
   notes: string;
   updated_at?: string;
@@ -66,6 +67,7 @@ export const blankSheet = (): ActivitySheet => ({
   package_name: "",
   currency: "EUR",
   source_tracker_id: null,
+  travel_date: null,
   rows: DEFAULT_ACTIVITIES.map((a) => newRow(a)),
   notes: "",
 });
@@ -110,6 +112,7 @@ export function sheetFromTracker(t: Tracker): ActivitySheet {
   sheet.package_name = t.package_name || t.title || "";
   sheet.currency = t.currency || "EUR";
   sheet.source_tracker_id = t.id;
+  sheet.travel_date = t.travel_date ?? null;
 
   // Flatten every line item with its day context.
   const hits: Hit[] = [];
@@ -202,7 +205,7 @@ function toRow(s: ActivitySheet) {
     package_name: s.package_name || null,
     currency: s.currency,
     source_tracker_id: s.source_tracker_id || null,
-    data: s,
+    data: s, // travel_date and everything else live inside the JSONB document
   };
 }
 function fromRow(r: any): ActivitySheet {
@@ -213,6 +216,7 @@ function fromRow(r: any): ActivitySheet {
     package_name: d.package_name ?? r.package_name ?? "",
     currency: d.currency ?? r.currency ?? "EUR",
     source_tracker_id: d.source_tracker_id ?? r.source_tracker_id ?? null,
+    travel_date: d.travel_date ?? null,
     rows: d.rows ?? [],
     notes: d.notes ?? "",
     updated_at: r.updated_at,
@@ -248,4 +252,31 @@ export async function deleteSheet(id: string): Promise<void> {
     mode = "local";
   }
   lsWrite(lsAll().filter((x) => x.id !== id));
+}
+
+// Soonest trip first; sheets with no travel date sink to the bottom.
+export function bySoonest(a: ActivitySheet, b: ActivitySheet): number {
+  const av = a.travel_date || "9999-12-31";
+  const bv = b.travel_date || "9999-12-31";
+  return av.localeCompare(bv);
+}
+
+// Create one activity sheet per booking tracker, in order of soonest travel
+// date first. Existing sheets (matched by source_tracker_id) are skipped so it
+// can be re-run safely as new bookings come in. Returns how many were created.
+export async function generateFromBookings(): Promise<{ created: number; skipped: number }> {
+  const { listTrackers } = await import("./booking-tracker-store");
+  const [trackers, existing] = await Promise.all([listTrackers(), listSheets()]);
+  const have = new Set(existing.map((s) => s.source_tracker_id).filter(Boolean) as string[]);
+
+  const todo = trackers
+    .filter((t) => !have.has(t.id))
+    .sort((a, b) => (a.travel_date || "9999-12-31").localeCompare(b.travel_date || "9999-12-31"));
+
+  let created = 0;
+  for (const t of todo) {
+    await saveSheet(sheetFromTracker(t));
+    created++;
+  }
+  return { created, skipped: trackers.length - todo.length };
 }

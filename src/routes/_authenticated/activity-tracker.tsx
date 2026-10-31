@@ -6,14 +6,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Trash2, FileDown, ArrowLeft, Save, ClipboardList, Wand2, MapPin } from "lucide-react";
+import { Plus, Trash2, FileDown, ArrowLeft, Save, ClipboardList, Wand2, MapPin, Sparkles, CalendarDays } from "lucide-react";
 import { toast } from "sonner";
 import {
   type ActivitySheet, type ActivityRow,
   blankSheet, newRow, sheetFromTracker, toBook, bookedCount, activeCount,
-  listSheets, saveSheet, deleteSheet, storageMode,
+  listSheets, saveSheet, deleteSheet, storageMode, generateFromBookings, bySoonest,
 } from "@/lib/activity-tracker";
-import { CURRENCIES } from "@/lib/booking-tracker";
+import { CURRENCIES, fmtDate } from "@/lib/booking-tracker";
 
 export const Route = createFileRoute("/_authenticated/activity-tracker")({ component: ActivityTrackerPage });
 
@@ -22,13 +22,25 @@ function ActivityTrackerPage() {
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState<ActivitySheet | null>(null);
   const [mode, setMode] = useState<"supabase" | "local">("local");
+  const [generating, setGenerating] = useState(false);
 
   async function refresh() {
     setLoading(true);
     const [list, m] = await Promise.all([listSheets(), storageMode()]);
-    setSheets(list); setMode(m); setLoading(false);
+    setSheets(list.sort(bySoonest)); setMode(m); setLoading(false);
   }
   useEffect(() => { refresh(); }, []);
+
+  async function generate() {
+    setGenerating(true);
+    try {
+      const { created, skipped } = await generateFromBookings();
+      if (created === 0) toast.info(skipped ? "All bookings already have a sheet" : "No bookings found to generate from");
+      else toast.success(`Created ${created} sheet${created > 1 ? "s" : ""}${skipped ? ` · ${skipped} already existed` : ""}`);
+      await refresh();
+    } catch (e: any) { toast.error(e?.message || "Generate failed"); }
+    finally { setGenerating(false); }
+  }
 
   if (active) {
     return <SheetEditor sheet={active} mode={mode} onBack={() => { setActive(null); refresh(); }} />;
@@ -43,10 +55,18 @@ function ActivityTrackerPage() {
             Per-guest booking checklist — what to book and where. Auto-fills from a Booking Data &amp; Tracker sheet.
           </p>
         </div>
-        <Button onClick={() => setActive(blankSheet())}>
-          <Plus className="size-4" /> New sheet
-        </Button>
+        <div className="flex gap-2">
+          <Button variant="outline" onClick={generate} disabled={generating}>
+            <Sparkles className="size-4" /> {generating ? "Generating…" : "Generate from bookings"}
+          </Button>
+          <Button onClick={() => setActive(blankSheet())}>
+            <Plus className="size-4" /> New sheet
+          </Button>
+        </div>
       </div>
+      <p className="-mt-3 text-xs text-muted-foreground">
+        <b>Generate from bookings</b> makes one sheet per booking (soonest trip first) and skips any already created.
+      </p>
 
       {mode === "local" && (
         <p className="text-xs text-muted-foreground">
@@ -75,6 +95,11 @@ function ActivityTrackerPage() {
                     <div className="truncate font-semibold">{s.guest_name || "Untitled guest"}</div>
                     <div className="truncate text-xs text-muted-foreground">{s.package_name || "No package"}</div>
                   </div>
+                  {s.travel_date && (
+                    <span className="hidden shrink-0 items-center gap-1 text-xs text-muted-foreground sm:inline-flex">
+                      <CalendarDays className="size-3.5" /> {fmtDate(s.travel_date)}
+                    </span>
+                  )}
                   <div className="hidden h-2 w-28 overflow-hidden rounded-full bg-muted sm:block">
                     <div className="h-full rounded-full bg-primary" style={{ width: `${pct}%` }} />
                   </div>
